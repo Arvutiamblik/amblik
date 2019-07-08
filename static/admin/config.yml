@@ -1,0 +1,43 @@
+backend:
+  name: github
+  branch: master
+  repo: Arvutiamblik/amblik
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - label: "Main page english"
+    name: "main_page_en"
+    folder: "src/content/main_page"
+    create: true
+    identifier_field: Identifier_field
+    slug: "main page en"
+    filter: {field: "language", value: "en"}
+    fields:
+      - { label: "Identifier_field", name: "Identifier_field", widget: "string" }
+      - { label: "Meta Title", name: "metaTitle", widget: "string" }
+      - { label: "Meta Description", name: "metaDescription", widget: "string" }
+      - { label: "Page title", name: "Title", widget: "string"}
+      - { label: "Heading", name: "Title", widget: "string"}
+      - { label: "SubHeading", name: "Title", widget: "string"}
+      - {label: "Blurbs", name: "blurbs", widget: "list", fields: [{label: "blockHeading", name: "blockHeading", widget: "string"},
+        {label: "description", name: "blockDescription", widget: "string"},{label: "button", name: "buttonPlaceholder", widget: "string"}]}
+      - {label: "Footer", name: "footer", widget: "markup"}
+  - label: "Main page Estonian"
+    name: "main_page_et"
+    slug: "main page et"
+    identifier_field: Identifier_field
+    folder: "src/content/main_page"
+    filter: {field: "language", value: "et"}
+    create: true
+    fields:
+      - { label: "Identifier_field", name: "Identifier_field", widget: "string" }
+      - { label: "Meta Title", name: "metaTitle", widget: "string" }
+      - { label: "Meta Description", name: "metaDescription", widget: "string" }
+      - { label: "Page title", name: "Pagetitle", widget: "string"}
+      - { label: "Heading", name: "heading", widget: "string"}
+      - { label: "SubHeading", name: "subHeading", widget: "string"}
+      - {label: "Blurbs", name: "blurbs", widget: "list", fields: [{label: "blockHeading", name: "blockHeading", widget: "string"},
+        {label: "description", name: "blockDescription", widget: "string"},{label: "button", name: "buttonPlaceholder", widget: "string"}]}
+      - {label: "Footer", name: "footer", widget: "markdown"}
+
