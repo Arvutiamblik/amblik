@@ -1,8 +1,5 @@
 import React from "react"
-//import { Link } from "gatsby"
-//import '/src/scss/gatstrap.scss'
 import Layout from "../components/layout"
-//import Image from "../components/image"
 import SEO from "../components/seo"
 import BackImage from  "../images/amblik-picture3.svg"
 const IndexPage = () => (
