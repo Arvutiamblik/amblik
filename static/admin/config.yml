@@ -8,7 +8,7 @@ public_folder: /img
 collections:
   - label: "Main page english"
     name: "main_page_en"
-    folder: "src/content/main_page"
+    folder: "src/content/pages"
     create: true
     identifier_field: Identifier_field
     slug: "main page en"
@@ -27,7 +27,7 @@ collections:
     name: "main_page_et"
     slug: "main page et"
     identifier_field: Identifier_field
-    folder: "src/content/main_page"
+    folder: "src/content/pages"
     filter: {field: "language", value: "et"}
     create: true
     fields:
