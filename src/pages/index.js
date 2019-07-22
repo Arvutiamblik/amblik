@@ -41,7 +41,7 @@ export const IndexPageTemplate = ({
           </div>
         </div>
         <div id="mid" className="text-md-center">
-        <Features gridItems={intro.blurbs} />
+       
           <h1><small><strong>oleme teie it tugi ja protsesside<br />automatiseerija.</strong></small></h1>
 
                 <div className="text-md-center">
@@ -51,6 +51,7 @@ export const IndexPageTemplate = ({
                             infoturve, varundus-sustemid, kasut-ajatugi, Business Intelligence,</em></strong></big></p>
                   </div>
                 </div>
+                <Features gridItems={intro.blurbs} />
               </div>
             </div>
             <div className="text-md-center">
