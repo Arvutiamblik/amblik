@@ -20,8 +20,8 @@ collections:
       - { label: "Page title", name: "Title", widget: "string"}
       - { label: "Heading", name: "Title", widget: "string"}
       - { label: "SubHeading", name: "Title", widget: "string"}
-      - {label: "Blurbs", name: "blurbs", widget: "list", fields: [{label: "blockHeading", name: "blockHeading", widget: "string"},
-        {label: "description", name: "blockDescription", widget: "markup"},{label: "button", name: "buttonPlaceholder", widget: "string"}]}
+      - {label: Intro, name: intro, widget: object, fields: [ {label: "Blurbs", name: "blurbs", widget: "list", fields: [{label: "blockHeading", name: "blockHeading", widget: "string"},
+        {label: "description", name: "blockDescription", widget: "markup"},{label: "button", name: "buttonPlaceholder", widget: "string"}]}]}
       - {label: "Footer", name: "footer", widget: "markup"}
   - label: "Main page Estonian"
     name: "main_page_et"
@@ -37,7 +37,7 @@ collections:
       - { label: "Page title", name: "Pagetitle", widget: "string"}
       - { label: "Heading", name: "heading", widget: "string"}
       - { label: "SubHeading", name: "subHeading", widget: "string"}
-      - {label: "Blurbs", name: "blurbs", widget: "list", fields: [{label: "blockHeading", name: "blockHeading", widget: "string"},
-        {label: "description", name: "blockDescription", widget: "string"},{label: "button", name: "buttonPlaceholder", widget: "string"}]}
+      - {label: Intro, name: intro, widget: object, fields: [ {label: "Blurbs", name: "blurbs", widget: "list", fields: [{label: "blockHeading", name: "blockHeading", widget: "string"},
+        {label: "description", name: "blockDescription", widget: "string"},{label: "button", name: "buttonPlaceholder", widget: "string"}]}]}
       - {label: "Footer", name: "footer", widget: "markdown"}
 

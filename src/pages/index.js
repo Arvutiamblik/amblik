@@ -1,8 +1,13 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Features from '../components/Features'
 import BackImage from  "../images/amblik-picture3.svg"
-const IndexPage = () => (
+export const IndexPageTemplate = ({
+  blockDescription,
+  blockHeading,
+  buttonPlaceholder,
+}) => (
   <Layout>
     <SEO title="Home" />
     
@@ -207,5 +212,34 @@ const IndexPage = () => (
                 </div></div></div></div></div></div>
   </Layout>
 )
+const IndexPage = ({ data }) => {
+  const { frontmatter } = data.markdownRemark
+
+  return (
+    <Layout>
+      <IndexPageTemplate
+        blockDescription={frontmatter.blurbs.blockDescription}
+        blockHeading={frontmatter.blurbs.blockHeading}
+        buttonPlaceholder={frontmatter.blurbs.buttonPlaceholder}
+      />
+    </Layout>
+  )
+}
+
+export const pageQuery = graphql`
+query IndexPage {
+  markdownRemark (frontmatter: { Identifier_field: { eq: "mainPageEt" }}){
+    id
+    frontmatter {
+      Identifier_field
+      blurbs {
+        blockDescription
+        blockHeading
+        buttonPlaceholder
+      }
+    }
+  }
+}
+`
 
 export default IndexPage
