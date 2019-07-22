@@ -7,7 +7,7 @@ const FeatureGrid = ({ gridItems }) => (
  
     <div className="row">
     {gridItems.map(item => (
-      <div key={item.blockHeading} className="col-6">
+      <div key={item.blockHeading} className="col-lg">
       <h1>{item.blockHeading}</h1>
          <p><em><strong>
          {item.blockDescription}

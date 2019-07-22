@@ -1,11 +1,12 @@
 body {
   background-color: darkblue;
+  
 
 }
 
 h1 {
  color:white;
- padding-top:25px;
+ padding-top:40px;
  font-family:Century Gothic, sans;
  font-size:80;
  font-weight:bolder;
@@ -20,28 +21,31 @@ p {
     padding-top: 3px;
     padding-bottom: 3px;
     padding-left: 3px;
-    background-color:hotpink;
     border-color:hotpink;
     width: 150px !important;
 }
 img{
-
-
+   height:950px;
+   width:110%;
+   object-fit: cover;
    position: absolute;
 }
 .dropdown{
-    padding-top:60px;
-    padding-left:max;
+	padding-top:60px;
+	margin-right:100%;
+	font-size:30px;
 }
 a{
  color: white;
+
+ 
 }
 #mid{
-    padding-top:650px;
+	padding-top:40%;
 }
 
 .img-fluid{
-    padding-top:50px;
+	padding-top:50px;
 }
 
 .serviceBox{
@@ -81,6 +85,6 @@ a{
 }
 
 #num{
-    font-style: normal;
-    font-size:60px;
+	font-style: normal;
+	font-size:60px;
 }
