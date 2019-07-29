@@ -3,7 +3,7 @@ backend:
   branch: master
   repo: Arvutiamblik/amblik
 media_folder: static/img
-public_folder: src/content/pages
+public_folder: /img
 
 collections:
   - label: "Main page english"
