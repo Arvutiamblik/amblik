@@ -3,7 +3,7 @@ backend:
   branch: master
   repo: Arvutiamblik/amblik
 media_folder: static/img
-public_folder: /img
+public_folder: src/content/pages
 
 collections:
   - label: "Main page english"
@@ -39,5 +39,7 @@ collections:
       - { label: "SubHeading", name: "subHeading", widget: "string"}
       - {label: intro, name: intro, widget: object, fields: [ {label: "Blurbs", name: "blurbs", widget: "list", fields: [{label: "blockHeading", name: "blockHeading", widget: "string"},
         {label: "description", name: "blockDescription", widget: "string"},{label: "button", name: "buttonPlaceholder", widget: "string"}]}]}
+      - {label: TextCards, name: TextCards, widget: object, fields: [ {label: "TextCard", name: "TextCard", widget: "list", fields: [{label: "title", name: "title", widget: "string"},
+        {label: "description", name: "description", widget: "string"},{label: "button", name: "button", widget: "string"}]}]}
       - {label: "Footer", name: "footer", widget: "markdown"}
 
