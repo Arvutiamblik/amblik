@@ -1,9 +1,9 @@
 backend:
-  name: github
-  branch: master
-  repo: Arvutiamblik/amblik
-media_folder: static/img
-public_folder: /img
+  name: git-gateway
+media_folder: src/images
+public_folder: src/images
+publish_mode: editorial_workflow
+
 
 collections:
   - label: "Main page english"
@@ -23,8 +23,8 @@ collections:
       - {label: Intro, name: intro, widget: object, fields: [ {label: "Blurbs", name: "blurbs", widget: "list", fields: [{label: "blockHeading", name: "blockHeading", widget: "string"},
         {label: "description", name: "blockDescription", widget: "markup"},{label: "button", name: "buttonPlaceholder", widget: "string"}]}]}
       - {label: "Footer", name: "footer", widget: "markup"}
-  - label: "Main page Estonian"
-    name: "main_page_et"
+  - name: "main_page_et"
+    label: "Main page Estonian"
     slug: "main page et"
     identifier_field: Identifier_field
     folder: "src/content/pages"
