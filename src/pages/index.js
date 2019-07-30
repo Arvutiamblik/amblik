@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BackImage from  "../images/amblik-picture3.svg"
-import Features from '../components/Features'
+import Features from '../components/features'
 export const IndexPageTemplate = ({
   intro,
  }) => (
