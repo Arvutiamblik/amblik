@@ -1,8 +1,10 @@
 backend:
-  name: git-gateway
-media_folder: "src/images"
-public_folder: "src/images"
-publish_mode: editorial_workflow
+  name: github
+  branch: master
+  repo: Arvutiamblik/amblik
+media_folder: src/images
+public_folder: /images
+
 
 
 collections:
@@ -28,8 +30,8 @@ collections:
     slug: "main page et"
     identifier_field: Identifier_field
     folder: "src/content/pages"
-    filter: {field: "language", value: "et"}
-    create: true
+    
+    
     fields:
       - { label: "Identifier_field", name: "Identifier_field", widget: "string" }
       - { label: "Meta Title", name: "metaTitle", widget: "string" }
