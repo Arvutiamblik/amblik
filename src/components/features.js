@@ -20,7 +20,7 @@ const FeatureGrid = ({ gridItems }) => (
   <div className='container'>
     <div className='row'>
       {gridItems.map((item, index) =>
-        index % 2 == 0 ? (
+        index % 2 === 0 ? (
           <TextBlock item={item} />
         ) : (
           [<TextBlock item={item} />, <div className='w-100' />]

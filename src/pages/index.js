@@ -1,13 +1,13 @@
 import React from "react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+//import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BackImage from  "../images/amblik-picture3.svg"
 import Features from '../components/features'
 export const IndexPageTemplate = ({
   intro,
  }) => (
   <Layout>
-    <SEO title="Home" />
+   
     
     <div>
     <img className="img" src={BackImage} />
