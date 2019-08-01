@@ -2,9 +2,11 @@ import React from "react"
 import Layout from "../components/layout"
 //import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BackImage from  "../images/amblik-picture3.svg"
-import Features from '../components/features'
+import Features from '../components/textBlock'
+import TextCard from '../components/textCards'
 export const IndexPageTemplate = ({
   intro,
+  TextCards,
  }) => (
   <Layout>
    
@@ -54,68 +56,7 @@ export const IndexPageTemplate = ({
             </div>
             <div className="text-md-center col-lg">
               <h1><small><strong>mida ja kuidas saab teha, loe siin...</strong></small></h1>
-              <div className="container">
-                <div className="row">
-                  <div className="col">
-                    <div className="serviceBox">
-                      <div className="service-icon">
-                        <i className="fa fa-money" />
-                      </div>
-                      <h3 className="title">lühike nimetus<br />pilveservis</h3>
-                      <hr align="left" width={140} size={2} color="hotpink" />
-                      <p className="description">
-                        Sellise lahenduse leidsime meie kliendile,<br />kellel on 25 töötavad nii<br />kontoris,kodus kui
-                        tööplatisdel Sellise<br />lahenduse leidsime meie kliendile, kellel<br />on 25 töötajat ja töötavad...
-                      </p>
-                      <button id="more" type="button" className="btn btn-primary"><strong>Loe veel &gt;&gt;&gt;</strong></button>
-                    </div>
-                  </div>
-                  <div className="col">
-                    <div className="serviceBox">
-                      <div className="service-icon">
-                        <i className="fa fa-newspaper-o" />
-                      </div>
-                      <h3 className="title">lühike nimetus<br />pilveservis</h3>
-                      <hr align="left" width={140} size={2} color="hotpink" />
-                      <p className="description">
-                        Sellise lahenduse leidsime meie kliendile,<br />kellel on 25 töötavad nii<br />kontoris,kodus kui
-                        tööplatisdel... </p>
-                      <button id="more" type="button" className="btn btn-primary"><strong>Loe veel &gt;&gt;&gt;</strong></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="container">
-                <div className="row">
-                  <div className="col">
-                    <div className="serviceBox">
-                      <div className="service-icon">
-                        <i className="fa fa-money" />
-                      </div>
-                      <h3 className="title">väga pikk nimetus<br />pilveservist ja tööst</h3>
-                      <hr align="left" width={140} size={2} color="hotpink" />
-                      <p className="description">
-                        Sellise lahenduse leidsime meie kliendile,<br />kellel on 25 töötavad nii<br />kontoris,kodus kui
-                        tööplatisdel Sellise<br />lahenduse leidsime meie kliendile, kellel<br />on 25 töötajat ja töötavad...
-                      </p>
-                      <button id="more" type="button" className="btn btn-primary"><strong>Loe veel &gt;&gt;&gt;</strong></button>
-                    </div>
-                  </div>
-                  <div className="col">
-                    <div className="serviceBox">
-                      <div className="service-icon">
-                        <i className="fa fa-newspaper-o" />
-                      </div>
-                      <h3 className="title">turvalise virtuaalkontori<br />lahendus pilveserveri<br />baasil väikefirmale</h3>
-                      <hr align="left" width={140} size={2} color="hotpink" />
-                      <p className="description">
-                        Sellise lahenduse leidsime meie kliendile,<br />kellel on 25 töötavad nii<br />kontoris,kodus kui
-                        tööplatisdel... </p>
-                      <button id="more" type="button" className="btn btn-primary"><strong>Loe veel &gt;&gt;&gt;</strong></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <TextCard gridItems={TextCards.TextCard} />
               <div id="low" className="text-md-center">
                 <p>
                   Pöörduge julgelt ka väikeste it murede<br />puhul:</p>
@@ -134,6 +75,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
          intro={frontmatter.intro}
+         TextCards={frontmatter.TextCards}
       />
     </Layout>
   )
@@ -145,13 +87,20 @@ query IndexPage {
     id
     frontmatter {
       Identifier_field
-      intro{
-        blurbs {
-          blockDescription
-          blockHeading
-          buttonPlaceholder
+      TextCards {
+        TextCard {
+          description
+          button
+          title
         }
-    }
+      }
+      intro {
+        blurbs {
+          buttonPlaceholder
+          blockHeading
+          blockDescription
+        }
+      }
   }
 }}`
 export default IndexPage

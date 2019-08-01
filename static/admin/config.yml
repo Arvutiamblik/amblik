@@ -8,37 +8,20 @@ public_folder: /images
 
 
 collections:
-  - label: "Main page english"
-    name: "main_page_en"
-    folder: "src/content/pages"
-    create: true
-    identifier_field: Identifier_field
-    slug: "main page en"
-    filter: {field: "language", value: "en"}
-    fields:
-      - { label: "Identifier_field", name: "Identifier_field", widget: "string" }
-      - { label: "Meta Title", name: "metaTitle", widget: "string" }
-      - { label: "Meta Description", name: "metaDescription", widget: "string" }
-      - { label: "Page title", name: "Title", widget: "string"}
-      - { label: "Heading", name: "Title", widget: "string"}
-      - { label: "SubHeading", name: "Title", widget: "string"}
-      - {label: Intro, name: intro, widget: object, fields: [ {label: "Blurbs", name: "blurbs", widget: "list", fields: [{label: "blockHeading", name: "blockHeading", widget: "string"},
-        {label: "description", name: "blockDescription", widget: "markup"},{label: "button", name: "buttonPlaceholder", widget: "string"}]}]}
-      - {label: "Footer", name: "footer", widget: "markup"}
   - name: "main_page_et"
     label: "Main page Estonian"
     slug: "main page et"
     identifier_field: Identifier_field
     folder: "src/content/pages"
-    
-    
     fields:
       - { label: "Identifier_field", name: "Identifier_field", widget: "string" }
       - { label: "Meta Title", name: "metaTitle", widget: "string" }
       - { label: "Meta Description", name: "metaDescription", widget: "string" }
-      - { label: "Page title", name: "Pagetitle", widget: "string"}
-      - { label: "Heading", name: "heading", widget: "string"}
-      - { label: "SubHeading", name: "subHeading", widget: "string"}
+      - { label: "Top Description", name: "TopDescription", widget: "markdown"}
+      - { label: "Heading", name: "heading", widget: "markdown"}
+      - { label: Clients, name: Clients, widget: object, fields: [{label: "Client", name: "client", widget: "list", fields: [
+        {label: "Text", name: "textDescription", widget: "markdown"},
+        {label: "Description", name: "clientsDescrition", widget: "markdown"}]}]}
       - {label: intro, name: intro, widget: object, fields: [ {label: "Blurbs", name: "blurbs", widget: "list", fields: [{label: "blockHeading", name: "blockHeading", widget: "string"},
         {label: "description", name: "blockDescription", widget: "markdown"},{label: "button", name: "buttonPlaceholder", widget: "string"}]}]}
       - {label: TextCards, name: TextCards, widget: object, fields: [ {label: "TextCard", name: "TextCard", widget: "list", fields: [{label: "title", name: "title", widget: "string"},
