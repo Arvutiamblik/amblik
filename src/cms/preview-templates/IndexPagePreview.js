@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { IndexPageTemplate } from '../../pages/index'
 
 const IndexPagePreview = ({ entry, getAsset }) => {
@@ -8,7 +7,6 @@ const IndexPagePreview = ({ entry, getAsset }) => {
     if (data) {
       return (
         <IndexPageTemplate
-       
           intro={data.intro || { blurbs: [] }}
           TextCards={data.TextCards ||{TextCard: []}}
         />
