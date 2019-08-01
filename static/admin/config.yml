@@ -17,7 +17,9 @@ collections:
       - { label: "Identifier_field", name: "Identifier_field", widget: "string" }
       - { label: "Meta Title", name: "metaTitle", widget: "string" }
       - { label: "Meta Description", name: "metaDescription", widget: "string" }
-      - { label: "Top Description", name: "TopDescription", widget: "markdown"}
+      - { label: "Top Description", name: "TopDescription", widget: "list", fields: [{
+        label: "Text", name: "text", widget: "string"},{ label: "Button", name: "Button", widget: "string"}
+        }]}
       - { label: "Heading", name: "heading", widget: "markdown"}
       - { label: Clients, name: Clients, widget: object, fields: [{label: "Client", name: "client", widget: "list", fields: [
         {label: "Text", name: "textDescription", widget: "markdown"},
