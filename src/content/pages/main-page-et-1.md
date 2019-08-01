@@ -25,6 +25,20 @@ intro:
     - blockDescription: "Pilvelahendused, IT haldus, IT-susteemide\r ülesehitus\rja hooldus, arvutivorgud, infoturve, varundus-süsteemid, kasutajatugi, Business Intelligence,"
       blockHeading: teenus
       buttonPlaceholder: Kusi abi siin!
+TextCards:
+  TextCard:
+    - button: Loe veel >>>
+      description: "Sellise lahenduse leidsime meie kliendile,\r\n\nkellel on 25 töötavad nii\r\n\nkontoris,kodus kui tööplatisdel Sellise\r\n\nlahenduse leidsime meie kliendile, kellel\r\n\non 25 töötajat ja töötavad..."
+      title: lühike nimetus pilveservis
+    - button: Loe veel >>>
+      description: "Sellise lahenduse leidsime meie kliendile,\r\n\nkellel on 25 töötavad nii\r\n\nkontoris,kodus kui tööplatisdel..."
+      title: lühike nimetus pilveservis
+    - button: Loe veel >>>
+      description: "Sellise lahenduse leidsime meie kliendile,\r\n\nkellel on 25 töötavad nii\r\n\nkontoris,kodus kui tööplatisdel Sellise\r\n\nlahenduse leidsime meie kliendile, kellel\r\n\non 25 töötajat ja töötavad..."
+      title: väga pikk nimetus pilveservist ja tööst
+    - button: Loe veel >>>
+      description: "Sellise lahenduse leidsime meie kliendile,\r\n\nkellel on 25 töötavad nii\r\n\nkontoris,kodus kui tööplatisdel..."
+      title: turvalise virtuaalkontori lahendus pilveserveri baasil väikefirmale
 footer: test
 ---
 
