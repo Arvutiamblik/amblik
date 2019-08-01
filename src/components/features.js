@@ -42,34 +42,33 @@ FeatureGrid.propTypes = {
 
 const TextCardGrid = ({ gridItems }) => (
   <div className='container'>
-    <div className='row'></div>
+    <div className='row'>
+    {gridItems.map((item, index) =>
+        index % 2 === 0 ? (
+          <TextCard item={item} />
+        ) : (
+          [<TextCard item={item} />, <div className='w-100' />]
+        )
+      )}
+    </div>
   </div>
 );
-const TextCard = ({ item }) => (
+export const TextCard = ({ item }) => (
   <div className='serviceBox'>
     <div className='service-icon'>
       <div className='fa fa-money' />
     </div>
     <h3 className='title'>
       {item.title}
-      <br />
-      pilveservis
     </h3>
     <hr align='left' width={140} size={2} color='hotpink' />
     <p className='description'>
-      Sellise lahenduse leidsime meie kliendile,
-      <br />
-      kellel on 25 töötavad nii
-      <br />
-      kontoris,kodus kui tööplatisdel Sellise
-      <br />
-      lahenduse leidsime meie kliendile, kellel
-      <br />
-      on 25 töötajat ja töötavad...
+    {item.description}
     </p>
-    <button id='more' type='button' className='btn btn-primary'>
-      <strong>Loe veel &gt;&gt;&gt;</strong>
+    <button type='button' class='btn btn-primary'>
+      <strong>{item.button}</strong>
     </button>
   </div>
 );
 export default FeatureGrid;
+ 
