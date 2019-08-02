@@ -30,7 +30,7 @@ collections:
               { label: "Button", name: "topButton", widget: "string" },
             ],
         }
-      - { label: "Heading", name: "heading", widget: "markdown" }
+      - { label: "Heading", name: "heading", widget: "string" }
 
       - {
           label: "intro",
