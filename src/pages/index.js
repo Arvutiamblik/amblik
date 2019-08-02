@@ -16,10 +16,10 @@ export const IndexPageTemplate = ({
           <div className="row">
             <div className="col-5">
               <h1> amblik.<em><small>ee</small></em></h1>
-              <p><em><strong>{TopDescription.text}
+              <p><em><strong>{TopDescription.topText}
                   </strong></em>
               </p>
-              <button type="button" className="btn btn-primary"><strong>{TopDescription.Button}</strong></button>
+              <button type="button" className="btn btn-primary"><strong>{TopDescription.topButton}</strong></button>
             </div>
             <div className="col">
               <div className="bs-example float-right">
@@ -94,8 +94,8 @@ query IndexPage {
         }
       }
       TopDescription {
-        Button
-        text
+        topText
+        topButton
       }
       heading
   }
