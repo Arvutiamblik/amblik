@@ -7,7 +7,7 @@ TopDescription:
   topText: >-
     Pilvelahendused, IT haldus, IT-susteemide   ulesehitus   ja hooldus,
     arvutivorgud, infoturve, varundus-   susteemid, kasutajatugi, Business
-    Intelligence,  kodulehekulgede ja e-poodide arendus ja tugi, <br
+    Intelligence,  kodulehekulgede ja e-poodide arendus ja tugi, 
         majandustarkvara arendus, Office 365,\
           Microsoft 365, Azure, Power BI, Linux    ESET, AVAST
 heading: oleme teie it tugi ja protsesside<br />automatiseerija.
