@@ -9,6 +9,8 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         <IndexPageTemplate
           intro={data.intro || { blurbs: [] }}
           TextCards={data.TextCards ||{TextCard: []}}
+          TopDescription={data.TopDescription}
+          heading={data.heading}
         />
       )
     } else {

@@ -1,33 +1,25 @@
 import React from "react"
 import Layout from "../components/layout"
-//import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BackImage from  "../images/amblik-picture3.svg"
 import Features from '../components/textBlock'
 import TextCard from '../components/textCards'
 export const IndexPageTemplate = ({
   intro,
   TextCards,
+  TopDescription,
+  heading,
  }) => (
   <Layout>
-   
-    
     <div>
     <img className="img" src={BackImage} />
         <div className="container">
           <div className="row">
             <div className="col-5">
               <h1> amblik.<em><small>ee</small></em></h1>
-              <p><em><strong>Pilvelahendused, IT haldus, IT-susteemide<br />
-                    ulesehitus <br />
-                    ja hooldus, arvutivorgud, infoturve, varundus- <br />
-                    susteemid, kasutajatugi, Business Intelligence, <br />
-                    kodulehekulgede ja e-poodide arendus ja tugi, <br />
-                    majandustarkvara arendus, Office 365,<br />
-                    Microsoft 365, Azure, Power BI, Linux <br />
-                    ESET, AVAST
+              <p><em><strong>{TopDescription.text}
                   </strong></em>
               </p>
-              <button type="button" className="btn btn-primary"><strong>Kusi abi siin!</strong></button>
+              <button type="button" className="btn btn-primary"><strong>{TopDescription.Button}</strong></button>
             </div>
             <div className="col">
               <div className="bs-example float-right">
@@ -43,7 +35,7 @@ export const IndexPageTemplate = ({
           </div>
         </div>
         <div id="mid" className="text-md-center col-lg">
-          <h1><small><strong>oleme teie it tugi ja protsesside<br />automatiseerija.</strong></small></h1>
+          <h1><small><strong>{heading}</strong></small></h1>
           <Features gridItems={intro.blurbs} />
                 <div className="text-md-center col-lg">
                   <h1><small><strong>meie kliendid</strong></small></h1>
@@ -70,12 +62,13 @@ export const IndexPageTemplate = ({
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-
   return (
     <Layout>
       <IndexPageTemplate
          intro={frontmatter.intro}
          TextCards={frontmatter.TextCards}
+         TopDescription={frontmatter.TopDescription}
+         heading={frontmatter.heading}
       />
     </Layout>
   )
@@ -86,21 +79,25 @@ query IndexPage {
   markdownRemark (frontmatter: { Identifier_field: { eq: "mainPageEt" }}){
     id
     frontmatter {
-      Identifier_field
       TextCards {
         TextCard {
-          description
           button
+          description
           title
         }
       }
       intro {
         blurbs {
-          buttonPlaceholder
-          blockHeading
           blockDescription
+          blockHeading
+          buttonPlaceholder
         }
       }
+      TopDescription {
+        Button
+        text
+      }
+      heading
   }
 }}`
 export default IndexPage
