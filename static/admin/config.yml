@@ -9,6 +9,7 @@ collections:
   - name: "main_page_et"
     label: "Main page Estonian"
     slug: "main page et"
+    create: true
     identifier_field: Identifier_field
     folder: "src/content/pages"
     fields:
@@ -32,9 +33,9 @@ collections:
       - { label: "Heading", name: "heading", widget: "markdown" }
 
       - {
-          label: intro,
-          name: intro,
-          widget: object,
+          label: "intro",
+          name: "intro",
+          widget: "object",
           fields:
             [
               {
@@ -63,9 +64,9 @@ collections:
             ],
         }
       - {
-          label: TextCards,
-          name: TextCards,
-          widget: object,
+          label: "TextCards",
+          name: "TextCards",
+          widget: "object",
           fields:
             [
               {
