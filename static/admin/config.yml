@@ -26,7 +26,7 @@ collections:
           widget: "list",
           fields:
             [
-              { label: "Text", name: "text", widget: "string" },
+              { label: "Text", name: "text", widget: "markdown" },
               { label: "Button", name: "Button", widget: "string" },
             ],
         }
