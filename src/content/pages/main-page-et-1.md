@@ -10,7 +10,7 @@ TopDescription:
     Intelligence,  kodulehekulgede ja e-poodide arendus ja tugi, 
         majandustarkvara arendus, Office 365,\
           Microsoft 365, Azure, Power BI, Linux    ESET, AVAST
-heading: oleme teie it tugi ja protsesside<br />automatiseerija.
+heading: oleme teie it tugi ja protsesside automatiseerija.
 intro:
   blurbs:
     - blockDescription: "Pilvelahendused, IT haldus, IT-susteemide<br />\rulesehitus <br />\r\nja hooldus, arvutivorgud, infoturve, varundus-\rsusteemid, kasutajatugi,     Business Intelligence,\r kodulehekulgede ja e-poodide arendus ja tugi,\r\nmajandustarkvara arendus, Office 365,\r Microsoft 365, Azure, Power BI, Linux\r ESET, AVAST"
