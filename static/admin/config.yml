@@ -5,8 +5,6 @@ backend:
 media_folder: src/images
 public_folder: /images
 
-
-
 collections:
   - name: "main_page_et"
     label: "Main page Estonian"
@@ -14,19 +12,102 @@ collections:
     identifier_field: Identifier_field
     folder: "src/content/pages"
     fields:
-      - { label: "Identifier_field", name: "Identifier_field", widget: "string" }
+      - {
+          label: "Identifier_field",
+          name: "Identifier_field",
+          widget: "string",
+        }
       - { label: "Meta Title", name: "metaTitle", widget: "string" }
       - { label: "Meta Description", name: "metaDescription", widget: "string" }
-      - { label: "Top Description", name: "TopDescription", widget: "list", fields: [{
-        label: "Text", name: "text", widget: "string"},{ label: "Button", name: "Button", widget: "string"}
-        }]}
-      - { label: "Heading", name: "heading", widget: "markdown"}
-      - { label: Clients, name: Clients, widget: object, fields: [{label: "Client", name: "client", widget: "list", fields: [
-        {label: "Text", name: "textDescription", widget: "markdown"},
-        {label: "Description", name: "clientsDescrition", widget: "markdown"}]}]}
-      - {label: intro, name: intro, widget: object, fields: [ {label: "Blurbs", name: "blurbs", widget: "list", fields: [{label: "blockHeading", name: "blockHeading", widget: "string"},
-        {label: "description", name: "blockDescription", widget: "markdown"},{label: "button", name: "buttonPlaceholder", widget: "string"}]}]}
-      - {label: TextCards, name: TextCards, widget: object, fields: [ {label: "TextCard", name: "TextCard", widget: "list", fields: [{label: "title", name: "title", widget: "string"},
-        {label: "description", name: "description", widget: "markdown"},{label: "button", name: "button", widget: "string"}]}]}
-      - {label: "Footer", name: "footer", widget: "markdown"}
-
+      - {
+          label: "Top Description",
+          name: "TopDescription",
+          widget: "list",
+          fields:
+            [
+              { label: "Text", name: "text", widget: "string" },
+              { label: "Button", name: "Button", widget: "string" },
+            ],
+        }
+      - { label: "Heading", name: "heading", widget: "markdown" }
+      - {
+          label: Clients,
+          name: Clients,
+          widget: object,
+          fields:
+            [
+              {
+                label: "Client",
+                name: "client",
+                widget: "list",
+                fields:
+                  [
+                    {
+                      label: "Text",
+                      name: "textDescription",
+                      widget: "markdown",
+                    },
+                    {
+                      label: "Description",
+                      name: "clientsDescrition",
+                      widget: "markdown",
+                    },
+                  ],
+              },
+            ],
+        }
+      - {
+          label: intro,
+          name: intro,
+          widget: object,
+          fields:
+            [
+              {
+                label: "Blurbs",
+                name: "blurbs",
+                widget: "list",
+                fields:
+                  [
+                    {
+                      label: "blockHeading",
+                      name: "blockHeading",
+                      widget: "string",
+                    },
+                    {
+                      label: "description",
+                      name: "blockDescription",
+                      widget: "markdown",
+                    },
+                    {
+                      label: "button",
+                      name: "buttonPlaceholder",
+                      widget: "string",
+                    },
+                  ],
+              },
+            ],
+        }
+      - {
+          label: TextCards,
+          name: TextCards,
+          widget: object,
+          fields:
+            [
+              {
+                label: "TextCard",
+                name: "TextCard",
+                widget: "list",
+                fields:
+                  [
+                    { label: "title", name: "title", widget: "string" },
+                    {
+                      label: "description",
+                      name: "description",
+                      widget: "markdown",
+                    },
+                    { label: "button", name: "button", widget: "string" },
+                  ],
+              },
+            ],
+        }
+      - { label: "Footer", name: "footer", widget: "markdown" }
