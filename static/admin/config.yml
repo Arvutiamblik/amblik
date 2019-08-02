@@ -30,32 +30,7 @@ collections:
             ],
         }
       - { label: "Heading", name: "heading", widget: "markdown" }
-      - {
-          label: Clients,
-          name: Clients,
-          widget: object,
-          fields:
-            [
-              {
-                label: "Client",
-                name: "client",
-                widget: "list",
-                fields:
-                  [
-                    {
-                      label: "Text",
-                      name: "textDescription",
-                      widget: "markdown",
-                    },
-                    {
-                      label: "Description",
-                      name: "clientsDescrition",
-                      widget: "markdown",
-                    },
-                  ],
-              },
-            ],
-        }
+
       - {
           label: intro,
           name: intro,
