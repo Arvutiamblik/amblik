@@ -2,7 +2,9 @@
 Identifier_field: mainPageEt
 metaTitle: test
 metaDescription: test
-
+TopDescription:
+  topButton: ' Kusi abi siin!'
+  topText: "Pilvelahendused, IT haldus, IT-susteemide<br />\\r\\n\\n\\\\    ulesehitus <br\r\n      />\\r\\n\\n\\\\    ja hooldus, arvutivorgud, infoturve, varundus- <br\r\n      />\\r\\n\\n\\\\    susteemid, kasutajatugi, Business Intelligence, <br\r\n      />\\r\\n\\n\\\\    kodulehekulgede ja e-poodide arendus ja tugi, <br\r\n      />\\r\\n\\n\\\\    majandustarkvara arendus, Office 365,<br />\\r\\n\\n\\\\   \r\n      Microsoft 365, Azure, Power BI, Linux <br />\\r\\n\\n\\\\    ESET, AVAST"
 heading: oleme teie it tugi ja protsesside<br />automatiseerija.
 intro:
   blurbs:
