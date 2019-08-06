@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import BackImage from  "../images/amblik-picture3.svg"
 import Features from '../components/textBlock'
 import TextCard from '../components/textCards'
+import { Link } from "gatsby"
 export const IndexPageTemplate = ({
   intro,
   TextCards,
@@ -24,11 +25,11 @@ export const IndexPageTemplate = ({
             <div className="col">
               <div className="bs-example float-right">
                 <div className="dropdown text-right">
-                  <a href="http://localhost/amblik/" className="dropdown-toggle text-right" data-toggle="dropdown"><strong>est</strong></a>
-                  <div className="dropdown-menu text-right">
-                    <a href="#" className="dropdown-item">rus</a>
-                    <a href="#" className="dropdown-item">eng</a>
-                  </div>
+                 <Link to="/">ee</Link>
+                  <Link to="/ru">ru</Link>
+
+                 
+                 
                 </div>
               </div>
             </div>
