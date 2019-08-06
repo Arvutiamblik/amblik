@@ -2,7 +2,7 @@
 Identifier_field: test
 metaTitle: test
 metaDescription: etest
-lang: test
+lang: ru
 TopDescription:
   topButton: test
   topText: test
