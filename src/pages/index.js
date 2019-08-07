@@ -1,10 +1,8 @@
 import React from "react"
 import Layout from "../components/layout"
-import BackImage from  "../images/amblik-picture3.svg"
 import Features from '../components/textBlock'
 import TextCard from '../components/textCards'
 import { Link,  graphql} from "gatsby"
-import Img from "gatsby-image"
 
 export const IndexPageTemplate = ({
   intro,
@@ -14,7 +12,7 @@ export const IndexPageTemplate = ({
  }) => (
   <Layout>
     <div>
-    <Img  alt="background" fixed={BackImage} />
+    <img className="img" alt="backgroun" src={BackImage} />
         <div className="container">
           <div className="row">
             <div className="col-5">
