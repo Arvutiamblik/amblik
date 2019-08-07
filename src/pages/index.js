@@ -3,7 +3,9 @@ import Layout from "../components/layout"
 import BackImage from  "../images/amblik-picture3.svg"
 import Features from '../components/textBlock'
 import TextCard from '../components/textCards'
-import { Link } from "gatsby"
+import { Link,  graphql} from "gatsby"
+import Img from "gatsby-image"
+
 export const IndexPageTemplate = ({
   intro,
   TextCards,
@@ -12,7 +14,7 @@ export const IndexPageTemplate = ({
  }) => (
   <Layout>
     <div>
-    <img className="img" src={BackImage} />
+    <Img  alt="background" fixed={BackImage} />
         <div className="container">
           <div className="row">
             <div className="col-5">
