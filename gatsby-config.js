@@ -55,6 +55,7 @@ module.exports = {
         useLangKeyLayout: false
       }
     },
+    'gatsby-plugin-optimize-svgs',
      `gatsby-plugin-netlify`
   ],
 }
