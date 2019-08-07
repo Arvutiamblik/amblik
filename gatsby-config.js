@@ -45,6 +45,7 @@ module.exports = {
      {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
+        enableIdentityWidget: false,
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },

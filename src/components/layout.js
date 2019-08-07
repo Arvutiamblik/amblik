@@ -4,12 +4,10 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
-
 import React from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
-import popper from "popper.js"
-//import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 
 const Layout = ({ children }) => {
 
