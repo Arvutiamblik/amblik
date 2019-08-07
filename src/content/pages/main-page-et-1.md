@@ -2,6 +2,8 @@
 Identifier_field: mainPageEt
 metaTitle: test
 metaDescription: test
+lang: ee
+img: /images/amblik-picture3.svg
 TopDescription:
   topButton: ' Kusi abi siin!'
   topText: >-
