@@ -1,19 +1,18 @@
 import React from "react"
 import Layout from "../components/layout"
-import BackImage from  "../components/image"
 import Features from '../components/textBlock'
 import TextCard from '../components/textCards'
 import { Link,  graphql} from "gatsby"
-
 export const IndexPageTemplate = ({
   intro,
   TextCards,
   TopDescription,
   heading,
+  img
  }) => (
   <Layout>
     <div>
-    <img className="img" alt="backgrounf" src={BackImage} />
+    <img className="img" alt="backgrounf" src={img} />
         <div className="container">
           <div className="row">
             <div className="col-5">
@@ -28,9 +27,6 @@ export const IndexPageTemplate = ({
                 <div className="dropdown text-right">
                  <Link to="/">ee</Link>
                   <Link to="/ru">ru</Link>
-
-                 
-                 
                 </div>
               </div>
             </div>
@@ -71,6 +67,7 @@ const IndexPage = ({ data }) => {
          TextCards={frontmatter.TextCards}
          TopDescription={frontmatter.TopDescription}
          heading={frontmatter.heading}
+         img={frontmatter.img}
       />
     </Layout>
   )
@@ -100,6 +97,7 @@ query IndexPage {
         topButton
       }
       heading
+      img
   }
 }}`
 export default IndexPage
