@@ -11,6 +11,7 @@ const IndexPage = ({ data }) => {
            TextCards={frontmatter.TextCards}
            TopDescription={frontmatter.TopDescription}
            heading={frontmatter.heading}
+           img={frontmatter.img}
         />
       </Layout>
     )
@@ -40,6 +41,7 @@ const IndexPage = ({ data }) => {
           topButton
         }
         heading
+        img
     }
   }}`
   export default IndexPage
