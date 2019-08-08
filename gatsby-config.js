@@ -67,6 +67,8 @@ module.exports = {
     }
     
   },
+  `gatsby-plugin-sharp`,
+  `gatsby-transformer-sharp`,
     'gatsby-plugin-optimize-svgs',
      `gatsby-plugin-netlify`
   ],
