@@ -3,6 +3,7 @@ Identifier_field: test
 metaTitle: test
 metaDescription: etest
 lang: ru
+img: /images/amblik-picture3.svg
 TopDescription:
   topButton: test
   topText: test
