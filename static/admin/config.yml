@@ -90,19 +90,19 @@ collections:
         }
       - { label: "Footer", name: "footer", widget: "markdown" }
 
-  
+
   - name: "article"
-      label: "article"
-      slug: "article"
-      create: true
-      identifier_field: Identifier_field
-      folder: "src/content/pages"
-      fields:
-      -  {
-          label: "Identifier_field",
-          name: "Identifier_field",
-          widget: "string",
+    label: "article"
+    slug: "article"
+    create: true
+    identifier_field: Identifier_field
+    folder: "src/content/pages"
+    fields:
+    -  {
+        label: "Identifier_field",
+        name: "Identifier_field",
+        widget: "string",
         }
-      - { label: "slug", name: "slug", widget: "string"}
-      - { label: "language code", name: "lang", widget: "string"}
-      - { label: "Text", name: "text", widget: "string"}
+    - { label: "slug", name: "slug", widget: "string"}
+    - { label: "language code", name: "lang", widget: "string"}
+    - { label: "Text", name: "text", widget: "string"}
