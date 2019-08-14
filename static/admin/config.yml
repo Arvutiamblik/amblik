@@ -98,11 +98,6 @@ collections:
     identifier_field: "article"
     folder: "src/content/articles"
     fields:
-    -  {
-        label: "Identifier_field",
-        name: "Identifier_field",
-        widget: "string",
-        }
     - { label: "slug", name: "slug", widget: "string"}
     - { label: "language code", name: "lang", widget: "string"}
     - { label: "Text", name: "text", widget: "string"}
