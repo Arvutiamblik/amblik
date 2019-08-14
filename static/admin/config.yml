@@ -90,10 +90,10 @@ collections:
         }
       - { label: "Footer", name: "footer", widget: "markdown" }
 
-      collections: "article"
-      - name: "main_page_et"
-      label: "Main page Estonian"
-      slug: "main page et"
+  collections: 
+      - name: "article"
+      label: "article"
+      slug: "article"
       create: true
       identifier_field: Identifier_field
       folder: "src/content/pages"
