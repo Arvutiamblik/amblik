@@ -22,6 +22,14 @@ module.exports = {
       },
       
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/content/articles`,
+      },
+      
+    },
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     {
