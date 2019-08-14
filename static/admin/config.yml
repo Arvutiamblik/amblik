@@ -95,7 +95,7 @@ collections:
     label: "article"
     slug: "article"
     create: true
-    
+    identifier_field: slug
     folder: "src/content/articles"
     fields:
     - { label: "slug", name: "slug", widget: "string"}
