@@ -89,3 +89,21 @@ collections:
             ],
         }
       - { label: "Footer", name: "footer", widget: "markdown" }
+
+      collections: "article"
+      - name: "main_page_et"
+      label: "Main page Estonian"
+      slug: "main page et"
+      create: true
+      identifier_field: Identifier_field
+      folder: "src/content/pages"
+      fields:
+      -  {
+          label: "Identifier_field",
+          name: "Identifier_field",
+          widget: "string",
+        }
+      - { label: "Meta Title", name: "metaTitle", widget: "string" }
+      - { label: "Meta Description", name: "metaDescription", widget: "string" }
+      - { label: "language code", name: "lang", widget: "string"}
+      - { label: "Text", name: "text", widget: "string"}
