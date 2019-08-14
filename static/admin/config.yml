@@ -96,7 +96,7 @@ collections:
     slug: "article"
     create: true
     identifier_field: Identifier_field
-    folder: "src/content/pages"
+    folder: "src/content/articles"
     fields:
     -  {
         label: "Identifier_field",
