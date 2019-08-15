@@ -1,3 +1,4 @@
+
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     const result = await graphql(`
     {
@@ -21,7 +22,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   
     
         nodes.forEach(page => {
-            console.log(page);
+
         const urlBase = `/${page.node.frontmatter.lang}/`; 
         createPage({
           path: `${urlBase}${page.node.frontmatter.slug}/`,
