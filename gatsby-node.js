@@ -1,4 +1,5 @@
 
+
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     const result = await graphql(`
     {
@@ -16,7 +17,9 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         }
       }
     `);
-  
+    
+   
+
     // TODO error handling
     const nodes = result.data.allMarkdownRemark.edges;
   
@@ -37,6 +40,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     
   };
   
+
 
 
 
