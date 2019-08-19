@@ -7,11 +7,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
-
+import App from "../cms/cms.js"
 
 const Layout = ({ children }) => {
 
   return (
+
         <main>{children}</main>
   )
 }
