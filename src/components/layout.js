@@ -25,7 +25,15 @@ function Layout ({ children }) {
   useEffect(() => {
     CMS.init({
       config: {
-        load_config_file: true,
+      
+          backend: {
+            name: 'github',
+            repo: 'Arvutiamblik/amblik',
+            branch: 'master'
+          },
+          load_config_file: false,
+          media_folder: "static/images",
+          public_folder: "/images",
         collections: [
           {
             label: 'menu',
