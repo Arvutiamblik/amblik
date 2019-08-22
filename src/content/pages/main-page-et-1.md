@@ -1,5 +1,6 @@
 ---
 Identifier_field: mainPageEt
+slug: test
 metaTitle: test
 metaDescription: test
 lang: ee
