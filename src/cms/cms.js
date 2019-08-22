@@ -19,7 +19,7 @@ const client = new ApolloClient({
 });
 
 class dataService {
-    async fetchData(){
+     async fetchData(){
         const result = await client.query({
             query: gql`query FETCH_DATA{
             allSitePage {
