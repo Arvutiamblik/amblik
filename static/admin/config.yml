@@ -1,7 +1,0 @@
-backend:
-  name: github
-  branch: master
-  repo: Arvutiamblik/amblik
-media_folder: static/images
-public_folder: /images
-
