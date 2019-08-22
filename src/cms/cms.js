@@ -14,6 +14,7 @@ CMS.registerPreviewTemplate('main_page_et', IndexPagePreview)
 const client = new ApolloClient({
     link: createHttpLink({uri: "http://localhost:9000/graphql", credentials: 'include'}),
     cache: new InMemoryCache({
+        
             addTypename: false
     })
 });
