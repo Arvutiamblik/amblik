@@ -17,6 +17,7 @@ const client = new ApolloClient({
             addTypename: false
     })
 });
+
 class dataService {
     async fetchData(){
         const result = await client.query({
