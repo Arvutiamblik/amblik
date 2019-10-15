@@ -23,7 +23,9 @@ steps:
     npm install
     npx gatsby build
   displayName: 'gatsby build'
-
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/srv/public'
 - task: AzureFileCopy@3
   inputs:
     SourcePath: '$(System.DefaultWorkingDirectory)/public'
