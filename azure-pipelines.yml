@@ -25,7 +25,7 @@ steps:
   displayName: 'gatsby build'
 - task: AzureFileCopy@3
   inputs:
-    SourcePath: './public'
+    SourcePath: '/public'
     azureSubscription: 'Microsoft Partner Network(5530e2ad-9bb4-4e5e-8f77-ea6bc2b71d9d)'
     Destination: 'AzureBlob'
     storage: 'gatsbyblogstoragenekita'
