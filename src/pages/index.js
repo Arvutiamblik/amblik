@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Features from '../components/textBlock'
 import TextCard from '../components/textCards'
+import './css/logo.css'
 import { Link,  graphql} from "gatsby"
 export const IndexPageTemplate = ({
   intro,
@@ -12,7 +13,7 @@ export const IndexPageTemplate = ({
  }) => (
   <Layout>
     <div>
-    <img className="img" alt="backgrounf" src={img} />
+    <img className="img" alt="background" src={img} />
         <div className="container">
           <div className="row">
             <div className="col-5">

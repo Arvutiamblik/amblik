@@ -1,0 +1,119 @@
+@keyframes blue-line-1 {
+  0% {transform:translate(533px, 190px)}
+  50%{transform:translate(578px, 165px)}
+  100%{transform:translate(533px, 190px)}}
+
+#blue-line-1 {
+  animation: blue-line-1 2s infinite ease-in-out;
+}
+
+@keyframes blue-line-2 {
+  0% {transform:translate(560px, 195px)}
+  50%{transform:translate(470px, 143px)}
+  100%{transform:translate(560px, 195px)}}
+
+#blue-line-2 {
+  animation: blue-line-2 3s infinite ease-in-out;
+}
+
+@keyframes blue-line-3 {
+  0% {transform:translate(490px, 153px)}
+  50%{transform:translate(580px, 205px)}
+  100%{transform:translate(490px, 153px)}}
+
+#blue-line-3 {
+  animation: blue-line-3 4s infinite ease-in-out;
+}
+
+@keyframes blue-line-4 {
+  0% {transform:translate(530px, 176px)}
+  50%{transform:translate(462px, 137px)}
+  100%{transform:translate(530px, 176px)}}
+
+#blue-line-4 {
+  animation: blue-line-4 3s infinite ease-in-out;
+}
+
+@keyframes blue-line-5 {
+  0% {transform:translate(453px, 180px)}
+  50%{transform:translate(512px, 146px)}
+  100%{transform:translate(453px, 180px)}}
+
+#blue-line-5 {
+  animation: blue-line-5 4s infinite ease-in-out;
+}
+
+@keyframes blue-line-6 {
+  0% {transform:translate(522px, 150px)}
+  50%{transform:translate(470px, 180px)}
+  100%{transform:translate(522px, 150px)}}
+
+#blue-line-6 {
+  animation: blue-line-6 3s infinite ease-in-out;
+}
+
+@keyframes swing
+{
+    15% {-webkit-transform: translateX(5px);transform: translateX(5px);}
+    30% {-webkit-transform: translateX(-5px);transform: translateX(-5px);}
+    50% {-webkit-transform: translateX(3px);transform: translateX(3px);}
+    65% {-webkit-transform: translateX(-3px);transform: translateX(-3px);}
+    80% {-webkit-transform: translateX(2px);transform: translateX(2px);}
+    100% {-webkit-transform: translateX(0);transform: translateX(0);}
+}
+
+.bubble {
+	opacity: 0;
+}
+@keyframes red-bubble-1 {
+  0% {transform:translate(522px, 150px);}
+  50% {opacity: 1;}
+  100%{transform:translate(500px, 0px);opacity: 0;}
+  }
+
+#red-bubble-1 {
+  animation: red-bubble-1 4s infinite ease-in-out;
+}
+
+@keyframes blue-bubble-1 {
+  50% {opacity: 1;}
+  100%{transform:translate(400px, -300px);opacity: 0;}
+  }
+
+#blue-bubble-1 {
+  animation-delay:1s;
+  animation: blue-bubble-1 7s infinite ease-in-out;
+}
+
+@keyframes blue-bubble-2 {
+  50% {opacity: 1;}
+  100%{transform:translate(1022px, -500px);opacity: 0;}
+  }
+
+#blue-bubble-2 {
+  animation: blue-bubble-2 6s infinite ease-in-out;
+}
+
+@keyframes blue-bubble-3 {
+  20% {opacity: 1;}
+  100%{transform:translate(200px, -200px);opacity: 0;}
+  }
+
+#blue-bubble-3 {
+  animation: blue-bubble-3 6s infinite ease-in-out;
+  animation-delay:2s;
+}
+
+@keyframes red-bubble-2 {
+  20% {opacity: 1;}
+  100%{transform:translate(200px, 0px);opacity: 0;}
+  }
+
+#red-bubble-2 {
+  animation: red-bubble-2 9s infinite ease-in-out;
+  animation-delay:3s;
+}
+
+#bubble-swing {
+  animation: swing 5s infinite ease-in-out;
+}
