@@ -33,7 +33,7 @@ steps:
   displayName: 'copy built site'
 - task: AzureFileCopy@3
   inputs:
-    SourcePath: '$(Build.ArtifactStagingDirectory)'
+    SourcePath: $(Build.ArtifactStagingDirectory)
     azureSubscription: 'Microsoft Partner Network(5530e2ad-9bb4-4e5e-8f77-ea6bc2b71d9d)'
     Destination: 'AzureBlob'
     storage: 'gatsbyblogstoragenekita'
