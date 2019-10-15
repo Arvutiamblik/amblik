@@ -23,7 +23,6 @@ steps:
     npm install
     npx gatsby build
   displayName: 'gatsby build'
-
 - task: AzureFileCopy@3
   inputs:
     SourcePath: './public'
