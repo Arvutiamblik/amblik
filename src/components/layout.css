@@ -23,11 +23,12 @@ p {
     padding-bottom: 3px;
     padding-left: 3px;
     border-color:hotpink;
+    background-color: hotpink !important;
     width: 150px !important;
 }
 img{
    height:950px;
-   width:110%;
+   width:100%;
    object-fit: cover;
    position: absolute;
 }
