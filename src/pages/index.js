@@ -14,7 +14,7 @@ export const IndexPageTemplate = ({
 
 
     <div>
-    <img src="src/images/corners.svg"   alt="corner"  />
+
     <img id="logoPicture" className="img" alt="background" src={img} />
     <div id="left">
       <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>

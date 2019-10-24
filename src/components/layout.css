@@ -45,6 +45,8 @@ hr.new1 {
 }
 #BlogText{
   padding-top: 25px;
+  font-size: 15pt;
+
 }
 p {
  color:white;
@@ -59,12 +61,17 @@ p {
     background-color: hotpink !important;
     width: 150px !important;
 }
-
+.rightimg  {
+  float: right; 
+  margin: 7px 0 7px 7px; 
+  width: 360px;
+  height: 240px;
+ }
 #HomeButton
 {
   margin-right:40px !important;
 }
-img{
+#logoPicture{
    margin-top:100px;
    height:950px;
    width:100%;
