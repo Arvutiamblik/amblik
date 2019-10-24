@@ -1,4 +1,5 @@
 import React from "react";
+import { ShopCard } from "./shopCards";
 
 const TextCardGrid = ({ gridItems }) => (
   <div className="container">
@@ -22,9 +23,11 @@ export const TextCard = ({ item }) => (
       <h3 className="title">{item.title}</h3>
       <hr align="left" width={140} size={2} color="hotpink" />
       <p className="description">{item.description}</p>
-      <button type="button" class="btn btn-primary">
-        <strong>{item.button}</strong>
-      </button>
+      <a href="src/pages/blog.js">
+        <button  type="button" class="btn btn-primary">
+        <strong>{item.button}</strong> 
+      </button> 
+      </a>
     </div>
   </div>
 );
