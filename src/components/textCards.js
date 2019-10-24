@@ -23,7 +23,7 @@ export const TextCard = ({ item }) => (
       <h3 className="title">{item.title}</h3>
       <hr align="left" width={140} size={2} color="hotpink" />
       <p className="description">{item.description}</p>
-      <a href="src/pages/blog.js">
+      <a href="blog">
         <button  type="button" class="btn btn-primary">
         <strong>{item.button}</strong> 
       </button> 

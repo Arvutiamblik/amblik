@@ -27,8 +27,24 @@ h1 {
  font-weight:bolder;
 }
 
+#blogHeader{
+  font-size: 27.5pt !important;
+}
 hr.new1 {
-  border-top: 1px solid hotpink;
+  border-top: 2pt solid hotpink;
+  width:153.6px;
+  float: left;
+  margin-bottom: 5px;
+}
+#BlogDate{
+  font-size: 10pt;
+  color: gainsboro;
+  opacity: 0.69;
+  margin-bottom:0rem !important;
+
+}
+#BlogText{
+  padding-top: 25px;
 }
 p {
  color:white;

@@ -48,7 +48,7 @@ export const IndexPageTemplate = ({
         </div>
         <div id="mid" className="text-md-center col-lg">
           <h1><small><strong>{heading}</strong></small></h1>
-
+          </div>
           <Features gridItems={intro.blurbs} />
                 <div className="text-md-center col-lg">
                   <h1><small><strong>meie kliendid</strong></small></h1>
@@ -57,7 +57,7 @@ export const IndexPageTemplate = ({
                             infoturve, varundus-sustemid, kasut-ajatugi, Business Intelligence,</em></strong></big></p>
                   </div>
                 </div>
-              </div>
+              
             </div>
             <div className="text-md-center col-lg">
               <h1><small><strong>mida ja kuidas saab teha, loe siin...</strong></small></h1>
@@ -70,6 +70,7 @@ export const IndexPageTemplate = ({
                   <p><big>+372 5 096 244</big></p>
                   <h1 id="num"><small><strong>support@amblik.ee</strong></small></h1>
                 </div></div></div>
+                <button className="btn"><a href="blog">HERE</a></button>
   </Layout>
 )
 
