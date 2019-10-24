@@ -4,7 +4,21 @@ body {
   
 
 }
-
+#link_button{
+  padding-right: 23px;
+  z-index:99999 !important;
+}
+#left{
+  margin-left:20% !important;
+}
+#support{
+  margin:0 400px;
+  z-index:214122141212 !important;
+  position: absolute;
+}
+#logo{
+  font-size:60px !important;
+}
 h1 {
  color:white;
  padding-top:40px;
@@ -13,6 +27,9 @@ h1 {
  font-weight:bolder;
 }
 
+hr.new1 {
+  border-top: 1px solid hotpink;
+}
 p {
  color:white;
  font-size:16;
@@ -26,17 +43,19 @@ p {
     background-color: hotpink !important;
     width: 150px !important;
 }
+
+#HomeButton
+{
+  margin-right:40px !important;
+}
 img{
+   margin-top:100px;
    height:950px;
    width:100%;
    object-fit: cover;
    position: absolute;
 }
-.dropdown{
-	padding-top:60px;
-	margin-right:100%;
-	font-size:30px;
-}
+
 a{
  color: white;
 
@@ -44,6 +63,10 @@ a{
 }
 #mid{
 	padding-top:40%;
+}
+
+#leftText{
+  text-align: left !important;
 }
 
 .img-fluid{
