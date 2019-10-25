@@ -24,7 +24,7 @@ export const IndexPageTemplate = ({
     <a href="#" id="link_button"><strong>SHOP</strong></a>
     <button id="support" type="button" className="btn btn-primary"><strong>SUPPORT</strong></button>
     </div>
-    <hr class="new1" />
+    <hr className="new1" />
         <div className="container">
           
 
@@ -70,7 +70,6 @@ export const IndexPageTemplate = ({
                   <p><big>+372 5 096 244</big></p>
                   <h1 id="num"><small><strong>support@amblik.ee</strong></small></h1>
                 </div></div></div>
-                <button className="btn"><a href="blog">HERE</a></button>
   </Layout>
 )
 
