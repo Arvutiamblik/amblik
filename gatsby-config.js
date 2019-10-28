@@ -14,22 +14,6 @@ module.exports = {
       }, 
     },
 
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/content/pages`,
-      },
-      
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/content/articles`,
-      },
-      
-    },
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     {
@@ -49,15 +33,7 @@ module.exports = {
     
      `gatsby-plugin-offline`,
      
-     {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        manualInit: true,
-
-        enableIdentityWidget: false,
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
+     
     {
       resolve: 'gatsby-plugin-i18n',
       options: {        
@@ -83,10 +59,26 @@ module.exports = {
 			analyzerPort: 3000,
 			production: true,
 		},
-	},
+  },
+  {
+    resolve: 'gatsby-source-prismic-graphql',
+      options: {
+        repositoryName: 'amblik', // (REQUIRED, replace with your own)
+        accessToken: 'MC5YYW13dEJBQUFDRUEwOVla.SUI6F1bvv73vv73vv73vv71t77-977-977-977-9HBbvv73vv73vv70n77-977-9WO-_ve-_ve-_ve-_vV_vv73vv73vv70F', // (optional API access token)
+        //path: '/preview', // (optional preview path. Default: /preview)
+       // previews: true, // (optional, activated Previews. Default: false)
+        /*pages: [{ // (optional, builds pages dynamically)
+        type: 'Article',         // TypeName from prismic
+        match: '/article/:uid',  // Pages will be generated under this pattern
+        path: '/article',        // Placeholder page for unpublished documents
+        component: require.resolve('./src/templates/article.js'),
+      }*,*/
+    }
+  },
   `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,
     'gatsby-plugin-optimize-svgs',
+
      `gatsby-plugin-netlify`
   ],
 }

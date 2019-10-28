@@ -59,15 +59,17 @@ export const IndexPageTemplate = ({
 )
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { node } = data.prismic.allHome_pages.edges
   return (
     <Layout>
       <IndexPageTemplate
-         intro={frontmatter.intro}
-         TextCards={frontmatter.TextCards}
-         TopDescription={frontmatter.TopDescription}
-         heading={frontmatter.heading}
-         img={frontmatter.img}
+      heading={node.heading.text}
+      TextCards={node.textcards}
+         intro={node.blurbs}
+         
+         TopDescription={data.prismic.allHome_pages.edges.node.heading_description}
+         
+         img={data.prismic.allHome_pages.edges.node.img}
       />
     </Layout>
   )
@@ -75,29 +77,26 @@ const IndexPage = ({ data }) => {
 
 export const pageQuery = graphql`
 query IndexPage {
-  markdownRemark (frontmatter: { Identifier_field: { eq: "mainPageEt" }}){
-    id
-    frontmatter {
-      TextCards {
-        TextCard {
-          button
-          description
-          title
+  prismic {
+    allHome_pages {
+      edges {
+        node {
+          heading
+          heading_description
+          img
+          textcards {
+            title
+            description
+            button
+          }
+          blurbs {
+            title
+            description
+            button
+          }
         }
       }
-      intro {
-        blurbs {
-          blockDescription
-          blockHeading
-          buttonPlaceholder
-        }
-      }
-      TopDescription {
-        topText
-        topButton
-      }
-      heading
-      img
+    }
   }
-}}`
+  }`
 export default IndexPage
