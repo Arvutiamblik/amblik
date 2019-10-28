@@ -4,7 +4,21 @@ body {
   
 
 }
-
+#link_button{
+  padding-right: 23px;
+  z-index:99999 !important;
+}
+#left{
+  margin-left:20% !important;
+}
+#support{
+  margin:0 400px;
+  z-index:214122141212 !important;
+  position: absolute;
+}
+#logo{
+  font-size:60px !important;
+}
 h1 {
  color:white;
  padding-top:40px;
@@ -13,6 +27,27 @@ h1 {
  font-weight:bolder;
 }
 
+#blogHeader{
+  font-size: 27.5pt !important;
+}
+hr.new1 {
+  border-top: 2pt solid hotpink;
+  width:153.6px;
+  float: left;
+  margin-bottom: 5px;
+}
+#BlogDate{
+  font-size: 10pt;
+  color: gainsboro;
+  opacity: 0.69;
+  margin-bottom:0rem !important;
+
+}
+#BlogText{
+  padding-top: 25px;
+  font-size: 15pt;
+
+}
 p {
  color:white;
  font-size:16;
@@ -23,19 +58,27 @@ p {
     padding-bottom: 3px;
     padding-left: 3px;
     border-color:hotpink;
+    background-color: hotpink !important;
     width: 150px !important;
 }
-img{
+.rightimg  {
+  float: right; 
+  margin: 7px 0 7px 7px; 
+  width: 360px;
+  height: 240px;
+ }
+#HomeButton
+{
+  margin-right:40px !important;
+}
+#logoPicture{
+   margin-top:100px;
    height:950px;
-   width:110%;
+   width:100%;
    object-fit: cover;
    position: absolute;
 }
-.dropdown{
-	padding-top:60px;
-	margin-right:100%;
-	font-size:30px;
-}
+
 a{
  color: white;
 
@@ -43,6 +86,10 @@ a{
 }
 #mid{
 	padding-top:40%;
+}
+
+#leftText{
+  text-align: left !important;
 }
 
 .img-fluid{

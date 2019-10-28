@@ -11,13 +11,27 @@ export const IndexPageTemplate = ({
   img
  }) => (
   <Layout>
+
+
     <div>
-    <img className="img" alt="background" src={img} />
+
+    <img id="logoPicture" className="img" alt="background" src={img} />
+    <div id="left">
+      <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
+    <a href="#" id="link_button"><strong>SHOP</strong></a>
+    <a href="#" id="link_button"><strong>SHOP</strong></a>
+    <a href="#" id="link_button"><strong>SHOP</strong></a>
+    <a href="#" id="link_button"><strong>SHOP</strong></a>
+    <button id="support" type="button" className="btn btn-primary"><strong>SUPPORT</strong></button>
+    </div>
+    <hr className="new1" />
         <div className="container">
+          
+
           <div className="row">
             <div className="col-5">
-              <h1> amblik.<em><small>ee</small></em></h1>
-              <p><em><strong>{TopDescription.topText}
+            
+              <p id="leftText"><em><strong>{TopDescription.topText}
                   </strong></em>
               </p>
               <button type="button" className="btn btn-primary"><strong>{TopDescription.topButton}</strong></button>
@@ -34,15 +48,16 @@ export const IndexPageTemplate = ({
         </div>
         <div id="mid" className="text-md-center col-lg">
           <h1><small><strong>{heading}</strong></small></h1>
+          </div>
           <Features gridItems={intro.blurbs} />
                 <div className="text-md-center col-lg">
                   <h1><small><strong>meie kliendid</strong></small></h1>
                   <div className="container">
-                    <p><big><strong><em>Pilvelahendused, IT haldus, IT-susteemide ulesehitus ja hooldus, arvutivorgud,
+                    <p  ><big><strong><em>Pilvelahendused, IT haldus, IT-susteemide ulesehitus ja hooldus, arvutivorgud,
                             infoturve, varundus-sustemid, kasut-ajatugi, Business Intelligence,</em></strong></big></p>
                   </div>
                 </div>
-              </div>
+              
             </div>
             <div className="text-md-center col-lg">
               <h1><small><strong>mida ja kuidas saab teha, loe siin...</strong></small></h1>
