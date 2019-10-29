@@ -12,15 +12,15 @@ export const IndexPageTemplate = ({
  }) => (
   <Layout>
     <div>
-    <img className="img" alt="background" src={img} />
+    <img className="img" alt="background" src={img.url} />
         <div className="container">
           <div className="row">
             <div className="col-5">
               <h1> amblik.<em><small>ee</small></em></h1>
-              <p><em><strong>{TopDescription.topText}
+              <p><em><strong>{TopDescription}
                   </strong></em>
               </p>
-              <button type="button" className="btn btn-primary"><strong>{TopDescription.topButton}</strong></button>
+              <button type="button" className="btn btn-primary"><strong>{TopDescription}</strong></button>
             </div>
             <div className="col">
               <div className="bs-example float-right">
@@ -34,7 +34,7 @@ export const IndexPageTemplate = ({
         </div>
         <div id="mid" className="text-md-center col-lg">
           <h1><small><strong>{heading}</strong></small></h1>
-          <Features gridItems={intro.blurbs} />
+          <Features gridItems={intro} />
                 <div className="text-md-center col-lg">
                   <h1><small><strong>meie kliendid</strong></small></h1>
                   <div className="container">
@@ -46,7 +46,7 @@ export const IndexPageTemplate = ({
             </div>
             <div className="text-md-center col-lg">
               <h1><small><strong>mida ja kuidas saab teha, loe siin...</strong></small></h1>
-              <TextCard gridItems={TextCards.TextCard} />
+              <TextCard gridItems={TextCards} />
               <div id="low" className="text-md-center">
                 <p>
                   Pöörduge julgelt ka väikeste it murede<br />puhul:</p>
@@ -59,15 +59,16 @@ export const IndexPageTemplate = ({
 )
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+
   return (
     <Layout>
       <IndexPageTemplate
-         intro={frontmatter.intro}
-         TextCards={frontmatter.TextCards}
-         TopDescription={frontmatter.TopDescription}
-         heading={frontmatter.heading}
-         img={frontmatter.img}
+      heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
+      img={data.prismic.allHome_pages.edges[0].node.img}
+      intro={data.prismic.allHome_pages.edges[0].node.blurbs}
+      TopDescription={data.prismic.allHome_pages.edges[0].node.heading_description[0].text}
+      TextCards={data.prismic.allHome_pages.edges[0].node.textcards}
+        
       />
     </Layout>
   )
@@ -75,29 +76,26 @@ const IndexPage = ({ data }) => {
 
 export const pageQuery = graphql`
 query IndexPage {
-  markdownRemark (frontmatter: { Identifier_field: { eq: "mainPageEt" }}){
-    id
-    frontmatter {
-      TextCards {
-        TextCard {
-          button
-          description
-          title
+  prismic {
+    allHome_pages {
+      edges {
+        node {
+          heading
+          heading_description
+          img
+          textcards {
+            title
+            description
+            button
+          }
+          blurbs {
+            title
+            description
+            button
+          }
         }
       }
-      intro {
-        blurbs {
-          blockDescription
-          blockHeading
-          buttonPlaceholder
-        }
-      }
-      TopDescription {
-        topText
-        topButton
-      }
-      heading
-      img
+    }
   }
-}}`
+  }`
 export default IndexPage

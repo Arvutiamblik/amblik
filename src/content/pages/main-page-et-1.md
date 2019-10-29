@@ -16,7 +16,7 @@ TopDescription:
 heading: oleme teie it tugi ja protsesside automatiseerija.
 intro:
   blurbs:
-    - blockDescription: "Pilvelahendused, IT haldus, IT-susteemide<br />\rulesehitus <br />\r\nja hooldus, arvutivorgud, infoturve, varundus-\rsusteemid, kasutajatugi,     Business Intelligence,\r kodulehekulgede ja e-poodide arendus ja tugi,\r\nmajandustarkvara arendus, Office 365,\r Microsoft 365, Azure, Power BI, Linux\r ESET, AVAST"
+    - blockDescription: "Pilvelahendused, IT haldus, IT-susteemide rulesehitus <br />\r\nja hooldus, arvutivorgud, infoturve, varundus-\rsusteemid, kasutajatugi,     Business Intelligence,\r kodulehekulgede ja e-poodide arendus ja tugi,\r\nmajandustarkvara arendus, Office 365,\r Microsoft 365, Azure, Power BI, Linux\r ESET, AVAST"
       blockHeading: it tugi
       buttonPlaceholder: Kusi abi siin!
     - blockDescription: "Pilvelahendused, IT haldus, IT-susteemide\r ülesehitus\r ja hooldus, arvutivorgud, infoturve, varundus-süsteemid, kasutajatugi, Business Intelligence,"
@@ -48,6 +48,25 @@ TextCards:
     - button: Loe veel >>>
       description: "Sellise lahenduse leidsime meie kliendile,\r\n\nkellel on 25 töötavad nii\r\n\nkontoris,kodus kui tööplatisdel..."
       title: turvalise virtuaalkontori lahendus pilveserveri baasil väikefirmale
+ShopCards:
+  ShopCard:
+  - HomeButton: For Home >>>
+    InfoDescription: "Nii kodus kui töö juures, nii töölaual kui ka veebis tegutsemiseks ning kõikide seadmete jaoks pakub Office tööriistu, millega ülesanded tehtud saavad.Office 365 paindlike tellimislepingute seast saate valida just teile sobiva."
+    ShopName: Picture
+  - HomeButton: For Home >>>
+    InfoDescription: "Nii kodus kui töö juures, nii töölaual kui ka veebis tegutsemiseks ning kõikide seadmete jaoks pakub Office tööriistu, millega ülesanded tehtud saavad.Office 365 paindlike tellimislepingute seast saate valida just teile sobiva."
+    ShopName: Picture
+  - HomeButton: For Home >>>
+    InfoDescription: "Nii kodus kui töö juures, nii töölaual kui ka veebis tegutsemiseks ning kõikide seadmete jaoks pakub Office tööriistu, millega ülesanded tehtud saavad.Office 365 paindlike tellimislepingute seast saate valida just teile sobiva."
+    ShopName: Picture
+  - HomeButton: For Home >>>
+    InfoDescription: "Nii kodus kui töö juures, nii töölaual kui ka veebis tegutsemiseks ning kõikide seadmete jaoks pakub Office tööriistu, millega ülesanded tehtud saavad.Office 365 paindlike tellimislepingute seast saate valida just teile sobiva."
+    ShopName: Picture
+BlogCards:
+  BlogCard:
+  - HeadText: Blog Test
+    BlogTime: 24.09.2019
+    BlogTextCard: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 footer: test
 ---
-
