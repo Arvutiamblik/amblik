@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 //import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 const TextBlock = ({ item }) => (
-  <div key={item.blockHeading} className='col-lg'>
-    <h1>{item.blockHeading}</h1>
+  <div key={item.title[0].text} className='col-lg'>
+    <h1>{item.title[0].text}</h1>
     <p>
       <em>
-        <strong>{item.blockDescription}</strong>
+        <strong>{item.description[0].text}</strong>
       </em>
     </p>
     <button type='button' class='btn btn-primary'>
-      <strong>{item.buttonPlaceholder}</strong>
+      <strong>{item.button[0].text}</strong>
     </button>
   </div>
 );

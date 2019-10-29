@@ -1,7 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
 import TextCard from '../components/textCards'
-import BlogCard from '../components/BlogText'
 export const BlogPageTemplate = ({
 
     TextCards,
@@ -13,8 +12,7 @@ export const BlogPageTemplate = ({
 
     
 
-    <BlogCard gridItems={BlogCards.BlogCard} />
-    <TextCard gridItems={TextCards.TextCard} />
+  
     
     </div>
     <div className="text-md-center col-lg">
@@ -31,38 +29,38 @@ export const BlogPageTemplate = ({
 
 
   const BlogPage = ({ data }) => {
-    const { frontmatter } = data.markdownRemark
+    
     return (
       <Layout>
         <BlogPageTemplate 
-        BlogCards={frontmatter.BlogCards} 
-        TextCards={frontmatter.TextCards}
+        BlogCards={data.prismic.edges[0].node.blog} 
+        TextCards={data.prismic.edges[0].node.textcards}
         />
       </Layout>
     )
   }
   export const pageQuery = graphql`
 query BlogPage {
-  markdownRemark (frontmatter: { Identifier_field: { eq: "mainPageEt" }}){
-    id
-    frontmatter {
-      TextCards {
-        TextCard {
-          button
-          description
-          title
+    prismic {
+        allBlogs {
+          edges {
+            node {
+             
+              blog {
+                title
+                text
+                date_published
+              }
+              textcards {
+                button
+                description
+                title
+              }
+            }
+          }
         }
       }
-      BlogCards {
-        BlogCard {
-          BlogTextCard
-          BlogTime
-          HeadText
-        }
-      }
-
-  }
-}}`
+}`
   
 
  

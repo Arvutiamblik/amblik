@@ -11,30 +11,16 @@ export const IndexPageTemplate = ({
   img
  }) => (
   <Layout>
-
-
     <div>
-
-    <img id="logoPicture" className="img" alt="background" src={img} />
-    <div id="left">
-      <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
-    <a href="#" id="link_button"><strong>SHOP</strong></a>
-    <a href="#" id="link_button"><strong>SHOP</strong></a>
-    <a href="#" id="link_button"><strong>SHOP</strong></a>
-    <a href="#" id="link_button"><strong>SHOP</strong></a>
-    <button id="support" type="button" className="btn btn-primary"><strong>SUPPORT</strong></button>
-    </div>
-    <hr className="new1" />
+    <img className="img" alt="background" src={img.url} />
         <div className="container">
-          
-
           <div className="row">
             <div className="col-5">
-            
-              <p id="leftText"><em><strong>{TopDescription.topText}
+              <h1> amblik.<em><small>ee</small></em></h1>
+              <p><em><strong>{TopDescription}
                   </strong></em>
               </p>
-              <button type="button" className="btn btn-primary"><strong>{TopDescription.topButton}</strong></button>
+              <button type="button" className="btn btn-primary"><strong>{TopDescription}</strong></button>
             </div>
             <div className="col">
               <div className="bs-example float-right">
@@ -48,20 +34,19 @@ export const IndexPageTemplate = ({
         </div>
         <div id="mid" className="text-md-center col-lg">
           <h1><small><strong>{heading}</strong></small></h1>
-          </div>
-          <Features gridItems={intro.blurbs} />
+          <Features gridItems={intro} />
                 <div className="text-md-center col-lg">
                   <h1><small><strong>meie kliendid</strong></small></h1>
                   <div className="container">
-                    <p  ><big><strong><em>Pilvelahendused, IT haldus, IT-susteemide ulesehitus ja hooldus, arvutivorgud,
+                    <p><big><strong><em>Pilvelahendused, IT haldus, IT-susteemide ulesehitus ja hooldus, arvutivorgud,
                             infoturve, varundus-sustemid, kasut-ajatugi, Business Intelligence,</em></strong></big></p>
                   </div>
                 </div>
-              
+              </div>
             </div>
             <div className="text-md-center col-lg">
               <h1><small><strong>mida ja kuidas saab teha, loe siin...</strong></small></h1>
-              <TextCard gridItems={TextCards.TextCard} />
+              <TextCard gridItems={TextCards} />
               <div id="low" className="text-md-center">
                 <p>
                   Pöörduge julgelt ka väikeste it murede<br />puhul:</p>
@@ -74,17 +59,16 @@ export const IndexPageTemplate = ({
 )
 
 const IndexPage = ({ data }) => {
-  const { node } = data.prismic.allHome_pages.edges
+
   return (
     <Layout>
       <IndexPageTemplate
-      heading={node.heading.text}
-      TextCards={node.textcards}
-         intro={node.blurbs}
-         
-         TopDescription={data.prismic.allHome_pages.edges.node.heading_description}
-         
-         img={data.prismic.allHome_pages.edges.node.img}
+      heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
+      img={data.prismic.allHome_pages.edges[0].node.img}
+      intro={data.prismic.allHome_pages.edges[0].node.blurbs}
+      TopDescription={data.prismic.allHome_pages.edges[0].node.heading_description[0].text}
+      TextCards={data.prismic.allHome_pages.edges[0].node.textcards}
+        
       />
     </Layout>
   )
