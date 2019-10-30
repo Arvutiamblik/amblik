@@ -13,9 +13,11 @@ export const IndexPageTemplate = ({
   img
  }) => (
   <Layout>
+    
     <div>
     <img className="img" alt="background" src={img.url} />
         <div className="container">
+      
           <div className="row">
             <div className="col-5">
               <h1> amblik.<em><small>ee</small></em></h1>
