@@ -13,8 +13,8 @@ const Layout = ({ children }) => {
   return (
 
         <main>
-           <script data-jsd-embedded data-key="6e1408e1-c928-4138-a901-66dab20bc20e" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
-        {children}</main>
+          
+        {children} <script defer data-jsd-embedded data-key="6e1408e1-c928-4138-a901-66dab20bc20e" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script></main>
   )
 }
 
