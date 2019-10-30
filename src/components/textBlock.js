@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 const TextBlock = ({ item }) => (
   <div key={item.title[0].text} className='col-lg'>
-    <h1>{item.title[0].text}</h1>
-    <p>
+    <h1 id="headerText">{item.title[0].text}</h1>
+    <p id="headerText">
       <em>
         <strong>{item.description[0].text}</strong>
       </em>

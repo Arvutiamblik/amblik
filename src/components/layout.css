@@ -8,6 +8,34 @@ body {
   padding-right: 23px;
   z-index:99999 !important;
 }
+#avast{
+  height: 80px;
+  width: 250px;
+  float:left;
+  margin-bottom: 20px;
+
+}
+#gdata{
+  height: 119px;
+  width: 256px;
+  float:left;
+
+}
+#headerText{
+  text-align: left;
+}
+#ForHome{
+  float:left;
+  margin-right: 40px;
+  margin-bottom: 60px;
+}
+#ForBusiness{
+  float:left;
+}
+#productText{
+  text-align: left;
+  float:left;
+}
 #left{
   margin-left:20% !important;
 }
