@@ -11,23 +11,17 @@ import i18n from '../../config/i18n'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 const LocaleContext = React.createContext()
 
-  const Layout = ({ children, pageContext: { locale } }) => {
-    return (
-      <LocaleContext.Provider value={{ locale, i18n }}>
-           
-              <Link hrefLang="et-et" to="/">
-                ee
-              </Link>{' '}
-              /{' '}
-              <Link hrefLang="ru" to="/ru">
-                ru
-              </Link>
-            
-            {children}
-      </LocaleContext.Provider>
-    )
-  }
-  export { LocaleContext, Layout }
+const Layout = ({ children }) => {
+
+  return (
+
+        <main>
+
+        {children}</main>
+  )
+}
+
+  export default Layout 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }

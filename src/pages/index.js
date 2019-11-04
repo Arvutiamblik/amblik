@@ -2,20 +2,18 @@ import React from "react"
 import Layout from "../components/layout"
 import Features from '../components/textBlock'
 import TextCard from '../components/textCards'
-import avast from '../images/AVAST.png'
-import gdata from '../images/G-DATA.png'
+
 import { Link,  graphql} from "gatsby"
-export const IndexPageTemplate = ({
 const IndexPageTemplate = ({
   intro,
   TextCards,
   TopDescription,
   heading,
   img,
-  lang
+  
 }) => (
+ 
   <Layout>
-    
     <div className="container">
         <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
         <a href="#" id="link_button"><strong>SHOP</strong></a>
@@ -106,14 +104,16 @@ const IndexPageTemplate = ({
         </div>
       </div>
     </div>
-  </Layout>
+    </Layout>
+)
 
 
-const IndexPage = ({ data, pageContext: { locale } }) => {
-  const lang = locale;
+ const IndexPage = ({ data, pageContext: { locale } }) => {
+  
   return (
+   
     <IndexPageTemplate
-      lang={lang}
+     
       heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
       img={data.prismic.allHome_pages.edges[0].node.img}
       intro={data.prismic.allHome_pages.edges[0].node.blurbs}
@@ -122,6 +122,7 @@ const IndexPage = ({ data, pageContext: { locale } }) => {
       }
       TextCards={data.prismic.allHome_pages.edges[0].node.textcards}
     />
+    
   );
 };
 
