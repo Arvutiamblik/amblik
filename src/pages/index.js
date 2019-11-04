@@ -16,7 +16,6 @@ const IndexPageTemplate = ({
 }) => (
   <>
     <div>
-<<<<<<< HEAD
     <div className="container">
         <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
         <a href="#" id="link_button"><strong>SHOP</strong></a>
@@ -43,36 +42,6 @@ const IndexPageTemplate = ({
                  <Link to="/">ee</Link>
                   <Link to="/ru">ru</Link>
                 </div>
-=======
-      <img className="img" alt="background" src={img.url} />
-      <div className="container">
-        <div className="row">
-          <div className="col-5">
-            <h1>
-              {" "}
-              amblik.
-              <em>
-                <small>ee</small>
-              </em>
-            </h1>
-            <p>
-              <em>
-                <strong>
-                  {TopDescription}
-                  {lang}
-                </strong>
-              </em>
-            </p>
-            <button type="button" className="btn btn-primary">
-              <strong>{TopDescription}</strong>
-            </button>
-          </div>
-          <div className="col">
-            <div className="bs-example float-right">
-              <div className="dropdown text-right">
-                <Link to="/">ee</Link>
-                <Link to="/ru">ru</Link>
->>>>>>> 105c0a9737596fcf6ee2c688621410777eef1832
               </div>
             </div>
           </div>
@@ -175,7 +144,7 @@ export const pageQuery = graphql`
             blurbs {
               title
               description
-              button
+              button  
             }
           }
         }
