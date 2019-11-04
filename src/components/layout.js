@@ -7,19 +7,28 @@
 import React from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
+import i18n from '../../config/i18n'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+const LocaleContext = React.createContext()
 
-const Layout = ({ children }) => {
-
-  return (
-
-        <main>
-          
-        {children} <script defer data-jsd-embedded data-key="6e1408e1-c928-4138-a901-66dab20bc20e" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script></main>
-  )
-}
-
+  const Layout = ({ children, pageContext: { locale } }) => {
+    return (
+      <LocaleContext.Provider value={{ locale, i18n }}>
+           
+              <Link hrefLang="et-et" to="/">
+                ee
+              </Link>{' '}
+              /{' '}
+              <Link hrefLang="ru" to="/ru">
+                ru
+              </Link>
+            
+            {children}
+      </LocaleContext.Provider>
+    )
+  }
+  export { LocaleContext, Layout }
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout

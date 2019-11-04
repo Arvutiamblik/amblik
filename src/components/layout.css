@@ -40,18 +40,90 @@ body {
   margin-left:20% !important;
 }
 #support{
-  margin:0 400px;
-  z-index:214122141212 !important;
-  position: absolute;
+  float: right;
+  z-index: 99999 !important;
   border-radius: 100px;
-  border-color:hotpink;
+  border-color: hotpink;
   background-color: hotpink !important;
   width: 150px !important;
   color: white;
   border-width: 0px;
+  margin-right: 20px;
+}
+#Soodus{
+  width: 362px;
+}
+#Zagolovok{
+  text-align: center;
+  padding-left: 40%;
+  
+}
+#language{
+  float: right;
+}
+.apple{
+  width: 154px;
+  height: 154px;
+  display: block;
+  margin: 0 auto;
+}
+.windows{
+  width: 173px;
+  height: 173px;
+  display: block;
+  margin: 0 auto;
+}
+#eset-nod32{
+  display: block;
+  margin: 0 auto;
+  widows: 300px;
+  height: 300px;
+}
+#productName{
+  font-size: 19pt !important;
+  text-align: center;
+  font-weight: 600;
+}
+#systemName{
+  font-size: 30pt !important;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 90px;
+  margin-left: 20px;
+}
+#productButton{
+  border-color: white;
+  background-color: white !important;
+  color:#00008b;
+  width:117px !important;
+  margin-left: 40px;
+  margin-bottom: 30px;
+  
+}
+#secondButton{
+  float:right;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  width:180px !important;
+}
+#firstButton{
+  margin-left:40px;
+  width:180px !important;
+}
+#NBtext{
+  color: red;
+  font-size: 22pt;
+}
+#shopText{
+  column-count: 2;
+  column-gap: 2em;
 }
 #logo{
   font-size:60px !important;
+}
+.eset{
+  width:230px;
+  height: 172px;
 }
 h1 {
  color:white;
@@ -169,4 +241,11 @@ a{
 #num{
 	font-style: normal;
 	font-size:60px;
+}
+
+#headerNname{
+  text-align: left;
+  font-size: 22pt !important;
+  font-weight: 600;
+  margin-top: 60px;
 }

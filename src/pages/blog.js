@@ -23,9 +23,18 @@ export const BlogPageTemplate = ({
         </div>
         <p id="BlogText"><img src="{blog}" alt="blog" className="rightimg" />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
         <div classname="text-md-center col-lg">
-          <h1>Järgmine lugu</h1>
+          <h1 id="Zagolovok">Järgmine lugu</h1>
         </div>
-      </div>
+      </div>     
+          <footer id="low" >
+                <p id="Zagolovok">
+                  Pöörduge julgelt ka väikeste it murede<br />puhul:</p>
+                <div id="num" className="text-md-center">
+                  <h1 id="num"><small><strong>+372 665 48 28</strong></small></h1>
+                  <p><big>+372 5 096 244</big></p>
+                  <h1 id="num"><small><strong>support@amblik.ee</strong></small></h1>
+                </div>
+                </footer>
   </Layout>
   )
 
@@ -38,6 +47,7 @@ export const BlogPageTemplate = ({
       
         />
       </Layout>
+      
     )
   }
   export const pageQuery = graphql`
