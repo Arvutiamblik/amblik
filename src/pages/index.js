@@ -14,8 +14,8 @@ const IndexPageTemplate = ({
   img,
   lang
 }) => (
-  <>
-    <div>
+  <Layout>
+    
     <div className="container">
         <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
         <a href="#" id="link_button"><strong>SHOP</strong></a>
@@ -46,7 +46,7 @@ const IndexPageTemplate = ({
             </div>
           </div>
         </div>
-      </div>
+      
       <div id="mid" className="text-md-center col-lg">
         <h1>
           <small>
@@ -75,7 +75,7 @@ const IndexPageTemplate = ({
           </div>
         </div>
       </div>
-    </div>
+    
     <div className="text-md-center col-lg">
       <h1>
         <small>
@@ -106,8 +106,8 @@ const IndexPageTemplate = ({
         </div>
       </div>
     </div>
-  </>
-);
+  </Layout>
+
 
 const IndexPage = ({ data, pageContext: { locale } }) => {
   const lang = locale;
@@ -150,5 +150,4 @@ export const pageQuery = graphql`
         }
       }
     }
-  }
-`;
+  }`
