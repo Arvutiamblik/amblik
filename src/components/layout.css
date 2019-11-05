@@ -316,7 +316,8 @@ th{
   float:center;
   text-align: center;
   color:white;
-  background-color: rgb(112, 138, 223);
+  background-color: rgba(127,177,223,0.3);
+  
   font-size: 15pt;
 }
 
