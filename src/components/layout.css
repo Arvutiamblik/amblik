@@ -15,6 +15,14 @@ body {
   margin-bottom: 20px;
 
 }
+#smallText{
+  font-weight: normal;
+  font-size:9pt;
+  color:white;
+  margin-bottom: -20px !important;
+  margin-top: -5px !important;
+  text-align: center;
+}
 #gdata{
   height: 119px;
   width: 256px;
@@ -124,6 +132,53 @@ body {
 .eset{
   width:230px;
   height: 172px;
+}
+#center{
+  display: block;
+  margin: 0 auto;
+}
+
+#underHeader{
+  font-size: 11pt;
+  font-weight: normal;
+}
+.vl {
+  border-left: 1px solid rgb(121, 123, 130);
+  height: 46px;
+  margin-top: -50px;
+  margin-left: 108px;
+}
+#itButton{
+  margin-top:20px;
+}
+#bigSize{
+   color: white;
+    padding-top: 40px;
+    font-family: "Century Gothic", sans;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+#headerBigCenter{
+  color: white;
+  padding-top: 40px;
+  font-family: "Century Gothic", sans;
+  font-weight: bolder;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+#centerButton{
+  margin-left:16px;
+  margin-top:16px;
+}
+#rightBord{
+  float: right;
+  text-align: right;
+  margin-top: -46px !important;
+  margin-right: 13px !important;
+}
+#leftBoard{
+  margin-right: 107px;
 }
 h1 {
  color:white;
@@ -237,10 +292,32 @@ a{
  font-weight:bolder;
  margin-top: 40px;
 }
+#hard{
+  font-weight:bold;
+  text-align: center;
 
+}
+#leftCorner{
+  float:left;
+  text-align: left;
+}
 #num{
 	font-style: normal;
 	font-size:60px;
+}
+
+td{
+  
+  color:white;
+  font-size:11pt;
+}
+
+th{
+  float:center;
+  text-align: center;
+  color:white;
+  background-color: rgb(112, 138, 223);
+  font-size: 15pt;
 }
 
 #headerNname{
