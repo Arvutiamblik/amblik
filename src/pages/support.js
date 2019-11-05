@@ -5,10 +5,12 @@ import agree from "../images/agree.png"
 import cancel from "../images/cancel.png"
 import minus from "../images/minus.png"
 
-const SupportPage = () => (
+const SupportPageTemplate = ({
+    TextCards,
+  }) => ( 
 
-    <Layout>
-
+   
+<>
     <header>
     <div className="container">
              <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
@@ -131,11 +133,42 @@ const SupportPage = () => (
                   <p><big>+372 5 096 244</big></p>
                   <h1 id="num"><small><strong>support@amblik.ee</strong></small></h1>
                 </div></div></div>
+<<<<<<< HEAD
  
+=======
+
+                </>
+>>>>>>> 5eef2b12b3644aecf0a7286ee763730ded8a7506
 
 
-
-    </Layout>
+    
 )
+const Support = ({ data, pageContext: { locale } }) => {
+  
+    return (
+    <Layout>
+      <SupportPageTemplate
+        pros={data.prismic.allSupports.edges[0].node.pros}
+      />
+    </Layout>
+    );
+  };
 
-export default SupportPage
+
+export default Support
+
+export const pageQuery = graphql`
+  query SupportPage($locale: String!) {
+    prismic {
+      allSupports(lang: $locale) {
+        edges {
+          node {
+            pros {
+                description
+                title
+              }
+          }
+        }
+      }
+    }
+  }`
