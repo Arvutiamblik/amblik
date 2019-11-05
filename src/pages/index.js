@@ -108,7 +108,7 @@ const IndexPageTemplate = ({
 )
 
 
- const IndexPage = ({ data, pageContext: { locale } }) => {
+ const IndexPage = ({ data }) => {
   
   return (
    
