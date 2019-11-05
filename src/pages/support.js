@@ -134,13 +134,12 @@ const SupportPageTemplate = ({
                   <p><big>+372 5 096 244</big></p>
                   <h1 id="num"><small><strong>support@amblik.ee</strong></small></h1>
                 </div></div></div>
-
-                </>
-
+ 
+</>
 
     
 )
-const Support = ({ data, pageContext: { locale } }) => {
+const Support = ({ data }) => {
   
     return (
     <Layout>
