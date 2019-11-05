@@ -2,10 +2,12 @@ import React from "react"
 import {Link} from "gatsby"
 import Layout from "../components/layout"
 
-const SupportPage = () => (
+const SupportPageTemplate = ({
+    TextCards,
+  }) => ( 
 
-    <Layout>
-
+   
+<>
     <header>
     <div className="container">
              <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
@@ -66,10 +68,37 @@ const SupportPage = () => (
                   <h1 id="num"><small><strong>support@amblik.ee</strong></small></h1>
                 </div></div></div>
 
+                </>
 
 
-
-    </Layout>
+    
 )
+const Support = ({ data, pageContext: { locale } }) => {
+  
+    return (
+    <Layout>
+      <SupportPageTemplate
+        pros={data.prismic.allSupports.edges[0].node.pros}
+      />
+    </Layout>
+    );
+  };
 
-export default SupportPage
+
+export default Support
+
+export const pageQuery = graphql`
+  query SupportPage($locale: String!) {
+    prismic {
+      allSupports(lang: $locale) {
+        edges {
+          node {
+            pros {
+                description
+                title
+              }
+          }
+        }
+      }
+    }
+  }`
