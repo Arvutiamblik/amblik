@@ -121,7 +121,7 @@ const SupportPageTemplate = ({
         <td> </td>
         <td id="hard">0,25 hour<br/><button id="itButton" type="button" className="btn btn-primary"><strong>Küsi pakkumist</strong></button></td>
         <td><img id="center" className="img" alt="" src={minus} /><br/><button id="centerButton" type="button" className="btn btn-primary"><strong>Küsi pakkumist</strong></button></td>
-        <td id="hard">1 hour<br/><button id="itButton" type="button" className="btn btn-primary"><strong>Küsi pakkumist</strong></button></td>
+        <td id="hard">1 hour<br/><button id="itButton" type="button" className="btn btn-primary"><strong>Saada päring</strong></button></td>
       </tr>
       
     </tbody>

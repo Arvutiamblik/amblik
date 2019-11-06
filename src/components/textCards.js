@@ -16,7 +16,7 @@ const TextCardGrid = ({ gridItems }) => (
   </div>
 );
 export const TextCard = ({ item }) => (
-  <div className="col">
+  <div className="col-lg-5 col-xs-12">
     <div className="serviceBox">
       <div className="service-icon">
         <div className="fa fa-money" />

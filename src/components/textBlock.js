@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 //import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 const TextBlock = ({ item }) => (
-  <div key={item.title[0].text} className='col-lg'>
+  <div key={item.blockHeading} className='col-lg-6 col-xs-12'>
     <h1 id="headerText">{item.title[0].text}</h1>
     <p id="headerText">
       <em>
