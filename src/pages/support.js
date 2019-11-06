@@ -33,29 +33,29 @@ const SupportPageTemplate = ({
    
    <div className="container">
        <div className="row">
-           <div className="col-4">
+           <div className="col-lg-4 col-xs-12 ">
                <p id="bigSize">Kasulik</p>
                <p>Te ei pea võtma tööle spetsialisti ega tagama talle töötasu, sotsiaalseid garantiisid, füüsilist töökohta, autot.</p>
            </div>
-           <div className="col-4">
+           <div className="col-lg-4 col-xs-12">
            <p id="bigSize">Efektiivne</p>
                <p>Meie puhul ei jää Teie IT-spetsialist haigeks, ei lähe puhkusele, ei lahku päevapealt töölt. Kui teil tekib vajadus saada kiirelt rohkem spetsialiste, siis Te ei pea neid palkama.</p>
            </div>
-           <div className="col-4">
+           <div className="col-lg-4 col-xs-12">
            <p id="bigSize">Kvaliteetne</p>
                <p>Te ei pea võtma tööle spetsialisti ega tagama talle töötasu, sotsiaalseid garantiisid, füüsilist töökohta, autot.</p>
            </div>
        </div>
        <div className="row">
-           <div className="col-4">
+           <div className="col-lg-4 col-xs-12">
            <p id="bigSize">Kiire</p>
                <p>Reageerime koheselt Teie päringule ja asume seda lahendama. Spetsialiseeritud kontrollisüsteem aitab meil efektiivselt ülesandeid jaotada ja kontrollida nende täitmist.  </p>
            </div>
-           <div className="col-4">
+           <div className="col-lg-4 col-xs-12">
            <p id="bigSize">Paindlik</p>
                <p>Te võite tasuda fikseeritud abonenttasu, võite maksta teenuste eest tunnitöö alusel. Valige see variant, mis on Teile mugavam, selgem ja soodsam!</p>
            </div>
-           <div className="col-4">
+           <div className="col-lg-4 col-xs-12">
            <p id="bigSize">Usaldusväärne</p>
                <p>Anname finantsgarantii konfidentsiaalsusele, samuti päringutele reageerimise kiirusele.</p>
            </div>
@@ -67,6 +67,7 @@ const SupportPageTemplate = ({
             </small>
             </p>
         </div>
+        <div class="table-responsive-sm">
 <table class="table">
     <thead class="thead">
       <tr>
@@ -125,6 +126,7 @@ const SupportPageTemplate = ({
       
     </tbody>
   </table>
+  </div>
 
                   <div id="low" className="text-md-center">
                 <p>

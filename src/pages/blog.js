@@ -1,10 +1,12 @@
 import React from "react"
 import Layout from "../components/layout"
 import TextCard from '../components/textCards'
+import blog from "../images/free.jpg"
 export const BlogPageTemplate = ({
 
     TextCards,
-    BlogCards
+    BlogCards,
+    img
 
    }) => (
   <Layout>
@@ -21,20 +23,19 @@ export const BlogPageTemplate = ({
           <p id="BlogDate">24.09.2019</p>
           <hr className="new1" /><br />
         </div>
-        <p id="BlogText"><img src="{blog}" alt="blog" className="rightimg" />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
+        <p id="BlogText"><img src="{blog}" alt="blog" className="rightimg" />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
         <div classname="text-md-center col-lg">
-          <h1 id="Zagolovok">Järgmine lugu</h1>
+          <p id="blogNextHeader">Järgmine lugu</p>
         </div>
       </div>     
-          <footer id="low" >
-                <p id="Zagolovok">
+      <div id="low" className="text-md-center">
+                <p>
                   Pöörduge julgelt ka väikeste it murede<br />puhul:</p>
                 <div id="num" className="text-md-center">
                   <h1 id="num"><small><strong>+372 665 48 28</strong></small></h1>
                   <p><big>+372 5 096 244</big></p>
                   <h1 id="num"><small><strong>support@amblik.ee</strong></small></h1>
-                </div>
-                </footer>
+                </div></div>
   </Layout>
   )
 

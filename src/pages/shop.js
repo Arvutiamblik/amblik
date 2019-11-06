@@ -54,7 +54,7 @@ const ShopPage = () => (
         </div>
         <div className="container">
         <div className="row">
-                <div className="col-lg">
+                <div className="buttonMobile col-lg">
                 <img id="eset-nod32" className="img" alt="" src={esetProd} /> 
                 <p id="productName">ESET NOD32 ANTIVIRUS</p>   
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
@@ -66,7 +66,7 @@ const ShopPage = () => (
                 </div>       
           
                 
-                <div className="col-lg">
+                <div className="buttonMobile col-lg">
                 <img id="eset-nod32" className="img" alt="" src={esetProd} />  
                 <p id="productName">ESET NOD32 ANTIVIRUS</p>
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
@@ -78,7 +78,7 @@ const ShopPage = () => (
                
                 </div>   
                 <div class="w-100"></div>    
-                <div className="col-lg">
+                <div className="buttonMobile col-lg">
                 <img id="eset-nod32" className="img" alt="" src={esetProd} /> 
                 <p id="productName">ESET NOD32 ANTIVIRUS</p>       
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
@@ -89,7 +89,7 @@ const ShopPage = () => (
                 <button id="secondButton" type="button" className="btn btn-primary"><strong>Soodus</strong></button>
                 </div>
                 
-                <div className="col-lg">
+                <div className="buttonMobile col-lg">
                 <img id="eset-nod32" className="img" alt="" src={esetProd} />  
                 <p id="productName">ESET NOD32 ANTIVIRUS</p>       
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
@@ -102,6 +102,15 @@ const ShopPage = () => (
                  
                 
          </div>
+         <div id="low" className="text-md-center">
+                <p>
+                  Pöörduge julgelt ka väikeste it murede<br />puhul:</p>
+                <div id="num" className="text-md-center">
+                  <h1 id="num"><small><strong>+372 665 48 28</strong></small></h1>
+                  <p><big>+372 5 096 244</big></p>
+                  <h1 id="num"><small><strong>support@amblik.ee</strong></small></h1>
+                </div></div>
+         
         </div>
 
 </Layout>

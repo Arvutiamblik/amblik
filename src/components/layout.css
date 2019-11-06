@@ -32,6 +32,15 @@ body {
 #headerText{
   text-align: left;
 }
+#blogNextHeader{
+  color: white;
+  padding-top: 40px;
+  font-family: "Century Gothic", sans;
+  font-weight: bolder;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
 #ForHome{
   float:left;
   margin-right: 40px;
@@ -86,6 +95,7 @@ body {
   margin: 0 auto;
   widows: 300px;
   height: 300px;
+  margin-top: 40px;
 }
 #productName{
   font-size: 19pt !important;
@@ -103,20 +113,18 @@ body {
   border-color: white;
   background-color: white !important;
   color:#00008b;
-  width:117px !important;
-  margin-left: 40px;
+  width:140px !important;
+  margin-left: 20px;
   margin-bottom: 30px;
   
 }
 #secondButton{
-  float:right;
-  margin-right: 50px;
-  margin-bottom: 50px;
-  width:180px !important;
+  margin-left:35px;
+  width:210px !important;
 }
 #firstButton{
-  margin-left:40px;
-  width:180px !important;
+  margin-left:20px;
+  width:210px !important;
 }
 #NBtext{
   color: red;
@@ -125,6 +133,38 @@ body {
 #shopText{
   column-count: 2;
   column-gap: 2em;
+}
+@media  (max-width: 767px) {
+  
+  #shopText{
+    column-count: 1;
+    column-gap: 1em;
+  }
+  #Soodus {
+    width: 100%;
+}
+  .buttonMobile #productButton{
+    color: rgb(0, 0, 139);
+    background-color: white !important;
+    width: 100px !important;
+    border-color: white;
+    margin-left: 5px;
+    margin-bottom: 10px;
+
+  }
+  .buttonMobile #firstButton{
+    margin-left: 5px;
+    width: 153px !important;
+    margin-bottom: 60px;
+  }
+
+  #low{
+    font-style: italic;
+    font-weight:bolder;
+    text-align: center;
+    margin-top: 10px !important;
+   }
+  
 }
 #logo{
   font-size:60px !important;
@@ -182,11 +222,11 @@ body {
 }
 h1 {
  color:white;
- padding-top:40px;
  font-family:Century Gothic, sans;
  font-size:80;
  font-weight:bolder;
 }
+
 
 #blogHeader{
   font-size: 27.5pt !important;
@@ -291,6 +331,7 @@ a{
  font-style: italic;
  font-weight:bolder;
  margin-top: 40px;
+ text-align: center;
 }
 #hard{
   font-weight:bold;
@@ -303,7 +344,6 @@ a{
 }
 #num{
 	font-style: normal;
-	font-size:60px;
 }
 
 td{
