@@ -4,6 +4,7 @@ import Features from '../components/textBlock'
 import TextCard from '../components/textCards'
 import avast from '../images/AVAST.png'
 import gdata from '../images/G-DATA.png'
+import corners from '../images/corners.svg'
 
 import { Link,  graphql} from "gatsby"
 const IndexPageTemplate = ({
@@ -16,21 +17,25 @@ const IndexPageTemplate = ({
 }) => (
  
   <Layout>
+        <img id="corners" className="img" alt="background" src={corners} />
+    <img id="logoPicture" className="img" alt="background" src={img.url} />
+    <header>
+
+
     <div className="container">
-        <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
-        <a href="#" id="link_button"><strong>SHOP</strong></a>
-        <a href="#" id="link_button"><strong>SHOP</strong></a>
-        <a href="#" id="link_button"><strong>SHOP</strong></a>
-        <a href="#" id="link_button"><strong>SHOP</strong></a>
-        <button id="support" type="button" classname="btn btn-primary"><strong>SUPPORT</strong></button>
-        <a href="#" id="language"><strong>eng</strong></a>
+             <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
+               <a href="#" id="link_button"><strong>SHOP</strong></a>
+               <a href="#" id="link_button"><strong>SHOP</strong></a>
+               <a href="#" id="link_button"><strong>SHOP</strong></a>
+               <a href="#" id="link_button"><strong>SHOP</strong></a>
+               <a href="#" id="language"><strong>eng</strong></a>
+               <button id="support" type="button" classname="btn btn-primary"><strong>SUPPORT</strong></button>             
         </div>
-    <img className="img" alt="background" src={img.url} />
-        <div className="container">
+    </header>
+        <div id="otstup" className="container">
       
-          <div className="row">
+          <div  className="row">
             <div className="col-5">
-              <h1> amblik.<em><small>ee</small></em></h1>
               <p><em><strong>{TopDescription}
                   </strong></em>
               </p>

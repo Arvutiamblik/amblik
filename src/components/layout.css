@@ -66,6 +66,10 @@ body {
   color: white;
   border-width: 0px;
   margin-right: 20px;
+
+}
+#otstup{
+  margin-top: 90px;
 }
 #Soodus{
   width: 362px;
@@ -273,11 +277,16 @@ p {
   margin-right:40px !important;
 }
 #logoPicture{
-   margin-top:100px;
-   height:950px;
-   width:100%;
-   object-fit: cover;
-   position: absolute;
+  margin-top:120px;
+  height:950px;
+  width:100%;
+  position: absolute;
+}
+#corners{
+  height:950px;
+  width:100%;
+  object-fit: cover;
+  position: absolute;
 }
 
 a{
