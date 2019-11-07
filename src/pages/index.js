@@ -64,26 +64,26 @@ const IndexPageTemplate = ({
                   </div>
             <div className="container">
               <div className="row">
-                <div className="col-lg">
+                <div className="col-lg-6 col-md-6 col-xs-12">
                 <img id="avast" className="img" alt="" src={avast} />             
                  <p id="productText"><em><strong>Nii kodus kui töö juures, nii töölaual kui ka veebis tegutsemiseks ning kõikide seadmete jaoks pakub Office tööriistu, millega ülesanded tehtud saavad.  Office 365 paindlike tellimislepingute seast saate valida just teile sobiva.</strong></em></p>
                 <button id="ForHome" type="button" class="btn btn-primary"><strong>For Home</strong></button>
                 <button id="ForBusiness" type="button" class="btn btn-primary"><strong>For Business</strong></button>
                 </div>
-                <div className="col-lg">
+                <div className="col-lg-6 col-md-6 col-xs-12">
                 <img id="gdata" className="img" alt="" src={gdata} />             
                  <p id="productText"><em><strong>G DATA Software AG on uuenduslik ja kiirelt laienev tarkvarafirma, mis keskendub viirusetõrje turvalisuse lahendustele. Internetiturvalisuse spetsialistina ja viirusetõrje valdkonna teerajajana töötas 1985. aastal Bochumis asutatud firma esimese viirusetõrjeprogrammi välja enam kui 20 aastat tagasi. Rohkem kui viie aasta jooksul ei ole ükski teine Euroopa turvatarkvara pakkuja võitnud riiklikke ja rahvusvahelisi testkatseid ning auhindu sagedamini kui G DATA. Ja kui rääkida kvaliteedist, on G DATA maailmas juhtpositsioonil, ühendades oma viirusetõrjetoodetes maailma parimad turbetehnoloogiad. Selle näideteks on DoubleScan tehnoloogia, millel on kaks sõltumatut viiruseskännerit ja ülikiire OutbreakShield tõrje.</strong></em></p>
                 <button id="ForHome" type="button" class="btn btn-primary"><strong>For Home</strong></button>
                 <button id="ForBusiness" type="button" class="btn btn-primary"><strong>For Business</strong></button>
                 </div>   
                 <div class="w-100"></div>     
-                <div className="col-lg">
+                <div className="col-lg-6 col-md-6 col-xs-12">
                 <img id="gdata" className="img" alt="" src={gdata} />             
                  <p id="productText"><em><strong>G DATA Software AG on uuenduslik ja kiirelt laienev tarkvarafirma, mis keskendub viirusetõrje turvalisuse lahendustele. Internetiturvalisuse spetsialistina ja viirusetõrje valdkonna teerajajana töötas 1985. aastal Bochumis asutatud firma esimese viirusetõrjeprogrammi välja enam kui 20 aastat tagasi. Rohkem kui viie aasta jooksul ei ole ükski teine Euroopa turvatarkvara pakkuja võitnud riiklikke ja rahvusvahelisi testkatseid ning auhindu sagedamini kui G DATA. Ja kui rääkida kvaliteedist, on G DATA maailmas juhtpositsioonil, ühendades oma viirusetõrjetoodetes maailma parimad turbetehnoloogiad. Selle näideteks on DoubleScan tehnoloogia, millel on kaks sõltumatut viiruseskännerit ja ülikiire OutbreakShield tõrje.</strong></em></p>
                 <button id="ForHome" type="button" class="btn btn-primary"><strong>For Home</strong></button>
                 <button id="ForBusiness" type="button" class="btn btn-primary"><strong>For Business</strong></button>
                 </div>    
-                <div className="col-lg">
+                <div className="col-lg-6 col-md-6 col-xs-12">
                 <img id="avast" className="img" alt="" src={avast} />             
                  <p id="productText"><em><strong>Nii kodus kui töö juures, nii töölaual kui ka veebis tegutsemiseks ning kõikide seadmete jaoks pakub Office tööriistu, millega ülesanded tehtud saavad.  Office 365 paindlike tellimislepingute seast saate valida just teile sobiva.</strong></em></p>
                 <button id="ForHome" type="button" class="btn btn-primary"><strong>For Home</strong></button>

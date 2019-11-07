@@ -197,6 +197,15 @@ body {
     margin-bottom: 60px;
   }
 
+  #ForHome {
+    float: left;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    }
+  #ForBusiness {
+    float: right;
+}
+
 }
 
 
