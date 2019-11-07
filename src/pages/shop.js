@@ -54,7 +54,7 @@ const ShopPage = () => (
         </div>
         <div className="container">
         <div className="row">
-                <div className="buttonMobile col-lg">
+                <div className="col-lg-6 col-xs-12 col-md-6 buttonMobile">
                 <img id="eset-nod32" className="img" alt="" src={esetProd} /> 
                 <p id="productName">ESET NOD32 ANTIVIRUS</p>   
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
@@ -66,7 +66,7 @@ const ShopPage = () => (
                 </div>       
           
                 
-                <div className="buttonMobile col-lg">
+                <div className="col-lg-6 col-xs-12 col-md-6 buttonMobile">
                 <img id="eset-nod32" className="img" alt="" src={esetProd} />  
                 <p id="productName">ESET NOD32 ANTIVIRUS</p>
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
@@ -78,7 +78,7 @@ const ShopPage = () => (
                
                 </div>   
                 <div class="w-100"></div>    
-                <div className="buttonMobile col-lg">
+                <div className="col-lg-6 col-xs-12 col-md-6 buttonMobile">
                 <img id="eset-nod32" className="img" alt="" src={esetProd} /> 
                 <p id="productName">ESET NOD32 ANTIVIRUS</p>       
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
@@ -89,7 +89,7 @@ const ShopPage = () => (
                 <button id="secondButton" type="button" className="btn btn-primary"><strong>Soodus</strong></button>
                 </div>
                 
-                <div className="buttonMobile col-lg">
+                <div className="col-lg-6 col-xs-12 col-md-6 buttonMobile">
                 <img id="eset-nod32" className="img" alt="" src={esetProd} />  
                 <p id="productName">ESET NOD32 ANTIVIRUS</p>       
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
