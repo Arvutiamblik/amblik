@@ -34,8 +34,8 @@ const IndexPageTemplate = ({
     </header>
         <div id="otstup" className="container">
       
-          <div  className="row">
-            <div className="col-5">
+          <div  className="row">  
+            <div className="col-lg-5 col-md-6 col-xs-12">
               <p><em><strong>{TopDescription}
                   </strong></em>
               </p>
@@ -59,7 +59,7 @@ const IndexPageTemplate = ({
           </small>
         </h1>
         <Features gridItems={intro} />
-        <div className="text-md-center col-lg">
+        <div className="text-md-center">
                   <h1><small><strong>Products</strong></small></h1>
                   </div>
             <div className="container">
