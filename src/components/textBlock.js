@@ -16,11 +16,11 @@ const TextBlock = ({ item }) => (
   </div>
 );
 
-const FeatureGrid = ({ gridItems }) => (
+const FeatureGrid = ({ gridItems, delimiter }) => (
   <div className='container'>
     <div className='row'>
       {gridItems.map((item, index) =>
-        index % 2 === 0 ? (
+        index % delimiter === 0 ? (
           <TextBlock item={item} />
         ) : (
           [<TextBlock item={item} />, <div className='w-100' />]

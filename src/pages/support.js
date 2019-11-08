@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import agree from "../images/agree.png"
 import cancel from "../images/cancel.png"
 import minus from "../images/minus.png"
+import Features from '../components/textBlock'
 
 const SupportPageTemplate = ({
     TextCards,
@@ -15,7 +16,7 @@ const SupportPageTemplate = ({
     <header>
     <div className="container">
              <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
-               <a href="#" id="link_button"><strong>SHOP</strong></a>
+             <Link to="//"><strong>Home</strong></Link>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
