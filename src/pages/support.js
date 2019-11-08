@@ -5,7 +5,6 @@ import agree from "../images/agree.png"
 import cancel from "../images/cancel.png"
 import minus from "../images/minus.png"
 import Features from '../components/textBlock'
-
 const SupportPageTemplate = ({
     TextCards,
     
@@ -13,18 +12,8 @@ const SupportPageTemplate = ({
 
    
 <>
-    <header>
-    <div className="container">
-              <h1 id="logo"><big><strong>amblik </strong></big></h1>
-             <Link to="//"><strong>Home</strong></Link>
-               <a href="#" id="link_button"><strong>SHOP</strong></a>
-               <a href="#" id="link_button"><strong>SHOP</strong></a>
-               <a href="#" id="link_button"><strong>SHOP</strong></a>
-               <a href="#" id="language"><strong>eng</strong></a>
-               <button id="support" type="button" classname="btn btn-primary"><strong>SUPPORT</strong></button>             
-        </div>
-    </header>
-
+   
+  
     
     <div className="container">
         <p id="headerNname">Arvutiämblik – this is your IT-department!</p>
