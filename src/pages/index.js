@@ -24,7 +24,7 @@ const IndexPageTemplate = ({
 
     <div id="headerPosition" className="container">
              <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
-               <a href="#" id="link_button"><strong>SHOP</strong></a>
+             <Link to="/support/"><strong>Support</strong></Link>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
@@ -39,7 +39,7 @@ const IndexPageTemplate = ({
               <p><em><strong>{TopDescription}
                   </strong></em>
               </p>
-              <button type="button" className="btn btn-primary"><strong>{TopDescription}</strong></button>
+              <button type="button" className="btn btn-primary"><strong>Loe veel</strong></button>
             </div>
             <div className="col">
               <div className="bs-example float-right">
@@ -58,7 +58,7 @@ const IndexPageTemplate = ({
             <strong>{heading}</strong>
           </small>
         </h1>
-        <Features gridItems={intro} />
+        <Features gridItems={intro} delimiter={2} />
         <div className="text-md-center">
                   <h1><small><strong>Products</strong></small></h1>
                   </div>
@@ -124,7 +124,7 @@ const IndexPageTemplate = ({
           <strong>mida ja kuidas saab teha, loe siin...</strong>
         </small>
       </h1>
-      <TextCard gridItems={TextCards} />
+      <TextCard gridItems={TextCards}  />
       <div id="low" className="text-md-center">
         <p>
           Pöörduge julgelt ka väikeste it murede
