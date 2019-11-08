@@ -12,11 +12,11 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import corners from '../images/corners.svg'
 import Menu from "./menu.js"
 const LocaleContext = React.createContext()
-
+ 
 const Layout = ({ children }) => {
-
+ 
   return (
-
+ 
         <main>
              <img id="corners" className="img" alt="background" src={corners} />
              <Menu />
@@ -24,9 +24,8 @@ const Layout = ({ children }) => {
         </main>
   )
 }
-
+ 
   export default Layout 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
