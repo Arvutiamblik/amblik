@@ -44,10 +44,11 @@ body {
 #ForHome{
   float:left;
   margin-right: 40px;
-  margin-bottom: 60px;
+  
 }
 #ForBusiness{
   float:left;
+  margin-bottom: 35px;
 }
 #productText{
   text-align: left;
@@ -167,14 +168,14 @@ body {
 
 
   #ForHome {
-    float: left;
+    float: left;  
     margin-right: 5px;
-    margin-bottom: 20px;
     width: 145px !important;
     }
   #ForBusiness {
     float: right;
     width: 145px !important;
+    margin-bottom: 35px;
 }
 
   #shopText{
@@ -237,10 +238,11 @@ body {
   #ForHome {
     float: left;
     margin-right: 0px;
-    margin-bottom: 20px;
+    
     }
   #ForBusiness {
     float: right;
+    margin-bottom: 35px;
 }
 
 }
