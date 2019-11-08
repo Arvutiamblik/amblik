@@ -79,6 +79,9 @@ body {
   padding-left: 40%;
   
 }
+#headerPosition{
+  position: relative;
+}
 #language{
   float: right;
 }
