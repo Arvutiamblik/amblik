@@ -44,8 +44,9 @@ const IndexPageTemplate = ({
             <div className="col">
               <div className="bs-example float-right">
                 <div className="dropdown text-right">
-                 <Link to="/">ee</Link>
-                  <Link to="/ru">ru</Link>
+                {/*   <Link to="/">ee</Link>
+                 <Link to="/ru">ru</Link> */}
+                
                 </div>
               </div>
             </div>
