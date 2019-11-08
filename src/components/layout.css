@@ -140,6 +140,17 @@ body {
 }
 @media  (max-width: 767px) {
   
+  #ForHome {
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    width: 145px !important;
+    }
+  #ForBusiness {
+    float: right;
+    width: 145px !important;
+}
+
   #shopText{
     column-count: 1;
     column-gap: 1em;
