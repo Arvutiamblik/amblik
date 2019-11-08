@@ -11,7 +11,7 @@ const ShopPage = () => (
 <Layout>
     <header>
     <div className="container">
-             <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
+               <h1 id="logo"><big><strong>amblik </strong></big></h1>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
