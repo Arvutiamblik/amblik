@@ -5,7 +5,6 @@ import agree from "../images/agree.png"
 import cancel from "../images/cancel.png"
 import minus from "../images/minus.png"
 import Features from '../components/textBlock'
-
 const SupportPageTemplate = ({
     TextCards,
     
