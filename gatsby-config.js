@@ -56,9 +56,8 @@ module.exports = {
       options: {
         repositoryName: 'amblik', // (REQUIRED, replace with your own)
         accessToken: 'MC5YYW13dEJBQUFDRUEwOVla.SUI6F1bvv73vv73vv73vv71t77-977-977-977-9HBbvv73vv73vv70n77-977-9WO-_ve-_ve-_ve-_vV_vv73vv73vv70F', // (optional API access token)
-        path: '/preview',
-        previews: true,
-        //omitPrismicScript: true
+     
+        omitPrismicScript: true
         //path: '/preview', // (optional preview path. Default: /preview)
        // previews: true, // (optional, activated Previews. Default: false)
         /*pages: [{ // (optional, builds pages dynamically)
