@@ -17,12 +17,12 @@ const IndexPageTemplate = ({
 }) => (
  
   <Layout>
-        <img id="corners" className="img" alt="background" src={corners} />
+            <img id="corners" className="img" alt="background" src={corners} />
     <img id="logoPicture" className="img" alt="background" src={img.url} />
     <header>
 
 
-    <div className="container">
+    <div id="headerPosition" className="container">
              <h1 id="logo"><big><strong>amblik </strong></big>. <em><small>ee</small></em></h1>
              <Link to="/support/"><strong>support</strong></Link>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
@@ -34,7 +34,7 @@ const IndexPageTemplate = ({
     </header>
         <div id="otstup" className="container">
       
-          <div  className="row">  
+          <div  className="row">
             <div className="col-lg-5 col-md-6 col-xs-12">
               <p><em><strong>{TopDescription}
                   </strong></em>
