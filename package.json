@@ -27,9 +27,11 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-gatsby-standard": "^2.2.0",
     "graphql-tag": "^2.10.1",
-    "prismic-reactjs": "^1.1.1",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "prismic-reactjs": "^1.1.1"
   },
   "keywords": [
     "gatsby"
