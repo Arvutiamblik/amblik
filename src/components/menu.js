@@ -1,5 +1,5 @@
 import React from 'react';
- 
+import language from '../images/language.png'
 import {Link} from "gatsby"
 const menu = () => {
 return (
@@ -10,7 +10,7 @@ return (
                <a href="#" id="link_button"><strong>SHOP</strong></a>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
-               <a href="#" id="language"><strong>eng</strong></a>
+               <a href="#" id="language"><strong>eng</strong><img id="strelka" className="img" alt="" src={language} />  </a>
                <button id="support" type="button" classname="btn btn-primary"><Link to="/support/"><strong>SUPPORT</strong></Link></button>
                
         </div>
