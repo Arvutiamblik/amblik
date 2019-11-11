@@ -57,9 +57,9 @@ const SupportPageTemplate = ({
             </small>
             </p>
         </div>
-        <div class="table-responsive-sm">
-<table class="table">
-    <thead class="thead">
+        <div className="table-responsive-sm">
+<table className="table">
+    <thead className="thead">
       <tr>
         <th></th>
         <th>Prepaid Time<br/><p id="underHeader">All services are provided at a reduced rate</p></th>
@@ -71,7 +71,7 @@ const SupportPageTemplate = ({
        <tr>
         <td id="hard"><div id="leftCorner">Monthly fee <br/><p id="smallText">All prices are subject to VAT.</p></div></td>
         <td id="hard"><p id="smallText">From 3 hours of servise per month</p> <br/>From 117 € </td>
-        <td id="hard"><div id="leftBoard"><p id="smallText">Server support</p><br/>118 € / month<p id="smallText">for one server</p></div><div class="vl"></div><div id="rightBord"><p id="smallText">User support</p><br/> 59 €  / month<br/><p id="smallText">for one user</p></div></td>
+        <td id="hard"><div id="leftBoard"><p id="smallText">Server support</p><br/>118 € / month<p id="smallText">for one server</p></div><div className="vl"></div><div id="rightBord"><p id="smallText">User support</p><br/> 59 €  / month<br/><p id="smallText">for one user</p></div></td>
         
 
         <td id="hard">0 €</td>

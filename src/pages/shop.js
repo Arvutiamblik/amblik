@@ -60,7 +60,7 @@ const ShopPage = () => (
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 arvuti(t)</strong></button>
                 <button id="productButton" type="button" className="btn btn-primary"><strong>Soodus</strong></button>
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <button id="firstButton"  type="button" className="btn btn-primary"><strong>1 arvuti(t)</strong></button>
                 <button id="secondButton" type="button" className="btn btn-primary"><strong>Soodus</strong></button>
                 </div>       
@@ -72,19 +72,19 @@ const ShopPage = () => (
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 arvuti(t)</strong></button>
                 <button id="productButton" type="button" className="btn btn-primary"><strong>Soodus</strong></button>
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <button id="firstButton"  type="button" className="btn btn-primary"><strong>1 arvuti(t)</strong></button>
                 <button id="secondButton" type="button" className="btn btn-primary"><strong>Soodus</strong></button>
                
                 </div>   
-                <div class="w-100"></div>    
+                <div className="w-100"></div>    
                 <div className="col-lg-6 col-xs-12 col-md-6 buttonMobile">
                 <img id="eset-nod32" className="img" alt="" src={esetProd} /> 
                 <p id="productName">ESET NOD32 ANTIVIRUS</p>       
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 arvuti(t)</strong></button>
                 <button id="productButton" type="button" className="btn btn-primary"><strong>Soodus</strong></button>   
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <button id="firstButton"  type="button" className="btn btn-primary"><strong>1 arvuti(t)</strong></button>
                 <button id="secondButton" type="button" className="btn btn-primary"><strong>Soodus</strong></button>
                 </div>
@@ -95,7 +95,7 @@ const ShopPage = () => (
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 aasta</strong></button>
                 <button id="productButton" type="button" className="btn btn-primary"><strong>1 arvuti(t)</strong></button>
                 <button id="productButton" type="button" className="btn btn-primary"><strong>Soodus</strong></button>   
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <button id="firstButton"  type="button" className="btn btn-primary"><strong>1 arvuti(t)</strong></button>
                 <button id="secondButton" type="button" className="btn btn-primary"><strong>Soodus</strong></button>     
                 </div>   
