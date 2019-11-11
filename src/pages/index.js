@@ -15,10 +15,11 @@ const IndexPageTemplate = ({
   img,
   
 }) => (
- 
+  <>
+  <img id="logoPicture" className="img" alt="background" src={img.url} />
   <Layout>
          
-    <img id="logoPicture" className="img" alt="background" src={img.url} />
+    
  
         <div id="otstup" className="container">
       
@@ -139,6 +140,7 @@ const IndexPageTemplate = ({
       </div>
     </div>
     </Layout>
+  </>
 )
 
 
