@@ -11,13 +11,6 @@ export const BlogPageTemplate = ({
    }) => (
   <Layout>
       <div className="container">
-      <h1 id="logo"><big><strong>amblik </strong></big></h1>
-        <a href="#" id="link_button"><strong>SHOP</strong></a>
-        <a href="#" id="link_button"><strong>SHOP</strong></a>
-        <a href="#" id="link_button"><strong>SHOP</strong></a>
-        <a href="#" id="link_button"><strong>SHOP</strong></a>
-        <button id="support" type="button" classname="btn btn-primary"><strong>SUPPORT</strong></button>
-        <a href="#" id="language"><strong>eng</strong></a>
         <div className="main">
           <h1 id="blogHeader">Blog Test</h1>
           <p id="BlogDate">24.09.2019</p>
