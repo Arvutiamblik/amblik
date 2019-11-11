@@ -4,7 +4,7 @@ import {Link} from "gatsby"
 const menu = () => {
 return (
     <header>
-        <div className="container">
+        <div id="headerPosition" className="container">
                <h1 id="logo"><big><strong>amblik </strong></big></h1>
                <a id="link_button"> <Link to="//"><strong>HOME</strong></Link></a>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
