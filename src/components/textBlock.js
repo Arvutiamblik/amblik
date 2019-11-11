@@ -17,7 +17,7 @@ const TextBlock = ({ item }) => (
 );
 
 const FeatureGrid = ({ gridItems, delimiter }) => (
-  <div className='container'>
+  <div id="containerRight" className='container'>
     <div className='row'>
       {gridItems.map((item, index) =>
         index % delimiter === 0 ? (

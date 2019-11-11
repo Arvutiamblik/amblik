@@ -37,8 +37,18 @@ body {
   padding-top: 40px;
   font-family: "Century Gothic", sans;
   font-weight: bolder;
-  font-size: 2.5rem;
+  font-size: 28pt;
   margin-bottom: 40px;
+  text-align: center;
+}
+
+#h1Text{
+  color: white;
+  padding-top: 40px;
+  font-family: "Century Gothic", sans;
+  font-weight: bolder;
+  font-size: 28pt;
+  margin-bottom: 30px;
   text-align: center;
 }
 #ForHome{
@@ -143,11 +153,32 @@ body {
   column-count: 2;
   column-gap: 2em;
 }
+
+@media  (max-width: 767px) {
+#mid{
+	padding-top:50% !important;
+}
+}
 @media  (max-width: 767px) {
 
   #link_button {
     padding-right: 3%;
     z-index: 99999 !important;
+}
+
+
+#h1Text{
+  color: white;
+  padding-top: 40px;
+  font-family: "Century Gothic", sans;
+  font-weight: bolder;
+  font-size: 25pt;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#containerRight{
+  padding-left: 0px !important;
 }
 
 #support{

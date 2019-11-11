@@ -43,16 +43,16 @@ const IndexPageTemplate = ({
         </div>
       
       <div id="mid" className="text-md-center col-lg">
-        <h1>
-          <small>
-            <strong>{heading}</strong>
-          </small>
-        </h1>
+
+        <div classname="text-md-center col-lg">
+          <p id="h1Text">{heading}</p>
+        </div>
+
         <Features gridItems={intro} delimiter={2} />
-        <div className="text-md-center">
-                  <h1><small><strong>Products</strong></small></h1>
-                  </div>
-            <div className="container">
+       <div classname="text-md-center col-lg">
+          <p id="h1Text">Products</p>
+        </div>
+            <div id="containerRight" className="container">
               <div className="row">
                 <div className="col-lg-6 col-md-6 col-xs-12">
                 <img id="avast" className="img" alt="" src={avast} />             
@@ -87,13 +87,12 @@ const IndexPageTemplate = ({
 
               </div>
                 
-        <div className="text-md-center col-lg">
-          <h1>
-            <small>
-              <strong>meie kliendid</strong>
-            </small>
-          </h1>
-          <div className="container">
+        
+    
+          <div classname="text-md-center">
+          <p id="h1Text">meie kliendid</p>
+        </div>
+          <div id="containerRight" className="container">
             <p>
               <big>
                 <strong>
@@ -106,15 +105,13 @@ const IndexPageTemplate = ({
               </big>
             </p>
           </div>
-        </div>
+        
       </div>
     
     <div className="text-md-center col-lg">
-      <h1>
-        <small>
-          <strong>mida ja kuidas saab teha, loe siin...</strong>
-        </small>
-      </h1>
+      <div classname="text-md-center col-lg">
+          <p id="h1Text">mida ja kuidas saab teha, loe siin...</p>
+        </div>
       <TextCard gridItems={TextCards}  />
       <div id="low" className="text-md-center">
         <p>
