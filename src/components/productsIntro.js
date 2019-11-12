@@ -22,7 +22,7 @@ const Intro = ({ item }) => (
   <div style={{height: 'auto', width: '250px', float: 'left', }}>
    <Img fluid={item.product_imageSharp.childImageSharp.fluid} />
    </div>
-    <p id="productText" style={{ marginTop: '20px'}}>
+    <p className="productText" style={{ marginTop: '20px'}}>
       <em>
         <strong>{item.product_decription[0].text}</strong>
       </em>
