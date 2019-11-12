@@ -19,7 +19,7 @@ return(
 )};
 const Intro = ({ item }) => (
   <>
-  <div style={{height: 'auto', width: '250px'}}>
+  <div style={{height: '120', width: '250px'}}>
    <Img fluid={item.product_imageSharp.childImageSharp.fluid} />
    </div>
     <p className="productText" style={{ marginTop: '20px'}}>
