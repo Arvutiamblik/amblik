@@ -56,18 +56,24 @@ module.exports = {
       options: {
         repositoryName: 'amblik', // (REQUIRED, replace with your own)
         accessToken: 'MC5YYW13dEJBQUFDRUEwOVla.SUI6F1bvv73vv73vv73vv71t77-977-977-977-9HBbvv73vv73vv70n77-977-9WO-_ve-_ve-_ve-_vV_vv73vv73vv70F', // (optional API access token)
-     
         omitPrismicScript: true
-        //path: '/preview', // (optional preview path. Default: /preview)
-       // previews: true, // (optional, activated Previews. Default: false)
-        /*pages: [{ // (optional, builds pages dynamically)
-        type: 'Article',         // TypeName from prismic
-        match: '/article/:uid',  // Pages will be generated under this pattern
-        path: '/article',        // Placeholder page for unpublished documents
-        component: require.resolve('./src/templates/article.js'),
-      }*,*/
     }
   },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `images`,
+      path: `${__dirname}/src/images/`,
+    },
+  },
+  {
+  resolve: `gatsby-plugin-sharp`,
+  options: {
+    useMozJpeg: false,
+    stripMetadata: true,
+    defaultQuality: 75,
+  },
+},
   `gatsby-transformer-sharp`,
     'gatsby-plugin-optimize-svgs',
   ],

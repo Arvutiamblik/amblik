@@ -1,152 +1,107 @@
-import React from "react"
-import Layout from "../components/layout"
-import Features from '../components/textBlock'
-import TextCard from '../components/textCards'
-import avast from '../images/AVAST.png'
-import gdata from '../images/G-DATA.png'
-import corners from '../images/corners.svg'
+import React from "react";
+import Layout from "../components/layout";
+import Features from "../components/textBlock";
+import TextCard from "../components/textCards";
+import ProductsIntro from "../components/productsIntro"
 
-import { Link,  graphql} from "gatsby"
+import { graphql } from "gatsby";
 const IndexPageTemplate = ({
   intro,
   TextCards,
   TopDescription,
   heading,
   img,
-  
+  products
 }) => (
   <>
-  <img id="logoPicture" className="img" alt="background" src={img.url} />
-  <Layout>
-         
-    
- 
-        <div id="otstup" className="container">
-      
-          <div  className="row">
-            <div className="col-lg-5 col-md-6 col-xs-12">
-              <p><em><strong>{TopDescription}
-                  </strong></em>
-              </p>
-              <button type="button" className="btn btn-primary"><strong>Loe veel</strong></button>
-            </div>
-            <div className="col">
-              <div className="bs-example float-right">
-                <div className="dropdown text-right">
+    <img id="logoPicture" className="img" alt="background" src={img.url} />
+    <Layout>
+      <div id="otstup" className="container">
+        <div className="row">
+          <div className="col-lg-5 col-md-6 col-xs-12">
+            <p>
+              <em>
+                <strong>{TopDescription}</strong>
+              </em>
+            </p>
+            <button type="button" className="btn btn-primary">
+              <strong>Loe veel</strong>
+            </button>
+          </div>
+          <div className="col">
+            <div className="bs-example float-right">
+              <div className="dropdown text-right">
                 {/*   <Link to="/">ee</Link>
                  <Link to="/ru">ru</Link> */}
-                
-                </div>
               </div>
             </div>
           </div>
         </div>
-      
-      <div id="mid" className="text-md-center col-lg">
+      </div>
 
-        <div classname="text-md-center col-lg">
+      <div id="mid" className="text-md-center col-lg">
+        <div className="text-md-center col-lg">
           <p id="h1Text">{heading}</p>
         </div>
 
         <Features gridItems={intro} delimiter={2} />
-       <div classname="text-md-center col-lg">
+        <div className="text-md-center col-lg">
           <p id="h1Text">Products</p>
         </div>
-            <div id="containerRight" className="container">
-              <div className="row">
-                <div className="col-lg-6 col-md-6 col-xs-12">
-                <img id="avast" className="img" alt="" src={avast} />             
-                 <p id="productText"><em><strong>Nii kodus kui töö juures, nii töölaual kui ka veebis tegutsemiseks ning kõikide seadmete jaoks pakub Office tööriistu, millega ülesanded tehtud saavad.  Office 365 paindlike tellimislepingute seast saate valida just teile sobiva.</strong></em></p>
-                <button id="ForHome" type="button" className="btn btn-primary"><strong>For Home</strong></button>
-                <button id="ForBusiness" type="button" className="btn btn-primary"><strong>For Business</strong></button>
-                
-          
-                <img id="gdata" className="img" alt="" src={gdata} />             
-                 <p id="productText"><em><strong>G DATA Software AG on uuenduslik ja kiirelt laienev tarkvarafirma, mis keskendub viirusetõrje turvalisuse lahendustele. Internetiturvalisuse spetsialistina ja viirusetõrje valdkonna teerajajana töötas 1985. aastal Bochumis asutatud firma esimese viirusetõrjeprogrammi välja enam kui 20 aastat tagasi. Rohkem kui viie aasta jooksul ei ole ükski teine Euroopa turvatarkvara pakkuja võitnud riiklikke ja rahvusvahelisi testkatseid ning auhindu sagedamini kui G DATA. Ja kui rääkida kvaliteedist, on G DATA maailmas juhtpositsioonil, ühendades oma viirusetõrjetoodetes maailma parimad turbetehnoloogiad. Selle näideteks on DoubleScan tehnoloogia, millel on kaks sõltumatut viiruseskännerit ja ülikiire OutbreakShield tõrje.</strong></em></p>
-                <button id="ForHome" type="button" className="btn btn-primary"><strong>For Home</strong></button>
-                <button id="ForBusiness" type="button" className="btn btn-primary"><strong>For Business</strong></button>
-                </div>   
-                
-                
-                <div className="col-lg-6 col-md-6 col-xs-12">
-                <img id="gdata" className="img" alt="" src={gdata} />             
-                 <p id="productText"><em><strong>G DATA Software AG on uuenduslik ja kiirelt laienev tarkvarafirma, mis keskendub viirusetõrje turvalisuse lahendustele. Internetiturvalisuse spetsialistina ja viirusetõrje valdkonna teerajajana töötas 1985. aastal Bochumis asutatud firma esimese viirusetõrjeprogrammi välja enam kui 20 aastat tagasi. Rohkem kui viie aasta jooksul ei ole ükski teine Euroopa turvatarkvara pakkuja võitnud riiklikke ja rahvusvahelisi testkatseid ning auhindu sagedamini kui G DATA. Ja kui rääkida kvaliteedist, on G DATA maailmas juhtpositsioonil, ühendades oma viirusetõrjetoodetes maailma parimad turbetehnoloogiad. Selle näideteks on DoubleScan tehnoloogia, millel on kaks sõltumatut viiruseskännerit ja ülikiire OutbreakShield tõrje.</strong></em></p>
-                <button id="ForHome" type="button" className="btn btn-primary"><strong>For Home</strong></button>
-                <button id="ForBusiness" type="button" className="btn btn-primary"><strong>For Business</strong></button>
-                 
-               
-                <img id="avast" className="img" alt="" src={avast} />             
-                 <p id="productText"><em><strong>Nii kodus kui töö juures, nii töölaual kui ka veebis tegutsemiseks ning kõikide seadmete jaoks pakub Office tööriistu, millega ülesanded tehtud saavad.  Office 365 paindlike tellimislepingute seast saate valida just teile sobiva.</strong></em></p>
-                <button id="ForHome" type="button" className="btn btn-primary"><strong>For Home</strong></button>
-                <button id="ForBusiness" type="button" className="btn btn-primary"><strong>For Business</strong></button>
-                </div>   
-                </div>
-                
-                
-              
-
-              </div>
-                
-        
-    
-          <div classname="text-md-center">
+       <ProductsIntro gridItems={products} />
+        <div className="text-md-center">
           <p id="h1Text">meie kliendid</p>
         </div>
-          <div id="containerRight" className="container">
-            <p>
-              <big>
-                <strong>
-                  <em>
-                    Pilvelahendused, IT haldus, IT-susteemide ulesehitus ja
-                    hooldus, arvutivorgud, infoturve, varundus-sustemid,
-                    kasut-ajatugi, Business Intelligence,
-                  </em>
-                </strong>
-              </big>
-            </p>
-          </div>
-        
+        <div id="containerRight" className="container">
+          <p>
+            <big>
+              <strong>
+                <em>
+                  Pilvelahendused, IT haldus, IT-susteemide ulesehitus ja
+                  hooldus, arvutivorgud, infoturve, varundus-sustemid,
+                  kasut-ajatugi, Business Intelligence,
+                </em>
+              </strong>
+            </big>
+          </p>
+        </div>
       </div>
-    
-    <div className="text-md-center col-lg">
-      <div classname="text-md-center col-lg">
+
+      <div className="text-md-center col-lg">
+        <div className="text-md-center col-lg">
           <p id="h1Text">mida ja kuidas saab teha, loe siin...</p>
         </div>
-      <TextCard gridItems={TextCards}  />
-      <div id="low" className="text-md-center">
-        <p>
-          Pöörduge julgelt ka väikeste it murede
-          <br />
-          puhul:
-        </p>
-        <div id="num" className="text-md-center">
-          <h1 id="num">
-            <small>
-              <strong>+372 665 48 28</strong>
-            </small>
-          </h1>
+        <TextCard gridItems={TextCards} />
+        <div id="low" className="text-md-center">
           <p>
-            <big>+372 5 096 244</big>
+            Pöörduge julgelt ka väikeste it murede
+            <br />
+            puhul:
           </p>
-          <h1 id="num">
-            <small>
-              <strong>support@amblik.ee</strong>
-            </small>
-          </h1>
+          <div id="num" className="text-md-center">
+            <h1 id="num">
+              <small>
+                <strong>+372 665 48 28</strong>
+              </small>
+            </h1>
+            <p>
+              <big>+372 5 096 244</big>
+            </p>
+            <h1 id="num">
+              <small>
+                <strong>support@amblik.ee</strong>
+              </small>
+            </h1>
+          </div>
         </div>
       </div>
-    </div>
     </Layout>
   </>
-)
+);
 
-
- const IndexPage = ({ data }) => {
-  
+const IndexPage = ({ data }) => {
   return (
-   
     <IndexPageTemplate
-     
       heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
       img={data.prismic.allHome_pages.edges[0].node.img}
       intro={data.prismic.allHome_pages.edges[0].node.blurbs}
@@ -154,8 +109,8 @@ const IndexPageTemplate = ({
         data.prismic.allHome_pages.edges[0].node.heading_description[0].text
       }
       TextCards={data.prismic.allHome_pages.edges[0].node.textcards}
+      products={data.prismic.allHome_pages.edges[0].node.products_intro}
     />
-    
   );
 };
 
@@ -178,10 +133,22 @@ export const pageQuery = graphql`
             blurbs {
               title
               description
-              button  
+              button
+            }
+            products_intro {
+              product_decription
+              product_image
+              product_imageSharp {
+                childImageSharp {
+                  fluid(quality: 70){
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }
       }
     }
-  }`
+  }
+`;
