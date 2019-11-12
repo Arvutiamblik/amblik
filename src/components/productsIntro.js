@@ -27,12 +27,18 @@ const Intro = ({ item }) => (
         <strong>{item.product_decription[0].text}</strong>
       </em>
     </p>
-    <button id="ForHome" type="button" className="btn btn-primary">
+    <div className= "row">
+    <div className="col-5">
+    <button  type="button" className="btn btn-primary ForHome">
       <strong>For Home</strong>
     </button>
-    <button id="ForBusiness" type="button" className="btn btn-primary">
+    </div>
+    <div className="col-5">
+    <button  type="button" className="btn btn-primary ForBusiness">
       <strong>For Business</strong>
     </button>
+    </div>
+    </div>
   </>
 );
 export default ProdudctsIntro; 
