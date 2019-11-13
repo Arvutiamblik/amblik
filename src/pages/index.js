@@ -31,20 +31,17 @@ const IndexPageTemplate = ({
           <div className="col">
             <div className="bs-example float-right">
               <div className="dropdown text-right">
-                {/*   <Link to="/">ee</Link>
-                 <Link to="/ru">ru</Link> */}
               </div>
             </div>
           </div>
         </div>
       </div>
-
+      <div className="container">
       <div id="mid" className="text-md-center col-lg">
         <div className="text-md-center col-lg">
           <p id="h1Text">{heading}</p>
         </div>
-
-        <Features gridItems={intro} delimiter={2} />
+        <Features gridItems={intro} delimiter={2} enableButton />
         <div className="text-md-center col-lg">
           <p id="h1Text">Products</p>
         </div>
@@ -66,7 +63,6 @@ const IndexPageTemplate = ({
           </p>
         </div>
       </div>
-
       <div className="text-md-center col-lg">
         <div className="text-md-center col-lg">
           <p id="h1Text">mida ja kuidas saab teha, loe siin...</p>
@@ -94,6 +90,7 @@ const IndexPageTemplate = ({
             </h1>
           </div>
         </div>
+      </div>
       </div>
     </Layout>
   </>

@@ -35,7 +35,7 @@ return (
                 <Link to="/ru"><option  data-content='<span class="flag-icon flag-icon-mx"></span> '>Español</option></Link>
                 </select>
                <a href="#" id="language"><strong>eng</strong><img id="strelka" className="img" alt="" src={language} />  </a>
-               <button id="support" type="button" classname="btn btn-primary"><Link to="/support/"><strong>SUPPORT</strong></Link></button>
+               <button id="support" type="button" className="btn btn-primary"><Link to="/support/"><strong>SUPPORT</strong></Link></button>
                
         </div>
 

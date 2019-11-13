@@ -20,7 +20,9 @@ return(
 const Intro = ({ item }) => (
   <>
   <div style={{  width: '250px'}}>
-   <Img fluid={item.product_imageSharp.childImageSharp.fluid} />
+   <Img 
+   fluid={item.product_imageSharp.childImageSharp.fluid} 
+   />
    </div>
     <p className="productText" style={{ marginTop: '20px'}}>
       <em>
