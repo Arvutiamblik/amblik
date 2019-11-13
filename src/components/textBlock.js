@@ -1,33 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-const TextBlock = ({ item }) => (
-  <div key={item.blockHeading} className='col-lg-6 col-md-6 col-xs-12'>
+const TextBlock = ({ item, delimiter, enableButton}) => (
+  <div key={item.blockHeading} className={`col-lg-${12 / delimiter}  col-md-${12 / delimiter} col-xs-12`}>
     <h1 id="headerText">{item.title[0].text}</h1>
-    <p id="headerText">
-      <em>
+    <p >
+      
         <strong>{item.description[0].text}</strong>
-      </em>
+      
     </p>
-    <button type='button' class='btn btn-primary'>
+     {enableButton == true &&
+    <button type='button' className='btn btn-primary'>
       <strong>{item.button[0].text}</strong>
     </button>
+    }
   </div>
 );
 
-const FeatureGrid = ({ gridItems, delimiter }) => (
-  <div id="containerRight" className='container'>
+const FeatureGrid = ({ gridItems, delimiter, enableButton }) => (
+ 
     <div className='row'>
       {gridItems.map((item, index) =>
-        index % delimiter === 0 ? (
-          <TextBlock item={item} />
+        (index + 1) % delimiter === 0 ? (
+          enableButton === true ? (
+            [<TextBlock item={item} delimiter={delimiter} enableButton />]) :(
+              [<TextBlock item={item} delimiter={delimiter}  />] )
         ) : (
-          [<TextBlock item={item} />, <div className='w-100' />]
+          enableButton === true ? (
+          [<TextBlock item={item} delimiter={delimiter} enableButton />])
+          : ( 
+          [<TextBlock item={item} delimiter={delimiter}  />])
+           )
         )
-      )}
+      }
     </div>
-  </div>
+ 
 );
 
 FeatureGrid.propTypes = {

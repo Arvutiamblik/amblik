@@ -7,11 +7,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
-import i18n from '../../config/i18n'
-import { useStaticQuery, graphql, Link } from 'gatsby'
 import corners from '../images/corners.svg'
 import Menu from "./menu.js"
-const LocaleContext = React.createContext()
+
  
 const Layout = ({ children }) => {
  
