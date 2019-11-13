@@ -10,16 +10,18 @@ return (
                <a href="#" id="link_button"><strong>SHOP</strong></a>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
                <a href="#" id="link_button"><strong>SHOP</strong></a>
-               <div class="dropdown">
-  <button class="dropbtn" onclick="myFunction()">Dropdown
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-content" id="myDropdown">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-  </div> 
+                 <div id="dropdownMenuRight">
+                  <input id="menu-toggle" type="checkbox" />
+                <label id="menu-label" for="menu-toggle">
+                <a  id="menu-icon" >AAA <img id="strelka" className="img" alt="" src={language} />  </a>
+                </label>
+                   <ul id="collapse-menu">
+                       <li><Link to="/">ee</Link></li>
+                       <li><Link to="/ru">ru</Link></li>
+                       
+                </ul>
+                </div>
+
                {/* <div  class="dropdown" id="dropdownLanguage" >
                         <button  class="btn btn-secondary dropdown-toggle" type="dropdown" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                        language
@@ -30,15 +32,13 @@ return (
     
                      </div>
                 </div> */}
-                <select class="selectpicker" data-width="fit">
-               <option data-content='<span class=""></span>'href="/" >  English</option>
-                <Link to="/ru"><option  data-content='<span class="flag-icon flag-icon-mx"></span> '>Español</option></Link>
-                </select>
-               <a href="#" id="language"><strong>eng</strong><img id="strelka" className="img" alt="" src={language} />  </a>
+            
+               {/* <a href="#" id="language"><strong>eng</strong><img id="strelka" className="img" alt="" src={language} />  </a> */}
                <button id="support" type="button" className="btn btn-primary"><Link to="/support/"><strong>SUPPORT</strong></Link></button>
                
         </div>
-
+   
+        
         </header>
 )
 }
