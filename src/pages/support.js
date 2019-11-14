@@ -24,7 +24,7 @@ const SupportPageTemplate = ({
       <div className="text-md-center col-lg">
         <p id="headerBigCenter">
           <small>
-            <strong>{location.pathname}</strong>
+            <strong>{chooseYourPlan}</strong>
           </small>
         </p>
       </div>
