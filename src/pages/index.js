@@ -12,7 +12,8 @@ const IndexPageTemplate = ({
   heading,
   img,
   products,
-  pageContext 
+  pageContext,
+  location
 }) => (
   <>
     <img id="logoPicture" className="img" alt="background" src={img.url} />
