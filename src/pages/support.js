@@ -9,7 +9,8 @@ const SupportPageTemplate = ({
   heading,
   pros,
   description,
-  chooseYourPlan
+  chooseYourPlan,
+  
 }) => (
   <>
     <div className="container">
@@ -23,7 +24,7 @@ const SupportPageTemplate = ({
       <div className="text-md-center col-lg">
         <p id="headerBigCenter">
           <small>
-            <strong>{chooseYourPlan}</strong>
+            <strong>{location.pathname}</strong>
           </small>
         </p>
       </div>
@@ -188,9 +189,13 @@ const SupportPageTemplate = ({
     </div>
   </>
 );
-const Support = ({ data }) => {
+const Support = ({ data, pageContext, location }) => {
   return (
-    <Layout>
+    <Layout 
+    pageLanguage={pageContext.siteLanguage} 
+    languagePrefix={pageContext.languagePrefix} 
+    location={location} 
+    >
       <SupportPageTemplate
         pros={data.prismic.allSupports.edges[0].node.pros}
         title={data.prismic.allSupports.edges[0].node.title[0].text}

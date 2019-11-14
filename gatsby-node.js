@@ -15,7 +15,7 @@ exports.onCreatePage = ({ page, actions }) => {
 
   Object.keys(locales).map(lang => {
     // Remove the trailing slash from the path, e.g. --> /categories
-    //page.path = replaceTrailing(page.path)
+    // page.path = replaceTrailing(page.path)
 
     // Remove the leading AND traling slash from path, e.g. --> categories
    // const name = replaceBoth(page.path)
@@ -30,14 +30,15 @@ exports.onCreatePage = ({ page, actions }) => {
     const localizedPath = locales[lang].default ? page.path : `${locales[lang].path}${page.path}`
 
 
-    return createPage({
-      
+    createPage({
       ...page,
       path: localizedPath,
      context: {
       ...page.context,
       locale: lang,
       name,
+      languagePrefix: locales[lang].prefix,
+      siteLanguage: locales[lang].siteLanguage
      }
      
     })

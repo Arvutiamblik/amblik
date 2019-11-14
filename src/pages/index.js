@@ -11,11 +11,16 @@ const IndexPageTemplate = ({
   TopDescription,
   heading,
   img,
-  products
+  products,
+  pageContext 
 }) => (
   <>
     <img id="logoPicture" className="img" alt="background" src={img.url} />
-    <Layout>
+    <Layout
+    pageLanguage={pageContext.siteLanguage} 
+    languagePrefix={pageContext.languagePrefix}
+    location={location}
+    >
       <div id="otstup" className="container">
         <div className="row">
           <div className="col-lg-5 col-md-6 col-xs-12">
@@ -25,7 +30,7 @@ const IndexPageTemplate = ({
               </em>
             </p>
             <button type="button" className="btn btn-primary">
-              <strong>Loe veel</strong>
+<strong>{pageContext.siteLanguage}</strong>
             </button>
           </div>
           <div className="col">
@@ -96,7 +101,7 @@ const IndexPageTemplate = ({
   </>
 );
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, pageContext, location }) => {
   return (
     <IndexPageTemplate
       heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
@@ -107,6 +112,8 @@ const IndexPage = ({ data }) => {
       }
       TextCards={data.prismic.allHome_pages.edges[0].node.textcards}
       products={data.prismic.allHome_pages.edges[0].node.products_intro}
+      pageContext={pageContext}
+      location={location}
     />
   );
 };

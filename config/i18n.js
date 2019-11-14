@@ -4,8 +4,9 @@ module.exports = {
   'et-et': {
     default: true,
     path: 'et-et',
+    prefix: '',
     locale: 'et-et',
-    siteLanguage: 'et',
+    siteLanguage: 'ee',
     ogLang: 'et-et',
     defaultTitle: website.title,
     defaultTitleAlt: website.titleAlt,
@@ -25,6 +26,7 @@ module.exports = {
     path: 'ru',
     locale: 'ru',
     siteLanguage: 'ru',
+    prefix: 'ru/',
     ogLang: 'ru',
     defaultTitle: website.title,
     defaultTitleAlt: website.titleAlt,
