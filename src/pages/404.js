@@ -4,8 +4,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 
-const NotFoundPage = () => (
-  <Layout>
+const NotFoundPage = ({pageContext, location }) => (
+  <Layout
+  pageLanguage={pageContext.siteLanguage} 
+  languagePrefix={pageContext.languagePrefix}
+  location={location}
+  >
     <SEO title="404: Not found" />
     <h1>NOT FOUND</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
