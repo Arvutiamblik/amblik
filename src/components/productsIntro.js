@@ -29,16 +29,18 @@ const Intro = ({ item }) => (
         <strong>{item.product_decription[0].text}</strong>
       </em>
     </p>
+    <div className="container">  
     <div className= "row">
-    <div className="col-5">
-    <button  type="button" className="btn btn-primary ForHome">
+    <div className="">
+    <button id="ForHome" type="button" className="btn btn-primary">
       <strong>For Home</strong>
     </button>
     </div>
-    <div className="col-5">
-    <button  type="button" className="btn btn-primary ForBusiness">
+    <div className="">
+    <button id="ForBusiness" type="button" className="btn btn-primary">
       <strong>For Business</strong>
     </button>
+    </div>
     </div>
     </div>
   </>

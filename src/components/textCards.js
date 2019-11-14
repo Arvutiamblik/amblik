@@ -2,7 +2,7 @@ import React from "react";
 
 
 const TextCardGrid = ({ gridItems }) => (
-  <div className="container">
+  <div id="containerRight" className="container">
     <div className="row">
       {gridItems.map((item , index) => (
         index % 2 === 0 ? (

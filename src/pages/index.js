@@ -41,8 +41,8 @@ const IndexPageTemplate = ({
           </div>
         </div>
       </div>
-      <div className="container">
-      <div id="mid" className="text-md-center col-lg">
+      <div id="containerRight" className="container">
+      <div id="mid" className="col-lg">
         <div className="text-md-center col-lg">
           <p id="h1Text">{heading}</p>
         </div>

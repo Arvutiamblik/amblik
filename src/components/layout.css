@@ -137,6 +137,11 @@ body {
   margin-bottom: 30px;
   
 }
+
+#paddingButton{
+  margin-bottom: 20px;
+}
+
 #dropdownMenuRight{
   float:right;
   color:white;
@@ -223,13 +228,14 @@ input:not(:checked) ~ #collapse-menu {
   padding-top: 40px;
   font-family: "Century Gothic", sans;
   font-weight: bolder;
-  font-size: 25pt;
+  font-size: 24pt;
   margin-bottom: 30px;
   text-align: center;
 }
 
 #containerRight{
   padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 #support{
@@ -319,15 +325,15 @@ input:not(:checked) ~ #collapse-menu {
   }
 
   #ForHome {
-    float: left;
-    margin-right: 0px;
-    
+    float: left;  
+    margin-right: 5px;
+    width: 145px !important;
     }
   #ForBusiness {
     float: right;
+    width: 145px !important;
     margin-bottom: 35px;
 }
-
 }
 
 .text-md-center{
@@ -459,7 +465,7 @@ a{
  
 }
 #mid{
-	padding-top:40%;
+	padding-top:47%;
 }
 
 #leftText{

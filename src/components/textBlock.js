@@ -10,7 +10,7 @@ const TextBlock = ({ item, delimiter, enableButton}) => (
       
     </p>
      {enableButton == true &&
-    <button type='button' className='btn btn-primary'>
+    <button id="paddingButton" type='button' className='btn btn-primary'>
       <strong>{item.button[0].text}</strong>
     </button>
     }
