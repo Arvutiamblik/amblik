@@ -6,9 +6,13 @@ import windows from "../images/windows.png"
 import apple from "../images/apple.png"
 import esetProd from "../images/eset-nod32.png"
 
-const ShopPage = () => (
+const ShopPage = ({pageContext, location}) => (
 
-<Layout>
+<Layout
+ pageLanguage={pageContext.siteLanguage} 
+ languagePrefix={pageContext.languagePrefix}
+ location={location}
+>
 
         <div className="container">
           <img className="eset" alt="eset" src={eset} />
