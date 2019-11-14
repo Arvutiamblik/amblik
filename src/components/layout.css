@@ -161,6 +161,9 @@ li {
   transition: transform 0.3s;
   transform-origin: top;
 }
+#menu-label{
+  cursor: pointer;
+}
 
 input:not(:checked) ~ #collapse-menu {
   transform: scaleY(0);
