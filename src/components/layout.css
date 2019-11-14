@@ -147,6 +147,7 @@ body {
   color:white;
   font-weight: bolder;
   list-style-type: none;
+  margin-top: 95px;
 }
 li {
   list-style-type: none;
@@ -215,11 +216,30 @@ input:not(:checked) ~ #collapse-menu {
 	padding-top:50% !important;
 }
 }
+
+@media (max-width: 576px){
+  #logo {
+    font-size: 48px !important;
+    margin-bottom: 33px;
+}
+  ul {
+  margin-top: 0;
+  margin-bottom: 0px !important;
+}
+}
+
 @media  (max-width: 767px) {
 
   #link_button {
     padding-right: 3%;
     z-index: 99999 !important;
+}
+#dropdownMenuRight{
+  float:right;
+  color:white;
+  font-weight: bolder;
+  list-style-type: none;
+  margin-top: 20px !important;
 }
 
 
@@ -228,7 +248,7 @@ input:not(:checked) ~ #collapse-menu {
   padding-top: 40px;
   font-family: "Century Gothic", sans;
   font-weight: bolder;
-  font-size: 24pt;
+  font-size: 23pt;
   margin-bottom: 30px;
   text-align: center;
 }
@@ -244,10 +264,12 @@ input:not(:checked) ~ #collapse-menu {
   border-radius: 100px;
   border-color: hotpink;
   background-color: hotpink !important;
-  width: 99px !important;
+  width: 84px !important;
   color: white;
   border-width: 0px;
   margin-right: 0px;
+  font-size: 13px;
+  text-align: center;
 
 }
 
@@ -342,7 +364,7 @@ input:not(:checked) ~ #collapse-menu {
 
 
 #logo{
-  font-size:60px !important;
+  font-size:60px;
 }
 .eset{
   width:230px;
@@ -432,7 +454,6 @@ p {
     border-radius: 100px;
     padding-top: 3px;
     padding-bottom: 3px;
-    padding-left: 3px;
     border-color:hotpink;
     background-color: hotpink !important;
     width: 150px !important;

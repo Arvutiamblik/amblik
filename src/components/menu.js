@@ -10,12 +10,7 @@ let path = pageLanguage === 'ee'  ?  location.pathname
 return (
     <header>
         <div id="headerPosition" className="container">
-               <h1 id="logo"><big><strong>amblik </strong></big></h1>
-               <a id="link_button"> <Link to={`${languagePrefix}`}><strong>HOME</strong></Link></a>
-               <a id="link_button"><Link to={`${languagePrefix}/support`}><strong>SUPPORT</strong></Link></a>
-               <a id="link_button"><strong>SHOP</strong></a>
-               <a id="link_button"><strong>SHOP</strong></a>
-                 <div id="dropdownMenuRight">
+        <div id="dropdownMenuRight">
                   <input id="menu-toggle" type="checkbox" />
                 <label id="menu-label" htmlFor="menu-toggle">
                 <a  id="menu-icon" >{pageLanguage} <img id="strelka" className="img" alt="" src={language} />  </a>
@@ -25,6 +20,12 @@ return (
                        <li><Link to={`/ru/${path}`}>ru</Link></li> 
                 </ul>
                 </div>
+               <h1 id="logo"><big><strong>amblik </strong></big></h1>
+               <a id="link_button"> <Link to={`${languagePrefix}`}><strong>HOME</strong></Link></a>
+               <a id="link_button"><Link to={`${languagePrefix}/support`}><strong>SUPPORT</strong></Link></a>
+               <a id="link_button"><strong>SHOP</strong></a>
+               <a id="link_button"><strong>SHOP</strong></a>
+                
                <button id="support" type="button" className="btn btn-primary"><Link to="/support/"><strong>SUPPORT</strong></Link></button>
         </div>  
         </header>
