@@ -9,7 +9,7 @@ export const BlogPageTemplate = ({
     img
 
    }) => (
-  <Layout>
+ <>
       <div className="container">
         <div className="main">
           <h1 id="blogHeader">Blog Test</h1>
@@ -17,7 +17,7 @@ export const BlogPageTemplate = ({
           <hr className="new1" /><br />
         </div>
         <p id="BlogText"><img src="{blog}" alt="blog" className="rightimg" />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
-        <div classname="text-md-center col-lg">
+        <div className="text-md-center col-lg">
           <p id="blogNextHeader">Järgmine lugu</p>
         </div>
       </div>     
@@ -29,14 +29,18 @@ export const BlogPageTemplate = ({
                   <p><big>+372 5 096 244</big></p>
                   <h1 id="num"><small><strong>support@amblik.ee</strong></small></h1>
                 </div></div>
-  </Layout>
+  </>
   )
 
 
-  const BlogPage = ({ data }) => {
+  const BlogPage = ({ data, pageContext, location }) => {
     
     return (
-      <Layout>
+      <Layout
+      pageLanguage={pageContext.siteLanguage} 
+      languagePrefix={pageContext.languagePrefix}
+      location={location}
+      >
         <BlogPageTemplate 
       
         />
