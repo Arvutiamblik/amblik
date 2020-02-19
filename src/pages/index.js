@@ -103,7 +103,7 @@ export const pageQuery = graphql`
               button_text
               service_page {
                 ... on PRISMIC_Services {
-                  url_page_name
+                  title
                 }
               }
             }
