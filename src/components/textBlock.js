@@ -1,40 +1,55 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-const TextBlock = ({ item, delimiter, enableButton}) => (
-  <div key={item.blockHeading} className={`col-lg-${12 / delimiter}  col-md-${12 / delimiter} col-xs-12`}>
-    <h1 id="headerText">{item.title[0].text}</h1>
-    <p >
-      
-        <strong>{item.description[0].text}</strong>
-      
-    </p>
-     {enableButton == true &&
-    <button id="paddingButton" type='button' className='btn btn-primary'>
-      <strong>{item.button[0].text}</strong>
-    </button>
-    }
-  </div>
+import React from "react";
+import Img from "gatsby-image";
+import { Link } from "gatsby"
+import PropTypes from "prop-types"
+const TextBlock = ({ item, delimiter, enableButton, img, languagePrefix }) => (
+  <>
+    {img && (
+      <div style={{ width: "250px" }}>
+        <Img fluid={item.product_imageSharp.childImageSharp.fluid} />
+      </div>
+    )}
+  
+    <div 
+      className={`col-lg-${12 / delimiter}  col-md-${12 / delimiter} col-xs-12`}
+    >
+      {item.title && 
+      <h2 id="headerText">{item.title}</h2>}
+      <p>
+        <strong>{item.description}</strong>
+      </p>
+      {enableButton === true && (
+         <Link to={`${languagePrefix}/${item.service_page.url_page_name}/`}>
+        <button id="paddingButton" type="button" className="btn btn-primary">
+         
+          <strong>{item.button_text}</strong>
+        </button>
+        </Link>
+      )}
+    </div>
+  </>
 );
 
-const FeatureGrid = ({ gridItems, delimiter, enableButton }) => (
- 
-    <div className='row'>
-      {gridItems.map((item, index) =>
-        (index + 1) % delimiter === 0 ? (
-          enableButton === true ? (
-            [<TextBlock item={item} delimiter={delimiter} enableButton />]) :(
-              [<TextBlock item={item} delimiter={delimiter}  />] )
-        ) : (
-          enableButton === true ? (
-          [<TextBlock item={item} delimiter={delimiter} enableButton />])
-          : ( 
-          [<TextBlock item={item} delimiter={delimiter}  />])
-           )
-        )
-      }
-    </div>
- 
+const FeatureGrid = ({ gridItems, delimiter, enableButton, img, languagePrefix }) => (
+  <div className="row">
+    {gridItems.map((item, index) =>
+      (index + 1) % delimiter === 0 ? (
+        <TextBlock
+          item={item}
+          delimiter={delimiter}
+          enableButton={enableButton}
+          languagePrefix={languagePrefix}
+        />
+      ) : (
+        <TextBlock
+          item={item}
+          delimiter={delimiter}
+          enableButton={enableButton}
+          languagePrefix={languagePrefix}
+        />
+      )
+    )}
+  </div>
 );
 
 FeatureGrid.propTypes = {
@@ -47,6 +62,4 @@ FeatureGrid.propTypes = {
   )
 };
 
-
 export default FeatureGrid;
- 

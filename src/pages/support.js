@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import agree from "../images/agree.png";
 import cancel from "../images/cancel.png";
 import minus from "../images/minus.png";
-import Features from "../components/textBlock";
+import TextBlock from "../components/textBlock";
 const SupportPageTemplate = ({
   title,
   heading,
@@ -20,7 +20,7 @@ const SupportPageTemplate = ({
     </div>
 
     <div className="container">
-     <Features gridItems={pros} delimiter={3}/>
+     <TextBlock gridItems={pros} delimiter={3}/>
       <div className="text-md-center col-lg">
         <p id="headerBigCenter">
           <small>

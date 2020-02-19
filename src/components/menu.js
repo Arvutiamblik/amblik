@@ -23,8 +23,6 @@ return (
                <h1 id="logo"><big><strong>amblik </strong></big></h1>
                <a id="link_button"> <Link to={`${languagePrefix}`}><strong>HOME</strong></Link></a>
                <a id="link_button"><Link to={`${languagePrefix}/support`}><strong>SUPPORT</strong></Link></a>
-               <a id="link_button"><strong>SHOP</strong></a>
-               <a id="link_button"><strong>SHOP</strong></a>
                 
                <button id="support" type="button" className="btn btn-primary"><Link to="/support/"><strong>SUPPORT</strong></Link></button>
         </div>  
