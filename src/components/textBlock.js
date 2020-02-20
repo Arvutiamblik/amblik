@@ -19,7 +19,7 @@ const TextBlock = ({ item, delimiter, enableButton, img, languagePrefix }) => (
         <strong>{item.description}</strong>
       </p>
       {enableButton === true && (
-         <Link to={`${languagePrefix}/${item.service_page.title}/`}>
+         <Link to={`${languagePrefix}/${item.service_page._meta.uid}/`}>
         <button id="paddingButton" type="button" className="btn btn-primary">
          
           <strong>{item.button_text}</strong>
