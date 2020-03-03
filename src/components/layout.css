@@ -585,7 +585,9 @@ th{
   border-bottom: 1px solid darkblue;
   border-radius: 0;
   color: #ffffff;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .comparison-card .card-header .card-title {
@@ -598,6 +600,9 @@ th{
   color: #ffffff;
   border-bottom: 1px solid #ffffff;
   padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .comparison-card .card-body:last-child {
@@ -608,4 +613,120 @@ th{
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 0;
+}
+
+.comparison {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.comparison table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.comparison td,
+.comparison th {
+  empty-cells: show;
+  padding: 10px;
+}
+
+.compare-heading {
+  font-size: 18px;
+  font-weight: bold !important;
+  border-bottom: 0 !important;
+  padding-top: 10px !important;
+}
+
+.comparison tbody tr:nth-child(odd) {
+  display: none;
+}
+
+.comparison td {
+  border-bottom: 1px solid #ffffff;
+}
+
+.comparison tr:last-child td {
+  border-bottom: 0;
+}
+
+.comparison th {
+  font-weight: normal;
+  padding: 0;
+}
+
+.comparison tr td:first-child {
+  text-align: left;
+}
+  
+.comparison .compare-subheading {
+  color: #ffffff;
+  font-size: 13px;
+  border-bottom: 0;
+}
+
+.comparison .price-info {
+  padding: 5px 15px 15px 15px;
+}
+
+.comparison .price {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.comparison .price-btn {
+  background: hotpink;
+  padding: 5px 20px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 100px;
+  text-transform: uppercase;
+  margin: 5px 0 10px 0;
+}
+
+@media (max-width: 767px) {
+  .comparison td:first-child, .comparison th:first-child {
+    display: none;
+  }
+  .comparison tbody tr:nth-child(odd) {
+    display: table-row;
+  }
+  .comparison .row {
+    background: #FFF;
+  }
+  .price-info {
+    border-top: 0 !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .comparison .price-btn {
+    padding: 5px 10px;
+  }
+  .comparison td,
+  .comparison th {
+    padding: 10px 5px;
+  }
+  .comparison .hide-mobile {
+    display:none;
+  }
+  .comparison .price {
+    font-size: 16px;
+  }
+  .comparison .compare-subheading {
+    font-size: 12px;
+    padding: 10px 5px;
+  }
+  .comparison .price-buy {
+    margin-top: 10px;
+  }
+  .compare-heading {
+  font-size: 13px;
+  }
 }
