@@ -3,33 +3,25 @@ import agree from "../images/agree.png";
 import cancel from "../images/cancel.png";
 import minus from "../images/minus.png";
 
-const ServicePlan = () => (
+const ServicePlan = ({ servicePlans }) => (
   <div className="comparison">
     <table>
       <thead>
         <tr>
           <th className="compare-heading"></th>
-          <th className="compare-heading">
-            Prepaid time
-          </th>
-          <th className="compare-heading">
-            Fixed fee
-          </th>
-          <th className="compare-heading">
-            Without an agreement
-          </th>
+          {servicePlans.map((servicePlan, index) => 
+            <th key={index} className="compare-heading">
+              {servicePlan.service_plan_title}
+            </th>
+          )}
         </tr>
         <tr>
           <th className="compare-subheading"></th>
-          <th className="compare-subheading">
-            All services are provided at a reduced rate
-          </th>
-          <th className="compare-subheading">
-            Strict budget for the IT support
-          </th>
-          <th className="compare-subheading">
-            One-time jobs
-          </th>
+          {servicePlans.map((servicePlan, index) => 
+            <th key={index} className="compare-subheading">
+              {servicePlan.service_plan_description}
+            </th>
+          )}
         </tr>
         <tr>
           <th></th>

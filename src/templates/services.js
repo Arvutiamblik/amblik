@@ -10,7 +10,7 @@ const SupportPageTemplate = ({
   pros,
   description,
   chooseYourPlan,
-  
+  servicePlans
 }) => (
   <>
     <div className="container">
@@ -29,7 +29,7 @@ const SupportPageTemplate = ({
         </p>
       </div>
 
-      <ServicePlan />
+      <ServicePlan servicePlans={servicePlans} />
 
       <div id="low" className="text-md-center">
         <p>
@@ -58,6 +58,11 @@ const SupportPageTemplate = ({
 );
 const Services = ({ data, pageContext, location }) => {
     const cms = data.prismic.allServicess.edges.slice(0,1).pop();
+    const cmsServicePlans = data.prismic.allService_plans.edges;
+    const pageToDisplay = cmsServicePlans.map(node => 
+      Object.values(node).map(node => node)
+    ).flat();
+    const servicePlans = pageToDisplay.filter(page => page.service_plan_page_to_display === cms.node._meta.uid);
 
   return (
     <Layout 
@@ -71,6 +76,7 @@ const Services = ({ data, pageContext, location }) => {
         description={cms.node.description[0].text}
         heading={cms.node.heading}
         chooseYourPlan={cms.node.choose_your_plan}
+        servicePlans={servicePlans}
       />
     </Layout>
   );
@@ -84,14 +90,36 @@ export const pageQuery = graphql`
         allServicess(lang: $locale, uid: $uid) {
         edges {
           node {
+            _meta {
+              uid
+            }
             pros {
-            pros_heading
-            pros_description
+              pros_heading
+              pros_description
             }
             description
             heading
             choose_your_plan
             title
+          }
+        }
+      }
+    }
+    prismic {
+      allService_plans(lang: $locale) {
+        edges {
+          node {
+            service_plan_title
+            service_plan_page_to_display
+            selected_service_plan
+            service_plan_description
+            service_plan_option {
+              service_plan_option_description
+              service_plan_option_image
+              service_plan_option_subtitle
+              service_plan_option_title
+              service_plan_option_small_description
+            }
           }
         }
       }
