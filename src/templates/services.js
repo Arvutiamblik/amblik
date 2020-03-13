@@ -58,10 +58,10 @@ const SupportPageTemplate = ({
 );
 const Services = ({ data, pageContext, location }) => {
     const cms = data.prismic.allServicess.edges.slice(0,1).pop();
-    const cmsServicePlans = data.prismic.allService_plans.edges;
-    const pageToDisplay = cmsServicePlans.map(node => Object.values(node)).flat();
-    const servicePlans = pageToDisplay.filter(page => page.service_plan_page_to_display === cms.node._meta.uid);
-
+    // const cmsServicePlans = data.prismic.allService_plans.edges;
+    // const pageToDisplay = cmsServicePlans.map(node => Object.values(node)).flat();
+    // const servicePlans = pageToDisplay.filter(page => page.service_plan_page_to_display === cms.node._meta.uid);
+    const servicePlans = data.prismic.allIt_support_service_plans.edges.slice(0,1).pop().node;
   return (
     <Layout 
     pageLanguage={pageContext.siteLanguage} 
@@ -117,6 +117,32 @@ export const pageQuery = graphql`
               service_plan_option_subtitle
               service_plan_option_title
               service_plan_option_small_description
+            }
+          }
+        }
+      }
+    }
+    prismic {
+      allIt_support_service_plans(lang: $locale, uid: $uid) {
+        edges {
+          node {
+            guaranteed_prompt_response_header
+            guaranteed_confidentiality_header
+            financial_guarantee_of_confidentiality_header
+            hourly_payment_header
+            minimum_time_for_performing_work_on_site_header
+            minimum_time_for_performing_work_in_remote_mode_header
+            it_support_service_plan {
+              financial_guarantee_of_confidentiality
+              guaranteed_confidentiality
+              guaranteed_prompt_response
+              hourly_payment
+              it_support_button
+              it_support_monthly_price
+              it_support_subtitle
+              it_support_title
+              minimum_time_for_performing_work_in_remote_mode
+              minimum_time_for_performing_work_on_site
             }
           }
         }

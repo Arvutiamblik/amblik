@@ -35,6 +35,7 @@ const FeatureGrid = ({ gridItems, delimiter, enableButton, img, languagePrefix }
     {gridItems.map((item, index) =>
       (index + 1) % delimiter === 0 ? (
         <TextBlock
+          key={index}
           item={item}
           delimiter={delimiter}
           enableButton={enableButton}
@@ -42,6 +43,7 @@ const FeatureGrid = ({ gridItems, delimiter, enableButton, img, languagePrefix }
         />
       ) : (
         <TextBlock
+          key={index}
           item={item}
           delimiter={delimiter}
           enableButton={enableButton}
