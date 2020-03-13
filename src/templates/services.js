@@ -58,9 +58,6 @@ const SupportPageTemplate = ({
 );
 const Services = ({ data, pageContext, location }) => {
     const cms = data.prismic.allServicess.edges.slice(0,1).pop();
-    // const cmsServicePlans = data.prismic.allService_plans.edges;
-    // const pageToDisplay = cmsServicePlans.map(node => Object.values(node)).flat();
-    // const servicePlans = pageToDisplay.filter(page => page.service_plan_page_to_display === cms.node._meta.uid);
     const servicePlans = data.prismic.allIt_support_service_plans.edges.slice(0,1).pop().node;
   return (
     <Layout 
