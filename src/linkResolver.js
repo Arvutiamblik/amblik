@@ -1,4 +1,5 @@
-module.exports = function linkResolver(doc) {
+exports.linkResolver = function linkResolver(doc) {
+
     const lang = doc.lang === "et-et" ? "ee" : 
      doc.lang === "en-us" ? "eng" :  doc.lang
     if (doc) {
