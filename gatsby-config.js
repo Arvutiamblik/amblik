@@ -52,7 +52,9 @@ module.exports = {
     resolve: 'gatsby-source-prismic-graphql',
       options: {
         repositoryName: 'amblik', // (REQUIRED, replace with your own)
+        path: '/preview',
         previews: true,
+ 
         
         pages: [{
           type: 'Services',
