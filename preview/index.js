@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/layout";
-import TextBlock from "../components/textBlock";
+import Layout from "../src/components/layout";
+import TextBlock from "../src/components/textBlock";
 import { graphql } from "gatsby";
 import {withPrismicPreview  } from 'gatsby-plugin-prismic-preview';
 const IndexPageTemplate = ({
