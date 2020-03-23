@@ -7,7 +7,7 @@ exports.linkResolver = function linkResolver(doc) {
           return `/${lang}`;
         case 'IT Support service plans':
           return `${lang}/it-support`;
-        case `${lang}/{doc.uid}`:
+        case `${lang}/${doc.uid}`:
           return `/${doc.uid}`;
           case 'support':
           return `${lang}/${doc.uid}`;
