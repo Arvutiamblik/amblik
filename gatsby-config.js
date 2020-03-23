@@ -61,7 +61,11 @@ module.exports = {
           match: '/:uid',
           path: '/services',
           component: require.resolve('./src/templates/services.js')
-        }],
+        },
+      {  type: 'Home_page',
+      path: '/',
+      component: require.resolve('./src/pages/index.js')
+    }],
        
        
     }
