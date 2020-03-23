@@ -10,7 +10,8 @@ const SupportPageTemplate = ({
   pros,
   description,
   chooseYourPlan,
-  servicePlans
+  uid,
+  itSupportServicePlans
 }) => (
   <>
     <div className="container">
@@ -29,7 +30,7 @@ const SupportPageTemplate = ({
         </p>
       </div>
 
-      <ServicePlan servicePlans={servicePlans} />
+      <ServicePlan itSupportServicePlans={itSupportServicePlans} uid={uid} />
 
       <div id="low" className="text-md-center">
         <p>
@@ -56,15 +57,15 @@ const SupportPageTemplate = ({
     </div>
   </>
 );
+
 const Services = ({ data, pageContext, location }) => {
-    const cms = data.prismic.allServicess.edges.slice(0,1).pop();
-    console.log(data);
-    const servicePlans = data.prismic.allIt_support_service_plans.edges[0].node;
+  const cms = data.prismic.allServicess.edges.slice(0,1).pop();
+  const itSupportServicePlans = data.prismic.allIt_support_service_plans.edges[0].node;
   return (
     <Layout 
-    pageLanguage={pageContext.siteLanguage} 
-    languagePrefix={pageContext.languagePrefix} 
-    location={location} 
+      pageLanguage={pageContext.siteLanguage} 
+      languagePrefix={pageContext.languagePrefix} 
+      location={location} 
     >
       <SupportPageTemplate
         pros={cms.node.pros}
@@ -72,7 +73,8 @@ const Services = ({ data, pageContext, location }) => {
         description={cms.node.description[0].text}
         heading={cms.node.heading}
         chooseYourPlan={cms.node.choose_your_plan}
-        servicePlans={servicePlans}
+        itSupportServicePlans={itSupportServicePlans}
+        uid={pageContext.uid}
       />
     </Layout>
   );
@@ -102,28 +104,12 @@ export const pageQuery = graphql`
       }
     }
     prismic {
-      allService_plans(lang: $locale) {
-        edges {
-          node {
-            service_plan_title
-            service_plan_page_to_display
-            selected_service_plan
-            service_plan_description
-            service_plan_option {
-              service_plan_option_description
-              service_plan_option_image
-              service_plan_option_subtitle
-              service_plan_option_title
-              service_plan_option_small_description
-            }
-          }
-        }
-      }
-    }
-    prismic {
       allIt_support_service_plans(lang: $locale) {
         edges {
           node {
+            _meta {
+              uid
+            }
             guaranteed_prompt_response_header
             guaranteed_confidentiality_header
             financial_guarantee_of_confidentiality_header
