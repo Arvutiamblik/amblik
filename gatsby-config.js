@@ -59,7 +59,7 @@ module.exports = {
           path: '/services',
           component: require.resolve('./src/templates/services.js')
         }],
-        
+       linkResolver:require('./src/linkResolver')
     }
   },
   {
