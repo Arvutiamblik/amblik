@@ -1,6 +1,5 @@
 exports.linkResolver = function linkResolver(doc) {
-
-    const lang = doc.lang === "et-et" ? "ee" : 
+    const lang = doc.lang === "et-et" ? "" : 
      doc.lang === "en-us" ? "eng" :  doc.lang
     if (doc) {
       switch (doc.type) {
