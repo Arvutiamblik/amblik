@@ -12,7 +12,8 @@ exports.linkResolver = function linkResolver(doc) {
           return `/${doc.uid}`;
           case 'support':
           return `${lang}/${doc.uid}`;
-  
+          case 'Services':
+            return `${lang}/${doc.uid}`;
         default:
           if (doc.uid) {
             return `${lang}/${doc.uid}`;
