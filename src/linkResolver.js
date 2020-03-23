@@ -1,4 +1,4 @@
-odule.exports = function linkResolver(doc) {
+module.exports = function linkResolver(doc) {
     const lang = doc.lang === "et-et" ? "ee" : 
      doc.lang === "en-us" ? "eng" :  doc.lang
     if (doc) {
