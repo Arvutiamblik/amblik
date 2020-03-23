@@ -13,6 +13,7 @@
     "gatsby-plugin-manifest": "^2.2.41",
     "gatsby-plugin-offline": "^3.0.35",
     "gatsby-plugin-optimize-svgs": "^1.0.4",
+    "gatsby-plugin-prismic-preview": "^2.0.0",
     "gatsby-plugin-purgecss": "^4.0.1",
     "gatsby-plugin-react-helmet": "^3.1.22",
     "gatsby-plugin-sharp": "^2.4.5",

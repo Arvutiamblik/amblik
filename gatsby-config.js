@@ -59,7 +59,15 @@ module.exports = {
           path: '/services',
           component: require.resolve('./src/templates/services.js')
         }],
-        omitPrismicScript: true
+        
+    }
+  },
+  {
+    resolve: 'gatsby-plugin-prismic-preview',
+    options: {
+      repositoryName: 'amblik',
+      path: '/preview',
+      accessToken: 'MC5YYW13dEJBQUFDRUEwOVla.SUI6F1bvv73vv73vv73vv71t77-977-977-977-9HBbvv73vv73vv70n77-977-9WO-_ve-_ve-_ve-_vV_vv73vv73vv70F'
     }
   },
   {
@@ -69,6 +77,7 @@ module.exports = {
       path: `${__dirname}/src/images/`,
     },
   },
+  
  `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,
     'gatsby-plugin-optimize-svgs',
