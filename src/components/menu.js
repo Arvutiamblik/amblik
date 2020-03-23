@@ -24,7 +24,7 @@ return (
                <a id="link_button"> <Link to={`${languagePrefix}`}><strong>HOME</strong></Link></a>
               
                 
-               <button id="support" type="button" className="btn btn-primary"><Link to="/support/"><strong>SUPPORT</strong></Link></button>
+               <button id="support" type="button" className="btn btn-primary"><strong>SUPPORT</strong></button>
         </div>  
         </header>
 )
