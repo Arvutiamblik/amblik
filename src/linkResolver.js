@@ -3,7 +3,7 @@ exports.linkResolver = function linkResolver(doc) {
      doc.lang === "en-us" ? "eng" :  doc.lang
     if (doc) {
       switch (doc.type) {
-        case 'Home_page':
+        case 'home_page':
           return `/${lang}/`;
         case 'IT Support service plans':
           return `${lang}/it-support`;
