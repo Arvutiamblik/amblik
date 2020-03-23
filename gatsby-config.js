@@ -52,6 +52,7 @@ module.exports = {
     resolve: 'gatsby-source-prismic-graphql',
       options: {
         repositoryName: 'amblik', // (REQUIRED, replace with your own)
+        previews: true,
         accessToken: 'MC5YYW13dEJBQUFDRUEwOVla.SUI6F1bvv73vv73vv73vv71t77-977-977-977-9HBbvv73vv73vv70n77-977-9WO-_ve-_ve-_ve-_vV_vv73vv73vv70F', // (optional API access token)
         pages: [{
           type: 'Services',
@@ -59,17 +60,11 @@ module.exports = {
           path: '/services',
           component: require.resolve('./src/templates/services.js')
         }],
-       linkResolver: require('./src/linkResolver')
+       linkResolver: require('./src/linkResolver'),
+       
     }
   },
-  {
-    resolve: 'gatsby-plugin-prismic-preview',
-    options: {
-      repositoryName: 'amblik',
-      path: '/preview',
-      linkResolver: require('./src/linkResolver'),
-    }
-  },
+  
   {
     resolve: `gatsby-source-filesystem`,
     options: {
