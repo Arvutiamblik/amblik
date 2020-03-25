@@ -88,7 +88,7 @@ const IndexPage = ({ data, pageContext, location }) => {
 
 export default IndexPage;
 
-export const pageQuery = graphql`
+export const query = graphql`
   query IndexPage($locale: String!) {
     prismic {
       allHome_pages(lang: $locale) {
