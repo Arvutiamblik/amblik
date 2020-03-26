@@ -79,7 +79,7 @@ const Services = ({ data }) => {
   );
 };
 
-export default Services;
+
 
 export const query = graphql`
   query SupportPage($lang: String!) {
@@ -134,3 +134,4 @@ export const query = graphql`
     }
   }
 `;
+export default Services;
