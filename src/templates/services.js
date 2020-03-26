@@ -59,7 +59,7 @@ const SupportPageTemplate = ({
 );
 
 const Services = ({ data }) => {
-  const cms = data.prismic.allServicess.edges.slice(0,1).pop();
+  const cms = data.prismic.allServicess.edges[0];
   const itSupportServicePlans = data.prismic.allIt_support_service_plans.edges[0].node;
   return (
     <Layout 
