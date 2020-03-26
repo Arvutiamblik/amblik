@@ -54,9 +54,16 @@ module.exports = {
         repositoryName: 'amblik', // (REQUIRED, replace with your own)
         path: '/preview',
         previews: true,
- 
-        
+        shortenUrlLangs: true,
+        defaultLang: 'et-et',
         pages: [{
+          type: 'Home_page',
+          match: '/:lang?/',
+          path: '/home-prewview',
+          component: require.resolve('./src/templates/index.js'),
+          
+        },
+        {
           type: 'Services',
           match: '/:uid',
           path: '/services',
