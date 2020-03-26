@@ -81,7 +81,7 @@ const Services = ({ data }) => {
 
 export default Services;
 
-export const pageQuery = graphql`
+export const query = graphql`
   query SupportPage($lang: String!) {
     prismic {
         allServicess(lang: $lang) {
