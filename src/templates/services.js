@@ -58,14 +58,14 @@ const SupportPageTemplate = ({
   </>
 );
 
-const Services = ({ data, pageContext, location }) => {
+const Services = ({ data }) => {
   const cms = data.prismic.allServicess.edges.slice(0,1).pop();
   const itSupportServicePlans = data.prismic.allIt_support_service_plans.edges[0].node;
   return (
     <Layout 
-      pageLanguage={pageContext.siteLanguage} 
-      languagePrefix={pageContext.languagePrefix} 
-      location={location} 
+    lang={data.prismic.allServicess.edges[0].node._meta.lang}
+    uid={data.prismic.allServicess.edges[0].node._meta.uid}
+
     >
       <SupportPageTemplate
         pros={cms.node.pros}
@@ -74,7 +74,6 @@ const Services = ({ data, pageContext, location }) => {
         heading={cms.node.heading}
         chooseYourPlan={cms.node.choose_your_plan}
         itSupportServicePlans={itSupportServicePlans}
-        uid={pageContext.uid}
       />
     </Layout>
   );
@@ -83,13 +82,14 @@ const Services = ({ data, pageContext, location }) => {
 export default Services;
 
 export const pageQuery = graphql`
-  query SupportPage($locale: String!) {
+  query SupportPage($lang: String!) {
     prismic {
-        allServicess(lang: $locale) {
+        allServicess(lang: $lang) {
         edges {
           node {
             _meta {
               uid
+              lang
             }
             pros {
               pros_heading
@@ -104,7 +104,7 @@ export const pageQuery = graphql`
       }
     }
     prismic {
-      allIt_support_service_plans(lang: $locale) {
+      allIt_support_service_plans(lang: $lang) {
         edges {
           node {
             _meta {

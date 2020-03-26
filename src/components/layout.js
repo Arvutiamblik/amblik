@@ -11,13 +11,13 @@ import corners from '../images/corners.svg'
 import Menu from "./menu.js"
 
  
-const Layout = ({pageLanguage, languagePrefix, children, location}) => {
+const Layout = ({lang, children, uid=""}) => {
  
   return (
  
         <main>
              <img id="corners" className="img" alt="background" src={corners} />
-             <Menu pageLanguage={pageLanguage} languagePrefix={languagePrefix} location={location} />
+             <Menu lang={lang} uid={uid} />
         {children}
         </main>
   )

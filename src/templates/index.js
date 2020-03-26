@@ -3,48 +3,19 @@ import Layout from "../components/layout";
 import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
 
-export const query = graphql`
-  query IndexPage($lang: String) {
-    prismic {
-      allHome_pages(lang: $lang) {
-        edges {
-          node {
-            heading
-            heading_description
-            img
-           
-            services {
-              title
-              description
-              button_text
-              service_page {
-                ... on PRISMIC_Services {
-                  _meta {
-                  uid
-                  
-                }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
 const IndexPageTemplate = ({
   services,
   headerDescription,
   heading,
   img,
+  lang
   
-  location
 }) => (
   <>
     <img id="logoPicture" className="img" alt="background" src={img.url} />
     <Layout
-      location={location}
+      lang={lang}
     >
       <div id="otstup" className="container">
         <div className="row">
@@ -70,7 +41,7 @@ const IndexPageTemplate = ({
           <div className="text-md-center col-lg">
             <p id="h1Text">{heading}</p>
           </div>
-          <TextBlock gridItems={services} delimiter={2}  enableButton />
+          <TextBlock gridItems={services} delimiter={2} lang={lang}  enableButton />
 
           <div id="low" className="text-md-center">
             <p>
@@ -101,6 +72,7 @@ const IndexPageTemplate = ({
 );
 
 const IndexPage = ({ data }) => {
+  console.log(data)
   return (
     <IndexPageTemplate
       heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
@@ -109,12 +81,42 @@ const IndexPage = ({ data }) => {
       headerDescription={
         data.prismic.allHome_pages.edges[0].node.heading_description[0].text
       }
+     lang={data.prismic.allHome_pages.edges[0].node._meta.lang}
       
-      location={location}
     />
   );
 };
-
+export const query = graphql`
+  query IndexPage($lang: String) {
+    prismic {
+      allHome_pages(lang: $lang) {
+        edges {
+          node {
+            heading
+            heading_description
+            img
+            _meta {
+                  lang
+                }
+            services {
+              title
+              description
+              button_text
+              service_page {
+                ... on PRISMIC_Services {
+                  _meta {
+                  uid
+                  
+                }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 export default IndexPage;
 
 

@@ -52,10 +52,12 @@ module.exports = {
     resolve: 'gatsby-source-prismic-graphql',
       options: {
         repositoryName: 'amblik', // (REQUIRED, replace with your own)
-        path: '/preview',
-        previews: true,
+       path: '/preview',
+       previews: true,
+
         shortenUrlLangs: true,
         defaultLang: 'et-et',
+        langs: ['et-et', 'ru'],
         pages: [{
           type: 'Home_page',
           match: '/:lang?/',
@@ -65,7 +67,7 @@ module.exports = {
         },
         {
           type: 'Services',
-          match: '/:uid',
+          match: '/:lang?/:uid',
           path: '/services',
           component: require.resolve('./src/templates/services.js')
         },
