@@ -30,7 +30,7 @@ const SupportPageTemplate = ({
         </p>
       </div>
 
-      <ServicePlan itSupportServicePlans={itSupportServicePlans} uid={uid} />
+      <ServicePlan itSupportServicePlans={itSupportServicePlans}  />
 
       <div id="low" className="text-md-center">
         <p>
@@ -60,7 +60,7 @@ const SupportPageTemplate = ({
 
 const Services = ({ data }) => {
   const cms = data.prismic.allServicess.edges[0];
-  const itSupportServicePlans = data.prismic.allIt_support_service_plans.edges[0].node;
+  const itSupportServicePlans = data.prismic.allServicess.edges[0].node.service_plan;
   return (
     <Layout 
     lang={data.prismic.allServicess.edges[0].node._meta.lang}
@@ -99,39 +99,33 @@ export const query = graphql`
             heading
             choose_your_plan
             title
+            service_plan {
+            ... on PRISMIC_It_support_service_plan {
+              guaranteed_prompt_response_header
+              guaranteed_confidentiality_header
+              financial_guarantee_of_confidentiality_header
+              hourly_payment_header
+              minimum_time_for_performing_work_in_remote_mode_header
+              minimum_time_for_performing_work_on_site_header
+              it_support_service_plan {
+                financial_guarantee_of_confidentiality
+                guaranteed_confidentiality
+                guaranteed_prompt_response
+                hourly_payment
+                it_support_button
+                it_support_monthly_price
+                it_support_subtitle
+                it_support_title
+                minimum_time_for_performing_work_in_remote_mode
+                minimum_time_for_performing_work_on_site
+              }
+            }
+          }
           }
         }
       }
     }
-    prismic {
-      allIt_support_service_plans(lang: $lang) {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            guaranteed_prompt_response_header
-            guaranteed_confidentiality_header
-            financial_guarantee_of_confidentiality_header
-            hourly_payment_header
-            minimum_time_for_performing_work_on_site_header
-            minimum_time_for_performing_work_in_remote_mode_header
-            it_support_service_plan {
-              financial_guarantee_of_confidentiality
-              guaranteed_confidentiality
-              guaranteed_prompt_response
-              hourly_payment
-              it_support_button
-              it_support_monthly_price
-              it_support_subtitle
-              it_support_title
-              minimum_time_for_performing_work_in_remote_mode
-              minimum_time_for_performing_work_on_site
-            }
-          }
-        }
-      }
-    }
+    
   }
 `;
 export default Services;
