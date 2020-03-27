@@ -4,7 +4,8 @@ import cancel from "../../images/cancel.png";
 import minus from "../../images/minus.png";
 
 const ItSupportServicePlan = ({ itSupportServicePlans }) => {
-  const itSupportOptions = itSupportServicePlans;
+  console.log(itSupportServicePlans)
+  const itSupportOptions = itSupportServicePlans.it_support_service_plan;
   return (
     <table>
       <thead>
