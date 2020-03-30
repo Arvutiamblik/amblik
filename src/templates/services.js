@@ -60,7 +60,10 @@ const SupportPageTemplate = ({
 const Services = ({ data }) => {
   console.log(data);
   const cms = data.prismic.allServicess.edges[0];
-  const itSupportServicePlans = data.prismic.allServicess.edges[0].node.service_plan;
+  let itSupportServicePlans;
+  if (data.prismic.allServicess.edges[0].node.service_plan != null) {
+    itSupportServicePlans = data.prismic.allServicess.edges[0].node.service_plan;
+  } 
   return (
     <Layout 
     lang={data.prismic.allServicess.edges[0].node._meta.lang}
