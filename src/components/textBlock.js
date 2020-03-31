@@ -2,7 +2,7 @@ import React from "react";
 import Img from "gatsby-image";
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-const TextBlock = ({ item, delimiter, enableButton, img, languagePrefix }) => (
+const TextBlock = ({ item, delimiter, enableButton, img, lang }) => (
   <>
     {img && (
       <div style={{ width: "250px" }}>
@@ -19,7 +19,7 @@ const TextBlock = ({ item, delimiter, enableButton, img, languagePrefix }) => (
         <strong>{item.description}</strong>
       </p>
       {enableButton === true && (
-         <Link to={`${languagePrefix}/${item.service_page._meta.uid}/`}>
+         <Link to={`${lang === 'et-et' ? "" : lang}/${item.service_page._meta.uid}/`}>
         <button id="paddingButton" type="button" className="btn btn-primary">
          
           <strong>{item.button_text}</strong>
@@ -30,7 +30,7 @@ const TextBlock = ({ item, delimiter, enableButton, img, languagePrefix }) => (
   </>
 );
 
-const FeatureGrid = ({ gridItems, delimiter, enableButton, img, languagePrefix }) => (
+const FeatureGrid = ({ gridItems, delimiter, enableButton, img, lang }) => (
   <div className="row">
     {gridItems.map((item, index) =>
       (index + 1) % delimiter === 0 ? (
@@ -39,7 +39,7 @@ const FeatureGrid = ({ gridItems, delimiter, enableButton, img, languagePrefix }
           item={item}
           delimiter={delimiter}
           enableButton={enableButton}
-          languagePrefix={languagePrefix}
+          lang={lang}
         />
       ) : (
         <TextBlock
@@ -47,7 +47,7 @@ const FeatureGrid = ({ gridItems, delimiter, enableButton, img, languagePrefix }
           item={item}
           delimiter={delimiter}
           enableButton={enableButton}
-          languagePrefix={languagePrefix}
+          lang={lang}
         />
       )
     )}

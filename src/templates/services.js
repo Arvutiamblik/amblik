@@ -10,7 +10,6 @@ const SupportPageTemplate = ({
   pros,
   description,
   chooseYourPlan,
-  uid,
   itSupportServicePlans
 }) => (
   <>
@@ -30,7 +29,7 @@ const SupportPageTemplate = ({
         </p>
       </div>
 
-      <ServicePlan itSupportServicePlans={itSupportServicePlans} uid={uid} />
+      <ServicePlan itSupportServicePlans={itSupportServicePlans}  />
 
       <div id="low" className="text-md-center">
         <p>
@@ -58,14 +57,15 @@ const SupportPageTemplate = ({
   </>
 );
 
-const Services = ({ data, pageContext, location }) => {
-  const cms = data.prismic.allServicess.edges.slice(0,1).pop();
-  const itSupportServicePlans = data.prismic.allIt_support_service_plans.edges[0].node;
+const Services = ({ data }) => {
+  console.log(data.prismic.allServicess)
+  const cms = data.prismic.allServicess.edges[0];
+ const itSupportServicePlans = data.prismic.allServicess.edges[0].node.service_plan;
   return (
     <Layout 
-      pageLanguage={pageContext.siteLanguage} 
-      languagePrefix={pageContext.languagePrefix} 
-      location={location} 
+    lang={data.prismic.allServicess.edges[0].node._meta.lang}
+    uid={data.prismic.allServicess.edges[0].node._meta.uid}
+
     >
       <SupportPageTemplate
         pros={cms.node.pros}
@@ -74,22 +74,22 @@ const Services = ({ data, pageContext, location }) => {
         heading={cms.node.heading}
         chooseYourPlan={cms.node.choose_your_plan}
         itSupportServicePlans={itSupportServicePlans}
-        uid={pageContext.uid}
       />
     </Layout>
   );
 };
 
-export default Services;
 
-export const pageQuery = graphql`
-  query SupportPage($locale: String!) {
+
+export const query = graphql`
+  query Services($lang: String, $uid: String ) {
     prismic {
-        allServicess(lang: $locale) {
+        allServicess(lang: $lang, uid: $uid ) {
         edges {
           node {
             _meta {
               uid
+              lang
             }
             pros {
               pros_heading
@@ -99,38 +99,33 @@ export const pageQuery = graphql`
             heading
             choose_your_plan
             title
+            service_plan {
+            ... on PRISMIC_It_support_service_plan {
+              guaranteed_prompt_response_header
+              guaranteed_confidentiality_header
+              financial_guarantee_of_confidentiality_header
+              hourly_payment_header
+              minimum_time_for_performing_work_in_remote_mode_header
+              minimum_time_for_performing_work_on_site_header
+              it_support_service_plan {
+                financial_guarantee_of_confidentiality
+                guaranteed_confidentiality
+                guaranteed_prompt_response
+                hourly_payment
+                it_support_button
+                it_support_monthly_price
+                it_support_subtitle
+                it_support_title
+                minimum_time_for_performing_work_in_remote_mode
+                minimum_time_for_performing_work_on_site
+              }
+            }
+          }
           }
         }
       }
     }
-    prismic {
-      allIt_support_service_plans(lang: $locale) {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            guaranteed_prompt_response_header
-            guaranteed_confidentiality_header
-            financial_guarantee_of_confidentiality_header
-            hourly_payment_header
-            minimum_time_for_performing_work_on_site_header
-            minimum_time_for_performing_work_in_remote_mode_header
-            it_support_service_plan {
-              financial_guarantee_of_confidentiality
-              guaranteed_confidentiality
-              guaranteed_prompt_response
-              hourly_payment
-              it_support_button
-              it_support_monthly_price
-              it_support_subtitle
-              it_support_title
-              minimum_time_for_performing_work_in_remote_mode
-              minimum_time_for_performing_work_on_site
-            }
-          }
-        }
-      }
-    }
+    
   }
 `;
+export default Services;

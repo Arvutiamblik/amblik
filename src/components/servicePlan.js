@@ -1,10 +1,10 @@
 import React from "react";
 import ItSupportServicePlan from "./servicePlans/itSupportServicePlan";
 
-const ServicePlan = ({ itSupportServicePlans, uid }) => {
+const ServicePlan = ({ itSupportServicePlans }) => {
   return (
     <div className="comparison">
-      {itSupportServicePlans._meta.uid === uid && 
+      {itSupportServicePlans != null && 
         <ItSupportServicePlan itSupportServicePlans={itSupportServicePlans} />
       }
     </div>
