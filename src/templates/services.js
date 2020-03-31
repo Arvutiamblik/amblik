@@ -10,6 +10,7 @@ const SupportPageTemplate = ({
   pros,
   description,
   chooseYourPlan,
+  uid,
   itSupportServicePlans
 }) => (
   <>
@@ -58,9 +59,8 @@ const SupportPageTemplate = ({
 );
 
 const Services = ({ data }) => {
-  console.log(data.prismic.allServicess)
   const cms = data.prismic.allServicess.edges[0];
- const itSupportServicePlans = data.prismic.allServicess.edges[0].node.service_plan;
+  const itSupportServicePlans = data.prismic.allServicess.edges[0].node.service_plan;
   return (
     <Layout 
     lang={data.prismic.allServicess.edges[0].node._meta.lang}
@@ -82,9 +82,9 @@ const Services = ({ data }) => {
 
 
 export const query = graphql`
-  query Services($lang: String, $uid: String ) {
+  query SupportPage($lang: String!) {
     prismic {
-        allServicess(lang: $lang, uid: $uid ) {
+        allServicess(lang: $lang) {
         edges {
           node {
             _meta {
