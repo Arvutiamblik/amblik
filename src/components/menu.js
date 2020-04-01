@@ -22,7 +22,7 @@ const Menu = ({ lang, uid, supportModal }) => {
         </div>
         <h1 id="logo"><big><strong>amblik </strong></big></h1>
         <Link id="link_button" to={`${prefix}`}><strong>HOME</strong></Link>
-        <ModalWindow supportModal={supportModal} />
+        {supportModal && <ModalWindow supportModal={supportModal} />}
       </div>  
     </header>
   );
