@@ -27,7 +27,7 @@ const IndexPageTemplate = ({
               </em>
             </p>
             <button type="button" className="btn btn-primary">
-                          <strong>{}</strong>
+              <strong>{}</strong>
             </button>
           </div>
           <div className="col">
@@ -43,7 +43,6 @@ const IndexPageTemplate = ({
             <p id="h1Text">{heading}</p>
           </div>
           <TextBlock gridItems={services} delimiter={2} lang={lang}  enableButton />
-
           <div id="low" className="text-md-center">
             <p>
               Pöörduge julgelt ka väikeste it murede

@@ -65,6 +65,7 @@ const Services = ({ data }) => {
     <Layout 
       lang={data.prismic.allServicess.edges[0].node._meta.lang}
       uid={data.prismic.allServicess.edges[0].node._meta.uid}
+      supportModal={data.prismic.allSupport_modals.edges[0].node}
     >
       <SupportPageTemplate
         pros={cms.node.pros}
@@ -82,16 +83,16 @@ export const query = graphql`
   query SupportPage($lang: String!) {
     prismic {
         allServicess(lang: $lang) {
-        edges {
-          node {
-            _meta {
-              uid
-              lang
-            }
-            pros {
-              pros_heading
-              pros_description
-            }
+          edges {
+            node {
+              _meta {
+                uid
+                lang
+              }
+              pros {
+                pros_heading
+                pros_description
+              }
             description
             heading
             choose_your_plan
@@ -121,8 +122,23 @@ export const query = graphql`
           }
         }
       }
+      allSupport_modals(lang: $lang) {
+        edges {
+          node {
+            modal_button_text
+            title
+            phone_title
+            phone_number
+            mobile_phone_number
+            email_title
+            email
+            subtitle
+            button_text
+            link_text
+          }
+        }
+      }
     }
-    
   }
 `;
 export default Services;
