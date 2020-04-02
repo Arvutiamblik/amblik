@@ -29,7 +29,7 @@ module.exports = {
         useLangKeyLayout: false
       }
     },
-   /* {
+    {
     resolve: `gatsby-plugin-purgecss`,
     options: {
       printRejected: true, // Print removed selectors and processed file names
@@ -40,14 +40,14 @@ module.exports = {
       // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
     }
     
-  },*/
-  /*{
+  },
+  {
 		resolve: 'gatsby-plugin-webpack-bundle-analyzer',
 		options: {
 			analyzerPort: 3000,
 			production: true,
 		},
-  },*/
+  },
   {
     resolve: 'gatsby-source-prismic-graphql',
       options: {
@@ -55,7 +55,7 @@ module.exports = {
        path: '/preview',
        previews: true,
 
-       // shortenUrlLangs: true,
+        shortenUrlLangs: true,
         defaultLang: 'et-et',
         langs: ['et-et', 'ru'],
         pages: [{
@@ -68,7 +68,7 @@ module.exports = {
         {
           type: 'Services',
           match: '/:lang?/:uid',
-          path:'/services',
+          path: '/services',
           component: require.resolve('./src/templates/services.js')
         },
    ],
