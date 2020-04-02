@@ -10,6 +10,7 @@ const SupportPageTemplate = ({
   pros,
   description,
   chooseYourPlan,
+  uid,
   itSupportServicePlans
 }) => (
   <>
@@ -64,9 +65,9 @@ const Services = ({ data }) => {
   const itSupportServicePlans = data.prismic.allServicess.edges[0].node.service_plan;
   return (
     <Layout 
-    lang={data.prismic.allServicess.edges[0].node._meta.lang}
-    uid={data.prismic.allServicess.edges[0].node._meta.uid}
-
+      lang={data.prismic.allServicess.edges[0].node._meta.lang}
+      uid={data.prismic.allServicess.edges[0].node._meta.uid}
+      supportModal={data.prismic.allSupport_modals.edges[0].node}
     >
       <SupportPageTemplate
         pros={cms.node.pros}
@@ -80,53 +81,66 @@ const Services = ({ data }) => {
   );
 };
 
-
-
 export const query = graphql`
   query SupportPage($lang: String! $uid: String! ) {
     prismic {
-        allServicess(lang: $lang, uid: $uid ) {
-        edges {
-          node {
-            _meta {
-              uid
-              lang
-            }
-            pros {
-              pros_heading
-              pros_description
-            }
+        allServicess(lang: $lang) {
+          edges {
+            node {
+              _meta {
+                uid
+                lang
+              }
+              pros {
+                pros_heading
+                pros_description
+              }
             description
             heading
             choose_your_plan
             title
             service_plan {
-            ... on PRISMIC_It_support_service_plan {
-              guaranteed_prompt_response_header
-              guaranteed_confidentiality_header
-              financial_guarantee_of_confidentiality_header
-              hourly_payment_header
-              minimum_time_for_performing_work_in_remote_mode_header
-              minimum_time_for_performing_work_on_site_header
-              it_support_service_plan {
-                financial_guarantee_of_confidentiality
-                guaranteed_confidentiality
-                guaranteed_prompt_response
-                hourly_payment
-                it_support_button
-                it_support_monthly_price
-                it_support_subtitle
-                it_support_title
-                minimum_time_for_performing_work_in_remote_mode
-                minimum_time_for_performing_work_on_site
+              ... on PRISMIC_It_support_service_plan {
+                guaranteed_prompt_response_header
+                guaranteed_confidentiality_header
+                financial_guarantee_of_confidentiality_header
+                hourly_payment_header
+                minimum_time_for_performing_work_in_remote_mode_header
+                minimum_time_for_performing_work_on_site_header
+                it_support_service_plan {
+                  financial_guarantee_of_confidentiality
+                  guaranteed_confidentiality
+                  guaranteed_prompt_response
+                  hourly_payment
+                  it_support_button
+                  it_support_monthly_price
+                  it_support_subtitle
+                  it_support_title
+                  minimum_time_for_performing_work_in_remote_mode
+                  minimum_time_for_performing_work_on_site
+                }
               }
             }
           }
+        }
+      }
+      allSupport_modals(lang: $lang) {
+        edges {
+          node {
+            modal_button_text
+            title
+            phone_title
+            phone_number
+            mobile_phone_number
+            email_title
+            email
+            subtitle
+            button_text
+            link_text
           }
         }
       }
     }
-    
   }
 `;
 export default Services;

@@ -9,13 +9,14 @@ const IndexPageTemplate = ({
   headerDescription,
   heading,
   img,
-  lang
-  
+  lang,
+  supportModal
 }) => (
   <>
     <img id="logoPicture" className="img" alt="background" src={img.url} />
     <Layout
       lang={lang}
+      supportModal={supportModal}
     >
       <div id="otstup" className="container">
         <div className="row">
@@ -26,7 +27,7 @@ const IndexPageTemplate = ({
               </em>
             </p>
             <button type="button" className="btn btn-primary">
-                          <strong>{}</strong>
+              <strong>{}</strong>
             </button>
           </div>
           <div className="col">
@@ -42,7 +43,6 @@ const IndexPageTemplate = ({
             <p id="h1Text">{heading}</p>
           </div>
           <TextBlock gridItems={services} delimiter={2} lang={lang}  enableButton />
-
           <div id="low" className="text-md-center">
             <p>
               Pöörduge julgelt ka väikeste it murede
@@ -72,7 +72,6 @@ const IndexPageTemplate = ({
 );
 
 const IndexPage = ({ data }) => {
-  console.log(data)
   return (
     <IndexPageTemplate
       heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
@@ -81,8 +80,8 @@ const IndexPage = ({ data }) => {
       headerDescription={
         data.prismic.allHome_pages.edges[0].node.heading_description[0].text
       }
-     lang={data.prismic.allHome_pages.edges[0].node._meta.lang}
-      
+      lang={data.prismic.allHome_pages.edges[0].node._meta.lang}
+      supportModal={data.prismic.allSupport_modals.edges[0].node}
     />
   );
 };
@@ -114,9 +113,26 @@ export const query = graphql`
           }
         }
       }
+      allSupport_modals(lang: $lang) {
+        edges {
+          node {
+            modal_button_text
+            title
+            phone_title
+            phone_number
+            mobile_phone_number
+            email_title
+            email
+            subtitle
+            button_text
+            link_text
+          }
+        }
+      }
     }
   }
 `;
+
 export default IndexPage;
 
 

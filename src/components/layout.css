@@ -77,8 +77,39 @@ body {
   color: white;
   border-width: 0px;
   margin-right: 20px;
-  
-
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.support-modal .modal-content {
+  background-color: darkblue;
+  color: white;
+}
+.support-modal .close {
+  opacity: 1;
+  color: white;
+}
+.support-modal .close:hover {
+  opacity: .5;
+  color: white;
+}
+.support-modal .modal-footer {
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+.support-modal .download-button a {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.support-modal .download-button span {
+  position: absolute;
+  top: 10px;
+  left: 55px;
+  font-size: 14px;
+  line-height: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  width: 174px;
 }
 h2 {
   color: white;
@@ -487,9 +518,11 @@ p {
 }
 
 a{
- color: white;
-
- 
+  color: white;
+}
+a:hover {
+  color: white;
+  text-decoration: underline;
 }
 #mid{
 	padding-top:47%;

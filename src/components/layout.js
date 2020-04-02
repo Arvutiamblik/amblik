@@ -11,19 +11,18 @@ import corners from '../images/corners.svg'
 import Menu from "./menu.js"
 
  
-const Layout = ({lang, children, uid=""}) => {
- 
+const Layout = ({ lang, children, uid="", supportModal }) => {
   return (
- 
-        <main>
-             <img id="corners" className="img" alt="background" src={corners} />
-             <Menu lang={lang} uid={uid} />
-        {children}
-        </main>
+    <main>
+      <img id="corners" className="img" alt="background" src={corners} />
+      <Menu lang={lang} uid={uid} supportModal={supportModal} />
+      {children}
+    </main>
   )
 }
  
-  export default Layout 
+export default Layout;
+
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
