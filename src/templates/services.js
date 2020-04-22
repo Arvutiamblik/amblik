@@ -31,7 +31,7 @@ const SupportPageTemplate = ({
         </p>
       </div>
 
-      <ServicePlan servicePlan={servicePlan} />
+      {servicePlan !== null && <ServicePlan servicePlan={servicePlan} />}
 
       <div id="low" className="text-md-center">
         <p>
