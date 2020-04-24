@@ -84,7 +84,7 @@ const Services = ({ data }) => {
 export const query = graphql`
   query SupportPage($lang: String! $uid: String! ) {
     prismic {
-        allServicess(lang: $lang) {
+        allServicess(lang: $lang, uid: $uid) {
           edges {
             node {
               _meta {
