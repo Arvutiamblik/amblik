@@ -1,8 +1,10 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 body {
   background-color: darkblue;
-  
-
+}
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }
 #link_button{
   padding-right: 23px;
