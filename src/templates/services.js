@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import TextBlock from "../components/textBlock";
 import ServicePlan from "../components/servicePlan";
 import { graphql } from 'gatsby';
-
+import {Link, RichText, Date} from 'prismic-reactjs';
 const SupportPageTemplate = ({
   title,
   heading,
@@ -17,7 +17,7 @@ const SupportPageTemplate = ({
   <>
     <div className="container">
       <p id="headerNname">{title}</p>
-      <p id="BlogText">{description}</p>
+      <RichText render={description} id="BlogText">{description}</RichText>
       <p id="headerNname">{heading}</p>
     </div>
 
@@ -82,9 +82,9 @@ const Services = ({ data }) => {
 };
 
 export const query = graphql`
-  query SupportPage($lang: String!) {
+  query SupportPage($lang: String! $uid: String! ) {
     prismic {
-        allServicess(lang: $lang) {
+        allServicess(lang: $lang,  uid: $uid) {
           edges {
             node {
               _meta {
