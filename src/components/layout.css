@@ -1,16 +1,8 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-/* The emerging W3C standard that is currently Firefox-only */
-* {
-  scrollbar-width: none;
-  scrollbar-color: transparent transparent;
-}
-/* Works on Chrome/Edge/Safari */
-*::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
 body {
   background-color: darkblue;
+  
+
 }
 #link_button{
   padding-right: 23px;
