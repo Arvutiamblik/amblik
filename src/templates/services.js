@@ -11,7 +11,8 @@ const SupportPageTemplate = ({
   description,
   chooseYourPlan,
   uid,
-  itSupportServicePlans
+  itSupportServicePlans,
+  servicePlan
 }) => (
   <>
     <div className="container">
@@ -30,7 +31,7 @@ const SupportPageTemplate = ({
         </p>
       </div>
 
-      <ServicePlan itSupportServicePlans={itSupportServicePlans}  />
+      {servicePlan !== null && <ServicePlan servicePlan={servicePlan} />}
 
       <div id="low" className="text-md-center">
         <p>
@@ -59,10 +60,9 @@ const SupportPageTemplate = ({
 );
 
 const Services = ({ data }) => {
-  console.log(data);
-  const cms = data.prismic.allServicess.edges.slice(0, 1).pop();
-  if (!cms) return null
-  const itSupportServicePlans = data.prismic.allServicess.edges[0].node.service_plan;
+  const cms = data.prismic.allServicess.edges[0];
+  const servicePlan = data.prismic.allServicess.edges[0].node.body;
+  // console.log(servicePlan);
   return (
     <Layout 
       lang={data.prismic.allServicess.edges[0].node._meta.lang}
@@ -71,11 +71,11 @@ const Services = ({ data }) => {
     >
       <SupportPageTemplate
         pros={cms.node.pros}
-        title={cms.node.title[0].text}
+        title={cms.node.title}
         description={cms.node.description}
         heading={cms.node.heading}
         chooseYourPlan={cms.node.choose_your_plan}
-        itSupportServicePlans={itSupportServicePlans}
+        servicePlan={servicePlan}
       />
     </Layout>
   );
@@ -84,7 +84,7 @@ const Services = ({ data }) => {
 export const query = graphql`
   query SupportPage($lang: String! $uid: String! ) {
     prismic {
-        allServicess(lang: $lang, uid: $uid) {
+        allServicess(lang: $lang,  uid: $uid) {
           edges {
             node {
               _meta {
@@ -95,32 +95,36 @@ export const query = graphql`
                 pros_heading
                 pros_description
               }
+              body {
+                ... on PRISMIC_ServicesBodyHeading_service_option {
+                  fields {
+                    service_heading
+                    service_subheading
+                    service_price
+                    service_button
+                  }
+                }
+                ... on PRISMIC_ServicesBodyBoolean {
+                  primary {
+                    option_title
+                  }
+                  fields {
+                    option_description
+                  }
+                }
+                ... on PRISMIC_ServicesBodyText {
+                  primary {
+                    option_title
+                  }
+                  fields {
+                    option_description
+                  }
+                }
+              }
             description
             heading
             choose_your_plan
             title
-            service_plan {
-              ... on PRISMIC_It_support_service_plan {
-                guaranteed_prompt_response_header
-                guaranteed_confidentiality_header
-                financial_guarantee_of_confidentiality_header
-                hourly_payment_header
-                minimum_time_for_performing_work_in_remote_mode_header
-                minimum_time_for_performing_work_on_site_header
-                it_support_service_plan {
-                  financial_guarantee_of_confidentiality
-                  guaranteed_confidentiality
-                  guaranteed_prompt_response
-                  hourly_payment
-                  it_support_button
-                  it_support_monthly_price
-                  it_support_subtitle
-                  it_support_title
-                  minimum_time_for_performing_work_in_remote_mode
-                  minimum_time_for_performing_work_on_site
-                }
-              }
-            }
           }
         }
       }
