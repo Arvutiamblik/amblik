@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, RichText, Date} from "prismic-reactjs";
+import { RichText} from "prismic-reactjs";
 import Layout from "../components/layout";
 import TextBlock from "../components/textBlock";
 import ServicePlan from "../components/servicePlan";
