@@ -60,6 +60,13 @@ const SupportPageTemplate = ({
 );
 
 const Services = ({ data }) => {
+  const test = data.prismic.allServicess.edges.slice(0, 1).pop()
+
+if (!test) return null
+
+  
+
+
   const cms = data.prismic.allServicess.edges[0];
   const servicePlan = data.prismic.allServicess.edges[0].node.body;
   // console.log(servicePlan);
