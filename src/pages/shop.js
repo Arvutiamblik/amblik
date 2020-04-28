@@ -1,6 +1,6 @@
 import React from "react"
 import {Link} from "gatsby"
-import Layout from "../components/Layout"
+import Layout from "../components/layout"
 import eset from "../images/eset.png"
 import windows from "../images/windows.png"
 import apple from "../images/apple.png"

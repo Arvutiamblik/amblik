@@ -1,8 +1,8 @@
 import React from "react";
 import { RichText} from "prismic-reactjs";
-import Layout from "../components/Layout";
-import TextBlock from "../components/TextBlock";
-import ServicePlan from "../components/ServicePlan";
+import Layout from "../components/layout";
+import TextBlock from "../components/textBlock";
+import ServicePlan from "../components/servicePlan";
 import { graphql } from 'gatsby';
 
 const SupportPageTemplate = ({
