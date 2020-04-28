@@ -1,17 +1,26 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 /* The emerging W3C standard that is currently Firefox-only */
 * {
   scrollbar-width: none;
   scrollbar-color: transparent transparent;
 }
+
 /* Works on Chrome/Edge/Safari */
 *::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
+
 body {
   background-color: darkblue;
+  color: white;
 }
+
+pre {
+  color: white;
+}
+
 #link_button{
   padding-right: 23px;
   z-index:99999 !important;
@@ -119,12 +128,7 @@ body {
   text-align: center;
   width: 174px;
 }
-h2 {
-  color: white;
-  font-family: Century Gothic, sans;
-  font-size: 50px;
-  font-weight: bolder;
-}
+
 #otstup{
   margin-top: 90px;
 }
@@ -194,16 +198,7 @@ h2 {
   list-style-type: none;
   margin-top: 95px;
 }
-li {
-  list-style-type: none;
-  
- }
- ul {
-  margin-left: 5px; /* Отступ слева в браузере IE и Opera */
-  padding-left: 5px; /* Отступ слева в браузере Firefox, Safari, Chrome */
-  margin-top:0px;
-  font-size: 17px;
- }
+
 #menu-toggle {
   display: none;
 }
@@ -211,6 +206,8 @@ li {
 #collapse-menu {
   transition: transform 0.3s;
   transform-origin: top;
+  list-style-type: none;
+  padding: 0;
 }
 #menu-label{
   cursor: pointer;
@@ -408,9 +405,12 @@ input:not(:checked) ~ #collapse-menu {
 }
 
 
-#logo{
-  font-size:60px;
+#logo {
+  color: #ffffff;
+  font-size: 60px;
+  font-family: Century Gothic,sans;
 }
+
 .eset{
   width:230px;
   height: 172px;
@@ -462,13 +462,6 @@ input:not(:checked) ~ #collapse-menu {
 #leftBoard{
   margin-right: 107px;
 }
-h1 {
- color:white;
- font-family:Century Gothic, sans;
- font-size:80;
- font-weight:bolder;
-}
-
 
 #blogHeader{
   font-size: 27.5pt !important;
@@ -491,10 +484,7 @@ hr.new1 {
   font-size: 15pt;
 
 }
-p {
- color:white;
- font-size:16;
-}
+
 .btn{
     border-radius: 100px;
     padding-top: 3px;
