@@ -1,7 +1,5 @@
 import React from "react"
-import Layout from "../components/layout"
-import TextCard from '../components/textCards'
-import blog from "../images/free.jpg"
+import Layout from "../components/Layout"
 export const BlogPageTemplate = ({
 
     TextCards,
