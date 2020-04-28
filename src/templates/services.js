@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import TextBlock from "../components/textBlock";
 import ServicePlan from "../components/servicePlan";
 import { graphql } from 'gatsby';
-import {Link, RichText, Date} from 'prismic-reactjs';
+import {Link, RichText, Date} from "prismic-reactjs";
 const SupportPageTemplate = ({
   title,
   heading,
