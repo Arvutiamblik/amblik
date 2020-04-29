@@ -1,4 +1,5 @@
 import React from "react";
+import { RichText } from "prismic-reactjs";
 import Img from "gatsby-image";
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
@@ -9,15 +10,15 @@ const TextBlock = ({ item, delimiter, enableButton, img, lang }) => (
         <Img fluid={item.product_imageSharp.childImageSharp.fluid} />
       </div>
     )}
-  
-    <div 
-      className={`col-lg-${12 / delimiter}  col-md-${12 / delimiter} col-xs-12`}
-    >
-      {item.title && 
-      <h2 id="headerText">{item.title}</h2>}
-      <p>
-        <strong>{item.description}</strong>
-      </p>
+    <div className={`col-lg-${12 / delimiter}  col-md-${12 / delimiter} col-xs-12`}>
+      {item.title ? 
+        <RichText render={item.title}>{item.title}</RichText> : 
+        <RichText render={item.service_page.title}>{item.service_page.title}</RichText>
+      }
+      {item.description ? 
+        <RichText render={item.description}>{item.description}</RichText> : 
+        <RichText render={item.service_page.description}>{item.service_page.description}</RichText>
+      }
       {enableButton === true && (
         <Link to={`${lang === 'et-et' ? "" : lang}/`}>
           <button id="paddingButton" type="button" className="btn btn-primary">

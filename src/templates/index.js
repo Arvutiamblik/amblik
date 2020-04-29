@@ -24,7 +24,6 @@ const IndexPageTemplate = ({
       lang={lang}
       supportModal={supportModal}
     >
-      {console.log(itServices)}
       <div id="otstup" className="container">
         <div className="row">
           <div className="col-lg-5 col-md-6 col-xs-12">
@@ -123,6 +122,13 @@ export const query = graphql`
               description
               button_text
               title
+              service_page {
+                _linkType
+                ... on PRISMIC_Article {
+                  title
+                  description
+                }
+              }
             }
             web_title
             web_anchor
@@ -130,6 +136,13 @@ export const query = graphql`
               title
               description
               button_text
+              service_page {
+                _linkType
+                ... on PRISMIC_Article {
+                  title
+                  description
+                }
+              }
             }
             it_services {
               title
