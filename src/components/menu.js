@@ -8,7 +8,7 @@ const Menu = (data, props) => {
   menuArr = menuArr.filter(arr => (
     arr.node._meta.lang === lang
    ))
-   console.log(menuArr);
+  //  console.log(menuArr);
   let path = lang === 'et-et' ? `/${uid}` : `/${lang}/${uid}`;
   let langName = lang ==='et-et' ? 'ee' : lang;
   let prefix = lang ==='et-et' ? '' : lang;

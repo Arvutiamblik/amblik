@@ -1,8 +1,8 @@
 import React from "react";
+import { RichText } from "prismic-reactjs";
 import Layout from "../components/layout";
 import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
-
 
 const IndexPageTemplate = ({
   services,
@@ -10,7 +10,13 @@ const IndexPageTemplate = ({
   heading,
   img,
   lang,
-  supportModal
+  supportModal,
+  itTitle,
+  itAnchor,
+  itServices,
+  webTitle,
+  webAnchor,
+  webServices
 }) => (
   <>
     <img id="logoPicture" className="img" alt="background" src={img.url} />
@@ -18,6 +24,7 @@ const IndexPageTemplate = ({
       lang={lang}
       supportModal={supportModal}
     >
+      {console.log(itServices)}
       <div id="otstup" className="container">
         <div className="row">
           <div className="col-lg-5 col-md-6 col-xs-12">
@@ -39,10 +46,18 @@ const IndexPageTemplate = ({
       </div>
       <div id="containerRight" className="container">
         <div id="mid" className="col-lg">
-          <div className="text-md-center col-lg">
-            <p id="h1Text">{heading}</p>
+          <div className="mb-5">
+            <div className="text-md-center col-lg">
+              <RichText render={itTitle}>{itTitle}</RichText>
+            </div>
+            <TextBlock gridItems={itServices} delimiter={2} lang={lang} enableButton />
           </div>
-          <TextBlock gridItems={services} delimiter={2} lang={lang}  enableButton />
+          <div className="mb-5">
+            <div className="text-md-center col-lg">
+              <RichText render={webTitle}>{webTitle}</RichText>
+            </div>
+            <TextBlock gridItems={webServices} delimiter={2} lang={lang} enableButton />
+          </div>
           <div id="low" className="text-md-center">
             <p>
               Pöörduge julgelt ka väikeste it murede
@@ -76,12 +91,17 @@ const IndexPage = ({ data }) => {
     <IndexPageTemplate
       heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
       img={data.prismic.allHome_pages.edges[0].node.img}
-      services={data.prismic.allHome_pages.edges[0].node.it_services}
       headerDescription={
         data.prismic.allHome_pages.edges[0].node.heading_description[0].text
       }
       lang={data.prismic.allHome_pages.edges[0].node._meta.lang}
       supportModal={data.prismic.allSupport_modals.edges[0].node}
+      itTitle = {data.prismic.allHome_pages.edges[0].node.it_title}
+      itAnchor = {data.prismic.allHome_pages.edges[0].node.it_anchor}
+      itServices = {data.prismic.allHome_pages.edges[0].node.it_services}
+      webTitle = {data.prismic.allHome_pages.edges[0].node.web_title}
+      webAnchor = {data.prismic.allHome_pages.edges[0].node.web_anchor}
+      webServices = {data.prismic.allHome_pages.edges[0].node.web_services}
     />
   );
 };
@@ -95,8 +115,22 @@ export const query = graphql`
             heading_description
             img
             _meta {
-                  lang
-                }
+              lang
+            }
+            it_title
+            it_anchor
+            it_services {
+              description
+              button_text
+              title
+            }
+            web_title
+            web_anchor
+            web_services {
+              title
+              description
+              button_text
+            }
             it_services {
               title
               description
@@ -104,9 +138,8 @@ export const query = graphql`
               service_page {
                 ... on PRISMIC_Services {
                   _meta {
-                  uid
-                  
-                }
+                    uid                
+                  }
                 }
               }
             }

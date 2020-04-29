@@ -34,7 +34,6 @@
     "eslint-config-gatsby-standard": "^2.2.0",
     "graphql-tag": "^2.10.3",
     "prettier": "^2.0.1"
-    
   },
   "keywords": [
     "gatsby"
