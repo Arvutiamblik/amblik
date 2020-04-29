@@ -76,7 +76,7 @@ const IndexPage = ({ data, pageContext, location }) => {
     <IndexPageTemplate
       heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
       img={data.prismic.allHome_pages.edges[0].node.img}
-      services={data.prismic.allHome_pages.edges[0].node.services}
+      services={data.prismic.allHome_pages.edges[0].node.it_services}
       headerDescription={
         data.prismic.allHome_pages.edges[0].node.heading_description[0].text
       }
@@ -97,7 +97,7 @@ export const pageQuery = graphql`
             heading
             heading_description
             img
-            services {
+            it_services {
               title
               description
               button_text

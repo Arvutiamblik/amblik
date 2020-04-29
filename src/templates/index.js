@@ -76,7 +76,7 @@ const IndexPage = ({ data }) => {
     <IndexPageTemplate
       heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
       img={data.prismic.allHome_pages.edges[0].node.img}
-      services={data.prismic.allHome_pages.edges[0].node.services}
+      services={data.prismic.allHome_pages.edges[0].node.it_services}
       headerDescription={
         data.prismic.allHome_pages.edges[0].node.heading_description[0].text
       }
@@ -86,7 +86,7 @@ const IndexPage = ({ data }) => {
   );
 };
 export const query = graphql`
-  query IndexPage($lang: String) {
+  query IndexPage($lang: String!) {
     prismic {
       allHome_pages(lang: $lang) {
         edges {
@@ -97,7 +97,7 @@ export const query = graphql`
             _meta {
                   lang
                 }
-            services {
+            it_services {
               title
               description
               button_text
