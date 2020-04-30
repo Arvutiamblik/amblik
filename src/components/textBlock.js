@@ -20,7 +20,7 @@ const TextBlock = ({ item, delimiter, enableButton, img, lang }) => (
         <RichText render={item.service_page.description}>{item.service_page.description}</RichText>
       }
       {enableButton === true && (
-        <Link to={`${lang === 'et-et' ? "" : lang}/`}>
+        <Link to={`${lang === 'et-et' ? "" : lang}/${item.service_page._meta.uid}`}>
           <button id="paddingButton" type="button" className="btn btn-primary">
             <strong>{item.button_text}</strong>
           </button>

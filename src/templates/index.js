@@ -5,9 +5,7 @@ import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
 
 const IndexPageTemplate = ({
-  services,
   headerDescription,
-  heading,
   img,
   lang,
   supportModal,
@@ -47,12 +45,14 @@ const IndexPageTemplate = ({
         <div id="mid" className="col-lg">
           <div className="mb-5">
             <div className="text-md-center col-lg">
+              <div name={itAnchor} alt={itAnchor}></div>
               <RichText render={itTitle}>{itTitle}</RichText>
             </div>
             <TextBlock gridItems={itServices} delimiter={2} lang={lang} enableButton />
           </div>
           <div className="mb-5">
             <div className="text-md-center col-lg">
+              <div name={webAnchor} alt={webAnchor}></div>
               <RichText render={webTitle}>{webTitle}</RichText>
             </div>
             <TextBlock gridItems={webServices} delimiter={2} lang={lang} enableButton />
@@ -127,6 +127,9 @@ export const query = graphql`
                 ... on PRISMIC_Article {
                   title
                   description
+                  _meta {
+                    uid                
+                  }
                 }
               }
             }
@@ -141,15 +144,6 @@ export const query = graphql`
                 ... on PRISMIC_Article {
                   title
                   description
-                }
-              }
-            }
-            it_services {
-              title
-              description
-              button_text
-              service_page {
-                ... on PRISMIC_Services {
                   _meta {
                     uid                
                   }
