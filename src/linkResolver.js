@@ -9,15 +9,16 @@ exports.linkResolver = function linkResolver(doc) {
           return `${lang}/it-support`;
         case `${lang}/${doc.uid}`:
           return `/${doc.uid}`;
-          case 'support':
+        case 'support':
           return `${lang}/${doc.uid}`;
-          case 'Services':
-            return `${lang}/${doc.uid}`;
+        case 'Services':
+          return `${lang}/${doc.uid}`;
+        case 'Article':
+          return `${lang}/${doc.uid}`;
         default:
           if (doc.uid) {
             return `${lang}/${doc.uid}`;
           }
-  
           return `/${doc.type}`;
       }
     }

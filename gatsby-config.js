@@ -59,6 +59,12 @@ module.exports = {
           path: '/services',
           component: require.resolve('./src/templates/services.js')
         },
+        {
+          type: 'Article',
+          match: '/:lang?/:uid',
+          path: '/article',
+          component: require.resolve('./src/templates/article.js')
+        },
    ],
        
        
