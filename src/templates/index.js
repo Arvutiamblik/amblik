@@ -3,6 +3,7 @@ import { RichText } from "prismic-reactjs";
 import Layout from "../components/layout";
 import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
+import Footer from "../components/footer";
 
 const IndexPageTemplate = ({
   headerDescription,
@@ -17,14 +18,7 @@ const IndexPageTemplate = ({
   webServices,
   aboutAnchor,
   aboutText,
-  aboutTitle,
-  contactAnchor,
-  contactTitle,
-  contactText,
-  contactEmail,
-  contactPhone,
-  contactAddress,
-  workingTime
+  aboutTitle
 }) => (
   <>
     <img id="logoPicture" className="img" alt="background" src={img.url} />
@@ -50,48 +44,27 @@ const IndexPageTemplate = ({
       <div id="containerRight" className="container">
         <div id="mid" className="col-lg">
           <div className="mb-5">
-            <div className="text-md-center col-lg">
+            <div className="text-md-center mb-5">
               <div name={itAnchor} alt={itAnchor}></div>
               <RichText render={itTitle}>{itTitle}</RichText>
             </div>
             <TextBlock gridItems={itServices} delimiter={2} lang={lang} enableButton />
           </div>
           <div className="mb-5">
-            <div className="text-md-center col-lg">
+            <div className="text-md-center mb-5">
               <div name={webAnchor} alt={webAnchor}></div>
               <RichText render={webTitle}>{webTitle}</RichText>
             </div>
             <TextBlock gridItems={webServices} delimiter={2} lang={lang} enableButton />
           </div>
           <div className="mb-5">
-            <div className="text-md-center col-lg">
+            <div className="text-md-center mb-5">
               <div name={aboutAnchor} alt={aboutAnchor}></div>
               <RichText render={aboutTitle}>{aboutTitle}</RichText>
             </div>
             <RichText render={aboutText}>{aboutText}</RichText>
           </div>
-          <div id="low" className="text-md-center">
-            <p>
-              Pöörduge julgelt ka väikeste it murede
-              <br />
-              puhul:
-            </p>
-            <div id="num" className="text-md-center">
-              <h1 id="num">
-                <small>
-                  <strong>+372 665 48 28</strong>
-                </small>
-              </h1>
-              <p>
-                <big>+372 5 096 244</big>
-              </p>
-              <h1 id="num">
-                <small>
-                  <strong>support@amblik.ee</strong>
-                </small>
-              </h1>
-            </div>
-          </div>
+          <Footer lang={lang} />
         </div>
       </div>
     </Layout>
@@ -115,13 +88,6 @@ const IndexPage = ({ data }) => {
       aboutAnchor = {data.prismic.allHome_pages.edges[0].node.about_anchor}
       aboutText = {data.prismic.allHome_pages.edges[0].node.about_text}
       aboutTitle = {data.prismic.allHome_pages.edges[0].node.about_title}
-      contactAnchor = {data.prismic.allHome_pages.edges[0].node.contact_anchor}
-      contactTitle = {data.prismic.allHome_pages.edges[0].node.contact_title}
-      contactText = {data.prismic.allHome_pages.edges[0].node.contact_text}
-      contactEmail = {data.prismic.allHome_pages.edges[0].node.contact_email}
-      contactPhone = {data.prismic.allHome_pages.edges[0].node.contact_phone}
-      contactAddress = {data.prismic.allHome_pages.edges[0].node.contact_address}
-      workingTime = {data.prismic.allHome_pages.edges[0].node.working_time}
     />
   );
 };
@@ -174,13 +140,6 @@ export const query = graphql`
             about_anchor
             about_text
             about_title
-            contact_anchor
-            contact_title
-            contact_text
-            contact_email
-            contact_phone
-            contact_address
-            working_time
           }
         }
       }

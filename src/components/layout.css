@@ -400,11 +400,6 @@ input:not(:checked) ~ #collapse-menu {
 }
 }
 
-.text-md-center{
-  margin-bottom:35px;
-}
-
-
 #logo {
   color: #ffffff;
   font-size: 60px;
@@ -564,12 +559,6 @@ a:hover {
   margin-left: 300px;
 }  
 
-#low{
- font-style: italic;
- font-weight:bolder;
- margin-top: 40px;
- text-align: center;
-}
 #hard{
   font-weight:bold;
   text-align: center;
@@ -578,9 +567,6 @@ a:hover {
 #leftCorner{
   float:left;
   text-align: left;
-}
-#num{
-	font-style: normal;
 }
 
 td{

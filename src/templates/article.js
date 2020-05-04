@@ -1,43 +1,26 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
 import Layout from "../components/layout";
+import Footer from "../components/footer";
 import { graphql } from 'gatsby';
 
 const ArticlePageTemplate = ({
+  lang,
   title,
   description,
   text
 }) => (
   <>
     <div className="container">
-      <RichText render={title} id="headerNname">{title}</RichText>
+      <div className="text-md-center my-5">
+        <RichText render={title} id="headerNname">{title}</RichText>
+      </div>
       <RichText render={description} id="BlogText">{description}</RichText>
       <RichText render={text} id="BlogText">{text}</RichText>
     </div>
 
     <div className="container">
-      <div id="low" className="text-md-center">
-        <p>
-          Pöörduge julgelt ka väikeste it murede
-          <br />
-          puhul:
-        </p>
-        <div id="num" className="text-md-center">
-          <h1 id="num">
-            <small>
-              <strong>+372 665 48 28</strong>
-            </small>
-          </h1>
-          <p>
-            <big>+372 5 096 244</big>
-          </p>
-          <h1 id="num">
-            <small>
-              <strong>support@amblik.ee</strong>
-            </small>
-          </h1>
-        </div>
-      </div>
+      <Footer lang={lang} />
     </div>
   </>
 );
@@ -52,6 +35,7 @@ const Article = ({ data }) => {
       supportModal={data.prismic.allSupport_modals.edges[0].node}
     >
       <ArticlePageTemplate
+        lang={article.node._meta.lang}
         title={article.node.title}
         description={article.node.description}
         text={article.node.text}
@@ -61,9 +45,9 @@ const Article = ({ data }) => {
 };
 
 export const query = graphql`
-  query ArticlePage($lang: String! $uid: String! ) {
+  query ArticlePage($lang: String! $uid: String!) {
     prismic {
-      allArticles(lang: $lang,  uid: $uid) {
+      allArticles(lang: $lang, uid: $uid) {
         edges {
           node {
             _meta {

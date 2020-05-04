@@ -9,7 +9,6 @@ import PropTypes from "prop-types"
 import "./layout.css"
 import corners from '../images/corners.svg'
 import Menu from "./menu.js"
-
  
 const Layout = ({ lang, children, uid="", supportModal }) => {
   return (
