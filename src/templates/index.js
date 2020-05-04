@@ -25,11 +25,7 @@ const IndexPageTemplate = ({
       <div id="otstup" className="container">
         <div className="row">
           <div className="col-lg-5 col-md-6 col-xs-12">
-            <p>
-              <em>
-                <strong>{headerDescription}</strong>
-              </em>
-            </p>
+            <RichText render={headerDescription}>{headerDescription}</RichText>
             <button type="button" className="btn btn-primary">
               <strong>{}</strong>
             </button>
@@ -90,9 +86,7 @@ const IndexPage = ({ data }) => {
     <IndexPageTemplate
       heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
       img={data.prismic.allHome_pages.edges[0].node.img}
-      headerDescription={
-        data.prismic.allHome_pages.edges[0].node.heading_description[0].text
-      }
+      headerDescription={data.prismic.allHome_pages.edges[0].node.heading_description}
       lang={data.prismic.allHome_pages.edges[0].node._meta.lang}
       supportModal={data.prismic.allSupport_modals.edges[0].node}
       itTitle = {data.prismic.allHome_pages.edges[0].node.it_title}
