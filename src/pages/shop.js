@@ -8,12 +8,7 @@ import esetProd from "../images/eset-nod32.png"
 
 const ShopPage = ({pageContext, location}) => (
 
-<Layout
- pageLanguage={pageContext.siteLanguage} 
- languagePrefix={pageContext.languagePrefix}
- location={location}
->
-
+<>
         <div className="container">
           <img className="eset" alt="eset" src={eset} />
           <p id="shopText">1992. aastal loodud ESET on ülemaailmse haardega turvalahenduste pakkuja, kelle tooted on suunatud nii äri- kui eraklientidele. Ettevõte tõi esimesena turule ennetavad viirustõrjesüsteemid ning on endiselt antud valdkonnas turuliidriks. Viirustõrjeprogramm ESET NOD32 Antivirus on saanud viirustõrjeprogramme testiva sõltumatu väljaande Virus Bulletin poolt antavat auhinda "VB100” rekordarv kordi ning alates testimise käivitamisest aastal 1998 pole programmil kunagi jäänud kahe silma vahele ühtki vabalt ringlevat ussviirust või muud arvutiviirust. ESET NOD32 Antivirus,  ESET Smart Security ja ESET Cybersecurity Mac-ile on programmid, mida usaldavad miljonid arvutikasutajad üle maailma ning mis kuuluvad maailma kõige sagedamini soovitatud turvalahenduste hulka. Ettevõtte rahvusvaheline peakontor asub Bratislavas (Slovakkias) ning piirkondlikud harukontorid on San Diegos (USAs), Buenos Aireses (Argentiinas) ja Singapuris. ESETi pahavara uurimiskeskused paiknevad Bratislavas, San Diegos, Buenos Aireses, Prahas (Tšehhi Vabariigis), KrakowiNB! (üli)õpilased!s (Poolas), Montrealis (Kanadas), Moskvas (Venemaal), ning ettevõtte laiahaardeline partnervõrgustik hõlmab 180 riiki.</p>
@@ -104,7 +99,7 @@ const ShopPage = ({pageContext, location}) => (
          
         </div>
 
-</Layout>
+</>
 )
 
 export default ShopPage

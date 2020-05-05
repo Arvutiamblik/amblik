@@ -26,6 +26,9 @@ const ArticlePageTemplate = ({
 );
 
 const Article = ({ data }) => {
+  const test = data.prismic.allArticles.edges.slice(0, 1).pop()
+
+if (!test) return null
   const article = data.prismic.allArticles.edges[0];
 
   return (
