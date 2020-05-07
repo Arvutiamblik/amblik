@@ -19,7 +19,7 @@
     "gatsby-plugin-sharp": "^2.5.1",
     "gatsby-plugin-sitemap": "^2.3.0",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
-    "gatsby-source-prismic-graphql": "^3.5.0",
+    "gatsby-source-prismic-graphql": "^3.x.x",
     "gatsby-transformer-remark": "^2.7.0",
     "gatsby-transformer-sharp": "^2.4.1",
     "prop-types": "^15.7.2",
