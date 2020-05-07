@@ -21,6 +21,45 @@ pre {
   color: white;
 }
 
+.bg-corners {
+  background: url(../images/corners.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  min-height: 220px;
+  top: 0;
+}
+
+header.header-transparent {
+  background-color: transparent;
+}
+
+.header-visible {
+  visibility: visible;
+  transition: all 200ms ease-in;
+  transform: none;
+  position: fixed;
+  background-color: darkblue;
+  z-index: 2;
+  width: 100vw;
+  top: 0;
+  padding-bottom: 15px;
+}
+
+.header-hidden {
+  visibility: hidden;
+  transition: all 200ms ease-out;
+  transform: translate(0, -100%);
+  position: fixed;
+  background-color: transparent;
+  z-index: 2;
+  width: 100vw;
+  top: 0;
+  padding-bottom: 15px;
+}
+
 .menu {
   display: flex;
   flex-wrap: wrap;
@@ -244,23 +283,52 @@ input:not(:checked) ~ #collapse-menu {
   margin-left: 6px;
 }
 
+@media (min-width: 768px) and (max-width: 992px) {
+  .bg-corners {
+    min-height: 140px;
+  }
+
+  .buttonMobile #productButton{
+    color: rgb(0, 0, 139);
+    background-color: white !important;
+    width: 100px !important;
+    border-color: white;
+    margin-left: 5px;
+    margin-bottom: 10px;
+
+  }
+  .buttonMobile #firstButton{
+    margin-left: 5px;
+    width: 153px !important;
+    margin-bottom: 60px;
+  }
+  .buttonMobile #secondButton{
+    margin-left: 5px;
+    width: 153px !important;
+    margin-bottom: 60px;
+  }
+
+  #ForHome {
+    float: left;  
+    margin-right: 5px;
+    width: 145px !important;
+    }
+  #ForBusiness {
+    float: right;
+    width: 145px !important;
+    margin-bottom: 35px;
+  }
+}
+
 @media (max-width: 767px) {
+  .bg-corners {
+    min-height: 110px;
+  }
+
   #mid {
     padding-top: 65% !important;
   }
-}
 
-@media (max-width: 576px){
-  .logo {
-    font-size: 48px !important;
-  }
-  ul {
-    margin-top: 0;
-    margin-bottom: 0px !important;
-  }
-}
-
-@media  (max-width: 767px) {
   #dropdownMenuRight{
     float:right;
     color:white;
@@ -292,8 +360,7 @@ input:not(:checked) ~ #collapse-menu {
 
   #language{
     display:none;
-}
-
+  }
 
   #ForHome {
     float: left;  
@@ -338,40 +405,26 @@ input:not(:checked) ~ #collapse-menu {
     font-weight:bolder;
     text-align: center;
     margin-top: 10px !important;
-   }
+  }
 }
 
-@media  (min-width: 768px) and (max-width: 992px) {
-  .buttonMobile #productButton{
-    color: rgb(0, 0, 139);
-    background-color: white !important;
-    width: 100px !important;
-    border-color: white;
-    margin-left: 5px;
-    margin-bottom: 10px;
-
+@media (max-width: 576px) {
+  .bg-corners {
+    min-height: 80px;
   }
-  .buttonMobile #firstButton{
-    margin-left: 5px;
-    width: 153px !important;
-    margin-bottom: 60px;
+  .logo {
+    font-size: 48px !important;
   }
-  .buttonMobile #secondButton{
-    margin-left: 5px;
-    width: 153px !important;
-    margin-bottom: 60px;
+  ul {
+    margin-top: 0;
+    margin-bottom: 0px !important;
   }
-
-  #ForHome {
-    float: left;  
-    margin-right: 5px;
-    width: 145px !important;
-    }
-  #ForBusiness {
-    float: right;
-    width: 145px !important;
-    margin-bottom: 35px;
 }
+
+@media (max-width: 425px) {
+  .bg-corners {
+    min-height: 70px;
+  }
 }
 
 .logo {
@@ -490,12 +543,6 @@ hr.new1 {
   height:1105px;
   width:100%;
   position: absolute;
-}
-
-.bg-corners {
-  background: url(../images/corners.svg);
-  background-repeat: no-repeat;
-  background-color: darkblue;
 }
 
 a{
