@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, StaticQuery, graphql} from 'gatsby';
 import ModalWindow from './Modal';
+import languageArrow from '../images/language.png';
 
 const Menu = (data, props) => {
    const {lang, uid, supportModal} = data.props
@@ -13,31 +14,41 @@ const Menu = (data, props) => {
   let langName = lang ==='et-et' ? 'ee' : lang;
   let prefix = lang ==='et-et' ? '' : lang;
   return (
-    <header>
-      <div id="headerPosition" className="container">
-        <div id="dropdownMenuRight">
-          <input id="menu-toggle" type="checkbox" />
-          <label id="menu-label" htmlFor="menu-toggle">
-            <a id="menu-icon" >{langName} <img id="strelka" className="img" alt="" src={lang} /></a>
-          </label>
-          <ul id="collapse-menu">
-            <li><Link to={`/${uid}`}>ee</Link></li>
-            <li><Link to={`/ru/${uid}`}>ru</Link></li> 
-          </ul>
+    <header className="container">
+      <div className="row">
+        <div className="col d-flex justify-content-between align-items-center">
+          <div className="logo">amblik</div>
+          <div className="language-menu">
+            <input id="menu-toggle" type="checkbox" />
+            <label id="menu-label" htmlFor="menu-toggle">
+              <a id="menu-icon" >{langName} <img className="img language-arrow" alt={lang} src={languageArrow} /></a>
+            </label>
+            <ul id="collapse-menu">
+              <li><Link to={`/${uid}`}>ee</Link></li>
+              <li><Link to={`/ru/${uid}`}>ru</Link></li> 
+            </ul>
+          </div>
         </div>
-        <h1 id="logo"><big><strong>amblik </strong></big></h1>
-       
-        {menuArr[0].node.menu.map(menuItem=> (
-           <Link id="link_button" to={menuItem.menu_anchor ? `${prefix}#${menuItem.menu_anchor}`:
-           `${prefix}/${menuItem.menu_link._meta.uid}`
-          }
-           ><strong>{menuItem.menu_item}</strong>
-           </Link>
-        ))}
-        
- 
-        {supportModal && <ModalWindow supportModal={supportModal} />}
-      </div>  
+      </div>
+      <div className="row">
+        <div className="col d-flex justify-content-between">
+          <div className="menu">
+            {menuArr[0].node.menu.map((menuItem, index) => (
+              <Link id="link_button" 
+                key={index}
+                to={menuItem.menu_anchor ? 
+                `${prefix}#${menuItem.menu_anchor}` :
+                `${prefix}/${menuItem.menu_link._meta.uid}`}
+              >
+                <strong>{menuItem.menu_item}</strong>
+              </Link>
+            ))}
+          </div>
+          <div className="support-modal">
+            {supportModal && <ModalWindow supportModal={supportModal} />}
+          </div>
+        </div>
+      </div> 
     </header>
   );
 };

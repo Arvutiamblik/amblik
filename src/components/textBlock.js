@@ -10,7 +10,7 @@ const TextBlock = ({ item, delimiter, enableButton, img, lang }) => (
         <Img fluid={item.product_imageSharp.childImageSharp.fluid} />
       </div>
     )}
-    <div className={`col-lg-${12 / delimiter}  col-md-${12 / delimiter} col-xs-12`}>
+    <div className={`col-lg-${12 / delimiter} col-md-${12 / delimiter} col-xs-12 mb-4`}>
       {item.title ? 
         <RichText render={item.title}>{item.title}</RichText> : 
         <RichText render={item.service_page.title}>{item.service_page.title}</RichText>
@@ -21,9 +21,7 @@ const TextBlock = ({ item, delimiter, enableButton, img, lang }) => (
       }
       {enableButton === true && (
         <Link to={`${lang === 'et-et' ? "" : lang}/${item.service_page._meta.uid}`}>
-          <button id="paddingButton" type="button" className="btn btn-primary">
-            <strong>{item.button_text}</strong>
-          </button>
+          <button className="btn btn-primary button-main">{item.button_text}</button>
         </Link>
       )}
     </div>

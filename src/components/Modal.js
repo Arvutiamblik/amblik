@@ -9,7 +9,7 @@ const ModalWindow = (props) => {
 
   return (
     <React.Fragment>
-      <Button id="support" color="primary" onClick={toggle}>{supportModal.modal_button_text}</Button>
+      <Button className="button-main button_support text-uppercase" onClick={toggle}>{supportModal.modal_button_text}</Button>
       <Modal isOpen={modal} toggle={toggle} className="support-modal">
         <ModalHeader toggle={toggle}>{supportModal.title}</ModalHeader>
         <ModalBody>

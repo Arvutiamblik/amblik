@@ -26,18 +26,13 @@ const IndexPageTemplate = ({
       lang={lang}
       supportModal={supportModal}
     >
-      <div id="otstup" className="container">
+      <div className="container">
         <div className="row">
-          <div className="col-lg-5 col-md-6 col-xs-12">
+          <div className="col-lg-5 col-md-6 col-xs-12 mt-5">
             <RichText render={headerDescription}>{headerDescription}</RichText>
-            <button type="button" className="btn btn-primary">
+            <button type="button" className="btn btn-primary button-main">
               <strong>{}</strong>
             </button>
-          </div>
-          <div className="col">
-            <div className="bs-example float-right">
-              <div className="dropdown text-right"></div>
-            </div>
           </div>
         </div>
       </div>
