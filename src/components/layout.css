@@ -21,9 +21,14 @@ pre {
   color: white;
 }
 
-#link_button{
-  padding-right: 23px;
-  z-index:99999 !important;
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#link_button {
+  padding-right: 20px;
+  padding-bottom: 10px;
 }
 #avast{
   height: 80px;
@@ -84,19 +89,7 @@ pre {
 #left{
   margin-left:20% !important;
 }
-#support{
-  float: right;
-  z-index: 99999 !important;
-  border-radius: 100px;
-  border-color: hotpink;
-  background-color: hotpink !important;
-  width: 150px !important;
-  color: white;
-  border-width: 0px;
-  margin-right: 20px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
+
 .support-modal .modal-content {
   background-color: darkblue;
   color: white;
@@ -129,9 +122,6 @@ pre {
   width: 174px;
 }
 
-#otstup{
-  margin-top: 90px;
-}
 #Soodus{
   width: 362px;
 }
@@ -139,9 +129,6 @@ pre {
   text-align: center;
   padding-left: 40%;
   
-}
-#headerPosition{
-  position: relative;
 }
 #language{
   float: right;
@@ -187,10 +174,6 @@ pre {
   
 }
 
-#paddingButton{
-  margin-bottom: 20px;
-}
-
 #dropdownMenuRight{
   float:right;
   color:white;
@@ -203,11 +186,18 @@ pre {
   display: none;
 }
 
+.language-menu {
+  position: relative;
+  font-weight: bold;
+}
+
 #collapse-menu {
   transition: transform 0.3s;
   transform-origin: top;
   list-style-type: none;
   padding: 0;
+  position: absolute;
+  z-index: 5;
 }
 #menu-label{
   cursor: pointer;
@@ -248,75 +238,60 @@ input:not(:checked) ~ #collapse-menu {
   column-count: 2;
   column-gap: 2em;
 }
-#strelka{
-  float: none;
-    height: 10px;
-    margin-left: 6px;
+
+.language-arrow{
+  height: 10px;
+  margin-left: 6px;
 }
-@media  (max-width: 767px) {
-#mid{
-	padding-top:50% !important;
-}
+
+@media (max-width: 767px) {
+  #mid {
+    padding-top: 65% !important;
+  }
 }
 
 @media (max-width: 576px){
-  #logo {
+  .logo {
     font-size: 48px !important;
-    margin-bottom: 33px;
-}
+  }
   ul {
-  margin-top: 0;
-  margin-bottom: 0px !important;
-}
+    margin-top: 0;
+    margin-bottom: 0px !important;
+  }
 }
 
 @media  (max-width: 767px) {
+  #dropdownMenuRight{
+    float:right;
+    color:white;
+    font-weight: bolder;
+    list-style-type: none;
+    margin-top: 20px !important;
+  }
 
-  #link_button {
-    padding-right: 3%;
-    z-index: 99999 !important;
-}
-#dropdownMenuRight{
-  float:right;
-  color:white;
-  font-weight: bolder;
-  list-style-type: none;
-  margin-top: 20px !important;
-}
+  #h1Text{
+    color: white;
+    padding-top: 40px;
+    font-family: "Century Gothic", sans;
+    font-weight: bolder;
+    font-size: 23pt;
+    margin-bottom: 30px;
+    text-align: center;
+  }
 
+  #containerRight{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
 
-#h1Text{
-  color: white;
-  padding-top: 40px;
-  font-family: "Century Gothic", sans;
-  font-weight: bolder;
-  font-size: 23pt;
-  margin-bottom: 30px;
-  text-align: center;
-}
+  .button-main.button_support{
+    border-radius: 100px;
+    min-width: 84px;
+    font-size: 13px;
+  }
 
-#containerRight{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
-
-#support{
-  float: right;
-  z-index: 99999 !important;
-  border-radius: 100px;
-  border-color: hotpink;
-  background-color: hotpink !important;
-  width: 84px !important;
-  color: white;
-  border-width: 0px;
-  margin-right: 0px;
-  font-size: 13px;
-  text-align: center;
-
-}
-
-#language{
-  display:none;
+  #language{
+    display:none;
 }
 
 
@@ -324,12 +299,12 @@ input:not(:checked) ~ #collapse-menu {
     float: left;  
     margin-right: 5px;
     width: 145px !important;
-    }
+  }
   #ForBusiness {
     float: right;
     width: 145px !important;
     margin-bottom: 35px;
-}
+  }
 
   #shopText{
     column-count: 1;
@@ -337,7 +312,7 @@ input:not(:checked) ~ #collapse-menu {
   }
   #Soodus {
     width: 100%;
-}
+  }
   .buttonMobile #productButton{
     color: rgb(0, 0, 139);
     background-color: white !important;
@@ -364,7 +339,6 @@ input:not(:checked) ~ #collapse-menu {
     text-align: center;
     margin-top: 10px !important;
    }
-  
 }
 
 @media  (min-width: 768px) and (max-width: 992px) {
@@ -400,10 +374,11 @@ input:not(:checked) ~ #collapse-menu {
 }
 }
 
-#logo {
+.logo {
   color: #ffffff;
-  font-size: 60px;
-  font-family: Century Gothic,sans;
+  font-size: 72px;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-weight: bold;
 }
 
 .eset{
@@ -480,14 +455,26 @@ hr.new1 {
 
 }
 
-.btn{
-    border-radius: 100px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    border-color:hotpink;
-    background-color: hotpink !important;
-    width: 150px !important;
+.button-main {
+  border-radius: 100px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-color:hotpink;
+  background-color: hotpink;
+  min-width: 150px;
+  font-weight: bold;
 }
+
+.button-main:hover,
+.button-main:active,
+.button-main:focus,
+.button-main:not(:disabled):not(.disabled):active {
+  color: white;
+  background-color: hotpink;
+  border-color: hotpink;
+  text-decoration: none;
+}
+
 .rightimg  {
   float: right; 
   margin: 7px 0 7px 7px; 
@@ -504,10 +491,11 @@ hr.new1 {
   width:100%;
   position: absolute;
 }
-#corners{
-  width:100%;
-  object-fit: cover;
-  position: absolute;
+
+.bg-corners {
+  background: url(../images/corners.svg);
+  background-repeat: no-repeat;
+  background-color: darkblue;
 }
 
 a{
@@ -517,8 +505,8 @@ a:hover {
   color: white;
   text-decoration: underline;
 }
-#mid{
-	padding-top:47%;
+#mid {
+	padding-top: 50%;
 }
 
 #leftText{

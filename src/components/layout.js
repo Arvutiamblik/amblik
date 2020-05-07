@@ -7,13 +7,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
-import corners from '../images/corners.svg'
 import Menu from "./menu.js"
  
 const Layout = ({ lang, children, uid="", supportModal }) => {
   return (
-    <main>
-      <img id="corners" className="img" alt="background" src={corners} />
+    <main className="bg-corners">
       <Menu lang={lang} uid={uid} supportModal={supportModal} />
       {children}
     </main>
