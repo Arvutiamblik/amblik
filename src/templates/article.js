@@ -1,7 +1,6 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
 import Layout from "../components/layout";
-import Footer from "../components/footer";
 import { graphql } from 'gatsby';
 
 const ArticlePageTemplate = ({
@@ -17,10 +16,6 @@ const ArticlePageTemplate = ({
       </div>
       <RichText render={description} id="BlogText">{description}</RichText>
       <RichText render={text} id="BlogText">{text}</RichText>
-    </div>
-
-    <div className="container">
-      <Footer lang={lang} />
     </div>
   </>
 );
