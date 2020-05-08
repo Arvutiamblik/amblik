@@ -4,8 +4,10 @@ import Layout from "../components/layout";
 import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
 import Footer from "../components/footer";
+import SEO from "../components/seo";
 
 const IndexPageTemplate = ({
+  heading,
   headerDescription,
   img,
   lang,
@@ -26,6 +28,11 @@ const IndexPageTemplate = ({
       lang={lang}
       supportModal={supportModal}
     >
+      <SEO
+        title={heading}
+        description={headerDescription[0].text}
+        article={false}
+      />
       <div className="container">
         <div className="row">
           <div className="col-lg-5 col-md-6 col-xs-12 mt-5">
