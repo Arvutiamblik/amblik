@@ -21,10 +21,7 @@ const Layout = ({ lang, children, uid="", supportModal }) => {
       if (isShow !== hideOnScroll) setHideOnScroll(isShow)
       if (isOnTop !== onTop) setOnTop(isOnTop)
     },
-    [hideOnScroll, onTop],
-    null,
-    false,
-    300
+    [hideOnScroll, onTop]
   )
 
   return (

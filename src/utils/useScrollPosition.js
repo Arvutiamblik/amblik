@@ -3,28 +3,17 @@ import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
 
 const isBrowser = typeof window !== `undefined`
 
-function getScrollPosition({ element, useWindow }) {
+function getScrollPosition() {
   if (!isBrowser) return { x: 0, y: 0 }
 
-  const target = element ? element.current : document.body
+  const target = document.body
   const position = target.getBoundingClientRect()
 
-  return useWindow
-    ? { x: window.scrollX, y: window.scrollY }
-    : { x: position.left, y: position.top }
+  return { x: position.left, y: position.top }
 }
 
-export function useScrollPosition(effect, deps, element, useWindow, wait) {
-  const position = useRef(getScrollPosition({ useWindow }))
-
-  let throttleTimeout = null
-
-  const callBack = () => {
-    const currPos = getScrollPosition({ element, useWindow })
-    effect({ prevPos: position.current, currPos })
-    position.current = currPos
-    throttleTimeout = null
-  }
+export function useScrollPosition(effect, deps) {
+  const position = useRef(getScrollPosition())
 
   useIsomorphicLayoutEffect(() => {
     if (!isBrowser) {
@@ -32,13 +21,9 @@ export function useScrollPosition(effect, deps, element, useWindow, wait) {
     }
 
     const handleScroll = () => {
-      if (wait) {
-        if (throttleTimeout === null) {
-          throttleTimeout = setTimeout(callBack, wait)
-        }
-      } else {
-        callBack()
-      }
+      const currPos = getScrollPosition()
+      effect({ prevPos: position.current, currPos })
+      position.current = currPos
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -48,8 +33,5 @@ export function useScrollPosition(effect, deps, element, useWindow, wait) {
 }
 
 useScrollPosition.defaultProps = {
-  deps: [],
-  element: false,
-  useWindow: false,
-  wait: null,
+  deps: []
 }
