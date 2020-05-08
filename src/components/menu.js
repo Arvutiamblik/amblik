@@ -39,8 +39,12 @@ const Menu = (data, props) => {
               <a id="link_button" 
                 key={index}
                 href={menuItem.menu_anchor ? 
-                `${prefix}#${menuItem.menu_anchor}` :
-                `${prefix}/${menuItem.menu_link._meta.uid}`}
+                `/${prefix}#${menuItem.menu_anchor}` :
+                lang == "et-et" ?
+                `${prefix}/${menuItem.menu_link._meta.uid}`
+               : 
+               `/${prefix}/${menuItem.menu_link._meta.uid}`
+              }
               >
                 <strong>{menuItem.menu_item}</strong>
               </a>
