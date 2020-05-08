@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    language: "et-et",
     title: "Amblik",
     titleTemplate: "%s",
     description: "pilvelahendused, IT haldus, IT-süsteemide projekteerimine ja hooldus, arvutivõrgud, infoturve, varundus-süsteemid, kasutajatugi, Business Intelligence, kodulehekülgede ja e-poodide arendus ja tugi, majandustarkvara arendus, Office 365, Microsoft 365, Azure, Power BI, Linux, ESET, AVAST, LetSignit, Keeper.",

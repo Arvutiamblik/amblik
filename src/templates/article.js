@@ -34,6 +34,7 @@ if (!test) return null
       supportModal={data.prismic.allSupport_modals.edges[0].node}
     >
       <SEO
+        language={article.node._meta.lang}
         title={article.node.metatitle !== null ? article.node.metatitle : article.node.title[0].text}
         description={article.node.metadescription !== null ? article.node.metadescription : article.node.description[0].text}
         article

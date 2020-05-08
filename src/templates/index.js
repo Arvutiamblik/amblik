@@ -29,6 +29,7 @@ const IndexPageTemplate = ({
       supportModal={supportModal}
     >
       <SEO
+        language={lang}
         title={heading}
         description={headerDescription[0].text}
         article={false}
