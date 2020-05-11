@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Amblik`,
+    description: `pilvelahendused, IT haldus, IT-süsteemide projekteerimine ja hooldus, arvutivõrgud, infoturve, varundus-süsteemid, kasutajatugi, Business Intelligence, kodulehekülgede ja e-poodide arendus ja tugi, majandustarkvara arendus, Office 365, Microsoft 365, Azure, Power BI, Linux, ESET, AVAST, LetSignit, Keeper.`,
     author: `@gatsbyjs`,
   },
   plugins: [
