@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
 import Footer from "../components/footer";
-import Helmet from "react-helmet"
+import SEO from "../components/seo";
 
 const IndexPageTemplate = ({
   heading,
@@ -28,46 +28,10 @@ const IndexPageTemplate = ({
       lang={lang}
       supportModal={supportModal}
     >
-      <Helmet
-        htmlAttributes={{
-          lang,
-        }}
+      <SEO
         title={heading}
-        titleTemplate={`%s | Amblik`}
-        meta={[
-          {
-            name: `description`,
-            content: headerDescription[0].text,
-          },
-          {
-            property: `og:title`,
-            content: heading,
-          },
-          {
-            property: `og:description`,
-            content: headerDescription[0].text,
-          },
-          {
-            property: `og:type`,
-            content: `website`,
-          },
-          {
-            name: `twitter:card`,
-            content: `summary`,
-          },
-          {
-            name: `twitter:creator`,
-            content: heading,
-          },
-          {
-            name: `twitter:title`,
-            content: heading,
-          },
-          {
-            name: `twitter:description`,
-            content: headerDescription[0].text,
-          },
-        ]}
+        description={headerDescription[0].text}
+        lang={lang}
       />
       <div className="container">
         <div className="row">
