@@ -19,6 +19,7 @@ const Layout = ({ lang, children, uid="", supportModal }) => {
       const isShow = currPos.y > prevPos.y
       const isOnTop = currPos.y > -200
       if (isShow !== hideOnScroll) setHideOnScroll(isShow)
+      console.log(isShow)
       if (isOnTop !== onTop) setOnTop(isOnTop)
     },
     [hideOnScroll, onTop]
