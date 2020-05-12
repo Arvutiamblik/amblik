@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, StaticQuery, graphql} from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
 import ModalWindow from './Modal';
 import languageArrow from '../images/language.png';
 
@@ -36,18 +36,18 @@ const Menu = (data, props) => {
         <div className="col d-flex justify-content-between">
           <div className="menu">
             {menuArr[0].node.menu.map((menuItem, index) => (
-              <a id="link_button" 
+              <Link id="link_button" 
                 key={index}
-                href={menuItem.menu_anchor ? 
-                `/${prefix}#${menuItem.menu_anchor}` :
-                lang == "et-et" ?
-                `${prefix}/${menuItem.menu_link._meta.uid}`
-               : 
-               `/${prefix}/${menuItem.menu_link._meta.uid}`
-              }
+                to={
+                  menuItem.menu_anchor ? 
+                  `/${prefix}#${menuItem.menu_anchor}` :
+                  lang === "et-et" ?
+                  `${prefix}/${menuItem.menu_link._meta.uid}` : 
+                  `/${prefix}/${menuItem.menu_link._meta.uid}`
+                }
               >
                 <strong>{menuItem.menu_item}</strong>
-              </a>
+              </Link>
             ))}
           </div>
           <div className="support-modal">
