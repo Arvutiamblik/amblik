@@ -3,7 +3,7 @@ import { RichText } from "prismic-reactjs";
 import Layout from "../components/layout";
 import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
-import Contact from "../components/contact";
+import Contact from "../components/Contact";
 import SEO from "../components/seo";
 
 const IndexPageTemplate = ({

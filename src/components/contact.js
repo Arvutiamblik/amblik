@@ -1,6 +1,7 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
 import { StaticQuery, graphql } from "gatsby";
+import ContactForm from "./ContactForm";
 
 const Contact = (data, props) => {
   const { lang } = data.props;
@@ -21,16 +22,23 @@ const Contact = (data, props) => {
   } = contactData[0].node;
 
   return (
-    <div className="text-md-center">
-      <div className="mb-5">
+    <div className="mb-5">
+      <div className="mb-5 text-center">
         <div name={contactAnchor} alt={contactAnchor}></div>
         <RichText render={contactTitle}>{contactTitle}</RichText>
       </div>
-      <RichText render={contactText}>{contactText}</RichText>
-      <RichText render={contactEmail}>{contactEmail}</RichText>
-      <RichText render={contactPhone}>{contactPhone}</RichText>
-      <RichText render={contactAddress}>{contactAddress}</RichText>
-      <RichText render={workingTime}>{workingTime}</RichText>
+      <div className="row">
+        <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
+          <RichText render={contactText}>{contactText}</RichText>
+          <RichText render={contactEmail}>{contactEmail}</RichText>
+          <RichText render={contactPhone}>{contactPhone}</RichText>
+          <RichText render={contactAddress}>{contactAddress}</RichText>
+          <RichText render={workingTime}>{workingTime}</RichText>
+        </div>
+        <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
+          <ContactForm />
+        </div>
+      </div>
     </div>
   );
 };
