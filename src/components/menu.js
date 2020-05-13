@@ -4,7 +4,14 @@ import ModalWindow from './Modal';
 import languageArrow from '../images/language.png';
 
 const Menu = (data, props) => {
-  const {lang, uid, supportModal} = data.props
+  const {lang, uid, supportModal, alternateLanguages=null} = data.props
+  
+ /* if(alternateLanguages) {
+    lang === alternateLanguages
+  }*/
+  
+   const alternateUid = alternateLanguages !== null && alternateLanguages[0].uid
+  
   let menuArr = data.data.prismic.allMenus.edges
   menuArr = menuArr.filter(arr => (
     arr.node._meta.lang === lang
@@ -26,8 +33,25 @@ const Menu = (data, props) => {
               <a id="menu-icon" >{langName} <img className="img language-arrow" alt={lang} src={languageArrow} /></a>
             </label>
             <ul id="collapse-menu">
-              <li><Link to={`/${uid}`}>ee</Link></li>
-              <li><Link to={`/ru/${uid}`}>ru</Link></li> 
+              {lang == "et-et" && alternateLanguages !== null && 
+              <>
+               <li><Link to={`/${uid}`}>ee</Link></li>
+               <li><Link to={`/ru/${alternateUid}`}>ru</Link></li>
+               </> 
+              }
+               {lang == "ru" && alternateLanguages !== null && 
+              <>
+               <li><Link to={`/${alternateUid}`}>ee</Link></li>
+               <li><Link to={`/ru/${uid}`}>ru</Link></li>
+               </> 
+              }
+              {!alternateLanguages && 
+              <>
+               <li><Link to={`/${uid}`}>ee</Link></li>
+               <li><Link to={`/ru/${uid}`}>ru</Link></li>
+               </> 
+              }
+             
             </ul>
           </div>
         </div>

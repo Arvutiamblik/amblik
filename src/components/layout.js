@@ -10,7 +10,7 @@ import "./layout.css"
 import Menu from "./menu.js"
 import { useScrollPosition } from '../utils/useScrollPosition';
 
-const Layout = ({ lang, children, uid="", supportModal }) => {
+const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) => {
   const [hideOnScroll, setHideOnScroll] = useState(true)
   const [onTop, setOnTop] = useState(true)
 
@@ -33,6 +33,7 @@ const Layout = ({ lang, children, uid="", supportModal }) => {
         supportModal={supportModal} 
         show={hideOnScroll} 
         top={onTop}
+        alternateLanguages={alternateLanguages}
       />
       {children}
     </main>

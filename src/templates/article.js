@@ -22,6 +22,7 @@ const ArticlePageTemplate = ({
 );
 
 const Article = ({ data }) => {
+  console.log(data);
   const test = data.prismic.allArticles.edges.slice(0, 1).pop()
 
 if (!test) return null
@@ -31,6 +32,7 @@ if (!test) return null
     <Layout 
       lang={article.node._meta.lang}
       uid={article.node._meta.uid}
+      alternateLanguages={article.node._meta.alternateLanguages}
       supportModal={data.prismic.allSupport_modals.edges[0].node}
     >
       <SEO
@@ -57,6 +59,10 @@ export const query = graphql`
             _meta {
               lang
               uid
+              alternateLanguages {
+              lang
+              uid
+              }
             }
             metatitle
             metadescription
@@ -66,6 +72,7 @@ export const query = graphql`
           }
         }
       }
+     
       allSupport_modals(lang: $lang) {
         edges {
           node {
