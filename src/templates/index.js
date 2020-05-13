@@ -3,7 +3,7 @@ import { RichText } from "prismic-reactjs";
 import Layout from "../components/layout";
 import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
-import Footer from "../components/footer";
+import Contact from "../components/contact";
 import SEO from "../components/seo";
 
 const IndexPageTemplate = ({
@@ -66,7 +66,7 @@ const IndexPageTemplate = ({
             </div>
             <RichText render={aboutText}>{aboutText}</RichText>
           </div>
-          <Footer lang={lang} />
+          <Contact lang={lang} />
         </div>
       </div>
     </Layout>
