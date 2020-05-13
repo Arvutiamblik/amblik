@@ -18,7 +18,8 @@ const Contact = (data, props) => {
     contact_email: contactEmail,
     contact_phone: contactPhone,
     contact_address: contactAddress,
-    working_time: workingTime
+    working_time: workingTime,
+    feedback_form: feedbackForm
   } = contactData[0].node;
 
   return (
@@ -36,7 +37,7 @@ const Contact = (data, props) => {
           <RichText render={workingTime}>{workingTime}</RichText>
         </div>
         <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
-          <ContactForm />
+          <ContactForm formData={feedbackForm} />
         </div>
       </div>
     </div>
@@ -61,6 +62,16 @@ export default (props) => (
                 contact_phone
                 contact_address
                 working_time
+                feedback_form {
+                  ... on PRISMIC_Request_form {
+                    form_name
+                    form_input {
+                      name
+                      type
+                      mandatory
+                    }
+                  }
+                }
               }
             }
           }
