@@ -65,6 +65,21 @@ header.header-transparent {
   flex-wrap: wrap;
 }
 
+.form-label {
+  text-transform: capitalize;
+}
+
+.form-field {
+  background-color: rgba(255, 255, 255, 0.26);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.form-field:focus {
+  background-color: rgba(255, 255, 255, 0.26);
+  color: white;
+}
+
 #link_button {
   padding-right: 20px;
   padding-bottom: 10px;
