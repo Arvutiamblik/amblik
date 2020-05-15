@@ -5,7 +5,7 @@ import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
 import Contact from "../components/contact";
 import SEO from "../components/seo";
-
+import GoogleMapReact from 'google-map-react';
 const IndexPageTemplate = ({
   heading,
   headerDescription,
@@ -67,8 +67,17 @@ const IndexPageTemplate = ({
             <RichText render={aboutText}>{aboutText}</RichText>
           </div>
           <Contact lang={lang} />
+         
         </div>
+
       </div>
+      <div className="container-fluid" style={{ height: '100vh', width: '100%' }}>
+          <GoogleMapReact
+          bootstrapURLKeys={{ key: "AIzaSyBdvYjP3jXAgQjaKJ0vTPotBjKSrly8UXE"}}
+          defaultCenter={{lat:1, lng:1}}
+          defaultZoom={4}
+        ></GoogleMapReact>
+        </div>
     </Layout>
   </>
 );
