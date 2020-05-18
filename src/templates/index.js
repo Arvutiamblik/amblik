@@ -7,6 +7,7 @@ import Contact from "../components/contact";
 import SEO from "../components/seo";
 import GoogleMapReact from 'google-map-react';
 const IndexPageTemplate = ({
+  pageContext,
   heading,
   headerDescription,
   img,
@@ -66,7 +67,7 @@ const IndexPageTemplate = ({
             </div>
             <RichText render={aboutText}>{aboutText}</RichText>
           </div>
-          <Contact lang={lang} />
+          <Contact lang={lang} pageType={pageContext.type} />
          
         </div>
 
@@ -82,9 +83,10 @@ const IndexPageTemplate = ({
   </>
 );
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, pageContext }) => {
   return (
     <IndexPageTemplate
+      pageContext={pageContext}
       heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
       img={data.prismic.allHome_pages.edges[0].node.img}
       headerDescription={data.prismic.allHome_pages.edges[0].node.heading_description}

@@ -8,7 +8,7 @@ const Menu = (data, props) => {
   
  /* if(alternateLanguages) {
     lang === alternateLanguages
-  }*/
+  } */
   
    const alternateUid = alternateLanguages !== null && alternateLanguages[0].uid
   

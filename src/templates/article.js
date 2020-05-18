@@ -3,26 +3,31 @@ import { RichText } from 'prismic-reactjs';
 import Layout from "../components/layout";
 import { graphql } from 'gatsby';
 import SEO from "../components/seo";
+import Contact from "../components/contact";
 
 const ArticlePageTemplate = ({
+  pageContext,
   lang,
   title,
   description,
-  text
+  text,
+  feedbackForm
 }) => (
   <>
     <div className="container">
       <div className="text-md-center my-5">
         <RichText render={title} id="headerNname">{title}</RichText>
       </div>
-      <RichText render={description} id="BlogText">{description}</RichText>
-      <RichText render={text} id="BlogText">{text}</RichText>
+      <div className="mb-5">
+        <RichText render={description} id="BlogText">{description}</RichText>
+        <RichText render={text} id="BlogText">{text}</RichText>
+      </div>
+      {feedbackForm && <Contact lang={lang} pageType={pageContext.type} />}
     </div>
   </>
 );
 
-const Article = ({ data }) => {
-  console.log(data);
+const Article = ({ data, pageContext }) => {
   const test = data.prismic.allArticles.edges.slice(0, 1).pop()
 
 if (!test) return null
@@ -41,10 +46,12 @@ if (!test) return null
         lang={article.node._meta.lang}
       />
       <ArticlePageTemplate 
+        pageContext={pageContext}
         lang={article.node._meta.lang}
         title={article.node.title}
         description={article.node.description}
         text={article.node.text}
+        feedbackForm={article.node.feedback_form}
       />
     </Layout>
   );
@@ -69,6 +76,16 @@ export const query = graphql`
             title
             description
             text
+            feedback_form {
+              ... on PRISMIC_Request_form {
+                form_name
+                form_input {
+                  name
+                  type
+                  mandatory
+                }
+              }
+            }
           }
         }
       }
