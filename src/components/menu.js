@@ -4,87 +4,121 @@ import ModalWindow from './Modal';
 import languageArrow from '../images/language.png';
 
 const Menu = (data, props) => {
-  const {lang, uid, supportModal, alternateLanguages=null} = data.props
-  
- /* if(alternateLanguages) {
+  const { lang, uid, supportModal, alternateLanguages = null } = data.props;
+
+  /* if(alternateLanguages) {
     lang === alternateLanguages
   } */
-  
-   const alternateUid = alternateLanguages !== null && alternateLanguages[0].uid
-  
-  let menuArr = data.data.prismic.allMenus.edges
-  menuArr = menuArr.filter(arr => (
-    arr.node._meta.lang === lang
-  ))
+
+  const alternateUid = alternateLanguages !== null && alternateLanguages[0].uid;
+
+  let menuArr = data.data.prismic.allMenus.edges;
+  menuArr = menuArr.filter((arr) => arr.node._meta.lang === lang);
   //  console.log(menuArr);
   let path = lang === 'et-et' ? `/${uid}` : `/${lang}/${uid}`;
-  let langName = lang ==='et-et' ? 'ee' : lang;
-  let prefix = lang ==='et-et' ? '' : lang;
-
+  let langName = lang === 'et-et' ? 'ee' : lang;
+  let prefix = lang === 'et-et' ? '' : lang;
+  console.log(uid);
   return (
-    <header className={`${data.props.show ? 'header-visible' : 'header-hidden'} ${data.props.top ? 'header-transparent' : ''}`}>
-      <div className="container">
-      <div className="row">
-        <div className="col d-flex justify-content-between align-items-center">
-          <div className="logo">amblik</div>
-          <div className="language-menu">
-            <input id="menu-toggle" type="checkbox" />
-            <label id="menu-label" htmlFor="menu-toggle">
-              <a id="menu-icon" >{langName} <img className="img language-arrow" alt={lang} src={languageArrow} /></a>
-            </label>
-            <ul id="collapse-menu">
-              {lang == "et-et" && alternateLanguages !== null && 
-              <>
-               <li><Link to={`/${uid}`}>ee</Link></li>
-               <li><Link to={`/ru/${alternateUid}`}>ru</Link></li>
-               </> 
-              }
-               {lang == "ru" && alternateLanguages !== null && 
-              <>
-               <li><Link to={`/${alternateUid}`}>ee</Link></li>
-               <li><Link to={`/ru/${uid}`}>ru</Link></li>
-               </> 
-              }
-              {!alternateLanguages && 
-              <>
-               <li><Link to={`/${uid}`}>ee</Link></li>
-               <li><Link to={`/ru/${uid}`}>ru</Link></li>
-               </> 
-              }
-             
-            </ul>
+    <header
+      className={`${data.props.show ? 'header-visible' : 'header-hidden'} ${
+        data.props.top ? 'header-transparent' : ''
+      }`}>
+      <div className='container'>
+        <div className='row'>
+          <div className='col d-flex justify-content-between align-items-center'>
+            <div className='logo'>amblik</div>
+            <div className='language-menu'>
+              <input id='menu-toggle' type='checkbox' />
+              <label id='menu-label' htmlFor='menu-toggle'>
+                <a id='menu-icon'>
+                  {langName}{' '}
+                  <img
+                    className='img language-arrow'
+                    alt={lang}
+                    src={languageArrow}
+                  />
+                </a>
+              </label>
+              <ul id='collapse-menu'>
+                {uid === 'home' && (
+                  <>
+                    <li>
+                      <Link to={`/`}>ee</Link>
+                    </li>
+                    <li>
+                      <Link to={`/ru/`}>ru</Link>
+                    </li>
+                  </>
+                )}
+                {lang == 'et-et' &&
+                  alternateLanguages !== null &&
+                  uid !== 'home' && (
+                    <>
+                      <li>
+                        <Link to={`/${uid}`}>ee</Link>
+                      </li>
+                      <li>
+                        <Link to={`/ru/${alternateUid}`}>ru</Link>
+                      </li>
+                    </>
+                  )}
+                {lang == 'ru' && alternateLanguages !== null && uid !== 'home' && (
+                  <>
+                    <li>
+                      <Link to={`/${alternateUid}`}>ee</Link>
+                    </li>
+                    <li>
+                      <Link to={`/ru/${uid}`}>ru</Link>
+                    </li>
+                  </>
+                )}
+
+                {!alternateLanguages && (
+                  <>
+                    <li>
+                      <Link to={`/${uid}`}>ee</Link>
+                    </li>
+                    <li>
+                      <Link to={`/ru/${uid}`}>ru</Link>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col d-flex justify-content-between">
-          <div className="menu">
-            {menuArr[0].node.menu.map((menuItem, index) => (
-              <Link id="link_button" 
-                key={index}
-                to={
-                  menuItem.menu_anchor ? 
-                  `/${prefix}#${menuItem.menu_anchor}` :
-                  lang === "et-et" ?
-                  `${prefix}/${menuItem.menu_link._meta.uid}` : 
-                  `/${prefix}/${menuItem.menu_link._meta.uid}`
-                }
-              >
-                <strong>{menuItem.menu_item}</strong>
-              </Link>
-            ))}
-          </div>
-          <div className="support-modal">
-            {supportModal && <ModalWindow supportModal={supportModal} />}
+        <div className='row'>
+          <div className='col d-flex justify-content-between'>
+            <div className='menu'>
+              {menuArr[0].node.menu.map((menuItem, index) => (
+                <Link
+                  id='link_button'
+                  key={index}
+                  to={
+                    menuItem.menu_anchor
+                      ? `/${prefix}#${menuItem.menu_anchor}`
+                      : lang === 'et-et' 
+                      ? menuItem.menu_link._meta.uid !== 'home' ? `${prefix}/${menuItem.menu_link._meta.uid}` :
+                      `${prefix}/` 
+                      : menuItem.menu_link._meta.uid !== 'home' ? `/${prefix}/${menuItem.menu_link._meta.uid}` :
+                      `/${prefix}/`
+                  }>
+                  <strong>{menuItem.menu_item}</strong>
+                </Link>
+              ))}
+            </div>
+            <div className='support-modal'>
+              {supportModal && <ModalWindow supportModal={supportModal} />}
+            </div>
           </div>
         </div>
-      </div> 
       </div>
     </header>
   );
 };
 // eslint-disable-next-line react/display-name
-export default (props)  => (
+export default (props) => (
   <StaticQuery
     query={graphql`
       query($lang: String) {
@@ -174,9 +208,6 @@ export default (props)  => (
         }
       }
     `}
-    render={data => <Menu data={data} props={props} />}
+    render={(data) => <Menu data={data} props={props} />}
   />
-)
-
-
-
+);

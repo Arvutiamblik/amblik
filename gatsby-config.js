@@ -36,6 +36,23 @@ module.exports = {
 			production: true,
 		},
   },
+ /* {
+    resolve: 'gatsby-plugin-load-script',
+    options: {
+      
+      src: 'https://www.google.com/recaptcha/api.js',
+     
+    },
+  },*/
+ {
+    resolve: 'gatsby-plugin-load-script',
+    options: {
+      
+      src: 'https://www.google.com/recaptcha/api.js?render=6LcmheUUAAAAAGLNIp9m4PrHuSohL3reDas5yCKa',
+     
+    },
+  },
+  
   {
     resolve: 'gatsby-source-prismic-graphql',
       options: {
