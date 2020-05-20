@@ -39,7 +39,7 @@ const Contact = (data, props) => {
     data.props.pageType === 'home_page' ?
       <div className="mb-5">
         <div className="mb-5 text-center">
-          <div name={contactAnchor} alt={contactAnchor}></div>
+          <div id={contactAnchor} name={contactAnchor} alt={contactAnchor}></div>
           <RichText render={contactTitle}>{contactTitle}</RichText>
         </div>
         <div className="row">

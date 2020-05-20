@@ -49,21 +49,21 @@ const IndexPageTemplate = ({
         <div id="mid" className="col-lg">
           <div className="mb-5">
             <div className="text-md-center mb-5">
-              <div name={itAnchor} alt={itAnchor}></div>
+              <div id={itAnchor} name={itAnchor} alt={itAnchor}></div>
               <RichText render={itTitle}>{itTitle}</RichText>
             </div>
             <TextBlock gridItems={itServices} delimiter={2} lang={lang} enableButton />
           </div>
           <div className="mb-5">
             <div className="text-md-center mb-5">
-              <div name={webAnchor} alt={webAnchor}></div>
+              <div id={webAnchor} name={webAnchor} alt={webAnchor}></div>
               <RichText render={webTitle}>{webTitle}</RichText>
             </div>
             <TextBlock gridItems={webServices} delimiter={2} lang={lang} enableButton />
           </div>
           <div className="mb-5">
             <div className="text-md-center mb-5">
-              <div name={aboutAnchor} alt={aboutAnchor}></div>
+              <div id={aboutAnchor} name={aboutAnchor} alt={aboutAnchor}></div>
               <RichText render={aboutTitle}>{aboutTitle}</RichText>
             </div>
             <RichText render={aboutText}>{aboutText}</RichText>

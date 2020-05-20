@@ -80,7 +80,7 @@ header.header-transparent {
   color: white;
 }
 
-#link_button {
+.link_button {
   padding-right: 20px;
   padding-bottom: 10px;
 }
