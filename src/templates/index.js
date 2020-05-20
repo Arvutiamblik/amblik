@@ -35,9 +35,9 @@ const IndexPageTemplate = ({
         description={headerDescription[0].text}
         lang={lang}
       />
-      <div className="container content-margin">
+      <div className="container">
         <div className="row">
-          <div className="col-lg-5 col-md-6 col-xs-12 mt-5">
+          <div className="col-lg-5 col-md-6 col-xs-12">
             <RichText render={headerDescription}>{headerDescription}</RichText>
             <button type="button" className="btn btn-primary button-main">
               <strong>{}</strong>

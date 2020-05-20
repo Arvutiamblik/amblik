@@ -35,7 +35,9 @@ const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) =>
         top={onTop}
         alternateLanguages={alternateLanguages}
       />
-      {children}
+      <div className="wrapper content-margin">
+        {children}
+      </div>
     </main>
   )
 }
