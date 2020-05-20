@@ -5,7 +5,7 @@ import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
 import Contact from "../components/contact";
 import SEO from "../components/seo";
-import GoogleMapReact from 'google-map-react';
+import Map from '../components/map';
 const IndexPageTemplate = ({
   pageContext,
   heading,
@@ -21,7 +21,8 @@ const IndexPageTemplate = ({
   webServices,
   aboutAnchor,
   aboutText,
-  aboutTitle
+  aboutTitle,
+  geopoint
 }) => (
   <>
     <img id="logoPicture" className="img" alt="background" src={img.url} />
@@ -72,12 +73,8 @@ const IndexPageTemplate = ({
         </div>
 
       </div>
-      <div className="container-fluid" style={{ height: '100vh', width: '100%' }}>
-          <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyBdvYjP3jXAgQjaKJ0vTPotBjKSrly8UXE"}}
-          defaultCenter={{lat:1, lng:1}}
-          defaultZoom={4}
-        ></GoogleMapReact>
+      <div  style={{ height: '100vh', width: '100%' }}>
+      <Map position= {geopoint}> </Map>
         </div>
     </Layout>
   </>
@@ -101,6 +98,7 @@ const IndexPage = ({ data, pageContext }) => {
       aboutAnchor = {data.prismic.allHome_pages.edges[0].node.about_anchor}
       aboutText = {data.prismic.allHome_pages.edges[0].node.about_text}
       aboutTitle = {data.prismic.allHome_pages.edges[0].node.about_title}
+      geopoint = {data.prismic.allHome_pages.edges[0].node.geopoint}
     />
   );
 };
@@ -117,7 +115,8 @@ export const query = graphql`
               lang
             }
             it_title
-            it_anchor
+            it_anchor,
+            geopoint
             it_services {
               description
               button_text
