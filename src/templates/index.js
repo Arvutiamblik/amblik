@@ -168,6 +168,11 @@ export const query = graphql`
             subtitle
             button_text
             link_text
+            teamviewer_support_link {
+              ... on PRISMIC__ExternalLink {
+                url
+              }
+            }
           }
         }
       }
