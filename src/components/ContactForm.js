@@ -166,7 +166,7 @@ const ContactForm = (props) => {
       {formFields.map((item, index) => (
         <div key={index} className='form-group'>
           <label htmlFor={`input-${counter}`} className='form-label'>
-            {item.name}
+            {item.mandatory ? `* ${item.name}` : item.name}
           </label>
           <input
             id={`input-${counter++}`}
@@ -175,6 +175,7 @@ const ContactForm = (props) => {
             name={item.name}
             onChange={handleChange}
             value={inputsObj[index].value}
+            required={item.mandatory}
           />
         </div>
       ))}
