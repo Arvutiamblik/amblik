@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef, version } from 'react';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
 const ContactForm = (props) => {
+  const isBrowser = typeof window !== `undefined`
+  if(isBrowser){
   window.recaptchaV2Callback = function () {
     window.grecaptchaV2 = Object.assign(
       Object.create(Object.getPrototypeOf(window.grecaptcha)),
@@ -35,6 +37,7 @@ const ContactForm = (props) => {
       axios.post('https://amblik.azurewebsites.net/api/sendform',data).then(response => console.log(response))
       .catch(error => console.log(error));
   };
+}
   let tokenV2 = null;
   const [tokenV3, setTokenV3] = useState();
 
@@ -55,7 +58,7 @@ const ContactForm = (props) => {
   }, []);
   const handleLoaded = () => {
     console.log('window.grecaptcha');
-
+    if(isBrowser) {
     window.grecaptcha.ready(() => {
       window.grecaptcha
         .execute('6LcmheUUAAAAAGLNIp9m4PrHuSohL3reDas5yCKa')
@@ -70,6 +73,7 @@ const ContactForm = (props) => {
         'data-callback': recaptchaV2Exec,
       });
     });
+  }
   };
 
   const recaptchaInstance = useRef(null);
@@ -114,7 +118,10 @@ const ContactForm = (props) => {
       .then(function (response) {
         console.log(response);
         if (response.data === "Captcha is not valid or doesn't have token.") {
-          window.grecaptcha.execute()
+          if(isBrowser){
+            window.grecaptcha.execute()
+          }
+          
           //console.log(recaptchaInstance);
           // recaptchaInstance.execute()
           // executeCaptcha()
