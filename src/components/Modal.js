@@ -34,7 +34,7 @@ const ModalWindow = (props) => {
         <ModalFooter>
           <div><h6>{supportModal.subtitle}</h6></div>
           <div className="download-button">
-            <a href="https://support.amblik.ee" target="_blank" rel="noopener noreferrer" alt={supportModal.button_text}>
+            <a href={supportModal.teamviewer_support_link.url} target="_blank" rel="noopener noreferrer" alt={supportModal.button_text}>
               <img src={TeamviewerBtnImg} alt={supportModal.button_text} />
               <span>{supportModal.button_text}</span>
             </a>

@@ -93,7 +93,7 @@ const Menu = (data, props) => {
             <div className='menu'>
               {menuArr[0].node.menu.map((menuItem, index) => (
                 <Link
-                  id='link_button'
+                  className='link_button'
                   key={index}
                   to={
                     menuItem.menu_anchor

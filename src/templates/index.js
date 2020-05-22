@@ -35,9 +35,9 @@ const IndexPageTemplate = ({
         description={headerDescription[0].text}
         lang={lang}
       />
-      <div className="container content-margin">
+      <div className="container">
         <div className="row">
-          <div className="col-lg-5 col-md-6 col-xs-12 mt-5">
+          <div className="col-lg-5 col-md-6 col-xs-12">
             <RichText render={headerDescription}>{headerDescription}</RichText>
             <button type="button" className="btn btn-primary button-main">
               <strong>{}</strong>
@@ -49,21 +49,21 @@ const IndexPageTemplate = ({
         <div id="mid" className="col-lg">
           <div className="mb-5">
             <div className="text-md-center mb-5">
-              <div name={itAnchor} alt={itAnchor}></div>
+              <div id={itAnchor} name={itAnchor} alt={itAnchor}></div>
               <RichText render={itTitle}>{itTitle}</RichText>
             </div>
             <TextBlock gridItems={itServices} delimiter={2} lang={lang} enableButton />
           </div>
           <div className="mb-5">
             <div className="text-md-center mb-5">
-              <div name={webAnchor} alt={webAnchor}></div>
+              <div id={webAnchor} name={webAnchor} alt={webAnchor}></div>
               <RichText render={webTitle}>{webTitle}</RichText>
             </div>
             <TextBlock gridItems={webServices} delimiter={2} lang={lang} enableButton />
           </div>
           <div className="mb-5">
             <div className="text-md-center mb-5">
-              <div name={aboutAnchor} alt={aboutAnchor}></div>
+              <div id={aboutAnchor} name={aboutAnchor} alt={aboutAnchor}></div>
               <RichText render={aboutTitle}>{aboutTitle}</RichText>
             </div>
             <RichText render={aboutText}>{aboutText}</RichText>
@@ -168,6 +168,11 @@ export const query = graphql`
             subtitle
             button_text
             link_text
+            teamviewer_support_link {
+              ... on PRISMIC__ExternalLink {
+                url
+              }
+            }
           }
         }
       }

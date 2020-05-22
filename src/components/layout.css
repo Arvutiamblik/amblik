@@ -80,7 +80,7 @@ header.header-transparent {
   color: white;
 }
 
-#link_button {
+.link_button {
   padding-right: 20px;
   padding-bottom: 10px;
 }
@@ -298,6 +298,12 @@ input:not(:checked) ~ #collapse-menu {
   margin-left: 6px;
 }
 
+@media (max-width: 992px) {
+  .content-margin {
+    margin-top: 60px;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 992px) {
   .bg-corners {
     min-height: 140px;
@@ -336,6 +342,10 @@ input:not(:checked) ~ #collapse-menu {
 }
 
 @media (max-width: 767px) {
+  .content-margin {
+    margin-top: 80px;
+  }
+
   .bg-corners {
     min-height: 110px;
   }
@@ -424,10 +434,6 @@ input:not(:checked) ~ #collapse-menu {
 }
 
 @media (max-width: 576px) {
-  .content-margin {
-    margin-top: 35px;
-  }
-
   .bg-corners {
     min-height: 80px;
   }

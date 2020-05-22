@@ -10,6 +10,11 @@ import "./layout.css"
 import Menu from "./menu.js"
 import { useScrollPosition } from '../utils/useScrollPosition';
 
+if (typeof window !== "undefined") {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]')
+}
+
 const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) => {
   const [hideOnScroll, setHideOnScroll] = useState(true)
   const [onTop, setOnTop] = useState(true)
@@ -35,7 +40,9 @@ const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) =>
         top={onTop}
         alternateLanguages={alternateLanguages}
       />
-      {children}
+      <div className="wrapper content-margin">
+        {children}
+      </div>
     </main>
   )
 }
