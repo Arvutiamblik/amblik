@@ -22,7 +22,7 @@ const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) =>
   useScrollPosition(
     ({ prevPos, currPos }) => {
       const isShow = currPos.y > prevPos.y
-      const isOnTop = currPos.y > -200
+      const isOnTop = currPos.y > -100
       if (isShow !== hideOnScroll) setHideOnScroll(isShow)
       if (isOnTop !== onTop) setOnTop(isOnTop)
     },
