@@ -18,7 +18,7 @@ const Menu = (data, props) => {
   let path = lang === 'et-et' ? `/${uid}` : `/${lang}/${uid}`;
   let langName = lang === 'et-et' ? 'ee' : lang;
   let prefix = lang === 'et-et' ? '' : lang;
-  console.log(uid);
+  // console.log(uid);
   return (
     <header
       className={`${data.props.show ? 'header-visible' : 'header-hidden'} ${

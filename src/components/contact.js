@@ -26,12 +26,14 @@ const Contact = (data, props) => {
     feedback_form: feedbackForm
   } = contactData[0].node;
 
-  let articleContactData = data.data.prismic.allHome_pages.edges;
+  let articleContactData = data.data.prismic.allArticles.edges;
   articleContactData = articleContactData.filter(item => (
     item.node._meta.lang === lang
   ));
 
   const { 
+    title: articleTitle,
+    feedback_button_text: articleFeedbackButtonText,
     feedback_form: articleFeedbackForm
   } = articleContactData[0].node;
 
@@ -58,16 +60,16 @@ const Contact = (data, props) => {
     :
       <>
         <Button className="button-main button_support text-uppercase mb-5" onClick={toggle}>
-          {articleFeedbackForm.form_name[0].text}
+          {articleFeedbackButtonText}
         </Button>
         <Modal isOpen={modal} toggle={toggle} size='lg' className="support-modal">
           <ModalHeader toggle={toggle}>
-            <RichText render={contactTitle}>{contactTitle}</RichText>
+            <div>{articleFeedbackButtonText}</div>
           </ModalHeader>
           <ModalBody>
             <div className="row">
               <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
-                <RichText render={contactText}>{contactText}</RichText>
+                <p>{articleTitle[0].text}</p>
                 <RichText render={contactEmail}>{contactEmail}</RichText>
                 <RichText render={contactPhone}>{contactPhone}</RichText>
                 <RichText render={contactAddress}>{contactAddress}</RichText>
@@ -121,6 +123,8 @@ export default (props) => (
                 _meta {
                   lang
                 }
+                title
+                feedback_button_text
                 feedback_form {
                   ... on PRISMIC_Request_form {
                     form_name
