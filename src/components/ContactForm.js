@@ -3,20 +3,20 @@ import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
 const ContactForm = (props) => {
   const isBrowser = typeof window !== `undefined`
-  if(isBrowser){
-  window.recaptchaV2Callback = function () {
-    window.grecaptchaV2 = Object.assign(
-      Object.create(Object.getPrototypeOf(window.grecaptcha)),
-      window.grecaptcha
-    );
-  };
-  window.recaptchaV3Callback = function () {
-    window.grecaptchaV3 = Object.assign(
-      Object.create(Object.getPrototypeOf(window.grecaptcha)),
-      window.grecaptcha
-    );
-  };
-  window.recaptchaV2Exec = (response) => {
+  if(isBrowser) {
+    window.recaptchaV2Callback = function () {
+      window.grecaptchaV2 = Object.assign(
+        Object.create(Object.getPrototypeOf(window.grecaptcha)),
+        window.grecaptcha
+      );
+    };
+    window.recaptchaV3Callback = function () {
+      window.grecaptchaV3 = Object.assign(
+        Object.create(Object.getPrototypeOf(window.grecaptcha)),
+        window.grecaptcha
+      );
+    };
+    window.recaptchaV2Exec = (response) => {
       console.log(response);
       let data = {
         name: inputsObj[0].value,
@@ -25,19 +25,17 @@ const ContactForm = (props) => {
         email: inputsObj[1].value,
         token: response,
         form: {}
-      
       }
       inputsObj.map((input, index) =>{
         if(index > 1) {
           data.form[`${input.name}`]  = input.value
-         
         }
         else return false;
       })
       axios.post('https://amblik.azurewebsites.net/api/sendform',data).then(response => console.log(response))
       .catch(error => console.log(error));
-  };
-}
+    };
+  }
   let tokenV2 = null;
   const [tokenV3, setTokenV3] = useState();
 
@@ -59,21 +57,21 @@ const ContactForm = (props) => {
   const handleLoaded = () => {
     console.log('window.grecaptcha');
     if(isBrowser) {
-    window.grecaptcha.ready(() => {
-      window.grecaptcha
-        .execute('6LcmheUUAAAAAGLNIp9m4PrHuSohL3reDas5yCKa')
-        .then((token) => {
-          console.log(token);
-          setTokenV3(token);
-          console.log(tokenV3);
+      window.grecaptcha.ready(() => {
+        window.grecaptcha
+          .execute('6LcmheUUAAAAAGLNIp9m4PrHuSohL3reDas5yCKa')
+          .then((token) => {
+            console.log(token);
+            setTokenV3(token);
+            console.log(tokenV3);
+          });
+        window.grecaptcha.render('captcha', {
+          sitekey: '6Le3iPoUAAAAADwtDrUwfuU2s16mWhZrHewVCZnv',
+          size: 'invisible',
+          'data-callback': recaptchaV2Exec,
         });
-      window.grecaptcha.render('captcha', {
-        sitekey: '6Le3iPoUAAAAADwtDrUwfuU2s16mWhZrHewVCZnv',
-        size: 'invisible',
-        'data-callback': recaptchaV2Exec,
       });
-    });
-  }
+    }
   };
 
   const recaptchaInstance = useRef(null);
@@ -88,8 +86,19 @@ const ContactForm = (props) => {
     tokenV2 = token;
   };
 
+  const [, updateState] = React.useState();
+  const forceUpdate = React.useCallback(() => updateState({}), []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
+    setErrors(errors.splice(0, errors.length));
+    setErrors(validate(inputsObj));
+    if (errors.length > 0) {
+      setIsSubmitting(false);
+      forceUpdate();
+      return;
+    }
     console.log(tokenV3);
     const request = axios.create({
       headers: {
@@ -122,7 +131,7 @@ const ContactForm = (props) => {
             window.grecaptcha.execute()
           }
           
-          //console.log(recaptchaInstance);
+          // console.log(recaptchaInstance);
           // recaptchaInstance.execute()
           // executeCaptcha()
         }
@@ -130,6 +139,10 @@ const ContactForm = (props) => {
       })
       .catch(function (error) {
         console.log(error);
+      })
+      .finally(function () {
+        resetForm();
+        setIsSubmitting(false);
       });
   };
   const formFields = props.formData.form_input.filter(
@@ -145,6 +158,23 @@ const ContactForm = (props) => {
   const submit = props.formData.form_input.find(
     (item) => item.type === 'submit'
   );
+
+  const validate = (values) => {
+    values.map((input) => {
+      if (input.mandatory && input.value === '') {
+        errors.push({
+          name: input.name,
+          type: input.type, 
+          error: `${input.name} is required`
+        })
+      }
+    })
+    return errors;
+  };
+
+  const [errors, setErrors] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (event) => {
     console.log(event.target);
     setInputs(
@@ -159,6 +189,16 @@ const ContactForm = (props) => {
     );
     console.log(inputsObj);
   };
+
+  const resetForm = () => {
+    setInputs(
+      inputsObj.map((input) => {
+        input.value = '';
+        return input;
+      })
+    );
+  };
+
   let counter = 1;
 
   return (
@@ -170,13 +210,17 @@ const ContactForm = (props) => {
           </label>
           <input
             id={`input-${counter++}`}
-            className='form-control form-field'
+            className={`form-control form-field`}
             type={item.type}
             name={item.name}
             onChange={handleChange}
             value={inputsObj[index].value}
-            required={item.mandatory}
           />
+          {errors.map((error, index) => 
+            error.error && item.name === error.name && (
+              <p key={index} className="smaller text-danger">{error.error}</p>
+            )
+          )}
         </div>
       ))}
       <button type={submit.type} className='btn btn-primary button-main my-3'>

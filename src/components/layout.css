@@ -21,6 +21,10 @@ pre {
   color: white;
 }
 
+.smaller {
+  font-size: smaller;
+}
+
 .bg-corners {
   background: url(../images/corners.svg);
   background-repeat: no-repeat;
