@@ -107,10 +107,12 @@ export default (props) => (
                 feedback_form {
                   ... on PRISMIC_Request_form {
                     form_name
+                    empty_field_message
                     form_input {
                       name
                       type
                       mandatory
+                      filling_error_message
                     }
                   }
                 }
@@ -128,10 +130,12 @@ export default (props) => (
                 feedback_form {
                   ... on PRISMIC_Request_form {
                     form_name
+                    empty_field_message
                     form_input {
                       name
                       type
                       mandatory
+                      filling_error_message
                     }
                   }
                 }

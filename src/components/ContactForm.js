@@ -153,7 +153,7 @@ const ContactForm = (props) => {
       return { ...field, value: '' };
     }),
   ]);
-  console.log(inputsObj);
+  // console.log(inputsObj);
 
   const submit = props.formData.form_input.find(
     (item) => item.type === 'submit'
@@ -165,7 +165,13 @@ const ContactForm = (props) => {
         errors.push({
           name: input.name,
           type: input.type, 
-          error: `${input.name} is required`
+          error: props.formData.empty_field_message ? props.formData.empty_field_message : 'Please fill out this field'
+        })
+      } else if (input.type === 'email' && !input.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+        errors.push({
+          name: input.name,
+          type: input.type, 
+          error: input.filling_error_message ? input.filling_error_message : 'Please include real e-mail address like name@contoso.com'
         })
       }
     })
@@ -176,7 +182,7 @@ const ContactForm = (props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (event) => {
-    console.log(event.target);
+    // console.log(event.target);
     setInputs(
       inputsObj.map((input) => {
         if (event.target.getAttribute('name') === input.name) {
@@ -187,7 +193,7 @@ const ContactForm = (props) => {
         }
       })
     );
-    console.log(inputsObj);
+    // console.log(inputsObj);
   };
 
   const resetForm = () => {
@@ -202,7 +208,7 @@ const ContactForm = (props) => {
   let counter = 1;
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} noValidate>
       {formFields.map((item, index) => (
         <div key={index} className='form-group'>
           <label htmlFor={`input-${counter}`} className='form-label'>
