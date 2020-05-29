@@ -8,6 +8,7 @@ import SEO from "../components/seo";
 import Map from '../components/map';
 const IndexPageTemplate = ({
   pageContext,
+  pageUrl,
   heading,
   headerDescription,
   img,
@@ -68,7 +69,7 @@ const IndexPageTemplate = ({
             </div>
             <RichText render={aboutText}>{aboutText}</RichText>
           </div>
-          <Contact lang={lang} pageType={pageContext.type} />
+          <Contact homeTitle={heading} pageUrl={pageUrl} lang={lang} pageType={pageContext.type} />
          
         </div>
 
@@ -80,10 +81,11 @@ const IndexPageTemplate = ({
   </>
 );
 
-const IndexPage = ({ data, pageContext }) => {
+const IndexPage = ({ data, pageContext, location }) => {
   return (
     <IndexPageTemplate
       pageContext={pageContext}
+      pageUrl={location.href}
       heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
       img={data.prismic.allHome_pages.edges[0].node.img}
       headerDescription={data.prismic.allHome_pages.edges[0].node.heading_description}

@@ -5,7 +5,7 @@ import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import ContactForm from "./ContactForm";
 
 const Contact = (data, props) => {
-  const { lang } = data.props;
+  const { lang, homeTitle, articleTitle, pageUrl } = data.props;
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -32,7 +32,6 @@ const Contact = (data, props) => {
   ));
 
   const { 
-    title: articleTitle,
     feedback_button_text: articleFeedbackButtonText,
     feedback_form: articleFeedbackForm
   } = articleContactData[0].node;
@@ -53,7 +52,7 @@ const Contact = (data, props) => {
             <RichText render={workingTime}>{workingTime}</RichText>
           </div>
           <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
-            <ContactForm formData={feedbackForm} />
+            <ContactForm title={homeTitle} pageUrl={pageUrl} formData={feedbackForm} />
           </div>
         </div>
       </div> 
@@ -69,14 +68,15 @@ const Contact = (data, props) => {
           <ModalBody>
             <div className="row">
               <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
-                <p>{articleTitle[0].text}</p>
+                <p>{articleTitle}</p>
+                <RichText render={articleTitle}>{articleTitle}</RichText>
                 <RichText render={contactEmail}>{contactEmail}</RichText>
                 <RichText render={contactPhone}>{contactPhone}</RichText>
                 <RichText render={contactAddress}>{contactAddress}</RichText>
                 <RichText render={workingTime}>{workingTime}</RichText>
               </div>
               <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
-                <ContactForm formData={articleFeedbackForm} />
+                <ContactForm title={articleTitle} pageUrl={pageUrl} formData={articleFeedbackForm} />
               </div>
             </div>
           </ModalBody>
@@ -125,7 +125,6 @@ export default (props) => (
                 _meta {
                   lang
                 }
-                title
                 feedback_button_text
                 feedback_form {
                   ... on PRISMIC_Request_form {

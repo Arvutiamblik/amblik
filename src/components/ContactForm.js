@@ -21,7 +21,7 @@ const ContactForm = (props) => {
       let data = {
         name: inputsObj[0].value,
         version: 2,
-        subject: 'test',
+        subject: props.title,
         email: inputsObj[1].value,
         token: response,
         form: {}
@@ -109,19 +109,19 @@ const ContactForm = (props) => {
     let data = {
       name: inputsObj[0].value,
       version: 3,
-      subject: 'test',
+      subject: props.title,
       email: inputsObj[1].value,
       token: tokenV3,
       form: {}
     
     }
-    inputsObj.map((input, index) =>{
+    inputsObj.map((input, index) => {
       if(index > 1) {
         data.form[`${input.name}`]  = input.value
-       
       }
       else return false;
     })
+    data.form['URL'] = decodeURI(props.pageUrl)
     request
       .post('https://amblik.azurewebsites.net/api/sendform', data)
       .then(function (response) {
@@ -209,6 +209,7 @@ const ContactForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit} noValidate>
+      {console.log(props.pageUrl)}
       {formFields.map((item, index) => (
         <div key={index} className='form-group'>
           <label htmlFor={`input-${counter}`} className='form-label'>

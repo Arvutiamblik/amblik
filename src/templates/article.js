@@ -7,6 +7,7 @@ import Contact from "../components/contact";
 
 const ArticlePageTemplate = ({
   pageContext,
+  pageUrl,
   lang,
   title,
   description,
@@ -22,12 +23,12 @@ const ArticlePageTemplate = ({
         <RichText render={description} id="BlogText">{description}</RichText>
         <RichText render={text} id="BlogText">{text}</RichText>
       </div>
-      {feedbackForm && <Contact lang={lang} pageType={pageContext.type} />}
+      {feedbackForm && <Contact articleTitle={title[0].text} pageUrl={pageUrl} lang={lang} pageType={pageContext.type} />}
     </div>
   </>
 );
 
-const Article = ({ data, pageContext }) => {
+const Article = ({ data, pageContext, location }) => {
   const test = data.prismic.allArticles.edges.slice(0, 1).pop()
 
 if (!test) return null
@@ -46,6 +47,7 @@ if (!test) return null
         lang={article.node._meta.lang}
       />
       <ArticlePageTemplate 
+        pageUrl={location.href}
         pageContext={pageContext}
         lang={article.node._meta.lang}
         title={article.node.title}
