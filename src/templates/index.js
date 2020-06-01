@@ -74,9 +74,9 @@ const IndexPageTemplate = ({
         </div>
 
       </div>
-      <div  style={{ height: '100vh', width: '100%' }}>
-      <Map position= {geopoint}> </Map>
-        </div>
+      <div style={{ height: '400px', width: '100%' }}>
+        <Map position={geopoint}></Map>
+      </div>
     </Layout>
   </>
 );
