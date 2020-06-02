@@ -1,8 +1,17 @@
 import React from "react";
 import GoogleMapReact from 'google-map-react';
 const Map = (props) => {
-  const {position} = props;
-  const cords = {lat: position.latitude, lng: position.longitude}
+  const { 
+    position,
+    businessName,
+    contactAddress,
+    contactUrl,
+    directions,
+    largerMap,
+    apiKey,
+    zoom
+  } = props;
+  const cords = {lat: position.latitude, lng: position.longitude};
   const renderMarkers = (map, maps) => {
     let marker = new maps.Marker({
       position: cords,
@@ -12,13 +21,13 @@ const Map = (props) => {
         scaledSize: new maps.Size(27, 43),
       },
       label: {
-        text: 'amblik.ee',
+        text: businessName,
         fontWeight: '500',
         fontSize: '1rem',
         fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
       },
       map,
-      title: 'amblik.ee'
+      title: businessName
     });
   }
   const getMapOptions = (maps) => {
@@ -36,13 +45,42 @@ const Map = (props) => {
     };
   }
   return (
-    <GoogleMapReact
-      bootstrapURLKeys={{ key: "AIzaSyBdvYjP3jXAgQjaKJ0vTPotBjKSrly8UXE"}}
-      defaultCenter={cords}
-      defaultZoom={13}
-      onGoogleApiLoaded={({map, maps}) => renderMarkers(map, maps)}
-      options={getMapOptions}
-    >
-    </GoogleMapReact>)
+    <>
+      <div className="placeDiv">
+        <div className="placecard__container">
+          <div className="placecard__left">
+            <p className="placecard__business-name">{businessName}</p>
+            <p className="placecard__info">{contactAddress}</p>
+            <a 
+              className="placecard__view-large" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              href={contactUrl} 
+            >
+              {largerMap}
+            </a>
+          </div> 
+          <div className="placecard__right">
+            <a 
+              className="placecard__direction-link" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              href={`https://www.google.com/maps/dir//${businessName},+${contactAddress.replace(/\s/g, '+')}`}
+            >
+              <div className="placecard__direction-icon"></div>
+              {directions}
+            </a>
+          </div> 
+        </div>
+      </div>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: apiKey }}
+        defaultCenter={cords}
+        defaultZoom={zoom}
+        onGoogleApiLoaded={({map, maps}) => renderMarkers(map, maps)}
+        options={getMapOptions}
+      >   
+      </GoogleMapReact>
+    </>)
 }
 export default Map

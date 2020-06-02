@@ -75,7 +75,16 @@ const IndexPageTemplate = ({
 
       </div>
       <div style={{ height: '400px', width: '100%' }}>
-        <Map position={geopoint}></Map>
+        <Map 
+          position={geopoint} 
+          businessName='amblik.ee' 
+          contactAddress='Kadaka tee 4, 10621 Tallinn, Eesti'
+          contactUrl='https://g.page/amblikee'
+          directions='Directions'
+          largerMap='View larger map'
+          apiKey='AIzaSyBdvYjP3jXAgQjaKJ0vTPotBjKSrly8UXE'
+          zoom={13}
+        ></Map>
       </div>
     </Layout>
   </>
