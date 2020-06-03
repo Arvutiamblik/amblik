@@ -29,6 +29,40 @@ const Map = (props) => {
       map,
       title: businessName
     });
+    let contentString = `<div class="placeDiv">
+      <div class="placecard__container">
+        <div class="placecard__left">
+          <p class="placecard__business-name">${businessName}</p>
+          <p class="placecard__info">${contactAddress}</p>
+          <a 
+            class="placecard__view-large" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            href=${contactUrl} 
+          >
+            ${largerMap}
+          </a>
+        </div> 
+        <div class="placecard__right">
+          <a 
+            class="placecard__direction-link" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            href=${"https://www.google.com/maps/dir/"+businessName+",+"+contactAddress.replace(/\s/g, '+')}
+          >
+            <div class="placecard__direction-icon"></div>
+            ${directions}
+          </a>
+        </div> 
+      </div>
+    </div>`
+    let infowindow = new maps.InfoWindow({
+      content: contentString
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+    infowindow.open(map, marker);
   }
   const getMapOptions = (maps) => {
     return {
@@ -46,39 +80,13 @@ const Map = (props) => {
   }
   return (
     <>
-      <div className="placeDiv">
-        <div className="placecard__container">
-          <div className="placecard__left">
-            <p className="placecard__business-name">{businessName}</p>
-            <p className="placecard__info">{contactAddress}</p>
-            <a 
-              className="placecard__view-large" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              href={contactUrl} 
-            >
-              {largerMap}
-            </a>
-          </div> 
-          <div className="placecard__right">
-            <a 
-              className="placecard__direction-link" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              href={`https://www.google.com/maps/dir//${businessName},+${contactAddress.replace(/\s/g, '+')}`}
-            >
-              <div className="placecard__direction-icon"></div>
-              {directions}
-            </a>
-          </div> 
-        </div>
-      </div>
       <GoogleMapReact
         bootstrapURLKeys={{ key: apiKey }}
         defaultCenter={cords}
         defaultZoom={zoom}
         onGoogleApiLoaded={({map, maps}) => renderMarkers(map, maps)}
         options={getMapOptions}
+        yesIWantToUseGoogleMapApiInternals
       >   
       </GoogleMapReact>
     </>)
