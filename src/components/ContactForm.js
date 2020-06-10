@@ -32,7 +32,7 @@ const ContactForm = (props) => {
         }
         else return false;
       })
-      axios.post('https://amblik.azurewebsites.net/api/sendform',data).then(response => console.log(response))
+      axios.post(props.formData.form_request_url.url,data).then(response => console.log(response))
       .catch(error => console.log(error));
     };
   }
@@ -49,7 +49,7 @@ const ContactForm = (props) => {
     console.log('test');
     const grecaptcha3 = document.createElement('script');
     grecaptcha3.src =
-      'https://www.google.com/recaptcha/api.js?onload=recaptchaV3Callback&render=6LcmheUUAAAAAGLNIp9m4PrHuSohL3reDas5yCKa';
+      `https://www.google.com/recaptcha/api.js?onload=recaptchaV3Callback&render=${props.formData.recaptcha3_api_key}`;
     grecaptcha3.addEventListener('load', handleLoaded);
     document.body.appendChild(grecaptcha3);
     // handleLoaded()
@@ -59,7 +59,7 @@ const ContactForm = (props) => {
     if(isBrowser) {
       window.grecaptcha.ready(() => {
         window.grecaptcha
-          .execute('6LcmheUUAAAAAGLNIp9m4PrHuSohL3reDas5yCKa')
+          .execute(props.formData.recaptcha3_api_key)
           .then((token) => {
             console.log(token);
             setTokenV3(token);
@@ -123,7 +123,7 @@ const ContactForm = (props) => {
     })
     data.form['URL'] = decodeURI(props.pageUrl)
     request
-      .post('https://amblik.azurewebsites.net/api/sendform', data)
+      .post(props.formData.form_request_url.url, data)
       .then(function (response) {
         console.log(response);
         if (response.data === "Captcha is not valid or doesn't have token.") {
@@ -209,7 +209,6 @@ const ContactForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit} noValidate>
-      {console.log(props.pageUrl)}
       {formFields.map((item, index) => (
         <div key={index} className='form-group'>
           <label htmlFor={`input-${counter}`} className='form-label'>

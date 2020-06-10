@@ -1,14 +1,15 @@
 import React from "react";
 import GoogleMapReact from 'google-map-react';
+import { toNumber } from '../utils/helpers';
 const Map = (props) => {
   const { 
     position,
     businessName,
     contactAddress,
-    contactUrl,
+    mapUrl,
     directions,
     largerMap,
-    apiKey,
+    mapsApiKey,
     zoom
   } = props;
   const cords = {lat: position.latitude, lng: position.longitude};
@@ -38,7 +39,7 @@ const Map = (props) => {
             class="placecard__view-large" 
             target="_blank" 
             rel="noopener noreferrer" 
-            href=${contactUrl} 
+            href=${mapUrl} 
           >
             ${largerMap}
           </a>
@@ -48,7 +49,7 @@ const Map = (props) => {
             class="placecard__direction-link" 
             target="_blank" 
             rel="noopener noreferrer" 
-            href=${"https://www.google.com/maps/dir/"+businessName+",+"+contactAddress.replace(/\s/g, '+')}
+            href=${"https://www.google.com/maps/dir//"+businessName+",%20"+contactAddress.replace(/\s/g, '%20')}
           >
             <div class="placecard__direction-icon"></div>
             ${directions}
@@ -81,9 +82,9 @@ const Map = (props) => {
   return (
     <>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: apiKey }}
+        bootstrapURLKeys={{ key: mapsApiKey }}
         defaultCenter={cords}
-        defaultZoom={zoom}
+        defaultZoom={toNumber(zoom)}
         onGoogleApiLoaded={({map, maps}) => renderMarkers(map, maps)}
         options={getMapOptions}
         yesIWantToUseGoogleMapApiInternals

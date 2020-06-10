@@ -114,6 +114,13 @@ export default (props) => (
                       mandatory
                       filling_error_message
                     }
+                    recaptcha2_api_key
+                    recaptcha3_api_key
+                    form_request_url {
+                      ... on PRISMIC__ExternalLink {
+                        url
+                      }
+                    }
                   }
                 }
               }
@@ -135,6 +142,13 @@ export default (props) => (
                       type
                       mandatory
                       filling_error_message
+                    }
+                    recaptcha2_api_key
+                    recaptcha3_api_key
+                    form_request_url {
+                      ... on PRISMIC__ExternalLink {
+                        url
+                      }
                     }
                   }
                 }

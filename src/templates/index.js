@@ -23,7 +23,14 @@ const IndexPageTemplate = ({
   aboutAnchor,
   aboutText,
   aboutTitle,
-  geopoint
+  geopoint,
+  zoom,
+  mapsApiKey,
+  largerMap,
+  directions,
+  mapUrl,
+  contactAddress,
+  businessName
 }) => (
   <>
     <img id="logoPicture" className="img" alt="background" src={img.url} />
@@ -77,13 +84,13 @@ const IndexPageTemplate = ({
       <div style={{ height: '400px', width: '100%' }}>
         <Map 
           position={geopoint} 
-          businessName='amblik.ee' 
-          contactAddress='Kadaka tee 4, 10621 Tallinn, Eesti'
-          contactUrl='https://g.page/amblikee'
-          directions='Directions'
-          largerMap='View larger map'
-          apiKey='AIzaSyBdvYjP3jXAgQjaKJ0vTPotBjKSrly8UXE'
-          zoom={13}
+          businessName={businessName}
+          contactAddress={contactAddress}
+          mapUrl={mapUrl}
+          directions={directions}
+          largerMap={largerMap}
+          mapsApiKey={mapsApiKey}
+          zoom={zoom}
         ></Map>
       </div>
     </Layout>
@@ -110,6 +117,13 @@ const IndexPage = ({ data, pageContext, location }) => {
       aboutText = {data.prismic.allHome_pages.edges[0].node.about_text}
       aboutTitle = {data.prismic.allHome_pages.edges[0].node.about_title}
       geopoint = {data.prismic.allHome_pages.edges[0].node.geopoint}
+      zoom = {data.prismic.allHome_pages.edges[0].node.zoom}
+      largerMap = {data.prismic.allHome_pages.edges[0].node.text_larger_map}
+      directions = {data.prismic.allHome_pages.edges[0].node.text_direction}
+      mapsApiKey = {data.prismic.allHome_pages.edges[0].node.maps_api_key}
+      mapUrl = {data.prismic.allHome_pages.edges[0].node.map_url.url}
+      contactAddress={data.prismic.allHome_pages.edges[0].node.contact_address[0].text}
+      businessName={data.prismic.allHome_pages.edges[0].node.business_name}
     />
   );
 };
@@ -126,8 +140,19 @@ export const query = graphql`
               lang
             }
             it_title
-            it_anchor,
+            it_anchor
+            business_name
             geopoint
+            zoom
+            text_larger_map
+            text_direction
+            maps_api_key
+            map_url {
+              ... on PRISMIC__ExternalLink {
+                url
+              }
+            }
+            contact_address
             it_services {
               description
               button_text
