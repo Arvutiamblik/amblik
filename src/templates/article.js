@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import { graphql } from 'gatsby';
 import SEO from "../components/seo";
 import Contact from "../components/contact";
+import ArticleSlices from "../components/ArticleSlices";
 
 const ArticlePageTemplate = ({
   pageContext,
@@ -12,19 +13,29 @@ const ArticlePageTemplate = ({
   title,
   description,
   text,
-  feedbackForm
+  feedbackForm,
+  articleSlices
 }) => (
   <>
     <div className="container">
       <div className="text-md-center my-5">
-        <RichText render={title} id="headerNname">{title}</RichText>
+        <RichText render={title}>{title}</RichText>
       </div>
       <div className="mb-5">
-        <RichText render={description} id="BlogText">{description}</RichText>
-        <RichText render={text} id="BlogText">{text}</RichText>
+        <RichText render={description}>{description}</RichText>
+        <RichText render={text}>{text}</RichText>
       </div>
-      {feedbackForm && <Contact articleTitle={title[0].text} pageUrl={pageUrl} lang={lang} pageType={pageContext.type} />}
     </div>
+    {articleSlices && 
+      <div className="container">
+        <ArticleSlices articleSlices={articleSlices} />
+      </div>
+    }
+    {feedbackForm && 
+      <div className="container">
+        <Contact articleTitle={title[0].text} pageUrl={pageUrl} lang={lang} pageType={pageContext.type} />
+      </div>
+    }
   </>
 );
 
@@ -54,6 +65,7 @@ if (!test) return null
         description={article.node.description}
         text={article.node.text}
         feedbackForm={article.node.feedback_form}
+        articleSlices={data.prismic.article}
       />
     </Layout>
   );
@@ -109,6 +121,48 @@ export const query = graphql`
               ... on PRISMIC__ExternalLink {
                 url
               }
+            }
+          }
+        }
+      }
+      article(lang: $lang, uid: $uid) {
+        body {
+          ... on PRISMIC_ArticleBodySubarticle {
+            type
+            label
+            fields {
+              multisection_image
+              multisection_subtitle
+              multisection_text
+            }
+          }
+          ... on PRISMIC_ArticleBodySubarticle1 {
+            primary {
+              subarticle_text
+            }
+          }
+          ... on PRISMIC_ArticleBodyTable_header {
+            primary {
+              table_title
+            }
+            fields {
+              table_heading
+              table_price
+              table_button_link {
+                ... on PRISMIC__ExternalLink {
+                  url
+                }
+              }
+              table_button_text
+            }
+          }
+          ... on PRISMIC_ArticleBodyTable_column {
+            primary {
+              row_header
+            }
+            fields {
+              option_description
+              availability
             }
           }
         }
