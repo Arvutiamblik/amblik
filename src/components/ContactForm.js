@@ -66,7 +66,7 @@ const ContactForm = (props) => {
             console.log(tokenV3);
           });
         window.grecaptcha.render('captcha', {
-          sitekey: '6Le3iPoUAAAAADwtDrUwfuU2s16mWhZrHewVCZnv',
+          sitekey: props.formData.recaptcha2_api_key,
           size: 'invisible',
           'data-callback': recaptchaV2Exec,
         });
