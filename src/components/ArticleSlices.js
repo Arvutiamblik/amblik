@@ -1,12 +1,36 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
+import agree from "../images/agree.png";	
+import cancel from "../images/cancel.png";	
+import minus from "../images/minus.png";
 
 const ArticleSlices = (props) => {
   const { articleSlices } = props;
+  let articleSlicesChanged = [];
+  let tables = [];
+  for (let i = 0; i < articleSlices?.body?.length; i++) {
+    if (articleSlices.body[i-1]?.__typename === 'PRISMIC_ArticleBodyTable_column' && 
+    articleSlices.body[i].__typename !== 'PRISMIC_ArticleBodyTable_column') {
+      articleSlicesChanged.push({ type: 'ArticleServicePlan', tables });
+      tables = [];
+    }
+    if (articleSlices.body[i].__typename === 'PRISMIC_ArticleBodySubarticle1' || 
+    articleSlices.body[i].__typename === 'PRISMIC_ArticleBodySubarticle') {
+      articleSlicesChanged.push(articleSlices.body[i]);
+    }
+    if (articleSlices.body[i].__typename === 'PRISMIC_ArticleBodyTable_header' || 
+    articleSlices.body[i].__typename === 'PRISMIC_ArticleBodyTable_column') {
+      tables.push(articleSlices.body[i])
+    }
+    if (articleSlices.body[i].__typename === 'PRISMIC_ArticleBodyTable_column' && 
+    i+1 === articleSlices.body.length) {
+      articleSlicesChanged.push({ type: 'ArticleServicePlan', tables });
+    }
+  }
 
   return (
     <>
-      {articleSlices?.body?.map((slice, index) => 
+      {articleSlicesChanged?.map((slice, index) => 
         <React.Fragment key={index}>
           {slice.__typename === 'PRISMIC_ArticleBodySubarticle1' && slice.primary.subarticle_text !== null &&
             <RichText render={slice.primary.subarticle_text}>{slice.primary.subarticle_text}</RichText>
@@ -26,6 +50,87 @@ const ArticleSlices = (props) => {
                 }
               )}
             </div>
+          }
+          {slice.type === 'ArticleServicePlan' && 
+            <>
+              {slice?.tables[0]?.primary && <RichText render={slice.tables[0].primary.table_title}>{slice.tables[0].primary.table_title}</RichText>}
+              <div className="mb-3 comparison">	
+                <table>	
+                  {slice?.tables?.map((item, index) => 	
+                    <React.Fragment key={index}>	
+                      {item.__typename === 'PRISMIC_ArticleBodyTable_header' ? 	
+                        <thead>	
+                          <tr>	
+                            <th className="compare-heading"></th>	
+                            {item?.fields?.map((heading, index) => 
+                              heading.table_heading && 
+                                <th key={index} className="compare-heading">	
+                                  <RichText render={heading.table_heading}>{heading.table_heading}</RichText>
+                                </th>	
+                            )}	
+                          </tr>	
+                          <tr>	
+                            <th></th>	
+                            {item?.fields?.map((heading, index) => 
+                              heading.table_price && 
+                                <th key={index} className="price-info">	
+                                  <RichText render={heading.table_price}>{heading.table_price}</RichText>	
+                                </th>	
+                            )}	
+                          </tr>	
+                          <tr>	
+                            <th></th>	
+                            {item?.fields?.map((heading, index) => 
+                              heading.table_price.table_button_link && heading.table_price.table_button_link && 
+                                <th key={index} className="price-info">	
+                                  <div>	
+                                    <a href={heading.table_price.table_button_link} className="price-btn">	
+                                      <span className="hide-mobile">{heading.table_price.table_button_link}</span>	
+                                    </a>	
+                                  </div>	
+                                </th>	
+                            )}	
+                          </tr>	
+                        </thead>	
+                        : null	
+                      }	
+                      {item.__typename === 'PRISMIC_ArticleBodyTable_column' ? 	
+                        <tbody>	
+                          <tr>	
+                            <td></td>	
+                            <td colSpan="3">
+                              {item?.primary && <RichText render={item.primary.row_header}>{item.primary.row_header}</RichText>}
+                            </td>	
+                          </tr>	
+                          <tr className="compare-row">	
+                            <td>
+                              {item?.primary && <RichText render={item.primary.row_header}>{item.primary.row_header}</RichText>}
+                            </td>	
+                            {item.fields.map((desc, index) => 	
+                              <td key={index}>
+                                <div className="mb-2">
+                                  {desc.option_description ?	
+                                  <RichText render={desc.option_description}>{desc.option_description}</RichText> :	
+                                  <img className="img" alt="" src={minus} />}	
+                                </div>
+                                <div className="mb-2">
+                                  {desc.availability === 'True' ? 	
+                                  <img className="img" alt="" src={agree} /> : 
+                                  desc.availability === 'False' ?
+                                  <img className="img" alt="" src={cancel} /> :
+                                  null}	
+                                </div>
+                              </td> 	
+                            )}	
+                          </tr>	
+                        </tbody>	
+                        : null	
+                      }	
+                    </React.Fragment>	
+                  )}	
+                </table>	
+              </div>
+            </>
           }
         </React.Fragment>
       )}

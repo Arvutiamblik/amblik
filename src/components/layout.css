@@ -697,10 +697,9 @@ a:hover {
   text-align: left;
 }
 
-td{
-  
-  color:white;
-  font-size:11pt;
+thead,
+tbody {
+  vertical-align: inherit;
 }
 
 th{
@@ -708,8 +707,6 @@ th{
   text-align: center;
   color:white;
   background-color: rgba(127,177,223,0.3);
-  
-  font-size: 15pt;
 }
 
 #headerNname{
@@ -779,18 +776,15 @@ th{
 }
 
 .compare-heading {
-  font-size: 18px;
-  font-weight: bold !important;
-  border-bottom: 0 !important;
   padding-top: 10px !important;
+}
+
+.comparison tbody tr.compare-row {
+  border-bottom: 2px solid rgba(127,177,223,0.3);
 }
 
 .comparison tbody tr:nth-child(odd) {
   display: none;
-}
-
-.comparison td {
-  border-bottom: 1px solid #ffffff;
 }
 
 .comparison tr:last-child td {
@@ -870,8 +864,5 @@ th{
   }
   .comparison .price-buy {
     margin-top: 10px;
-  }
-  .compare-heading {
-  font-size: 13px;
   }
 }
