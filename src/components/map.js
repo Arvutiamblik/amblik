@@ -23,9 +23,9 @@ const Map = (props) => {
       },
       label: {
         text: businessName,
-        fontWeight: '500',
+        fontWeight: '600',
         fontSize: '1rem',
-        fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
+        fontFamily: `'Montserrat', sans-serif`,
       },
       map,
       title: businessName
