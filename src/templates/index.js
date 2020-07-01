@@ -47,37 +47,35 @@ const IndexPageTemplate = ({
         <div className="row">
           <div className="col-lg-5 col-md-6 col-xs-12">
             <RichText render={headerDescription}>{headerDescription}</RichText>
-            <button type="button" className="btn btn-primary button-main">
-              <strong>{}</strong>
-            </button>
+            <div className="header-underline"></div>
           </div>
         </div>
-      </div>
-      <div id="containerRight" className="container">
-        <div id="mid" className="col-lg">
-          <div className="mb-5">
-            <div className="text-md-center mb-5">
-              <div id={itAnchor} name={itAnchor} alt={itAnchor}></div>
-              <RichText render={itTitle}>{itTitle}</RichText>
+        <div className="row">
+          <div id="mid" className="col-lg">
+            <div className="mb-5">
+              <div className="text-md-center mb-5">
+                <div id={itAnchor} name={itAnchor} alt={itAnchor}></div>
+                <RichText render={itTitle}>{itTitle}</RichText>
+              </div>
+              <TextBlock gridItems={itServices} delimiter={2} lang={lang} enableButton />
             </div>
-            <TextBlock gridItems={itServices} delimiter={2} lang={lang} enableButton />
-          </div>
-          <div className="mb-5">
-            <div className="text-md-center mb-5">
-              <div id={webAnchor} name={webAnchor} alt={webAnchor}></div>
-              <RichText render={webTitle}>{webTitle}</RichText>
+            <div className="mb-5">
+              <div className="text-md-center mb-5">
+                <div id={webAnchor} name={webAnchor} alt={webAnchor}></div>
+                <RichText render={webTitle}>{webTitle}</RichText>
+              </div>
+              <TextBlock gridItems={webServices} delimiter={2} lang={lang} enableButton />
             </div>
-            <TextBlock gridItems={webServices} delimiter={2} lang={lang} enableButton />
-          </div>
-          <div className="mb-5">
-            <div className="text-md-center mb-5">
-              <div id={aboutAnchor} name={aboutAnchor} alt={aboutAnchor}></div>
-              <RichText render={aboutTitle}>{aboutTitle}</RichText>
+            <div className="mb-5">
+              <div className="text-md-center mb-5">
+                <div id={aboutAnchor} name={aboutAnchor} alt={aboutAnchor}></div>
+                <RichText render={aboutTitle}>{aboutTitle}</RichText>
+              </div>
+              <RichText render={aboutText}>{aboutText}</RichText>
             </div>
-            <RichText render={aboutText}>{aboutText}</RichText>
+            <Contact homeTitle={heading} pageUrl={pageUrl} lang={lang} pageType={pageContext.type} />
+          
           </div>
-          <Contact homeTitle={heading} pageUrl={pageUrl} lang={lang} pageType={pageContext.type} />
-         
         </div>
 
       </div>

@@ -9,6 +9,8 @@ import PropTypes from "prop-types"
 import "./layout.css"
 import Menu from "./menu.js"
 import { useScrollPosition } from '../utils/useScrollPosition';
+import shapeLeftUp from '../images/shape-left-up.png';
+import shapeRightUp from '../images/shape-right-up.png';
 
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
@@ -31,7 +33,8 @@ const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) =>
 
   return (
     <main>
-      <div className="bg-corners"></div>
+      <div className="shape-left-up" alt="Menu shape" src={shapeLeftUp}></div>
+      <div className="shape-right-up" alt="Menu shape" src={shapeRightUp}></div>
       <Menu 
         lang={lang} 
         uid={uid} 
@@ -40,7 +43,7 @@ const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) =>
         top={onTop}
         alternateLanguages={alternateLanguages}
       />
-      <div className="wrapper content-margin">
+      <div className="wrapper content-padding">
         {children}
       </div>
     </main>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import ModalWindow from './Modal';
-import languageArrow from '../images/language.png';
+import facebookBtn from '../images/facebook-button.png';
 
 const Menu = (data, props) => {
   const { lang, uid, supportModal, alternateLanguages = null } = data.props;
@@ -28,68 +28,6 @@ const Menu = (data, props) => {
         <div className='row'>
           <div className='col d-flex justify-content-between align-items-center'>
             <div className='logo'>amblik</div>
-            <div className='language-menu'>
-              <input id='menu-toggle' type='checkbox' />
-              <label id='menu-label' htmlFor='menu-toggle'>
-                <a id='menu-icon'>
-                  {langName}{' '}
-                  <img
-                    className='img language-arrow'
-                    alt={lang}
-                    src={languageArrow}
-                  />
-                </a>
-              </label>
-              <ul id='collapse-menu'>
-                {uid === 'home' && (
-                  <>
-                    <li>
-                      <Link to={`/`}>ee</Link>
-                    </li>
-                    <li>
-                      <Link to={`/ru/`}>ru</Link>
-                    </li>
-                  </>
-                )}
-                {lang == 'et-et' &&
-                  alternateLanguages !== null &&
-                  uid !== 'home' && (
-                    <>
-                      <li>
-                        <Link to={`/${uid}`}>ee</Link>
-                      </li>
-                      <li>
-                        <Link to={`/ru/${alternateUid}`}>ru</Link>
-                      </li>
-                    </>
-                  )}
-                {lang == 'ru' && alternateLanguages !== null && uid !== 'home' && (
-                  <>
-                    <li>
-                      <Link to={`/${alternateUid}`}>ee</Link>
-                    </li>
-                    <li>
-                      <Link to={`/ru/${uid}`}>ru</Link>
-                    </li>
-                  </>
-                )}
-
-                {!alternateLanguages && (
-                  <>
-                    <li>
-                      <Link to={`/${uid}`}>ee</Link>
-                    </li>
-                    <li>
-                      <Link to={`/ru/${uid}`}>ru</Link>
-                    </li>
-                  </>
-                )}
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col d-flex justify-content-between'>
             <div className='menu'>
               {menuArr[0].node.menu.map((menuItem, index) => (
                 <Link
@@ -108,8 +46,73 @@ const Menu = (data, props) => {
                 </Link>
               ))}
             </div>
-            <div className='support-modal'>
-              {supportModal && <ModalWindow supportModal={supportModal} />}
+            <div className="d-flex align-content-center header-links">
+              <a className="facebook-link" href="https://www.facebook.com/arvutiamblik" target="_blank">
+                <img className="facebook-button" alt="facebook" src={facebookBtn} />
+              </a>
+              <ul className='language-menu'>
+                {uid === 'home' && (
+                  <>
+                    <li>
+                      <Link to={`/`}>ee</Link>
+                    </li>
+                    <li>
+                      /
+                    </li>
+                    <li>
+                      <Link to={`/ru/`}>ru</Link>
+                    </li>
+                  </>
+                )}
+                {lang == 'et-et' &&
+                  alternateLanguages !== null &&
+                  uid !== 'home' && (
+                    <>
+                      <li>
+                        <Link to={`/${uid}`}>ee</Link>
+                      </li>
+                      <li>
+                        /
+                      </li>
+                      <li>
+                        <Link to={`/ru/${alternateUid}`}>ru</Link>
+                      </li>
+                    </>
+                  )}
+                {lang == 'ru' && alternateLanguages !== null && uid !== 'home' && (
+                  <>
+                    <li>
+                      <Link to={`/${alternateUid}`}>ee</Link>
+                    </li>
+                    <li>
+                      /
+                    </li>
+                    <li>
+                      <Link to={`/ru/${uid}`}>ru</Link>
+                    </li>
+                  </>
+                )}
+
+                {!alternateLanguages && (
+                  <>
+                    <li>
+                      <Link to={`/${uid}`}>ee</Link>
+                    </li>
+                    <li>
+                      /
+                    </li>
+                    <li>
+                      <Link to={`/ru/${uid}`}>ru</Link>
+                    </li>
+                  </>
+                )}
+              </ul>
+              <div className="menu-toggle">
+                <button className="btn btn-primary button-main text-uppercase">menu</button>
+              </div>
+              <div className='support-modal'>
+                {supportModal && <ModalWindow supportModal={supportModal} />}
+              </div>
             </div>
           </div>
         </div>
