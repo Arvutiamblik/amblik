@@ -338,6 +338,10 @@ header.header-transparent {
   list-style: none;
 }
 
+.language-active a {
+  color: #a5bcfd;
+}
+
 .language-menu li {
   display: inline-block;
   text-transform: uppercase;

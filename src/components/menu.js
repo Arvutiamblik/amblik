@@ -47,13 +47,13 @@ const Menu = (data, props) => {
               ))}
             </div>
             <div className="d-flex align-content-center header-links">
-              <a className="facebook-link" href="https://www.facebook.com/arvutiamblik" target="_blank">
+              <a className="facebook-link" href="https://www.facebook.com/arvutiamblik" target="_blank" rel="noopener noreferrer">
                 <img className="facebook-button" alt="facebook" src={facebookBtn} />
               </a>
               <ul className='language-menu'>
                 {uid === 'home' && (
                   <>
-                    <li>
+                    <li className="language-active">
                       <Link to={`/`}>ee</Link>
                     </li>
                     <li>
@@ -68,7 +68,7 @@ const Menu = (data, props) => {
                   alternateLanguages !== null &&
                   uid !== 'home' && (
                     <>
-                      <li>
+                      <li className="language-active">
                         <Link to={`/${uid}`}>ee</Link>
                       </li>
                       <li>
@@ -87,13 +87,26 @@ const Menu = (data, props) => {
                     <li>
                       /
                     </li>
-                    <li>
+                    <li className="language-active">
                       <Link to={`/ru/${uid}`}>ru</Link>
                     </li>
                   </>
                 )}
 
-                {!alternateLanguages && (
+                {!alternateLanguages && lang == 'et-et' && (
+                  <>
+                    <li className="language-active">
+                      <Link to={`/${uid}`}>ee</Link>
+                    </li>
+                    <li>
+                      /
+                    </li>
+                    <li>
+                      <Link to={`/ru/${uid}`}>ru</Link>
+                    </li>
+                  </>
+                )}
+                {!alternateLanguages && lang == 'ru' && (
                   <>
                     <li>
                       <Link to={`/${uid}`}>ee</Link>
@@ -101,7 +114,7 @@ const Menu = (data, props) => {
                     <li>
                       /
                     </li>
-                    <li>
+                    <li className="language-active">
                       <Link to={`/ru/${uid}`}>ru</Link>
                     </li>
                   </>
