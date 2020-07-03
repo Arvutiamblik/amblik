@@ -5,7 +5,7 @@ import facebookBtn from '../images/facebook-button.png';
 import facebookBtnMobile from '../images/facebook-button-mobile.png';
 
 const Menu = (data, props) => {
-  const { lang, uid, supportModal, alternateLanguages = null, toggleMenu, menuOpen } = data.props;
+  const { lang, uid, supportModal, alternateLanguages = null, toggleMenu, menuOpen, handleClick } = data.props;
 
   /* if(alternateLanguages) {
     lang === alternateLanguages
@@ -171,6 +171,7 @@ const Menu = (data, props) => {
                 <div className='menu'>
                   {menuArr[0].node.menu.map((menuItem, index) => (
                     <Link
+                      onClick={handleClick}
                       className='link_button'
                       key={index}
                       to={

@@ -41,6 +41,11 @@ const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) =>
     document.body.classList.toggle('menu-open', menuOpen);
   });
 
+  const handleClick = () => {
+    setOnTop(false);
+    setMenuOpen(false);
+  };
+
   return (
     <main>
       <div className="shape-left-up" alt="Menu shape" src={shapeLeftUp}></div>
@@ -54,6 +59,7 @@ const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) =>
         alternateLanguages={alternateLanguages}
         toggleMenu={toggleMenu}
         menuOpen={menuOpen}
+        handleClick={handleClick}
       />
       <div className="wrapper content-padding">
         {children}
