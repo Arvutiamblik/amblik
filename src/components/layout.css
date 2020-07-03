@@ -89,6 +89,17 @@ header.header-transparent {
   flex-wrap: wrap;
 }
 
+.menu-icon {
+  padding-right: 3px;
+}
+
+.menu-icon div {
+  width: 15px;
+  height: 1px;
+  background-color: darkblue;
+  margin: 3px 0;
+}
+
 .menu-toggle {
   display: none;
 }
@@ -427,23 +438,109 @@ header.header-transparent {
 }
 
 @media (max-width: 992px) {
+  .header-visible {
+    padding: 15px 0;
+  }
+
   .menu {
     display: none;
   }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  header.menu-open {
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 10;
+  }
+
+  header.menu-open .close-menu {
+    position: relative;
+    width: 24px;
+    height: 24px;
+  }
+
+  header.menu-open .close-menu:before, header.menu-open .close-menu:after {
+    position: absolute;
+    left: 9.5px;
+    content: ' ';
+    height: 24px;
+    width: 5px;
+    background-color: darkblue;
+    border-radius: 100px;
+  }
+
+  header.menu-open .close-menu:before {
+    transform: rotate(45deg);
+  }
+  
+  header.menu-open .close-menu:after {
+    transform: rotate(-45deg);
+  }
+
+  header.menu-open .header-column {
+    min-height: 108px;
+  }
+
+  header.menu-open .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header.menu-open .menu a {
+    color: darkblue;
+    text-transform: uppercase;
+  }
+
+  header.menu-open .language-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header.menu-open .language-menu li {
+    color: darkblue;
+  }
+
+  header.menu-open .language-menu a {
+    color: darkblue;
+  }
+
+  header.menu-open .language-menu .language-active a {
+    color: #a5bcfd;
+  }
+
+  header.menu-open .facebook-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .header-links {
     flex-direction: column;
   }
-  .header-links .menu-toggle .button-main {
+
+  .header-links .menu-toggle .button-main,
+  .header-links .menu-toggle .button-main:active,
+  .header-links .menu-toggle .button-main:not(:disabled):not(.disabled):active {
     background-color: #ffffff;
     border-color: #ffffff;
     color: darkblue;
   }
+
   .header-links .facebook-link {
     display: none;
   }
+
   .header-links .language-menu {
     display: none;
   }
+
   .menu-toggle {
     display: block;
     margin-bottom: 10px;
@@ -543,6 +640,9 @@ header.header-transparent {
 }
 
 @media (max-width: 576px) {
+  header.menu-open .header-column {
+    min-height: 72px;
+  }
   .shape-left-up {
     height: 100px;
   }

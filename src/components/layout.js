@@ -4,13 +4,14 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
 import Menu from "./menu.js"
 import { useScrollPosition } from '../utils/useScrollPosition';
 import shapeLeftUp from '../images/shape-left-up.png';
 import shapeRightUp from '../images/shape-right-up.png';
+import menu from "./menu.js";
 
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
@@ -20,6 +21,7 @@ if (typeof window !== "undefined") {
 const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) => {
   const [hideOnScroll, setHideOnScroll] = useState(true)
   const [onTop, setOnTop] = useState(true)
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
@@ -30,6 +32,14 @@ const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) =>
     },
     [hideOnScroll, onTop]
   )
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', menuOpen);
+  });
 
   return (
     <main>
@@ -42,6 +52,8 @@ const Layout = ({ lang, children, uid="", supportModal, alternateLanguages }) =>
         show={hideOnScroll} 
         top={onTop}
         alternateLanguages={alternateLanguages}
+        toggleMenu={toggleMenu}
+        menuOpen={menuOpen}
       />
       <div className="wrapper content-padding">
         {children}
