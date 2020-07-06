@@ -3,10 +3,12 @@ import { Link, StaticQuery, graphql } from 'gatsby';
 import ModalWindow from './Modal';
 import facebookBtn from '../images/facebook-button.png';
 import facebookBtnMobile from '../images/facebook-button-mobile.png';
+import { filterByLang } from '../utils/helpers';
 
 const Menu = (data, props) => {
   const { lang, uid, supportModal, alternateLanguages = null, toggleMenu, menuOpen, handleClick } = data.props;
-
+  const menuName = filterByLang(data.data.prismic.allMenus.edges, lang)[0].node.menu_name;
+  const linkToFacebook = filterByLang(data.data.prismic.allHome_pages.edges, lang)[0].node.link_to_facebook.url;
   /* if(alternateLanguages) {
     lang === alternateLanguages
   } */
@@ -14,7 +16,7 @@ const Menu = (data, props) => {
   const alternateUid = alternateLanguages !== null && alternateLanguages[0].uid;
 
   let menuArr = data.data.prismic.allMenus.edges;
-  menuArr = menuArr.filter((arr) => arr.node._meta.lang === lang);
+  menuArr = filterByLang(menuArr, lang);
   //  console.log(menuArr);
   let path = lang === 'et-et' ? `/${uid}` : `/${lang}/${uid}`;
   let langName = lang === 'et-et' ? 'ee' : lang;
@@ -51,7 +53,7 @@ const Menu = (data, props) => {
                   ))}
                 </div>
                 <div className="d-flex align-content-center header-links">
-                  <a className="facebook-link" href="https://www.facebook.com/arvutiamblik" target="_blank" rel="noopener noreferrer">
+                  <a className="facebook-link" href={linkToFacebook} target="_blank" rel="noopener noreferrer">
                     <img className="facebook-button" alt="facebook" src={facebookBtn} />
                   </a>
                   <ul className='language-menu'>
@@ -131,7 +133,7 @@ const Menu = (data, props) => {
                         <div></div>
                         <div></div>
                       </div>
-                      <div>menu</div>
+                      <div>{menuName}</div>
                     </button>
                   </div>
                   <div className='support-modal'>
@@ -265,7 +267,7 @@ const Menu = (data, props) => {
             </div>
             <div className='row'>
               <div className='col my-4'>
-                <a className="facebook-link" href="https://www.facebook.com/arvutiamblik" target="_blank" rel="noopener noreferrer">
+                <a className="facebook-link" href={linkToFacebook} target="_blank" rel="noopener noreferrer">
                   <img className="facebook-button" alt="facebook" src={facebookBtnMobile} />
                 </a>
               </div>
@@ -282,12 +284,27 @@ export default (props) => (
     query={graphql`
       query($lang: String) {
         prismic {
+          allHome_pages(lang: $lang) {
+            edges {
+              node {
+                _meta {
+                  lang
+                }
+                link_to_facebook {
+                  ... on PRISMIC__ExternalLink {
+                    url
+                  }
+                }
+              }
+            }
+          }
           allMenus(lang: $lang) {
             edges {
               node {
                 _meta {
                   lang
                 }
+                menu_name
                 menu {
                   menu_anchor
                   menu_item

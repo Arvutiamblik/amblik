@@ -5,7 +5,7 @@ const Map = (props) => {
   const { 
     position,
     businessName,
-    contactAddress,
+    address,
     mapUrl,
     directions,
     largerMap,
@@ -34,7 +34,7 @@ const Map = (props) => {
       <div class="placecard__container">
         <div class="placecard__left">
           <p class="placecard__business-name">${businessName}</p>
-          <p class="placecard__info">${contactAddress}</p>
+          <p class="placecard__info">${address}</p>
           <a 
             class="placecard__view-large" 
             target="_blank" 
@@ -49,7 +49,7 @@ const Map = (props) => {
             class="placecard__direction-link" 
             target="_blank" 
             rel="noopener noreferrer" 
-            href=${"https://www.google.com/maps/dir//"+businessName+",%20"+contactAddress.replace(/\s/g, '%20')}
+            href=${"https://www.google.com/maps/dir//"+businessName+",%20"+address.replace(/\s/g, '%20')}
           >
             <div class="placecard__direction-icon"></div>
             ${directions}

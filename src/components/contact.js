@@ -3,9 +3,23 @@ import { RichText } from "prismic-reactjs";
 import { StaticQuery, graphql } from "gatsby";
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import ContactForm from "./ContactForm";
+import Map from "./map";
 
 const Contact = (data, props) => {
-  const { lang, homeTitle, articleTitle, pageUrl } = data.props;
+  const { 
+    lang, 
+    homeTitle, 
+    articleTitle, 
+    pageUrl,
+    position, 
+    businessName,
+    address,
+    mapUrl,
+    directions,
+    largerMap,
+    mapsApiKey,
+    zoom
+   } = data.props;
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -42,6 +56,7 @@ const Contact = (data, props) => {
         <div className="mb-5 text-center">
           <div id={contactAnchor} name={contactAnchor} alt={contactAnchor}></div>
           <RichText render={contactTitle}>{contactTitle}</RichText>
+          <div className="header-underline"></div>
         </div>
         <div className="row">
           <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
@@ -50,6 +65,18 @@ const Contact = (data, props) => {
             <RichText render={contactPhone}>{contactPhone}</RichText>
             <RichText render={contactAddress}>{contactAddress}</RichText>
             <RichText render={workingTime}>{workingTime}</RichText>
+            <div className="map-wrapper">
+              <Map 
+                position={position} 
+                businessName={businessName}
+                address={address}
+                mapUrl={mapUrl}
+                directions={directions}
+                largerMap={largerMap}
+                mapsApiKey={mapsApiKey}
+                zoom={zoom}
+              ></Map>
+            </div>
           </div>
           <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
             <ContactForm title={homeTitle} pageUrl={pageUrl} formData={feedbackForm} />

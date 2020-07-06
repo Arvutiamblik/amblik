@@ -5,7 +5,6 @@ import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
 import Contact from "../components/contact";
 import SEO from "../components/seo";
-import Map from '../components/map';
 const IndexPageTemplate = ({
   pageContext,
   pageUrl,
@@ -29,7 +28,7 @@ const IndexPageTemplate = ({
   largerMap,
   directions,
   mapUrl,
-  contactAddress,
+  address,
   businessName
 }) => (
   <>
@@ -43,53 +42,66 @@ const IndexPageTemplate = ({
         description={headerDescription[0].text}
         lang={lang}
       />
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-5 col-md-6 col-xs-12">
-            <RichText render={headerDescription}>{headerDescription}</RichText>
-            <div className="header-underline"></div>
+      <div className="background-wrapper">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-5 col-md-6 col-xs-12">
+              <RichText render={headerDescription}>{headerDescription}</RichText>
+              <div className="header-underline"></div>
+            </div>
+          </div>
+          <div className="row">
+            <div id="mid" className="col-lg">
+              <div className="mb-5">
+                <div className="text-center mb-5">
+                  <div id={itAnchor} name={itAnchor} alt={itAnchor}></div>
+                  <RichText render={itTitle}>{itTitle}</RichText>
+                  <div className="header-underline"></div>
+                </div>
+                <TextBlock gridItems={itServices} delimiter={2} lang={lang} enableButton />
+              </div>
+              <div className="mb-5">
+                <div className="text-center mb-5">
+                  <div id={webAnchor} name={webAnchor} alt={webAnchor}></div>
+                  <RichText render={webTitle}>{webTitle}</RichText>
+                  <div className="header-underline"></div>
+                </div>
+                <TextBlock gridItems={webServices} delimiter={2} lang={lang} enableButton />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="row">
-          <div id="mid" className="col-lg">
-            <div className="mb-5">
-              <div className="text-md-center mb-5">
-                <div id={itAnchor} name={itAnchor} alt={itAnchor}></div>
-                <RichText render={itTitle}>{itTitle}</RichText>
-              </div>
-              <TextBlock gridItems={itServices} delimiter={2} lang={lang} enableButton />
-            </div>
-            <div className="mb-5">
-              <div className="text-md-center mb-5">
-                <div id={webAnchor} name={webAnchor} alt={webAnchor}></div>
-                <RichText render={webTitle}>{webTitle}</RichText>
-              </div>
-              <TextBlock gridItems={webServices} delimiter={2} lang={lang} enableButton />
-            </div>
-            <div className="mb-5">
-              <div className="text-md-center mb-5">
-                <div id={aboutAnchor} name={aboutAnchor} alt={aboutAnchor}></div>
-                <RichText render={aboutTitle}>{aboutTitle}</RichText>
-              </div>
-              <RichText render={aboutText}>{aboutText}</RichText>
-            </div>
-            <Contact homeTitle={heading} pageUrl={pageUrl} lang={lang} pageType={pageContext.type} />
-          
-          </div>
-        </div>
-
       </div>
-      <div style={{ height: '400px', width: '100%' }}>
-        <Map 
-          position={geopoint} 
-          businessName={businessName}
-          contactAddress={contactAddress}
-          mapUrl={mapUrl}
-          directions={directions}
-          largerMap={largerMap}
-          mapsApiKey={mapsApiKey}
-          zoom={zoom}
-        ></Map>
+      
+      <div className="background-wrapper bg-white">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg">
+              <div className="my-5">
+                <div className="text-center mb-5">
+                  <div id={aboutAnchor} name={aboutAnchor} alt={aboutAnchor}></div>
+                  <RichText render={aboutTitle}>{aboutTitle}</RichText>
+                  <div className="header-underline"></div>
+                </div>
+                <RichText render={aboutText}>{aboutText}</RichText>
+              </div>
+              <Contact 
+                homeTitle={heading} 
+                pageUrl={pageUrl} 
+                lang={lang} 
+                pageType={pageContext.type}
+                position={geopoint} 
+                businessName={businessName}
+                address={address}
+                mapUrl={mapUrl}
+                directions={directions}
+                largerMap={largerMap}
+                mapsApiKey={mapsApiKey}
+                zoom={zoom} 
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </Layout>
   </>
@@ -120,7 +132,7 @@ const IndexPage = ({ data, pageContext, location }) => {
       directions = {data.prismic.allHome_pages.edges[0].node.text_direction}
       mapsApiKey = {data.prismic.allHome_pages.edges[0].node.maps_api_key}
       mapUrl = {data.prismic.allHome_pages.edges[0].node.map_url.url}
-      contactAddress={data.prismic.allHome_pages.edges[0].node.contact_address[0].text}
+      address={data.prismic.allHome_pages.edges[0].node.contact_address[0].text}
       businessName={data.prismic.allHome_pages.edges[0].node.business_name}
     />
   );

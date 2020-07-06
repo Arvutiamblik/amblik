@@ -22,6 +22,53 @@ pre {
   color: white;
 }
 
+.bg-white .h1, 
+.bg-white .h2, 
+.bg-white .h3, 
+.bg-white .h4, 
+.bg-white .h5, 
+.bg-white .h6, 
+.bg-white h1, 
+.bg-white h2, 
+.bg-white h3, 
+.bg-white h4, 
+.bg-white h5, 
+.bg-white h6 {
+  color: darkblue;
+}
+
+.bg-white,
+.bg-white a,
+.bg-white a:hover {
+  color: black;
+}
+
+.bg-white .form-field {
+  background-color: white;
+  color: black;
+  border: 2px solid hotpink;
+}
+
+.bg-white .form-field:focus {
+  color: black;
+}
+
+.footer {
+  position: relative;
+}
+
+.recaptcha-protected {
+  text-align: center;
+  font-size: 0.8rem;
+  color: darkblue;
+}
+
+.recaptcha-protected a,
+.recaptcha-protected a:hover {
+  color: darkblue;
+  text-decoration: underline;
+}
+
 .smaller {
   font-size: smaller;
 }
@@ -53,6 +100,32 @@ pre {
   height: 315px;
   width: 100%;
   top: 0;
+  right: 0;
+}
+
+.shape-left-down {
+  background: url(../images/shape-left-down.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: left;
+  background-size: contain;
+  position: absolute;
+  height: 299px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.shape-right-down {
+  background: url(../images/shape-right-down.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: right;
+  background-size: contain;
+  position: absolute;
+  height: 242px;
+  width: 100%;
+  bottom: 0;
   right: 0;
 }
 
@@ -105,6 +178,15 @@ header.header-transparent {
 }
 
 /* GOOGLE MAPS */
+.map-wrapper {
+  height: 225px;
+  width: 100%;
+}
+
+.map-wrapper > div > div {
+  border-radius: 15px;
+}
+
 .placecard__container {
   max-width: 330px;
   width: 100%;
@@ -176,6 +258,11 @@ header.header-transparent {
   background-color: rgba(255, 255, 255, 0.26);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+  min-height: 32px;
+  height: auto;
+  line-height: 1;
+  padding: 3px .75rem;
 }
 
 .form-field:focus {
@@ -396,6 +483,26 @@ header.header-transparent {
   margin-left: 6px;
 }
 
+@media (max-width: 1541px) {
+  .shape-left-down {
+    height: 180px;
+  }
+  
+  .shape-right-down {
+    height: 180px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .shape-left-down {
+    height: 180px;
+  }
+  
+  .shape-right-down {
+    height: 180px;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 992px) {
   .shape-left-up {
     height: 200px;
@@ -403,6 +510,14 @@ header.header-transparent {
   
   .shape-right-up {
     height: 200px;
+  }
+
+  .shape-left-down {
+    height: 180px;
+  }
+  
+  .shape-right-down {
+    height: 180px;
   }
 
   .buttonMobile #productButton{
@@ -555,6 +670,18 @@ header.header-transparent {
     height: 160px;
   }
 
+  .shape-left-down {
+    height: 160px;
+  }
+  
+  .shape-right-down {
+    height: 160px;
+  }
+
+  .button-main {
+    min-width: 117px !important;
+  }
+
   #mid {
     padding-top: 65% !important;
   }
@@ -648,6 +775,12 @@ header.header-transparent {
   .shape-right-up {
     height: 100px;
   }
+  .shape-left-down {
+    height: 100px;
+  }
+  .shape-right-down {
+    height: 100px;
+  }
   .logo {
     font-size: 48px !important;
   }
@@ -739,6 +872,7 @@ hr.new1 {
   border: 4px solid hotpink;
   border-radius: 100px;
   width: 150px;
+  display: inline-block;
 }
 
 .button-main {

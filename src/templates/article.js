@@ -18,8 +18,9 @@ const ArticlePageTemplate = ({
 }) => (
   <>
     <div className="container">
-      <div className="text-md-center my-5">
+      <div className="text-center my-5">
         <RichText render={title}>{title}</RichText>
+        <div className="header-underline"></div>
       </div>
       <div className="mb-5">
         <RichText render={description}>{description}</RichText>
