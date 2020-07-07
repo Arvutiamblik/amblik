@@ -136,6 +136,11 @@ pre {
   height: 200px;
 }
 
+.grecaptcha-badge {
+  opacity: 0;
+  visibility: hidden;
+}
+
 header.header-transparent {
   background-color: transparent;
 }
