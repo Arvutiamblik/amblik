@@ -67,7 +67,8 @@ const Map = (props) => {
   }
   const getMapOptions = (maps) => {
     return {
-      mapTypeControl: true,
+      zoomControl: false,
+      mapTypeControl: false,
       mapTypeId: maps.MapTypeId.ROADMAP,
       mapTypeControlOptions: {
           style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
