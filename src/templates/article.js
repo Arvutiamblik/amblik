@@ -5,6 +5,7 @@ import { graphql } from 'gatsby';
 import SEO from "../components/seo";
 import Contact from "../components/contact";
 import ArticleSlices from "../components/ArticleSlices";
+import articleHeroImage from "../images/page-picture.png";
 
 const ArticlePageTemplate = ({
   pageContext,
@@ -17,26 +18,29 @@ const ArticlePageTemplate = ({
   articleSlices
 }) => (
   <>
-    <div className="container">
-      <div className="text-center my-5">
-        <RichText render={title}>{title}</RichText>
-        <div className="header-underline"></div>
+    <div className="article-bg" style={{backgroundImage: `url(${articleHeroImage})`}}></div>
+    <div className="background-wrapper bg-white py-5">
+      <div className="container">
+        <div className="text-center my-5">
+          <RichText render={title}>{title}</RichText>
+          <div className="header-underline"></div>
+        </div>
+        <div className="mb-5">
+          <RichText render={description}>{description}</RichText>
+          <RichText render={text}>{text}</RichText>
+        </div>
       </div>
-      <div className="mb-5">
-        <RichText render={description}>{description}</RichText>
-        <RichText render={text}>{text}</RichText>
-      </div>
+      {articleSlices && 
+        <div className="container">
+          <ArticleSlices articleSlices={articleSlices} />
+        </div>
+      }
+      {feedbackForm && 
+        <div className="container">
+          <Contact articleTitle={title[0].text} pageUrl={pageUrl} lang={lang} pageType={pageContext.type} />
+        </div>
+      }
     </div>
-    {articleSlices && 
-      <div className="container">
-        <ArticleSlices articleSlices={articleSlices} />
-      </div>
-    }
-    {feedbackForm && 
-      <div className="container">
-        <Contact articleTitle={title[0].text} pageUrl={pageUrl} lang={lang} pageType={pageContext.type} />
-      </div>
-    }
   </>
 );
 

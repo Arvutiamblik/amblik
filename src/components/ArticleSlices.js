@@ -1,8 +1,7 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
-import agree from "../images/agree.png";	
-import cancel from "../images/cancel.png";	
-import minus from "../images/minus.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faMinus, faTimes } from '@fortawesome/free-solid-svg-icons';	
 
 const ArticleSlices = (props) => {
   const { articleSlices } = props;
@@ -111,13 +110,13 @@ const ArticleSlices = (props) => {
                                 <div className="mb-2">
                                   {desc.option_description ?	
                                   <RichText render={desc.option_description}>{desc.option_description}</RichText> :	
-                                  <img className="img" alt="" src={minus} />}	
+                                  <FontAwesomeIcon icon={faMinus} size="2x" color="darkblue" />}	
                                 </div>
                                 <div className="mb-2">
                                   {desc.availability === 'True' ? 	
-                                  <img className="img" alt="" src={agree} /> : 
+                                  <FontAwesomeIcon icon={faCheckCircle} size="2x" color="darkblue" /> : 
                                   desc.availability === 'False' ?
-                                  <img className="img" alt="" src={cancel} /> :
+                                  <FontAwesomeIcon icon={faTimes} size="2x" color="darkblue" /> :
                                   null}	
                                 </div>
                               </td> 	
