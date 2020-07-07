@@ -3,6 +3,7 @@ import { Link, StaticQuery, graphql } from 'gatsby';
 import ModalWindow from './Modal';
 import facebookBtn from '../images/facebook-button.png';
 import facebookBtnMobile from '../images/facebook-button-mobile.png';
+import msPartnerLogo from '../images/ms-partner-logo.png';
 import { filterByLang } from '../utils/helpers';
 
 const Menu = (data, props) => {
@@ -139,6 +140,13 @@ const Menu = (data, props) => {
                   <div className='support-modal'>
                     {supportModal && <ModalWindow supportModal={supportModal} />}
                   </div>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="header-column col d-flex justify-content-between align-items-center">
+                <div>
+                  <img className="partner-logo" src={msPartnerLogo} />
                 </div>
               </div>
             </div>

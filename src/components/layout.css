@@ -796,6 +796,9 @@ header.header-transparent {
   .logo {
     font-size: 48px !important;
   }
+  .partner-logo {
+    width: 65%;
+  }
   ul {
     margin-top: 0;
     margin-bottom: 0px !important;
@@ -806,6 +809,10 @@ header.header-transparent {
   color: #ffffff;
   font-size: 72px;
   font-weight: bold;
+}
+
+.partner-logo {
+  width: 100%;
 }
 
 .eset{
