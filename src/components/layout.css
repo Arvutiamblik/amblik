@@ -141,6 +141,16 @@ pre {
   visibility: hidden;
 }
 
+.logo {
+  color: #ffffff;
+  font-size: 64px;
+  font-weight: bold;
+}
+
+.partner-logo {
+  width: 200px;
+}
+
 header.header-transparent {
   background-color: transparent;
 }
@@ -564,7 +574,16 @@ header.header-transparent {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
+  .logo {
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  .partner-logo {
+    width: 150px;
+  }
+
   .header-visible {
     padding: 15px 0;
   }
@@ -782,22 +801,22 @@ header.header-transparent {
     min-height: 72px;
   }
   .shape-left-up {
-    height: 100px;
+    height: 120px;
   }
   .shape-right-up {
-    height: 100px;
+    height: 120px;
   }
   .shape-left-down {
-    height: 100px;
+    height: 120px;
   }
   .shape-right-down {
-    height: 100px;
+    height: 120px;
   }
   .logo {
-    font-size: 48px !important;
+    font-size: 48px;
   }
   .partner-logo {
-    width: 65%;
+    width: 141px;
   }
   ul {
     margin-top: 0;
@@ -805,14 +824,8 @@ header.header-transparent {
   }
 }
 
-.logo {
-  color: #ffffff;
-  font-size: 72px;
-  font-weight: bold;
-}
-
-.partner-logo {
-  width: 100%;
+@media (max-width: 375px) {
+  
 }
 
 .eset{

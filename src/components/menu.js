@@ -34,7 +34,12 @@ const Menu = (data, props) => {
           <div className='container'>
             <div className='row'>
               <div className='header-column col d-flex justify-content-between align-items-center'>
-                <div className='logo'>amblik</div>
+                <div className="logos">
+                  <div className='logo'>amblik</div>
+                  <div className="d-block d-lg-none">
+                    <img className="partner-logo" src={msPartnerLogo} />
+                  </div>
+                </div>
                 <div className='menu'>
                   {menuArr[0].node.menu.map((menuItem, index) => (
                     <Link
@@ -143,7 +148,7 @@ const Menu = (data, props) => {
                 </div>
               </div>
             </div>
-            <div className="row">
+            <div className="d-none d-lg-block row">
               <div className="header-column col d-flex justify-content-between align-items-center">
                 <div>
                   <img className="partner-logo" src={msPartnerLogo} />
