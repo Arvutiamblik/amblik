@@ -22,6 +22,16 @@ pre {
   color: white;
 }
 
+a {
+  text-decoration: underline;
+  color: white;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
 .bg-white .h1, 
 .bg-white .h2, 
 .bg-white .h3, 
@@ -258,7 +268,6 @@ header.header-transparent {
   color: #3a84df;
   display: block;
   height: 43px;
-  text-decoration: none;
   width: 54.7344px;
 }
 .placecard__direction-link:hover {
@@ -269,7 +278,6 @@ header.header-transparent {
   display: block;
   margin-top: 10px;
   color: #3a84df;
-  text-decoration: none;
 }
 .placecard__view-large:hover {
   color: #3a84df;
@@ -299,6 +307,7 @@ header.header-transparent {
 
 .link_button {
   padding: 10px;
+  text-decoration: none;
 }
 
 #avast{
@@ -461,6 +470,10 @@ header.header-transparent {
   margin: 0;
   padding: 0 15px;
   list-style: none;
+}
+
+.language-menu a {
+  text-decoration: none;
 }
 
 .language-active a {
@@ -953,13 +966,6 @@ hr.new1 {
   position: absolute;
 }
 
-a{
-  color: white;
-}
-a:hover {
-  color: white;
-  text-decoration: underline;
-}
 #mid {
 	padding-top: 50%;
 }
