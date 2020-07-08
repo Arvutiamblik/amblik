@@ -53,6 +53,11 @@ pre {
   color: black;
 }
 
+.columns {
+  column-count: 2;
+  column-gap: 30px;
+}
+
 .footer {
   position: relative;
 }
@@ -707,6 +712,10 @@ header.header-transparent {
   
   .shape-right-down {
     height: 160px;
+  }
+
+  .columns {
+    column-count: 1;
   }
 
   .button-main {
