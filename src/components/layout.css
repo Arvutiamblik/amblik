@@ -619,6 +619,7 @@ header.header-transparent {
     width: 100vw;
     height: 100vh;
     z-index: 10;
+    overflow-y: auto;
   }
 
   header.menu-open .close-menu {
