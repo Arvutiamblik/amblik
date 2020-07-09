@@ -5,7 +5,6 @@ import { graphql } from 'gatsby';
 import SEO from "../components/seo";
 import Contact from "../components/contact";
 import ArticleSlices from "../components/ArticleSlices";
-import articleHeroImage from "../images/page-picture.png";
 
 const ArticlePageTemplate = ({
   pageContext,
@@ -15,10 +14,11 @@ const ArticlePageTemplate = ({
   description,
   text,
   feedbackForm,
-  articleSlices
+  articleSlices,
+  articleBanner
 }) => (
   <>
-    <div className="article-bg" style={{backgroundImage: `url(${articleHeroImage})`}}></div>
+    {articleBanner && <div className="article-bg" style={{backgroundImage: `url(${articleBanner})`}}></div>}
     <div className="background-wrapper bg-white py-5">
       <div className="container">
         <div className="text-center my-5">
@@ -71,6 +71,7 @@ if (!test) return null
         text={article.node.text}
         feedbackForm={article.node.feedback_form}
         articleSlices={data.prismic.article}
+        articleBanner={article.node.banner.url}
       />
     </Layout>
   );
@@ -88,6 +89,11 @@ export const query = graphql`
               alternateLanguages {
               lang
               uid
+              }
+            }
+            banner {
+              ... on PRISMIC__ImageLink {
+                url
               }
             }
             metatitle
