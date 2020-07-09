@@ -13,7 +13,7 @@ exports.onRouteUpdate = ({ location }) => scrollToAnchor(location)
 function scrollToAnchor(location) {
   // Check for location so build does not fail
   if (location && location.hash) {
-    const item = document.querySelector(`${location.hash}`)
+    const item = document.querySelector(`${decodeURI(location.hash)}`)
     
     requestAnimationFrame(() => item.scrollIntoView({behavior: "smooth"}));
   }
