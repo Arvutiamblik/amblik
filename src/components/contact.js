@@ -61,10 +61,14 @@ const Contact = (data, props) => {
         <div className="row">
           <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
             <RichText render={contactText}>{contactText}</RichText>
-            <RichText render={contactEmail}>{contactEmail}</RichText>
-            <RichText render={contactPhone}>{contactPhone}</RichText>
-            <RichText render={contactAddress}>{contactAddress}</RichText>
-            <RichText render={workingTime}>{workingTime}</RichText>
+            <div className="contact-info">
+              <RichText render={contactEmail}>{contactEmail}</RichText>&nbsp;
+              <RichText render={contactPhone}>{contactPhone}</RichText>
+            </div>
+            <div className="contact-address">
+              <RichText render={contactAddress}>{contactAddress}</RichText>
+              <RichText render={workingTime}>{workingTime}</RichText>
+            </div>
             <div className="map-wrapper">
               <Map 
                 position={position} 

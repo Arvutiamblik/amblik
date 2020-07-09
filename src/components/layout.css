@@ -92,6 +92,15 @@ a:hover {
   padding-top: 197px;
 }
 
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contact-address p:first-child {
+  margin-bottom: 0;
+}
+
 .shape-left-up {
   background: url(../images/shape-left-up.png);
   background-repeat: no-repeat;
