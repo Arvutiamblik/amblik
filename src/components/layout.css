@@ -32,6 +32,11 @@ a:hover {
   text-decoration: underline;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .bg-white .h1, 
 .bg-white .h2, 
 .bg-white .h3, 
