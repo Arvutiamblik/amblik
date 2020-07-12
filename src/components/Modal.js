@@ -13,21 +13,18 @@ const ModalWindow = (props) => {
       <Modal isOpen={modal} toggle={toggle} className="support-modal">
         <ModalHeader toggle={toggle}>{supportModal.title}</ModalHeader>
         <ModalBody>
-          <div className="d-flex justify-content-between">
-            <div>{supportModal.phone_title}: </div>
-            <div className="d-flex flex-column">
-              <div>
-                <a href={`callto: ${supportModal.phone_number}`}>{supportModal.phone_number}</a>
-              </div>
-              <div>
-                <a href={`callto: ${supportModal.mobile_phone_number}`}>{supportModal.mobile_phone_number}</a>
-              </div>
+          <div className="d-flex justify-content-center mb-3">
+            <div>{supportModal.phone_title}:
+              <span>&nbsp;</span>
+              <a href={`callto: ${supportModal.phone_number}`}>{supportModal.phone_number}</a>
+              <span>&nbsp;</span>
+              <a href={`callto: ${supportModal.mobile_phone_number}`}>{supportModal.mobile_phone_number}</a>
             </div>
           </div>
-          <div className="d-flex justify-content-between">
-            <div>{supportModal.email_title}:</div>
-            <div>
-              <a href={`mailto: ${supportModal.email}`}>{supportModal.email}</a>
+          <div className="d-flex justify-content-center">
+            <div>{supportModal.email_title}:
+              <span>&nbsp;</span>
+              <a href={`mailto: ${supportModal.email}`}> {supportModal.email}</a>
             </div>
           </div>
         </ModalBody>

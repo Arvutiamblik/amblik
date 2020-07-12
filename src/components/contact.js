@@ -92,7 +92,7 @@ const Contact = (data, props) => {
         <Button className="button-main button_support text-uppercase mb-5" onClick={toggle}>
           {articleFeedbackButtonText}
         </Button>
-        <Modal isOpen={modal} toggle={toggle} size='lg' className="support-modal">
+        <Modal isOpen={modal} toggle={toggle} size='xl' className="support-modal article-modal">
           <ModalHeader toggle={toggle}>
             <div>{articleFeedbackButtonText}</div>
           </ModalHeader>
@@ -101,10 +101,14 @@ const Contact = (data, props) => {
               <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
                 <p>{articleTitle}</p>
                 <RichText render={articleTitle}>{articleTitle}</RichText>
-                <RichText render={contactEmail}>{contactEmail}</RichText>
-                <RichText render={contactPhone}>{contactPhone}</RichText>
-                <RichText render={contactAddress}>{contactAddress}</RichText>
-                <RichText render={workingTime}>{workingTime}</RichText>
+                <div className="contact-info">
+                  <RichText render={contactEmail}>{contactEmail}</RichText>&nbsp;
+                  <RichText render={contactPhone}>{contactPhone}</RichText>
+                </div>
+                <div className="contact-address">
+                  <RichText render={contactAddress}>{contactAddress}</RichText>
+                  <RichText render={workingTime}>{workingTime}</RichText>
+                </div>
               </div>
               <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
                 <ContactForm title={articleTitle} pageUrl={pageUrl} formData={articleFeedbackForm} />

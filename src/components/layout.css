@@ -58,13 +58,29 @@ img {
   color: black;
 }
 
-.bg-white .form-field {
+.support-modal.article-modal .modal-content {
+  background-color: white;
+  color: black;
+}
+
+.support-modal.article-modal .modal-content a {
+  color: black;
+}
+
+.support-modal.article-modal .close,
+.support-modal.article-modal .close:hover {
+  color: black;
+}
+
+.bg-white .form-field,
+.article-modal .form-field {
   background-color: white;
   color: black;
   border: 2px solid hotpink;
 }
 
-.bg-white .form-field:focus {
+.bg-white .form-field:focus,
+.article-modal .form-field:focus {
   color: black;
 }
 
@@ -382,6 +398,18 @@ header.header-transparent {
   margin-left:20% !important;
 }
 
+.support-modal .modal-header {
+  border-bottom: none;
+}
+
+.support-modal .modal-header .modal-title {
+  margin: 0 auto;
+}
+
+.support-modal .modal-footer {
+  border-top: none;
+}
+
 .support-modal .modal-content {
   background-color: darkblue;
   color: white;
@@ -389,6 +417,8 @@ header.header-transparent {
 .support-modal .close {
   opacity: 1;
   color: white;
+  position: absolute;
+  right: 15px;
 }
 .support-modal .close:hover {
   opacity: .5;
