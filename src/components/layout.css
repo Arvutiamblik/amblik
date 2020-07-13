@@ -129,7 +129,7 @@ img {
   background-position: left;
   background-size: contain;
   position: absolute;
-  height: 275px;
+  height: 230px;
   width: 100%;
   top: 0;
   left: 0;
@@ -142,7 +142,7 @@ img {
   background-position: right;
   background-size: contain;
   position: absolute;
-  height: 315px;
+  height: 270px;
   width: 100%;
   top: 0;
   right: 0;
@@ -189,6 +189,7 @@ img {
 .logo {
   color: #ffffff;
   font-size: 64px;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
   font-weight: bold;
 }
 
