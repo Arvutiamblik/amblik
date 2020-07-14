@@ -262,15 +262,18 @@ header.header-transparent {
   font-size: 0.75rem;
   font-weight: 400;
 }
+
 .placecard__left {
   float: left;
   width: 75%;
 }
+
 .placecard__right {
   text-align: center;
   float: left;
   width: 25%;
 }
+
 .placecard__business-name {
   color: black;
   text-overflow: ellipsis;
@@ -280,6 +283,7 @@ header.header-transparent {
   font-weight: 600;
   margin: 0;
 }
+
 .placecard__info {
   color: black;
   height: 32px;
@@ -287,6 +291,7 @@ header.header-transparent {
   font-weight: 400;
   margin: 6px 0px 0px;
 }
+
 .placecard__direction-icon {
   background: rgba(0, 0, 0, 0) url("https://maps.gstatic.com/mapfiles/embed/images/entity11.png") repeat scroll 0px 0px/70px 210px padding-box border-box;
   height: 22px;
@@ -295,21 +300,25 @@ header.header-transparent {
   margin-left: auto;
   margin-bottom: 5px;
 }
+
 .placecard__direction-link {
   color: #3a84df;
   display: block;
   height: 43px;
   width: 54.7344px;
 }
+
 .placecard__direction-link:hover {
   color: #3a84df;
   text-decoration: underline;
 }
+
 .placecard__view-large {
   display: block;
   margin-top: 10px;
   color: #3a84df;
 }
+
 .placecard__view-large:hover {
   color: #3a84df;
   text-decoration: underline;
