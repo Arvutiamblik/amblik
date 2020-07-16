@@ -92,7 +92,7 @@ const Contact = (data, props) => {
         <Button className="button-main button_support text-uppercase mb-5" onClick={toggle}>
           {articleFeedbackButtonText}
         </Button>
-        <Modal isOpen={modal} toggle={toggle} size='xl' className="support-modal article-modal">
+        <Modal isOpen={modal} toggle={toggle} size='lg' className="support-modal article-modal">
           <ModalHeader toggle={toggle}>
             <div>{articleFeedbackButtonText}</div>
           </ModalHeader>
