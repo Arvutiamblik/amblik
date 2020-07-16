@@ -36,9 +36,7 @@ const ModalWindow = (props) => {
               <span>{supportModal.button_text}</span>
             </a>
           </div>
-          <div>
-            <a href="#">{supportModal.link_text}</a>
-          </div>
+          <div>{supportModal.link_text}</div>
         </ModalFooter>
       </Modal>
     </React.Fragment>

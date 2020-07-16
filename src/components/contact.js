@@ -62,7 +62,7 @@ const Contact = (data, props) => {
           <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
             <RichText render={contactText}>{contactText}</RichText>
             <div className="contact-info">
-              <RichText render={contactEmail}>{contactEmail}</RichText>&nbsp;
+              <RichText render={contactEmail}>{contactEmail}</RichText>
               <RichText render={contactPhone}>{contactPhone}</RichText>
             </div>
             <div className="contact-address">
@@ -102,7 +102,7 @@ const Contact = (data, props) => {
                 <p>{articleTitle}</p>
                 <RichText render={articleTitle}>{articleTitle}</RichText>
                 <div className="contact-info">
-                  <RichText render={contactEmail}>{contactEmail}</RichText>&nbsp;
+                  <RichText render={contactEmail}>{contactEmail}</RichText>
                   <RichText render={contactPhone}>{contactPhone}</RichText>
                 </div>
                 <div className="contact-address">

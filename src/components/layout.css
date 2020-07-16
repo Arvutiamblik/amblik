@@ -113,9 +113,8 @@ img {
   padding-top: 197px;
 }
 
-.contact-info {
-  display: flex;
-  flex-wrap: wrap;
+.contact-info p:first-child {
+  margin-bottom: 0;
 }
 
 .contact-address p:first-child {
