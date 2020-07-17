@@ -35,7 +35,9 @@ const Menu = (data, props) => {
             <div className='row'>
               <div className='header-column col d-flex justify-content-between align-items-center'>
                 <div className="logos">
-                  <div className='logo'>amblik</div>
+                  <div className='logo'>
+                    <Link to={`/${prefix}/`}>amblik</Link>
+                  </div>
                   <div className="d-block d-lg-none">
                     <img className="partner-logo" src={msPartnerLogo} />
                   </div>
