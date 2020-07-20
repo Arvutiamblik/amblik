@@ -74,7 +74,7 @@ const IndexPageTemplate = ({
       </div>
       
       <div className="background-wrapper bg-white">
-        <div className="container">
+        <div className="container position-relative z-index-1">
           <div className="row">
             <div className="col-lg">
               <div className="my-5">
