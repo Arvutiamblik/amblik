@@ -14,8 +14,11 @@ function scrollToAnchor(location) {
   // Check for location so build does not fail
   if (location && location.hash) {
     const item = document.querySelector(`${decodeURI(location.hash)}`)
-    
-    requestAnimationFrame(() => item.scrollIntoView({behavior: "smooth"}));
+
+    requestAnimationFrame(() => {
+      window?.scrollTo(0, 0);
+      item.scrollIntoView({behavior: "smooth"});
+    });
   }
 
   return true
