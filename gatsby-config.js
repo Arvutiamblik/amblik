@@ -58,7 +58,7 @@ module.exports = {
 
         shortenUrlLangs: true,
         defaultLang: 'et-et',
-        langs: ['et-et', 'ru'],
+        langs: ['et-et', 'ru', 'en-us'],
         pages: [{
           type: 'Home_page',
           match: '/:lang?/',

@@ -118,7 +118,7 @@ const IndexPage = ({ data, pageContext, location }) => {
       img={data.prismic.allHome_pages.edges[0].node.img}
       headerDescription={data.prismic.allHome_pages.edges[0].node.heading_description}
       lang={data.prismic.allHome_pages.edges[0].node._meta.lang}
-      supportModal={data.prismic.allSupport_modals.edges[0].node}
+      supportModal={data?.prismic?.allSupport_modals?.edges[0]?.node}
       itTitle = {data.prismic.allHome_pages.edges[0].node.it_title}
       itAnchor = {data.prismic.allHome_pages.edges[0].node.it_anchor}
       itServices = {data.prismic.allHome_pages.edges[0].node.it_services}

@@ -19,14 +19,14 @@ const Contact = (data, props) => {
     largerMap,
     mapsApiKey,
     zoom
-   } = data.props;
+   } = data?.props;
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
-  let contactData = data.data.prismic.allHome_pages.edges;
-  contactData = contactData.filter(item => (
-    item.node._meta.lang === lang
+  let contactData = data?.data?.prismic?.allHome_pages?.edges;
+  contactData = contactData?.filter(item => (
+    item?.node?._meta?.lang === lang
   ));
   
   const { 
@@ -38,17 +38,19 @@ const Contact = (data, props) => {
     contact_address: contactAddress,
     working_time: workingTime,
     feedback_form: feedbackForm
-  } = contactData[0].node;
-
-  let articleContactData = data.data.prismic.allArticles.edges;
-  articleContactData = articleContactData.filter(item => (
-    item.node._meta.lang === lang
+  } = contactData[0]?.node;
+  let articleContactData = data?.data?.prismic?.allArticles?.edges;
+  articleContactData = articleContactData?.filter(item => (
+    item?.node?._meta?.lang === lang
   ));
 
-  const { 
-    feedback_button_text: articleFeedbackButtonText,
-    feedback_form: articleFeedbackForm
-  } = articleContactData[0].node;
+  let articleFeedbackButtonText = '';
+  let articleFeedbackForm = {};
+  
+  if (articleContactData[0]?.node) {
+    articleFeedbackButtonText = articleContactData[0]?.node?.feedback_button_text;
+    articleFeedbackForm = articleContactData[0]?.node?.feedback_form;
+  }
 
   return (
     data.props.pageType === 'home_page' ?
@@ -83,7 +85,7 @@ const Contact = (data, props) => {
             </div>
           </div>
           <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
-            <ContactForm title={homeTitle} pageUrl={pageUrl} formData={feedbackForm} />
+            {feedbackForm && <ContactForm title={homeTitle} pageUrl={pageUrl} formData={feedbackForm} />}
           </div>
         </div>
       </div> 
@@ -111,7 +113,7 @@ const Contact = (data, props) => {
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
-                <ContactForm title={articleTitle} pageUrl={pageUrl} formData={articleFeedbackForm} />
+                {articleFeedbackForm && <ContactForm title={articleTitle} pageUrl={pageUrl} formData={articleFeedbackForm} />}
               </div>
             </div>
           </ModalBody>

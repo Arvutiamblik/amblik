@@ -8,7 +8,7 @@ import { filterByLang } from '../utils/helpers';
 
 const Menu = (data, props) => {
   const { lang, uid, supportModal, alternateLanguages = null, toggleMenu, menuOpen, handleClick } = data.props;
-  const menuName = filterByLang(data.data.prismic.allMenus.edges, lang)[0].node.menu_name;
+  const menuName = filterByLang(data?.data.prismic?.allMenus?.edges, lang)[0]?.node?.menu_name;
   const linkToFacebook = filterByLang(data.data.prismic.allHome_pages.edges, lang)[0].node.link_to_facebook.url;
   /* if(alternateLanguages) {
     lang === alternateLanguages
@@ -43,7 +43,7 @@ const Menu = (data, props) => {
                   </div>
                 </div>
                 <div className='menu'>
-                  {menuArr[0].node.menu.map((menuItem, index) => (
+                  {menuArr[0]?.node?.menu?.map((menuItem, index) => (
                     <Link
                       className='link_button'
                       key={index}
@@ -76,6 +76,9 @@ const Menu = (data, props) => {
                         <li>
                           <Link to={`/ru/`}>ru</Link>
                         </li>
+                        <li>
+                          <Link to={`/en-us/`}>en</Link>
+                        </li>
                       </>
                     )}
                     {lang == 'et-et' &&
@@ -91,8 +94,14 @@ const Menu = (data, props) => {
                           <li>
                             <Link to={`/ru/${alternateUid}`}>ru</Link>
                           </li>
+                          <li>
+                            /
+                          </li>
+                          <li>
+                            <Link to={`/en-us/${alternateUid}`}>en</Link>
+                          </li>
                         </>
-                      )}
+                    )}
                     {lang == 'ru' && alternateLanguages !== null && uid !== 'home' && (
                       <>
                         <li>
@@ -103,6 +112,31 @@ const Menu = (data, props) => {
                         </li>
                         <li className="language-active">
                           <Link to={`/ru/${uid}`}>ru</Link>
+                        </li>
+                        <li>
+                          /
+                        </li>
+                        <li>
+                          <Link to={`/en-us/${uid}`}>en</Link>
+                        </li>
+                      </>
+                    )}
+                    {lang == 'en-us' && alternateLanguages !== null && uid !== 'home' && (
+                      <>
+                        <li>
+                          <Link to={`/${alternateUid}`}>ee</Link>
+                        </li>
+                        <li>
+                          /
+                        </li>
+                        <li>
+                          <Link to={`/ru/${uid}`}>ru</Link>
+                        </li>
+                        <li>
+                          /
+                        </li>
+                        <li className="language-active">
+                          <Link to={`/en-us/${uid}`}>en</Link>
                         </li>
                       </>
                     )}
@@ -118,6 +152,12 @@ const Menu = (data, props) => {
                         <li>
                           <Link to={`/ru/${uid}`}>ru</Link>
                         </li>
+                        <li>
+                          /
+                        </li>
+                        <li>
+                          <Link to={`/en-us/${uid}`}>en</Link>
+                        </li>
                       </>
                     )}
                     {!alternateLanguages && lang == 'ru' && (
@@ -130,6 +170,31 @@ const Menu = (data, props) => {
                         </li>
                         <li className="language-active">
                           <Link to={`/ru/${uid}`}>ru</Link>
+                        </li>
+                        <li>
+                          /
+                        </li>
+                        <li>
+                          <Link to={`/en-us/${uid}`}>en</Link>
+                        </li>
+                      </>
+                    )}
+                    {!alternateLanguages && lang == 'en-us' && (
+                      <>
+                        <li>
+                          <Link to={`/${uid}`}>ee</Link>
+                        </li>
+                        <li>
+                          /
+                        </li>
+                        <li>
+                          <Link to={`/ru/${uid}`}>ru</Link>
+                        </li>
+                        <li>
+                          /
+                        </li>
+                        <li className="language-active">
+                          <Link to={`/en-us/${uid}`}>en</Link>
                         </li>
                       </>
                     )}
@@ -220,6 +285,12 @@ const Menu = (data, props) => {
                       <li>
                         <Link to={`/ru/`}>ru</Link>
                       </li>
+                      <li>
+                        /
+                      </li>
+                      <li>
+                        <Link to={`/en-us/`}>en</Link>
+                      </li>
                     </>
                   )}
                   {lang == 'et-et' &&
@@ -235,6 +306,12 @@ const Menu = (data, props) => {
                         <li>
                           <Link to={`/ru/${alternateUid}`}>ru</Link>
                         </li>
+                        <li>
+                          /
+                        </li>
+                        <li>
+                          <Link to={`/en-us/${alternateUid}`}>en</Link>
+                        </li>
                       </>
                     )}
                   {lang == 'ru' && alternateLanguages !== null && uid !== 'home' && (
@@ -247,6 +324,31 @@ const Menu = (data, props) => {
                       </li>
                       <li className="language-active">
                         <Link to={`/ru/${uid}`}>ru</Link>
+                      </li>
+                      <li>
+                        /
+                      </li>
+                      <li>
+                        <Link to={`/en-us/${uid}`}>en</Link>
+                      </li>
+                    </>
+                  )}
+                  {lang == 'en-us' && alternateLanguages !== null && uid !== 'home' && (
+                    <>
+                      <li>
+                        <Link to={`/${alternateUid}`}>ee</Link>
+                      </li>
+                      <li>
+                        /
+                      </li>
+                      <li>
+                        <Link to={`/ru/${uid}`}>ru</Link>
+                      </li>
+                      <li>
+                        /
+                      </li>
+                      <li className="language-active">
+                        <Link to={`/en-us/${uid}`}>en</Link>
                       </li>
                     </>
                   )}
@@ -262,6 +364,12 @@ const Menu = (data, props) => {
                       <li>
                         <Link to={`/ru/${uid}`}>ru</Link>
                       </li>
+                      <li>
+                        /
+                      </li>
+                      <li>
+                        <Link to={`/en-us/${uid}`}>en</Link>
+                      </li>
                     </>
                   )}
                   {!alternateLanguages && lang == 'ru' && (
@@ -274,6 +382,31 @@ const Menu = (data, props) => {
                       </li>
                       <li className="language-active">
                         <Link to={`/ru/${uid}`}>ru</Link>
+                      </li>
+                      <li>
+                        /
+                      </li>
+                      <li>
+                        <Link to={`/en-us/${uid}`}>en</Link>
+                      </li>
+                    </>
+                  )}
+                  {!alternateLanguages && lang == 'en-us' && (
+                    <>
+                      <li>
+                        <Link to={`/${uid}`}>ee</Link>
+                      </li>
+                      <li>
+                        /
+                      </li>
+                      <li>
+                        <Link to={`/ru/${uid}`}>ru</Link>
+                      </li>
+                      <li>
+                        /
+                      </li>
+                      <li className="language-active">
+                        <Link to={`/en-us/${uid}`}>en</Link>
                       </li>
                     </>
                   )}

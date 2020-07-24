@@ -17,10 +17,10 @@ const TextBlock = ({ item, delimiter, enableButton, img, lang }) => (
       }
       {item.description ? 
         <RichText render={item.description}>{item.description}</RichText> : 
-        <RichText render={item.service_page.description}>{item.service_page.description}</RichText>
+        <RichText render={item?.service_page?.description}>{item?.service_page?.description}</RichText>
       }
       {enableButton === true && (
-        <Link to={`${lang === 'et-et' ? "" : lang}/${item.service_page._meta.uid}`}>
+        <Link to={`${lang === 'et-et' ? "" : lang}/${item?.service_page?._meta?.uid}`}>
           <button className="btn btn-primary button-main">{item.button_text}</button>
         </Link>
       )}
