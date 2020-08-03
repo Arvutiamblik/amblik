@@ -71,7 +71,7 @@ if (!test) return null
         text={article.node.text}
         feedbackForm={article.node.feedback_form}
         articleSlices={data.prismic.article}
-        articleBanner={ 'banner' in article.node  ? article.node.banner : null}
+        articleBanner={  article.node.banner !== null  ? article.node.banner : null}
       />
     </Layout>
   );
