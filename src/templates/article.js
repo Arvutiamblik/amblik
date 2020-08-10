@@ -1,7 +1,7 @@
-import React from 'react';
-import { RichText } from 'prismic-reactjs';
+import React from "react";
+import { RichText } from "prismic-reactjs";
 import Layout from "../components/layout";
-import { graphql } from 'gatsby';
+import { graphql } from "gatsby";
 import SEO from "../components/seo";
 import Contact from "../components/contact";
 import ArticleSlices from "../components/ArticleSlices";
@@ -15,10 +15,15 @@ const ArticlePageTemplate = ({
   text,
   feedbackForm,
   articleSlices,
-  articleBanner
+  articleBanner,
 }) => (
   <>
-    {articleBanner && <div className="article-bg" style={{backgroundImage: `url(${articleBanner})`}}></div>}
+    {articleBanner && (
+      <div
+        className="article-bg"
+        style={{ backgroundImage: `url(${articleBanner})` }}
+      ></div>
+    )}
     <div className="background-wrapper bg-white py-5">
       <div className="container">
         <div className="text-center my-5">
@@ -30,55 +35,68 @@ const ArticlePageTemplate = ({
           <RichText render={text}>{text}</RichText>
         </div>
       </div>
-      {articleSlices && 
+      {articleSlices && (
         <div className="container">
           <ArticleSlices articleSlices={articleSlices} />
         </div>
-      }
-      {feedbackForm && 
+      )}
+      {feedbackForm && (
         <div className="container">
-          <Contact articleTitle={title[0].text} pageUrl={pageUrl} lang={lang} pageType={pageContext.type} />
+          <Contact
+            articleTitle={title[0].text}
+            pageUrl={pageUrl}
+            lang={lang}
+            pageType={pageContext.type}
+          />
         </div>
-      }
+      )}
     </div>
   </>
 );
 
 const Article = ({ data, pageContext, location }) => {
-  const test = data.prismic.allArticles.edges.slice(0, 1).pop()
+  const test = data.prismic.allArticles.edges.slice(0, 1).pop();
 
-if (!test) return null
+  if (!test) return null;
   const article = data.prismic.allArticles.edges[0];
 
   return (
-    <Layout 
+    <Layout
       lang={article.node._meta.lang}
       uid={article.node._meta.uid}
       alternateLanguages={article.node._meta.alternateLanguages}
       supportModal={data.prismic.allSupport_modals.edges[0].node}
     >
       <SEO
-        title={article.node.metatitle !== null ? article.node.metatitle : article.node.title[0].text}
-        description={article.node.metadescription !== null ? article.node.metadescription : article.node.description[0].text}
+        title={
+          article.node.metatitle !== null
+            ? article.node.metatitle
+            : article.node.title[0].text
+        }
+        description={
+          article.node.metadescription !== null
+            ? article.node.metadescription
+            : article.node.description[0].text
+        }
         lang={article.node._meta.lang}
       />
-      <ArticlePageTemplate 
+      <ArticlePageTemplate
         pageUrl={location.href}
         pageContext={pageContext}
         lang={article.node._meta.lang}
         title={article.node.title}
-        description={article.node.description}
+        description={article.node?.description}
         text={article.node.text}
         feedbackForm={article.node.feedback_form}
         articleSlices={data.prismic.article}
-        articleBanner={ article.node.banner.url}
+        articleBanner={article.node?.banner?.url}
       />
     </Layout>
   );
 };
 
 export const query = graphql`
-  query ArticlePage($lang: String! $uid: String!) {
+  query ArticlePage($lang: String!, $uid: String!) {
     prismic {
       allArticles(lang: $lang, uid: $uid) {
         edges {
@@ -87,8 +105,8 @@ export const query = graphql`
               lang
               uid
               alternateLanguages {
-              lang
-              uid
+                lang
+                uid
               }
             }
             banner {
@@ -114,7 +132,7 @@ export const query = graphql`
           }
         }
       }
-     
+
       allSupport_modals(lang: $lang) {
         edges {
           node {
