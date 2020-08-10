@@ -12,10 +12,10 @@ module.exports = {
       options: {
         fonts: [
           `Montserrat`,
-          `100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i`
+          `100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i`,
         ],
-        display: 'swap'
-      }
+        display: "swap",
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -28,18 +28,14 @@ module.exports = {
         exclude: ["/preview/**", "/do-not-track/me/too/"],
         // Delays sending pageview hits on route update (in milliseconds)
         pageTransitionDelay: 0,
-  
+
         defer: false,
-     
-      
       },
     },
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: "GTM-P27DLKQ",
-  
-     
       },
     },
     {
@@ -56,63 +52,59 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-     `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
     {
-      resolve: 'gatsby-plugin-i18n',
-      options: {        
-        langKeyDefault: 'en',
-        useLangKeyLayout: false
-      }
-    },
-  {
-		resolve: 'gatsby-plugin-webpack-bundle-analyzer',
-		options: {
-			analyzerPort: 3000,
-			production: true,
-		},
-  },
-  
- 
-  
-  {
-    resolve: 'gatsby-source-prismic-graphql',
+      resolve: "gatsby-plugin-i18n",
       options: {
-        repositoryName: 'amblik', // (REQUIRED, replace with your own)
-       path: '/preview',
-       previews: true,
+        langKeyDefault: "en",
+        useLangKeyLayout: false,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyzer",
+      options: {
+        analyzerPort: 3000,
+        production: true,
+      },
+    },
+
+    {
+      resolve: "gatsby-source-prismic-graphql",
+      options: {
+        repositoryName: "amblik", // (REQUIRED, replace with your own)
+        path: "/preview",
+        previews: true,
 
         shortenUrlLangs: true,
-        defaultLang: 'et-et',
-        langs: ['et-et', 'ru', 'en-us'],
-        pages: [{
-          type: 'Home_page',
-          match: '/:lang?/',
-          path: '/home-prewview',
-          component: require.resolve('./src/templates/index.js'),
-          
-        },
-        {
-          type: 'Article',
-          match: '/:lang?/:uid',
-          path: '/article',
-          component: require.resolve('./src/templates/article.js')
-        },
-   ],
-       
-       
-    }
-  },
-  
-  {
-    resolve: `gatsby-source-filesystem`,
-    options: {
-      name: `images`,
-      path: `${__dirname}/src/images/`,
+        defaultLang: "et-et",
+        langs: ["et-et", "ru", "en"],
+        pages: [
+          {
+            type: "Home_page",
+            match: "/:lang?/",
+            path: "/home-prewview",
+            component: require.resolve("./src/templates/index.js"),
+          },
+          {
+            type: "Article",
+            match: "/:lang?/:uid",
+            path: "/article",
+            component: require.resolve("./src/templates/article.js"),
+          },
+        ],
+      },
     },
-  },
-  
- `gatsby-plugin-sharp`,
-  `gatsby-transformer-sharp`,
-    'gatsby-plugin-optimize-svgs',
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    "gatsby-plugin-optimize-svgs",
   ],
-}
+};

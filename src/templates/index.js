@@ -29,14 +29,11 @@ const IndexPageTemplate = ({
   directions,
   mapUrl,
   address,
-  businessName
+  businessName,
 }) => (
   <>
     <img id="logoPicture" className="img" alt="background" src={img.url} />
-    <Layout
-      lang={lang}
-      supportModal={supportModal}
-    >
+    <Layout lang={lang} supportModal={supportModal}>
       <SEO
         title={heading}
         description={headerDescription[0].text}
@@ -46,7 +43,9 @@ const IndexPageTemplate = ({
         <div className="container">
           <div className="row">
             <div className="col-lg-5 col-md-6 col-xs-12">
-              <RichText render={headerDescription}>{headerDescription}</RichText>
+              <RichText render={headerDescription}>
+                {headerDescription}
+              </RichText>
               <div className="header-underline"></div>
             </div>
           </div>
@@ -58,7 +57,12 @@ const IndexPageTemplate = ({
                   <RichText render={itTitle}>{itTitle}</RichText>
                   <div className="header-underline"></div>
                 </div>
-                <TextBlock gridItems={itServices} delimiter={2} lang={lang} enableButton />
+                <TextBlock
+                  gridItems={itServices}
+                  delimiter={2}
+                  lang={lang}
+                  enableButton
+                />
               </div>
               <div className="mb-5">
                 <div className="text-center mb-5">
@@ -66,20 +70,29 @@ const IndexPageTemplate = ({
                   <RichText render={webTitle}>{webTitle}</RichText>
                   <div className="header-underline"></div>
                 </div>
-                <TextBlock gridItems={webServices} delimiter={2} lang={lang} enableButton />
+                <TextBlock
+                  gridItems={webServices}
+                  delimiter={2}
+                  lang={lang}
+                  enableButton
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+
       <div className="background-wrapper bg-white">
         <div className="container position-relative z-index-1">
           <div className="row">
             <div className="col-lg">
               <div className="my-5">
                 <div className="text-center mb-5">
-                  <div id={aboutAnchor} name={aboutAnchor} alt={aboutAnchor}></div>
+                  <div
+                    id={aboutAnchor}
+                    name={aboutAnchor}
+                    alt={aboutAnchor}
+                  ></div>
                   <RichText render={aboutTitle}>{aboutTitle}</RichText>
                   <div className="header-underline"></div>
                 </div>
@@ -87,19 +100,19 @@ const IndexPageTemplate = ({
                   <RichText render={aboutText}>{aboutText}</RichText>
                 </div>
               </div>
-              <Contact 
-                homeTitle={heading} 
-                pageUrl={pageUrl} 
-                lang={lang} 
+              <Contact
+                homeTitle={heading}
+                pageUrl={pageUrl}
+                lang={lang}
                 pageType={pageContext.type}
-                position={geopoint} 
+                position={geopoint}
                 businessName={businessName}
                 address={address}
                 mapUrl={mapUrl}
                 directions={directions}
                 largerMap={largerMap}
                 mapsApiKey={mapsApiKey}
-                zoom={zoom} 
+                zoom={zoom}
               />
             </div>
           </div>
@@ -114,26 +127,28 @@ const IndexPage = ({ data, pageContext, location }) => {
     <IndexPageTemplate
       pageContext={pageContext}
       pageUrl={location.href}
-      heading={data.prismic.allHome_pages.edges[0].node.heading[0].text}
-      img={data.prismic.allHome_pages.edges[0].node.img}
-      headerDescription={data.prismic.allHome_pages.edges[0].node.heading_description}
+      heading={data.prismic.allHome_pages.edges[0]?.node.heading[0].text}
+      img={data.prismic.allHome_pages.edges[0]?.node.img}
+      headerDescription={
+        data.prismic.allHome_pages.edges[0].node.heading_description
+      }
       lang={data.prismic.allHome_pages.edges[0].node._meta.lang}
       supportModal={data?.prismic?.allSupport_modals?.edges[0]?.node}
-      itTitle = {data.prismic.allHome_pages.edges[0].node.it_title}
-      itAnchor = {data.prismic.allHome_pages.edges[0].node.it_anchor}
-      itServices = {data.prismic.allHome_pages.edges[0].node.it_services}
-      webTitle = {data.prismic.allHome_pages.edges[0].node.web_title}
-      webAnchor = {data.prismic.allHome_pages.edges[0].node.web_anchor}
-      webServices = {data.prismic.allHome_pages.edges[0].node.web_services}
-      aboutAnchor = {data.prismic.allHome_pages.edges[0].node.about_anchor}
-      aboutText = {data.prismic.allHome_pages.edges[0].node.about_text}
-      aboutTitle = {data.prismic.allHome_pages.edges[0].node.about_title}
-      geopoint = {data.prismic.allHome_pages.edges[0].node.geopoint}
-      zoom = {data.prismic.allHome_pages.edges[0].node.zoom}
-      largerMap = {data.prismic.allHome_pages.edges[0].node.text_larger_map}
-      directions = {data.prismic.allHome_pages.edges[0].node.text_direction}
-      mapsApiKey = {data.prismic.allHome_pages.edges[0].node.maps_api_key}
-      mapUrl = {data.prismic.allHome_pages.edges[0].node.map_url.url}
+      itTitle={data.prismic.allHome_pages.edges[0].node.it_title}
+      itAnchor={data.prismic.allHome_pages.edges[0].node.it_anchor}
+      itServices={data.prismic.allHome_pages.edges[0].node.it_services}
+      webTitle={data.prismic.allHome_pages.edges[0].node.web_title}
+      webAnchor={data.prismic.allHome_pages.edges[0].node.web_anchor}
+      webServices={data.prismic.allHome_pages.edges[0].node.web_services}
+      aboutAnchor={data.prismic.allHome_pages.edges[0].node.about_anchor}
+      aboutText={data.prismic.allHome_pages.edges[0].node.about_text}
+      aboutTitle={data.prismic.allHome_pages.edges[0].node.about_title}
+      geopoint={data.prismic.allHome_pages.edges[0].node.geopoint}
+      zoom={data.prismic.allHome_pages.edges[0].node.zoom}
+      largerMap={data.prismic.allHome_pages.edges[0].node.text_larger_map}
+      directions={data.prismic.allHome_pages.edges[0].node.text_direction}
+      mapsApiKey={data.prismic.allHome_pages.edges[0].node.maps_api_key}
+      mapUrl={data.prismic.allHome_pages.edges[0].node.map_url.url}
       address={data.prismic.allHome_pages.edges[0].node.contact_address[0].text}
       businessName={data.prismic.allHome_pages.edges[0].node.business_name}
     />
@@ -175,7 +190,7 @@ export const query = graphql`
                   title
                   description
                   _meta {
-                    uid                
+                    uid
                   }
                 }
               }
@@ -192,7 +207,7 @@ export const query = graphql`
                   title
                   description
                   _meta {
-                    uid                
+                    uid
                   }
                 }
               }
@@ -229,5 +244,3 @@ export const query = graphql`
 `;
 
 export default IndexPage;
-
-

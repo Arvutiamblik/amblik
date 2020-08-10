@@ -1,8 +1,8 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
 import Img from "gatsby-image";
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
 const TextBlock = ({ item, delimiter, enableButton, img, lang }) => (
   <>
     {img && (
@@ -10,18 +10,34 @@ const TextBlock = ({ item, delimiter, enableButton, img, lang }) => (
         <Img fluid={item.product_imageSharp.childImageSharp.fluid} />
       </div>
     )}
-    <div className={`col-lg-${12 / delimiter} col-md-${12 / delimiter} col-xs-12 mb-4`}>
-      {item.title ? 
-        <RichText render={item.title}>{item.title}</RichText> : 
-        <RichText render={item.service_page.title}>{item.service_page.title}</RichText>
-      }
-      {item.description ? 
-        <RichText render={item.description}>{item.description}</RichText> : 
-        <RichText render={item?.service_page?.description}>{item?.service_page?.description}</RichText>
-      }
+    <div
+      className={`col-lg-${12 / delimiter} col-md-${
+        12 / delimiter
+      } col-xs-12 mb-4`}
+    >
+      {item.title ? (
+        <RichText render={item.title}>{item.title}</RichText>
+      ) : (
+        <RichText render={item.service_page.title}>
+          {item.service_page.title}
+        </RichText>
+      )}
+      {item.description ? (
+        <RichText render={item.description}>{item.description}</RichText>
+      ) : (
+        <RichText render={item?.service_page?.description}>
+          {item?.service_page?.description}
+        </RichText>
+      )}
       {enableButton === true && (
-        <Link to={`${lang === 'et-et' ? "" : lang}/${item?.service_page?._meta?.uid}`}>
-          <button className="btn btn-primary button-main">{item.button_text}</button>
+        <Link
+          to={`${lang === "et-et" ? "" : lang === "en-us" ? "en" : lang}/${
+            item?.service_page?._meta?.uid
+          }`}
+        >
+          <button className="btn btn-primary button-main">
+            {item.button_text}
+          </button>
         </Link>
       )}
     </div>
@@ -57,9 +73,9 @@ FeatureGrid.propTypes = {
     PropTypes.shape({
       blockHeading: PropTypes.string,
       blockDescription: PropTypes.string,
-      buttonPlaceholder: PropTypes.string
+      buttonPlaceholder: PropTypes.string,
     })
-  )
+  ),
 };
 
 export default FeatureGrid;
