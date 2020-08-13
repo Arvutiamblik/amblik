@@ -6,7 +6,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sharp`,
+   
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
@@ -23,13 +23,13 @@ module.exports = {
         // The property ID; the tracking code won't be generated without it
         trackingId: "UA-119752018-3",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true,
+        head: false,
         // Avoids sending pageview hits from custom paths
         exclude: ["/preview/**", "/do-not-track/me/too/"],
         // Delays sending pageview hits on route update (in milliseconds)
         pageTransitionDelay: 0,
 
-        defer: false,
+        defer: true,
       },
     },
     {
@@ -53,13 +53,7 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
-    {
-      resolve: "gatsby-plugin-i18n",
-      options: {
-        langKeyDefault: "en",
-        useLangKeyLayout: false,
-      },
-    },
+   
     {
       resolve: "gatsby-plugin-webpack-bundle-analyzer",
       options: {
@@ -103,8 +97,7 @@ module.exports = {
       },
     },
 
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+   
     "gatsby-plugin-optimize-svgs",
   ],
 };
