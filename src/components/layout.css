@@ -1,10 +1,11 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 /* The emerging W3C standard that is currently Firefox-only */
 * {
   scrollbar-width: none;
   scrollbar-color: transparent transparent;
 }
+
 
 /* Works on Chrome/Edge/Safari */
 *::-webkit-scrollbar {

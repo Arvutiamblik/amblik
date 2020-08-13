@@ -30,11 +30,9 @@ const Menu = (data, props) => {
 
   let menuArr = data.data.prismic.allMenus.edges;
   menuArr = filterByLang(menuArr, lang);
-  //  console.log(menuArr);
   let path = lang === "et-et" ? `/${uid}` : `/${lang}/${uid}`;
   let langName = lang === "et-et" ? "ee" : lang;
   let prefix = lang === "et-et" ? "" : lang === "en-us" ? "en" : lang;
-  // console.log(uid);
   return (
     <React.Fragment>
       {!menuOpen && (

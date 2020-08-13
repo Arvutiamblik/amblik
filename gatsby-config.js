@@ -6,30 +6,21 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `Montserrat`,
-          `100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i`,
-        ],
-        display: "swap",
-      },
-    },
+   
+  
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
         trackingId: "UA-119752018-3",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true,
+        head: false,
         // Avoids sending pageview hits from custom paths
         exclude: ["/preview/**", "/do-not-track/me/too/"],
         // Delays sending pageview hits on route update (in milliseconds)
         pageTransitionDelay: 0,
 
-        defer: false,
+        defer: true,
       },
     },
     {
@@ -53,13 +44,7 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
-    {
-      resolve: "gatsby-plugin-i18n",
-      options: {
-        langKeyDefault: "en",
-        useLangKeyLayout: false,
-      },
-    },
+   
     {
       resolve: "gatsby-plugin-webpack-bundle-analyzer",
       options: {
@@ -67,14 +52,24 @@ module.exports = {
         production: true,
       },
     },
-
+    { 
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true, // Print removed selectors and processed file names
+         develop: true, // Enable while using `gatsby develop`
+        // tailwind: true, // Enable tailwindcss support
+        // whitelist: ['whitelist'], // Don't remove this selector
+        // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
+        // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+      }
+    },
     {
       resolve: "gatsby-source-prismic-graphql",
       options: {
         repositoryName: "amblik", // (REQUIRED, replace with your own)
         path: "/preview",
         previews: true,
-
+        omitPrismicScript: true,
         shortenUrlLangs: true,
         defaultLang: "et-et",
         langs: ["et-et", "ru", "en-us"],
@@ -103,8 +98,7 @@ module.exports = {
       },
     },
 
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+   
     "gatsby-plugin-optimize-svgs",
   ],
 };

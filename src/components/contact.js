@@ -72,16 +72,7 @@ const Contact = (data, props) => {
               <RichText render={workingTime}>{workingTime}</RichText>
             </div>
             <div className="map-wrapper">
-              <Map 
-                position={position} 
-                businessName={businessName}
-                address={address}
-                mapUrl={mapUrl}
-                directions={directions}
-                largerMap={largerMap}
-                mapsApiKey={mapsApiKey}
-                zoom={zoom}
-              ></Map>
+            
             </div>
           </div>
           <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
