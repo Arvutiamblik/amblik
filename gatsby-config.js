@@ -78,7 +78,7 @@ module.exports = {
         repositoryName: "amblik", // (REQUIRED, replace with your own)
         path: "/preview",
         previews: true,
-
+        omitPrismicScript: true,
         shortenUrlLangs: true,
         defaultLang: "et-et",
         langs: ["et-et", "ru", "en-us"],
