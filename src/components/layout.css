@@ -6,6 +6,7 @@
   scrollbar-color: transparent transparent;
 }
 
+
 /* Works on Chrome/Edge/Safari */
 *::-webkit-scrollbar {
   width: 0px;
