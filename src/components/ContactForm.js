@@ -16,7 +16,6 @@ const ContactForm = (props) => {
       );
     };
     window.recaptchaV2Exec = (response) => {
-      console.log(response);
       let data = {
         name: inputsObj[0].value,
         version: 2,
@@ -31,21 +30,15 @@ const ContactForm = (props) => {
         }
         else return false;
       })
-      axios.post(props.formData.form_request_url.url,data).then(response => console.log(response))
-      .catch(error => console.log(error));
+      axios.post(props.formData.form_request_url.url,data)
     };
   }
   let tokenV2 = null;
   const [tokenV3, setTokenV3] = useState();
 
-  const verifyCallback = (response) => {
-    console.log(response);
-  };
-  const loadCaptchaV2 = () => {};
 
   const captchaV2 = useRef();
   useEffect(() => {
-    console.log('test');
     const grecaptcha3 = document.createElement('script');
     grecaptcha3.src =
       `https://www.google.com/recaptcha/api.js?onload=recaptchaV3Callback&render=${props.formData.recaptcha3_api_key}`;
@@ -54,7 +47,7 @@ const ContactForm = (props) => {
     // handleLoaded()
   }, []);
   const handleLoaded = () => {
-    console.log('window.grecaptcha');
+    
     if(isBrowser) {
       window.grecaptcha.ready(() => {
         window.grecaptcha
@@ -73,17 +66,8 @@ const ContactForm = (props) => {
     }
   };
 
-  const recaptchaInstance = useRef(null);
 
-  const executeCaptcha = function () {
-    console.log(recaptchaInstance);
-    recaptchaInstance.execute();
-  };
-  const grecaptcha2 = function (token) {
-    console.log('=== [ v2 ] ===');
-    console.log(token);
-    tokenV2 = token;
-  };
+
 
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
@@ -129,15 +113,10 @@ const ContactForm = (props) => {
           if(isBrowser){
             window.grecaptcha.execute()
           }
-          
-          // console.log(recaptchaInstance);
-          // recaptchaInstance.execute()
-          // executeCaptcha()
         }
-        //
       })
       .catch(function (error) {
-        console.log(error);
+      
       })
       .finally(function () {
         resetForm();
@@ -152,8 +131,7 @@ const ContactForm = (props) => {
       return { ...field, value: '' };
     }),
   ]);
-  // console.log(inputsObj);
-
+ 
   const submit = props.formData.form_input.find(
     (item) => item.type === 'submit'
   );
