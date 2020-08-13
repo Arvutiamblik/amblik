@@ -1120,88 +1120,53 @@ th h6 {
   margin-top: 60px;
 }
 
-.comparison-card {
-  border: 1px solid darkblue;
+.slick-slider .slick-prev:before,
+.slick-slider .slick-next:before {
+  color: darkblue;
+}
+
+.card {
   border-radius: 0;
-  margin: 15px 0;
+  border: 0;
 }
 
-.comparison-card .card-header {
-  background-color: rgba(0, 0, 139, 0.3);
-  border-bottom: 1px solid darkblue;
+.card .card-header {
+  color: white;
   border-radius: 0;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border: 0;
+  min-height: 210px;
 }
 
-.comparison-card .card-header .card-title {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.comparison-card .card-body {
+.card .card-header.bg-darkblue {
   background-color: darkblue;
-  color: #ffffff;
-  border-bottom: 1px solid #ffffff;
-  padding: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.comparison-card .card-body:last-child {
-  border-bottom: none;
+.card .card-header.bg-hotpink {
+  background-color: hotpink;
 }
 
-.comparison-card .card-body .card-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 0;
+.card-header .h1,
+.card-header .h2,
+.card-header .h3,
+.card-header .h4,
+.card-header .h5,
+.card-header .h6,
+.card-header h1,
+.card-header h2,
+.card-header h3,
+.card-header h4,
+.card-header h5,
+.card-header h6 {
+  color: white;
 }
 
-.comparison {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.comparison table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  table-layout: fixed;
-}
-
-.comparison td,
-.comparison th {
-  empty-cells: show;
-  padding: 10px;
-}
-
-.compare-heading {
-  padding-top: 10px !important;
-}
-
-.comparison tbody tr.compare-row {
+.card-body {
   border-bottom: 2px solid rgba(127, 177, 223, 0.3);
+  min-height: 186px;
 }
 
-.comparison tbody tr:nth-child(odd) {
-  display: none;
-}
-
-.comparison tr:last-child td {
+.card-body:last-child {
   border-bottom: 0;
-}
-
-.comparison th {
-  font-weight: normal;
-  padding: 0;
-}
-
-.comparison tr td:first-child {
-  text-align: left;
 }
 
 .comparison .compare-subheading {

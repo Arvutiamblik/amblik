@@ -183,6 +183,7 @@ export const query = graphql`
                 }
               }
               table_button_text
+              main
             }
           }
           ... on PRISMIC_ArticleBodyTable_column {
