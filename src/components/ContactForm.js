@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef, version } from 'react';
-import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
 const ContactForm = (props) => {
   const isBrowser = typeof window !== `undefined`
