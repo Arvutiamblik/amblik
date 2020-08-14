@@ -5,6 +5,8 @@ import {
   faCheckCircle,
   faMinus,
   faTimes,
+  faChevronLeft,
+  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -54,10 +56,31 @@ const ArticleSlices = (props) => {
     }
   }
 
+  const PrevArrow = (props) => (
+    <FontAwesomeIcon
+      icon={faChevronLeft}
+      color="darkblue"
+      onClick={props.onClick}
+      className="slick-prev"
+    />
+  );
+
+  const NextArrow = (props) => (
+    <FontAwesomeIcon
+      icon={faChevronRight}
+      color="darkblue"
+      onClick={props.onClick}
+      className="slick-next"
+    />
+  );
+
   const settings = {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
+    arrows: true,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
     responsive: [
       {
         breakpoint: 991,

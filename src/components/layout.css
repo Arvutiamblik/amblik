@@ -1,11 +1,10 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 /* The emerging W3C standard that is currently Firefox-only */
 * {
   scrollbar-width: none;
   scrollbar-color: transparent transparent;
 }
-
 
 /* Works on Chrome/Edge/Safari */
 *::-webkit-scrollbar {
@@ -1121,9 +1120,28 @@ th h6 {
   margin-top: 60px;
 }
 
-.slick-slider .slick-prev:before,
-.slick-slider .slick-next:before {
-  color: darkblue;
+.slick-slider .slick-prev {
+  left: 0;
+}
+
+.slick-slider .slick-next {
+  right: 0;
+}
+
+.slick-slider .slick-prev,
+.slick-slider .slick-next {
+  z-index: 1;
+  top: 100px;
+  color: white;
+  width: 40px;
+  height: 40px;
+}
+
+.slick-slider .slick-prev:hover,
+.slick-slider .slick-prev:focus,
+.slick-slider .slick-next:hover,
+.slick-slider .slick-next:focus {
+  color: white;
 }
 
 .card {
@@ -1168,72 +1186,4 @@ th h6 {
 
 .card-body:last-child {
   border-bottom: 0;
-}
-
-.comparison .compare-subheading {
-  color: #ffffff;
-  font-size: 13px;
-  border-bottom: 0;
-}
-
-.comparison .price-info {
-  padding: 5px 15px 15px 15px;
-}
-
-.comparison .price {
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.comparison .price-btn {
-  background: hotpink;
-  padding: 5px 20px;
-  font-size: 12px;
-  font-weight: bold;
-  display: inline-block;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 100px;
-  text-transform: uppercase;
-  margin: 5px 0 10px 0;
-}
-
-@media (max-width: 767px) {
-  .comparison td:first-child,
-  .comparison th:first-child {
-    display: none;
-  }
-  .comparison tbody tr:nth-child(odd) {
-    display: table-row;
-  }
-  .comparison .row {
-    background: #fff;
-  }
-  .price-info {
-    border-top: 0 !important;
-  }
-}
-
-@media (max-width: 639px) {
-  .comparison .price-btn {
-    padding: 5px 10px;
-  }
-  .comparison td,
-  .comparison th {
-    padding: 10px 5px;
-  }
-  .comparison .hide-mobile {
-    display: none;
-  }
-  .comparison .price {
-    font-size: 16px;
-  }
-  .comparison .compare-subheading {
-    font-size: 12px;
-    padding: 10px 5px;
-  }
-  .comparison .price-buy {
-    margin-top: 10px;
-  }
 }
