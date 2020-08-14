@@ -50,7 +50,11 @@ const Menu = (data, props) => {
                     <Link to={`/${prefix}/`}>amblik</Link>
                   </div>
                   <div className="d-block d-lg-none">
-                    <img className="partner-logo" src={msPartnerLogo} />
+                    <img
+                      className="partner-logo"
+                      src={msPartnerLogo}
+                      alt="Silver Microsoft Partner"
+                    />
                   </div>
                 </div>
                 <div className="menu">
@@ -224,7 +228,11 @@ const Menu = (data, props) => {
             <div className="d-none d-lg-block row">
               <div className="header-column col d-flex justify-content-between align-items-center">
                 <div>
-                  <img className="partner-logo" src={msPartnerLogo} />
+                  <img
+                    className="partner-logo"
+                    src={msPartnerLogo}
+                    alt="Silver Microsoft Partner"
+                  />
                 </div>
               </div>
             </div>
