@@ -30,6 +30,7 @@ const IndexPageTemplate = ({
   mapUrl,
   address,
   businessName,
+  mapImage,
 }) => (
   <>
     <img id="logoPicture" className="img" alt="background" src={img.url} />
@@ -113,6 +114,7 @@ const IndexPageTemplate = ({
                 largerMap={largerMap}
                 mapsApiKey={mapsApiKey}
                 zoom={zoom}
+                mapImage={mapImage}
               />
             </div>
           </div>
@@ -151,6 +153,7 @@ const IndexPage = ({ data, pageContext, location }) => {
       mapUrl={data.prismic.allHome_pages.edges[0].node.map_url.url}
       address={data.prismic.allHome_pages.edges[0].node.contact_address[0].text}
       businessName={data.prismic.allHome_pages.edges[0].node.business_name}
+      mapImage={data.prismic.allHome_pages.edges[0].node.map_image}
     />
   );
 };
@@ -179,6 +182,7 @@ export const query = graphql`
                 url
               }
             }
+            map_image
             contact_address
             it_services {
               description

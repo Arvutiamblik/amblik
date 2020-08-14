@@ -1,35 +1,34 @@
 import React, { useState } from "react";
 import { RichText } from "prismic-reactjs";
 import { StaticQuery, graphql } from "gatsby";
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 import ContactForm from "./ContactForm";
 import Map from "./map";
 
 const Contact = (data, props) => {
-  const { 
-    lang, 
-    homeTitle, 
-    articleTitle, 
+  const {
+    lang,
+    homeTitle,
+    articleTitle,
     pageUrl,
-    position, 
+    position,
     businessName,
     address,
     mapUrl,
     directions,
     largerMap,
     mapsApiKey,
-    zoom
-   } = data?.props;
+    zoom,
+    mapImage,
+  } = data?.props;
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
   let contactData = data?.data?.prismic?.allHome_pages?.edges;
-  contactData = contactData?.filter(item => (
-    item?.node?._meta?.lang === lang
-  ));
-  
-  const { 
+  contactData = contactData?.filter((item) => item?.node?._meta?.lang === lang);
+
+  const {
     contact_text: contactText,
     contact_anchor: contactAnchor,
     contact_title: contactTitle,
@@ -37,79 +36,100 @@ const Contact = (data, props) => {
     contact_phone: contactPhone,
     contact_address: contactAddress,
     working_time: workingTime,
-    feedback_form: feedbackForm
+    feedback_form: feedbackForm,
   } = contactData[0]?.node;
+  console.log(mapImage);
   let articleContactData = data?.data?.prismic?.allArticles?.edges;
-  articleContactData = articleContactData?.filter(item => (
-    item?.node?._meta?.lang === lang
-  ));
+  articleContactData = articleContactData?.filter(
+    (item) => item?.node?._meta?.lang === lang
+  );
 
-  let articleFeedbackButtonText = '';
+  let articleFeedbackButtonText = "";
   let articleFeedbackForm = {};
-  
+
   if (articleContactData[0]?.node) {
-    articleFeedbackButtonText = articleContactData[0]?.node?.feedback_button_text;
+    articleFeedbackButtonText =
+      articleContactData[0]?.node?.feedback_button_text;
     articleFeedbackForm = articleContactData[0]?.node?.feedback_form;
   }
 
-  return (
-    data.props.pageType === 'home_page' ?
-      <div className="mb-5">
-        <div className="mb-5 text-center">
-          <div id={contactAnchor} name={contactAnchor} alt={contactAnchor}></div>
-          <RichText render={contactTitle}>{contactTitle}</RichText>
-          <div className="header-underline"></div>
-        </div>
-        <div className="row">
-          <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
-            <RichText render={contactText}>{contactText}</RichText>
-            <div className="contact-info">
-              <RichText render={contactEmail}>{contactEmail}</RichText>
-              <RichText render={contactPhone}>{contactPhone}</RichText>
-            </div>
-            <div className="contact-address">
-              <RichText render={contactAddress}>{contactAddress}</RichText>
-              <RichText render={workingTime}>{workingTime}</RichText>
-            </div>
-            <div className="map-wrapper">
-            
-            </div>
+  return data.props.pageType === "home_page" ? (
+    <div className="mb-5">
+      <div className="mb-5 text-center">
+        <div id={contactAnchor} name={contactAnchor} alt={contactAnchor}></div>
+        <RichText render={contactTitle}>{contactTitle}</RichText>
+        <div className="header-underline"></div>
+      </div>
+      <div className="row">
+        <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
+          <RichText render={contactText}>{contactText}</RichText>
+          <div className="contact-info">
+            <RichText render={contactEmail}>{contactEmail}</RichText>
+            <RichText render={contactPhone}>{contactPhone}</RichText>
           </div>
-          <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
-            {feedbackForm && <ContactForm title={homeTitle} pageUrl={pageUrl} formData={feedbackForm} />}
+          <div className="contact-address">
+            <RichText render={contactAddress}>{contactAddress}</RichText>
+            <RichText render={workingTime}>{workingTime}</RichText>
+          </div>
+          <div className="map-wrapper">
+            <img alt={mapImage.alt} src={mapImage.url} />
           </div>
         </div>
-      </div> 
-    :
-      <>
-        <Button className="button-main button_support text-uppercase mb-5" onClick={toggle}>
-          {articleFeedbackButtonText}
-        </Button>
-        <Modal isOpen={modal} toggle={toggle} size='lg' className="support-modal article-modal">
-          <ModalHeader toggle={toggle}>
-            <div>{articleFeedbackButtonText}</div>
-          </ModalHeader>
-          <ModalBody>
-            <div className="row">
-              <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
-                <p>{articleTitle}</p>
-                <RichText render={articleTitle}>{articleTitle}</RichText>
-                <div className="contact-info">
-                  <RichText render={contactEmail}>{contactEmail}</RichText>
-                  <RichText render={contactPhone}>{contactPhone}</RichText>
-                </div>
-                <div className="contact-address">
-                  <RichText render={contactAddress}>{contactAddress}</RichText>
-                  <RichText render={workingTime}>{workingTime}</RichText>
-                </div>
+        <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
+          {feedbackForm && (
+            <ContactForm
+              title={homeTitle}
+              pageUrl={pageUrl}
+              formData={feedbackForm}
+            />
+          )}
+        </div>
+      </div>
+    </div>
+  ) : (
+    <>
+      <Button
+        className="button-main button_support text-uppercase mb-5"
+        onClick={toggle}
+      >
+        {articleFeedbackButtonText}
+      </Button>
+      <Modal
+        isOpen={modal}
+        toggle={toggle}
+        size="lg"
+        className="support-modal article-modal"
+      >
+        <ModalHeader toggle={toggle}>
+          <div>{articleFeedbackButtonText}</div>
+        </ModalHeader>
+        <ModalBody>
+          <div className="row">
+            <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
+              <p>{articleTitle}</p>
+              <RichText render={articleTitle}>{articleTitle}</RichText>
+              <div className="contact-info">
+                <RichText render={contactEmail}>{contactEmail}</RichText>
+                <RichText render={contactPhone}>{contactPhone}</RichText>
               </div>
-              <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
-                {articleFeedbackForm && <ContactForm title={articleTitle} pageUrl={pageUrl} formData={articleFeedbackForm} />}
+              <div className="contact-address">
+                <RichText render={contactAddress}>{contactAddress}</RichText>
+                <RichText render={workingTime}>{workingTime}</RichText>
               </div>
             </div>
-          </ModalBody>
-        </Modal>
-      </>
+            <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
+              {articleFeedbackForm && (
+                <ContactForm
+                  title={articleTitle}
+                  pageUrl={pageUrl}
+                  formData={articleFeedbackForm}
+                />
+              )}
+            </div>
+          </div>
+        </ModalBody>
+      </Modal>
+    </>
   );
 };
 
@@ -186,9 +206,6 @@ export default (props) => (
         }
       }
     `}
-    render={data => <Contact data={data} props={props} />}
+    render={(data) => <Contact data={data} props={props} />}
   />
-)
-
-
-
+);
