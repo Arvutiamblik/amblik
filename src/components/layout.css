@@ -1130,7 +1130,7 @@ th h6 {
 .slick-slider .slick-prev,
 .slick-slider .slick-next {
   z-index: 1;
-  top: 100px;
+  top: 55px;
   color: white;
   width: 40px;
   height: 40px;
@@ -1148,11 +1148,16 @@ th h6 {
   border: 0;
 }
 
+.card p {
+  margin: 0;
+}
+
 .card .card-header {
   color: white;
   border-radius: 0;
   border: 0;
-  min-height: 210px;
+  min-height: 115px;
+  padding: 0.75rem 1rem;
 }
 
 .card .card-header.bg-darkblue {
@@ -1180,7 +1185,7 @@ th h6 {
 
 .card-body {
   border-bottom: 2px solid rgba(127, 177, 223, 0.3);
-  min-height: 186px;
+  padding: 1rem;
 }
 
 .card-body:last-child {

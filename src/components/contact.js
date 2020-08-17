@@ -38,7 +38,7 @@ const Contact = (data, props) => {
     working_time: workingTime,
     feedback_form: feedbackForm,
   } = contactData[0]?.node;
-  console.log(mapImage);
+
   let articleContactData = data?.data?.prismic?.allArticles?.edges;
   articleContactData = articleContactData?.filter(
     (item) => item?.node?._meta?.lang === lang
@@ -72,7 +72,20 @@ const Contact = (data, props) => {
             <RichText render={workingTime}>{workingTime}</RichText>
           </div>
           <div className="map-wrapper">
-            <img alt={mapImage.alt} src={mapImage.url} />
+            {mapImage ? (
+              <img alt={mapImage.alt} src={mapImage.url} />
+            ) : (
+              <Map
+                position={position}
+                businessName={businessName}
+                address={address}
+                mapUrl={mapUrl}
+                directions={directions}
+                largerMap={largerMap}
+                mapsApiKey={mapsApiKey}
+                zoom={zoom}
+              />
+            )}
           </div>
         </div>
         <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
