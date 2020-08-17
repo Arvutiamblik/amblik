@@ -73,7 +73,21 @@ const Contact = (data, props) => {
           </div>
           <div className="map-wrapper">
             {mapImage ? (
-              <img alt={mapImage.alt} src={mapImage.url} />
+              <div className="map">
+                <img alt={mapImage.alt} src={mapImage.url} />
+                <a
+                  className="map-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={`https://www.google.com/maps/dir//${businessName},%20${address.replace(
+                    /\s/g,
+                    "%20"
+                  )}`}
+                >
+                  <div className="map-icon"></div>
+                  {directions}
+                </a>
+              </div>
             ) : (
               <Map
                 position={position}

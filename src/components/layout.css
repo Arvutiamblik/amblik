@@ -277,6 +277,30 @@ header.header-transparent {
   border-radius: 15px;
 }
 
+.map {
+  position: relative;
+}
+
+.map-icon {
+  background: rgba(0, 0, 0, 0)
+    url("https://maps.gstatic.com/mapfiles/embed/images/entity11.png") repeat
+    scroll 0px 0px/70px 210px padding-box border-box;
+  height: 22px;
+  width: 22px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 5px;
+}
+
+.map-link {
+  position: absolute;
+  top: 0;
+  background-color: white;
+  display: block;
+  padding: 0.75rem;
+  font-size: 0.75rem;
+}
+
 .placecard__container {
   max-width: 330px;
   width: 100%;
