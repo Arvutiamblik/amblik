@@ -11,7 +11,6 @@ const ArticlePageTemplate = ({
   pageUrl,
   lang,
   title,
-  description,
   text,
   feedbackForm,
   articleSlices,
@@ -31,7 +30,6 @@ const ArticlePageTemplate = ({
           <div className="header-underline"></div>
         </div>
         <div className="mb-5">
-          <RichText render={description}>{description}</RichText>
           <RichText render={text}>{text}</RichText>
         </div>
       </div>
