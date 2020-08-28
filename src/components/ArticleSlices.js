@@ -11,6 +11,7 @@ import {
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Contact from "../components/contact";
 
 const ArticleSlices = (props) => {
   const { articleSlices } = props;
@@ -48,10 +49,43 @@ const ArticleSlices = (props) => {
         });
       }
     }
+    if (currentBodyType === "PRISMIC_ArticleBodyTable_header") {
+      for (let j = 0; j < currentBody.fields.length; j++) {
+        const field = currentBody.fields[j];
+        const button = [];
+        if (!tables[j]) {
+          tables[j] = [];
+        }
+        if (field.table_button_text) {
+          button.push({
+            button_text: field.table_button_text,
+            button_link: field.table_button_link,
+          });
+        }
+        tables[j].push({
+          title: "Footer",
+          row: button,
+        });
+      }
+    }
     if (
       currentBodyType === "PRISMIC_ArticleBodyTable_column" &&
       i + 1 === articleSlices.body.length
     ) {
+      for (let x = 0; x < tables.length; x++) {
+        const indexOfCurrentFooter = tables[x].findIndex(
+          (item) => item.title === "Footer"
+        );
+        const tableHeadingIndex = tables[x].findIndex(
+          (item) => item.row.table_heading !== null
+        );
+        const tableHeading = tables[x][tableHeadingIndex].row.table_heading;
+        const removedFooter = tables[x].splice(indexOfCurrentFooter, 1);
+        tables[x].push({
+          tableHeading,
+          footer: removedFooter[0],
+        });
+      }
       articleSlicesChanged.push({ type: "ArticleServicePlan", tables });
     }
   }
@@ -143,55 +177,75 @@ const ArticleSlices = (props) => {
             <Slider className="mb-3" {...settings}>
               {slice?.tables?.map((table, index) => (
                 <div key={index} className="card text-center">
-                  {table?.map((column, index) =>
-                    column?.row?.table_heading ? (
-                      <div
-                        key={index}
-                        className={`card-header ${
-                          column.row.main === true
-                            ? "bg-hotpink"
-                            : "bg-darkblue"
-                        }`}
-                      >
-                        <RichText render={column.row.table_heading}>
-                          {column.row.table_heading}
-                        </RichText>
-                        <RichText render={column.row.table_price}>
-                          {column.row.table_price}
-                        </RichText>
-                      </div>
-                    ) : (
-                      <div key={index} className="card-body">
-                        <RichText render={column.title}>
-                          {column.title}
-                        </RichText>
-                        {column?.row?.option_description ? (
-                          <RichText render={column.row.option_description}>
-                            {column.row.option_description}
+                  {table?.map((column, index) => {
+                    if (column?.row?.table_heading) {
+                      return (
+                        <div
+                          key={index}
+                          className={`card-header ${
+                            column.row.main === true
+                              ? "bg-hotpink"
+                              : "bg-darkblue"
+                          }`}
+                        >
+                          <RichText render={column.row.table_heading}>
+                            {column.row.table_heading}
                           </RichText>
-                        ) : (
-                          <FontAwesomeIcon
-                            icon={faMinus}
-                            size="2x"
-                            color="darkblue"
+                          <RichText render={column.row.table_price}>
+                            {column.row.table_price}
+                          </RichText>
+                        </div>
+                      );
+                    } else if (
+                      !column?.row?.table_heading &&
+                      column?.footer?.title !== "Footer"
+                    ) {
+                      return (
+                        <div key={index} className="card-body">
+                          <RichText render={column.title}>
+                            {column.title}
+                          </RichText>
+                          {column?.row?.option_description ? (
+                            <RichText render={column.row.option_description}>
+                              {column.row.option_description}
+                            </RichText>
+                          ) : (
+                            <FontAwesomeIcon
+                              icon={faMinus}
+                              size="2x"
+                              color="darkblue"
+                            />
+                          )}
+                          {column?.row?.availability === "True" ? (
+                            <FontAwesomeIcon
+                              icon={faCheckCircle}
+                              size="2x"
+                              color="darkblue"
+                            />
+                          ) : column?.row?.availability === "False" ? (
+                            <FontAwesomeIcon
+                              icon={faTimes}
+                              size="2x"
+                              color="darkblue"
+                            />
+                          ) : null}
+                        </div>
+                      );
+                    } else if (column?.footer?.title === "Footer") {
+                      return (
+                        <div key={index} className="card-footer">
+                          <Contact
+                            articleTitle={props.articleTitle[0].text}
+                            pageUrl={props.pageUrl}
+                            lang={props.lang}
+                            pageType={props.pageType}
+                            buttonText={column?.footer?.row[0]?.button_text}
+                            tableHeading={column?.tableHeading[0]?.text}
                           />
-                        )}
-                        {column?.row?.availability === "True" ? (
-                          <FontAwesomeIcon
-                            icon={faCheckCircle}
-                            size="2x"
-                            color="darkblue"
-                          />
-                        ) : column?.row?.availability === "False" ? (
-                          <FontAwesomeIcon
-                            icon={faTimes}
-                            size="2x"
-                            color="darkblue"
-                          />
-                        ) : null}
-                      </div>
-                    )
-                  )}
+                        </div>
+                      );
+                    }
+                  })}
                 </div>
               ))}
             </Slider>

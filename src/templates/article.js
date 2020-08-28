@@ -35,7 +35,13 @@ const ArticlePageTemplate = ({
       </div>
       {articleSlices && (
         <div className="container">
-          <ArticleSlices articleSlices={articleSlices} />
+          <ArticleSlices
+            articleSlices={articleSlices}
+            articleTitle={title}
+            pageUrl={pageUrl}
+            lang={lang}
+            pageType={pageContext}
+          />
         </div>
       )}
       {feedbackForm && (

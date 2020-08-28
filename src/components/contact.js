@@ -119,7 +119,7 @@ const Contact = (data, props) => {
         className="button-main button_support text-uppercase mb-5"
         onClick={toggle}
       >
-        {articleFeedbackButtonText}
+        {data.props.buttonText ?? articleFeedbackButtonText}
       </Button>
       <Modal
         isOpen={modal}
@@ -128,7 +128,7 @@ const Contact = (data, props) => {
         className="support-modal article-modal"
       >
         <ModalHeader toggle={toggle}>
-          <div>{articleFeedbackButtonText}</div>
+          <div>{data.props.tableHeading ?? articleFeedbackButtonText}</div>
         </ModalHeader>
         <ModalBody>
           <div className="row">
@@ -147,7 +147,9 @@ const Contact = (data, props) => {
             <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
               {articleFeedbackForm && (
                 <ContactForm
-                  title={articleTitle}
+                  title={`${articleTitle} / ${
+                    data.props.tableHeading ?? articleFeedbackButtonText
+                  }`}
                   pageUrl={pageUrl}
                   formData={articleFeedbackForm}
                 />

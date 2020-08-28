@@ -1215,3 +1215,12 @@ th h6 {
 .card-body:last-child {
   border-bottom: 0;
 }
+
+.card-footer {
+  border-top: none;
+  background-color: white;
+}
+
+.card-footer button {
+  margin: 0 !important;
+}
