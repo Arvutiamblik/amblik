@@ -5,6 +5,7 @@ import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
 import Contact from "../components/contact";
 import SEO from "../components/seo";
+import HomepageSlices from "../components/HomepageSlices";
 const IndexPageTemplate = ({
   pageContext,
   pageUrl,
@@ -13,15 +14,7 @@ const IndexPageTemplate = ({
   img,
   lang,
   supportModal,
-  itTitle,
-  itAnchor,
-  itServices,
-  webTitle,
-  webAnchor,
-  webServices,
-  aboutAnchor,
-  aboutText,
-  aboutTitle,
+  homepageSlices,
   geopoint,
   zoom,
   mapsApiKey,
@@ -50,72 +43,33 @@ const IndexPageTemplate = ({
               <div className="header-underline"></div>
             </div>
           </div>
-          <div className="row">
-            <div id="mid" className="col-lg">
-              <div className="mb-5">
-                <div className="text-center mb-5">
-                  <div id={itAnchor} name={itAnchor} alt={itAnchor}></div>
-                  <RichText render={itTitle}>{itTitle}</RichText>
-                  <div className="header-underline"></div>
-                </div>
-                <TextBlock
-                  gridItems={itServices}
-                  delimiter={2}
-                  lang={lang}
-                  enableButton
-                />
-              </div>
-              <div className="mb-5">
-                <div className="text-center mb-5">
-                  <div id={webAnchor} name={webAnchor} alt={webAnchor}></div>
-                  <RichText render={webTitle}>{webTitle}</RichText>
-                  <div className="header-underline"></div>
-                </div>
-                <TextBlock
-                  gridItems={webServices}
-                  delimiter={2}
-                  lang={lang}
-                  enableButton
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
+
+      <div id="mid"></div>
+      <HomepageSlices homepageSlices={homepageSlices} lang={lang} />
 
       <div className="background-wrapper bg-white">
         <div className="container position-relative z-index-1">
           <div className="row">
             <div className="col-lg">
               <div className="my-5">
-                <div className="text-center mb-5">
-                  <div
-                    id={aboutAnchor}
-                    name={aboutAnchor}
-                    alt={aboutAnchor}
-                  ></div>
-                  <RichText render={aboutTitle}>{aboutTitle}</RichText>
-                  <div className="header-underline"></div>
-                </div>
-                <div className="columns">
-                  <RichText render={aboutText}>{aboutText}</RichText>
-                </div>
+                <Contact
+                  homeTitle={heading}
+                  pageUrl={pageUrl}
+                  lang={lang}
+                  pageType={pageContext.type}
+                  position={geopoint}
+                  businessName={businessName}
+                  address={address}
+                  mapUrl={mapUrl}
+                  directions={directions}
+                  largerMap={largerMap}
+                  mapsApiKey={mapsApiKey}
+                  zoom={zoom}
+                  mapImage={mapImage}
+                />
               </div>
-              <Contact
-                homeTitle={heading}
-                pageUrl={pageUrl}
-                lang={lang}
-                pageType={pageContext.type}
-                position={geopoint}
-                businessName={businessName}
-                address={address}
-                mapUrl={mapUrl}
-                directions={directions}
-                largerMap={largerMap}
-                mapsApiKey={mapsApiKey}
-                zoom={zoom}
-                mapImage={mapImage}
-              />
             </div>
           </div>
         </div>
@@ -136,15 +90,7 @@ const IndexPage = ({ data, pageContext, location }) => {
       }
       lang={data.prismic.allHome_pages.edges[0].node._meta.lang}
       supportModal={data?.prismic?.allSupport_modals?.edges[0]?.node}
-      itTitle={data.prismic.allHome_pages.edges[0].node.it_title}
-      itAnchor={data.prismic.allHome_pages.edges[0].node.it_anchor}
-      itServices={data.prismic.allHome_pages.edges[0].node.it_services}
-      webTitle={data.prismic.allHome_pages.edges[0].node.web_title}
-      webAnchor={data.prismic.allHome_pages.edges[0].node.web_anchor}
-      webServices={data.prismic.allHome_pages.edges[0].node.web_services}
-      aboutAnchor={data.prismic.allHome_pages.edges[0].node.about_anchor}
-      aboutText={data.prismic.allHome_pages.edges[0].node.about_text}
-      aboutTitle={data.prismic.allHome_pages.edges[0].node.about_title}
+      homepageSlices={data.prismic.home_page}
       geopoint={data.prismic.allHome_pages.edges[0].node.geopoint}
       zoom={data.prismic.allHome_pages.edges[0].node.zoom}
       largerMap={data.prismic.allHome_pages.edges[0].node.text_larger_map}
@@ -158,7 +104,7 @@ const IndexPage = ({ data, pageContext, location }) => {
   );
 };
 export const query = graphql`
-  query IndexPage($lang: String!) {
+  query IndexPage($lang: String!, $uid: String!) {
     prismic {
       allHome_pages(lang: $lang) {
         edges {
@@ -169,8 +115,6 @@ export const query = graphql`
             _meta {
               lang
             }
-            it_title
-            it_anchor
             business_name
             geopoint
             zoom
@@ -184,41 +128,6 @@ export const query = graphql`
             }
             map_image
             contact_address
-            it_services {
-              description
-              button_text
-              title
-              service_page {
-                _linkType
-                ... on PRISMIC_Article {
-                  title
-                  description
-                  _meta {
-                    uid
-                  }
-                }
-              }
-            }
-            web_title
-            web_anchor
-            web_services {
-              title
-              description
-              button_text
-              service_page {
-                _linkType
-                ... on PRISMIC_Article {
-                  title
-                  description
-                  _meta {
-                    uid
-                  }
-                }
-              }
-            }
-            about_anchor
-            about_text
-            about_title
           }
         }
       }
@@ -238,6 +147,35 @@ export const query = graphql`
             teamviewer_support_link {
               ... on PRISMIC__ExternalLink {
                 url
+              }
+            }
+          }
+        }
+      }
+      home_page(lang: $lang, uid: $uid) {
+        body {
+          ... on PRISMIC_Home_pageBodyHome_page_flex {
+            type
+            label
+            primary {
+              flex_title
+              flex_anchor
+              flex_text
+              white_background
+            }
+            fields {
+              title
+              image
+              description
+              button_text
+              article {
+                ... on PRISMIC_Article {
+                  title
+                  description
+                  _meta {
+                    uid
+                  }
+                }
               }
             }
           }
