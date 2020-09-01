@@ -24,7 +24,7 @@ const ArticlePageTemplate = ({
       ></div>
     )}
     <div className="background-wrapper bg-white py-5">
-      <div className="container">
+      <div className="container position-relative z-index-1">
         <div className="text-center my-5">
           <RichText render={title}>{title}</RichText>
           <div className="header-underline"></div>
@@ -34,7 +34,7 @@ const ArticlePageTemplate = ({
         </div>
       </div>
       {articleSlices && (
-        <div className="container">
+        <div className="container position-relative z-index-1">
           <ArticleSlices
             articleSlices={articleSlices}
             articleTitle={title}
@@ -45,7 +45,7 @@ const ArticlePageTemplate = ({
         </div>
       )}
       {feedbackForm && (
-        <div className="container">
+        <div className="container position-relative z-index-1">
           <Contact
             articleTitle={title[0].text}
             pageUrl={pageUrl}
