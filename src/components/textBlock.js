@@ -1,20 +1,24 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
-import Img from "gatsby-image";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
-const TextBlock = ({ item, delimiter, img, lang }) => (
+const TextBlock = ({ item, delimiter, lang }) => (
   <>
-    {img && (
-      <div style={{ width: "250px" }}>
-        <Img fluid={item.product_imageSharp.childImageSharp.fluid} />
-      </div>
-    )}
     <div
       className={`col-lg-${12 / delimiter} col-md-${
         12 / delimiter
       } col-xs-12 mb-4`}
     >
+      {item?.image && (
+        <img
+          src={item?.image?.url}
+          alt={item?.image?.alt}
+          style={{
+            width: item?.image?.dimensions?.width,
+          }}
+          className="py-3"
+        />
+      )}
       {item?.title ? (
         <RichText render={item?.title}>{item?.title}</RichText>
       ) : item?.article?.title ? (
@@ -42,7 +46,7 @@ const TextBlock = ({ item, delimiter, img, lang }) => (
   </>
 );
 
-const FeatureGrid = ({ gridItems, delimiter, img, lang }) => (
+const FeatureGrid = ({ gridItems, delimiter, lang }) => (
   <div className="row">
     {gridItems.map((item, index) =>
       (index + 1) % delimiter === 0 ? (
