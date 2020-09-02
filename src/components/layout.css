@@ -58,6 +58,11 @@ img {
   color: black;
 }
 
+.bg-white a.button-main,
+.bg-white a.button-main:hover {
+  color: white;
+}
+
 .support-modal.article-modal .modal-content {
   background-color: white;
   color: black;
@@ -1035,6 +1040,8 @@ hr.new1 {
   padding-bottom: 3px;
   border-color: hotpink;
   background-color: hotpink;
+  color: white;
+  text-decoration: none;
   min-width: 150px;
   font-weight: bold;
 }

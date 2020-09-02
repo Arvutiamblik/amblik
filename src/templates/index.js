@@ -1,7 +1,6 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
 import Layout from "../components/layout";
-import TextBlock from "../components/textBlock";
 import { graphql } from "gatsby";
 import Contact from "../components/contact";
 import SEO from "../components/seo";

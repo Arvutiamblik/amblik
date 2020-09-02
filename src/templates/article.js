@@ -9,6 +9,7 @@ import ArticleSlices from "../components/ArticleSlices";
 const ArticlePageTemplate = ({
   pageContext,
   pageUrl,
+  origin,
   lang,
   title,
   text,
@@ -39,6 +40,7 @@ const ArticlePageTemplate = ({
             articleSlices={articleSlices}
             articleTitle={title}
             pageUrl={pageUrl}
+            origin={origin}
             lang={lang}
             pageType={pageContext}
           />
@@ -86,6 +88,7 @@ const Article = ({ data, pageContext, location }) => {
       />
       <ArticlePageTemplate
         pageUrl={location.href}
+        origin={location.origin}
         pageContext={pageContext}
         lang={article.node._meta.lang}
         title={article.node.title}
@@ -163,6 +166,9 @@ export const query = graphql`
           ... on PRISMIC_ArticleBodySubarticle {
             type
             label
+            primary {
+              multisection_text
+            }
             fields {
               multisection_image
               multisection_subtitle
@@ -172,11 +178,35 @@ export const query = graphql`
           ... on PRISMIC_ArticleBodySubarticle1 {
             primary {
               subarticle_text
+              feedback_button_text
+              feedback_form {
+                ... on PRISMIC_Request_form {
+                  form_name
+                  form_input {
+                    name
+                    type
+                    mandatory
+                  }
+                }
+              }
+            }
+            fields {
+              image
+              title
+              description
+              button_text
+              article {
+                ... on PRISMIC_Article {
+                  _meta {
+                    uid
+                  }
+                }
+              }
             }
           }
           ... on PRISMIC_ArticleBodyTable_header {
             primary {
-              table_title
+              table_text
             }
             fields {
               table_heading

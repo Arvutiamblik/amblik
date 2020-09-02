@@ -26,7 +26,8 @@ const Menu = (data, props) => {
     lang === alternateLanguages
   } */
 
-  const alternateUid = alternateLanguages !== null && alternateLanguages[0].uid;
+  const alternateUid =
+    alternateLanguages !== null && alternateLanguages[0]?.uid;
 
   let menuArr = data.data.prismic.allMenus.edges;
   menuArr = filterByLang(menuArr, lang);

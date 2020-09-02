@@ -1,33 +1,23 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheckCircle,
-  faMinus,
-  faTimes,
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import PriceTables from "./PriceTables";
 import Contact from "../components/contact";
 
 const ArticleSlices = (props) => {
-  const { articleSlices } = props;
+  const {
+    articleSlices,
+    articleTitle,
+    pageUrl,
+    origin,
+    lang,
+    pageType,
+  } = props;
+  console.log(`${origin}/${lang}/`);
   let articleSlicesChanged = [];
   let tables = [];
   for (let i = 0; i < articleSlices?.body?.length; i++) {
     const currentBody = articleSlices.body[i];
     const currentBodyType = currentBody.__typename;
-    if (
-      articleSlices.body[i - 1]?.__typename ===
-        "PRISMIC_ArticleBodyTable_column" &&
-      currentBodyType !== "PRISMIC_ArticleBodyTable_column"
-    ) {
-      articleSlicesChanged.push({ type: "ArticleServicePlan", tables });
-      tables = [];
-    }
     if (
       currentBodyType === "PRISMIC_ArticleBodySubarticle1" ||
       currentBodyType === "PRISMIC_ArticleBodySubarticle"
@@ -70,7 +60,9 @@ const ArticleSlices = (props) => {
     }
     if (
       currentBodyType === "PRISMIC_ArticleBodyTable_column" &&
-      i + 1 === articleSlices.body.length
+      i + 1 < articleSlices.body.length &&
+      articleSlices.body[i + 1]?.__typename !==
+        "PRISMIC_ArticleBodyTable_column"
     ) {
       for (let x = 0; x < tables.length; x++) {
         const indexOfCurrentFooter = tables[x].findIndex(
@@ -87,44 +79,11 @@ const ArticleSlices = (props) => {
         });
       }
       articleSlicesChanged.push({ type: "ArticleServicePlan", tables });
+      tables = [];
     }
   }
 
-  const PrevArrow = (props) => (
-    <FontAwesomeIcon
-      icon={faChevronLeft}
-      color="darkblue"
-      onClick={props.onClick}
-      className="slick-prev"
-    />
-  );
-
-  const NextArrow = (props) => (
-    <FontAwesomeIcon
-      icon={faChevronRight}
-      color="darkblue"
-      onClick={props.onClick}
-      className="slick-next"
-    />
-  );
-
-  const settings = {
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
-    responsive: [
-      {
-        breakpoint: 991,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  console.log(articleSlicesChanged);
 
   return (
     <>
@@ -132,12 +91,68 @@ const ArticleSlices = (props) => {
         <React.Fragment key={index}>
           {slice.__typename === "PRISMIC_ArticleBodySubarticle1" &&
             slice.primary.subarticle_text !== null && (
-              <RichText render={slice.primary.subarticle_text}>
-                {slice.primary.subarticle_text}
-              </RichText>
+              <React.Fragment>
+                <RichText render={slice.primary.subarticle_text}>
+                  {slice.primary.subarticle_text}
+                </RichText>
+                <Contact
+                  articleTitle={props.articleTitle[0].text}
+                  pageUrl={props.pageUrl}
+                  lang={props.lang}
+                  pageType={props.pageType}
+                  buttonText={slice.primary.feedback_button_text}
+                />
+                <div className="row">
+                  {slice.fields.map((item, index) => {
+                    const length = slice.fields.length;
+                    return (
+                      <div
+                        key={index}
+                        className={`mb-3 col-12 col-md-${
+                          length % 2 === 0 ? 6 : 12 / length
+                        } col-lg-${12 / length}`}
+                      >
+                        {item.image && (
+                          <img
+                            src={item?.image?.url}
+                            alt={item?.image?.alt}
+                            style={{
+                              width: item?.image?.dimensions?.width,
+                            }}
+                            className="py-3"
+                          />
+                        )}
+                        {item.title && (
+                          <RichText render={item.title}>{item.title}</RichText>
+                        )}
+                        {item.description && (
+                          <RichText render={item.description}>
+                            {item.description}
+                          </RichText>
+                        )}
+                        {item.button_text && (
+                          <a
+                            className="btn btn-primary button-main text-uppercase button_support"
+                            href={`${origin}/${lang}/${item.article._meta.uid}`}
+                          >
+                            {item?.button_text}
+                          </a>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </React.Fragment>
             )}
           {slice.__typename === "PRISMIC_ArticleBodySubarticle" && (
             <div className="row">
+              {slice?.primary?.multisection_text !== null && (
+                <div className="mb-3 col-12">
+                  <RichText render={slice.primary.multisection_text}>
+                    {slice.primary.multisection_text}
+                  </RichText>
+                </div>
+              )}
               {slice.fields.map((item, index) => {
                 const length = slice.fields.length;
                 return (
@@ -174,81 +189,13 @@ const ArticleSlices = (props) => {
               </RichText>
             )}
           {slice.type === "ArticleServicePlan" && (
-            <Slider className="mb-3" {...settings}>
-              {slice?.tables?.map((table, index) => (
-                <div key={index} className="card text-center">
-                  {table?.map((column, index) => {
-                    if (column?.row?.table_heading) {
-                      return (
-                        <div
-                          key={index}
-                          className={`card-header ${
-                            column.row.main === true
-                              ? "bg-hotpink"
-                              : "bg-darkblue"
-                          }`}
-                        >
-                          <RichText render={column.row.table_heading}>
-                            {column.row.table_heading}
-                          </RichText>
-                          <RichText render={column.row.table_price}>
-                            {column.row.table_price}
-                          </RichText>
-                        </div>
-                      );
-                    } else if (
-                      !column?.row?.table_heading &&
-                      column?.footer?.title !== "Footer"
-                    ) {
-                      return (
-                        <div key={index} className="card-body">
-                          <RichText render={column.title}>
-                            {column.title}
-                          </RichText>
-                          {column?.row?.option_description ? (
-                            <RichText render={column.row.option_description}>
-                              {column.row.option_description}
-                            </RichText>
-                          ) : (
-                            <FontAwesomeIcon
-                              icon={faMinus}
-                              size="2x"
-                              color="darkblue"
-                            />
-                          )}
-                          {column?.row?.availability === "True" ? (
-                            <FontAwesomeIcon
-                              icon={faCheckCircle}
-                              size="2x"
-                              color="darkblue"
-                            />
-                          ) : column?.row?.availability === "False" ? (
-                            <FontAwesomeIcon
-                              icon={faTimes}
-                              size="2x"
-                              color="darkblue"
-                            />
-                          ) : null}
-                        </div>
-                      );
-                    } else if (column?.footer?.title === "Footer") {
-                      return (
-                        <div key={index} className="card-footer">
-                          <Contact
-                            articleTitle={props.articleTitle[0].text}
-                            pageUrl={props.pageUrl}
-                            lang={props.lang}
-                            pageType={props.pageType}
-                            buttonText={column?.footer?.row[0]?.button_text}
-                            tableHeading={column?.tableHeading[0]?.text}
-                          />
-                        </div>
-                      );
-                    }
-                  })}
-                </div>
-              ))}
-            </Slider>
+            <PriceTables
+              slice={slice}
+              articleTitle={articleTitle}
+              pageUrl={pageUrl}
+              lang={lang}
+              pageType={pageType}
+            />
           )}
         </React.Fragment>
       ))}
