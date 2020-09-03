@@ -26,11 +26,13 @@ const TextBlock = ({ item, delimiter, lang }) => (
           {item?.article?.title}
         </RichText>
       ) : null}
-      {item?.article?.description && (
+      {item?.description ? (
+        <div>{item?.description}</div>
+      ) : item?.article?.description ? (
         <RichText render={item?.article?.description}>
           {item?.article?.description}
         </RichText>
-      )}
+      ) : null}
       {item?.article !== null && (
         <Link
           to={`${lang === "et-et" ? "" : lang === "en-us" ? "en" : lang}/${
