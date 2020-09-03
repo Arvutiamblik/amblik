@@ -7,7 +7,7 @@ const TextBlock = ({ item, delimiter, lang }) => (
     <div
       className={`col-lg-${12 / delimiter} col-md-${
         12 / delimiter
-      } col-xs-12 mb-4`}
+      } col-xs-12 mb-4 text-break`}
     >
       {item?.image && (
         <img

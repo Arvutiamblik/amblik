@@ -197,6 +197,8 @@ export const query = graphql`
               button_text
               article {
                 ... on PRISMIC_Article {
+                  title
+                  description
                   _meta {
                     uid
                   }

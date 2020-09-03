@@ -2,6 +2,7 @@ import React from "react";
 import { RichText } from "prismic-reactjs";
 import PriceTables from "./PriceTables";
 import Contact from "../components/contact";
+import TextBlock from "../components/textBlock";
 
 const ArticleSlices = (props) => {
   const {
@@ -83,8 +84,6 @@ const ArticleSlices = (props) => {
     }
   }
 
-  console.log(articleSlicesChanged);
-
   return (
     <>
       {articleSlicesChanged?.map((slice, index) => (
@@ -102,46 +101,13 @@ const ArticleSlices = (props) => {
                   pageType={props.pageType}
                   buttonText={slice.primary.feedback_button_text}
                 />
-                <div className="row">
-                  {slice.fields.map((item, index) => {
-                    const length = slice.fields.length;
-                    return (
-                      <div
-                        key={index}
-                        className={`mb-3 col-12 col-md-${
-                          length % 2 === 0 ? 6 : 12 / length
-                        } col-lg-${12 / length}`}
-                      >
-                        {item.image && (
-                          <img
-                            src={item?.image?.url}
-                            alt={item?.image?.alt}
-                            style={{
-                              width: item?.image?.dimensions?.width,
-                            }}
-                            className="py-3"
-                          />
-                        )}
-                        {item.title && (
-                          <RichText render={item.title}>{item.title}</RichText>
-                        )}
-                        {item.description && (
-                          <RichText render={item.description}>
-                            {item.description}
-                          </RichText>
-                        )}
-                        {item.button_text && (
-                          <a
-                            className="btn btn-primary button-main text-uppercase button_support"
-                            href={`${origin}/${lang}/${item.article._meta.uid}`}
-                          >
-                            {item?.button_text}
-                          </a>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
+                {slice?.fields && (
+                  <TextBlock
+                    gridItems={slice.fields}
+                    delimiter={2}
+                    lang={lang}
+                  />
+                )}
               </React.Fragment>
             )}
           {slice.__typename === "PRISMIC_ArticleBodySubarticle" && (
