@@ -25,7 +25,11 @@ const IndexPageTemplate = ({
   mapImage,
 }) => (
   <>
-    <img id="logoPicture" className="img" alt="background" src={img.url} />
+    <img
+      className="d-none d-md-block img logo-picture"
+      alt="background"
+      src={img.url}
+    />
     <Layout lang={lang} supportModal={supportModal}>
       <SEO
         title={heading}
@@ -44,6 +48,12 @@ const IndexPageTemplate = ({
           </div>
         </div>
       </div>
+
+      <img
+        className="d-block d-md-none img logo-mobile-picture"
+        alt="background"
+        src={img.url}
+      />
 
       <div id="mid"></div>
       <HomepageSlices homepageSlices={homepageSlices} lang={lang} />

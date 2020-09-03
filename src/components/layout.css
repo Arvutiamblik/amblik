@@ -39,6 +39,7 @@ img {
 
 .article-img {
   height: 189px;
+  object-fit: scale-down;
 }
 
 .bg-white .h1,
@@ -91,6 +92,16 @@ img {
 .bg-white .form-field:focus,
 .article-modal .form-field:focus {
   color: black;
+}
+
+.logo-picture {
+  height: 1105px;
+  width: 100%;
+  position: absolute;
+}
+
+#mid {
+  padding-top: 40%;
 }
 
 .columns {
@@ -826,7 +837,7 @@ header.header-transparent {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .shape-left-up {
     height: 160px;
   }
@@ -851,8 +862,13 @@ header.header-transparent {
     min-width: 117px !important;
   }
 
+  .logo-mobile-picture {
+    transform: scale(1.5);
+    margin: 4rem 0;
+  }
+
   #mid {
-    padding-top: 65% !important;
+    padding-top: 0;
   }
 
   #dropdownMenuRight {
@@ -1068,15 +1084,6 @@ hr.new1 {
 }
 #HomeButton {
   margin-right: 40px !important;
-}
-#logoPicture {
-  height: 1105px;
-  width: 100%;
-  position: absolute;
-}
-
-#mid {
-  padding-top: 40%;
 }
 
 #leftText {
