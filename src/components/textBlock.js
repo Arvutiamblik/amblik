@@ -13,10 +13,7 @@ const TextBlock = ({ item, delimiter, lang }) => (
         <img
           src={item?.image?.url}
           alt={item?.image?.alt}
-          style={{
-            width: item?.image?.dimensions?.width,
-          }}
-          className="py-3"
+          className="py-3 article-img"
         />
       )}
       {item?.title ? (

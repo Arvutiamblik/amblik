@@ -37,6 +37,10 @@ img {
   height: auto;
 }
 
+.article-img {
+  height: 189px;
+}
+
 .bg-white .h1,
 .bg-white .h2,
 .bg-white .h3,
