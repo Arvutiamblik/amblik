@@ -211,10 +211,9 @@ button:focus {
 }
 
 .article-bg {
-  background-position: center;
-  background-size: cover;
   width: 100%;
   height: 200px;
+  object-fit: cover;
 }
 
 .grecaptcha-badge {

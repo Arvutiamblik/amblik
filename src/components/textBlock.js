@@ -10,11 +10,18 @@ const TextBlock = ({ item, delimiter, lang }) => (
       } col-xs-12 mb-4 text-break`}
     >
       {item?.image && (
-        <img
-          src={item?.image?.url}
-          alt={item?.image?.alt}
-          className="py-3 article-img"
-        />
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcSet={item?.image?.mobile?.url}
+          />
+          <source srcSet={item?.image?.url} />
+          <img
+            src={item?.image?.url}
+            alt={item?.image?.alt}
+            className="py-3 article-img"
+          />
+        </picture>
       )}
       {item?.title ? (
         <RichText render={item?.title}>{item?.title}</RichText>

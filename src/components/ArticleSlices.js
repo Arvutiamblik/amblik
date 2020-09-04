@@ -13,7 +13,6 @@ const ArticleSlices = (props) => {
     lang,
     pageType,
   } = props;
-  console.log(`${origin}/${lang}/`);
   let articleSlicesChanged = [];
   let tables = [];
   for (let i = 0; i < articleSlices?.body?.length; i++) {

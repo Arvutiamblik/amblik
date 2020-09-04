@@ -74,7 +74,14 @@ const Contact = (data, props) => {
           <div className="map-wrapper">
             {mapImage ? (
               <div className="map">
-                <img alt={mapImage.alt} src={mapImage.url} />
+                <picture>
+                  <source
+                    media="(max-width: 768px)"
+                    srcSet={mapImage?.mobile?.url}
+                  />
+                  <source srcSet={mapImage.url} />
+                  <img src={mapImage?.url} alt={mapImage?.alt} />
+                </picture>
                 <a
                   className="map-link"
                   target="_blank"

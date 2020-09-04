@@ -19,10 +19,18 @@ const ArticlePageTemplate = ({
 }) => (
   <>
     {articleBanner && (
-      <div
-        className="article-bg"
-        style={{ backgroundImage: `url(${articleBanner})` }}
-      ></div>
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcSet={articleBanner?.mobile?.url}
+        />
+        <source srcSet={articleBanner.url} />
+        <img
+          src={articleBanner?.url}
+          alt={articleBanner?.alt}
+          className="article-bg"
+        />
+      </picture>
     )}
     <div className="background-wrapper bg-white py-5">
       <div className="container position-relative z-index-1">
@@ -96,7 +104,7 @@ const Article = ({ data, pageContext, location }) => {
         text={article.node.text}
         feedbackForm={article.node.feedback_form}
         articleSlices={data.prismic.article}
-        articleBanner={article.node?.banner?.url}
+        articleBanner={article.node?.banner}
       />
     </Layout>
   );
@@ -116,11 +124,7 @@ export const query = graphql`
                 uid
               }
             }
-            banner {
-              ... on PRISMIC__ImageLink {
-                url
-              }
-            }
+            banner
             metatitle
             metadescription
             title
