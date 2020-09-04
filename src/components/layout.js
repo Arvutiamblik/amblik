@@ -68,7 +68,7 @@ const Layout = ({
       />
       <div className="wrapper content-padding">{children}</div>
       <CookieBanner lang={lang} />
-      <Footer />
+      <Footer lang={lang} />
     </main>
   );
 };
