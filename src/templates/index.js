@@ -49,11 +49,13 @@ const IndexPageTemplate = ({
         </div>
       </div>
 
-      <img
-        className="d-block d-md-none img logo-mobile-picture"
-        alt="background"
-        src={img.url}
-      />
+      <div className="overflow-hidden">
+        <img
+          className="d-block d-md-none img logo-mobile-picture"
+          alt="background"
+          src={img.url}
+        />
+      </div>
 
       <div id="mid"></div>
       <HomepageSlices homepageSlices={homepageSlices} lang={lang} />
