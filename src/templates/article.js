@@ -38,7 +38,7 @@ const ArticlePageTemplate = ({
           <RichText render={title}>{title}</RichText>
           <div className="header-underline"></div>
         </div>
-        <div className="mb-5">
+        <div className="mb-5 text-break">
           <RichText render={text}>{text}</RichText>
         </div>
       </div>
