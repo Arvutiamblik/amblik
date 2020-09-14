@@ -53,6 +53,8 @@ const Contact = (data, props) => {
     articleFeedbackForm = articleContactData[0]?.node?.feedback_form;
   }
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   return data.props.pageType === "home_page" ? (
     <div className="mb-5">
       <div className="mb-5 text-center">
@@ -117,6 +119,8 @@ const Contact = (data, props) => {
               title={homeTitle}
               pageUrl={pageUrl}
               formData={feedbackForm}
+              isSubmitted={isSubmitted}
+              setIsSubmitted={setIsSubmitted}
             />
           )}
         </div>
@@ -161,6 +165,8 @@ const Contact = (data, props) => {
                   }`}
                   pageUrl={pageUrl}
                   formData={articleFeedbackForm}
+                  isSubmitted={isSubmitted}
+                  setIsSubmitted={setIsSubmitted}
                 />
               )}
             </div>
@@ -194,6 +200,7 @@ export default (props) => (
                   ... on PRISMIC_Request_form {
                     form_name
                     empty_field_message
+                    request_confirmation_text
                     form_input {
                       name
                       type
