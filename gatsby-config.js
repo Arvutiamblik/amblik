@@ -79,6 +79,5 @@ module.exports = {
     },
 
     "gatsby-plugin-optimize-svgs",
-    "gatsby-plugin-netlify",
   ],
 };
