@@ -3,10 +3,10 @@ module.exports = {
     title: `Amblik`,
     description: `pilvelahendused, IT haldus, IT-süsteemide projekteerimine ja hooldus, arvutivõrgud, infoturve, varundus-süsteemid, kasutajatugi, Business Intelligence, kodulehekülgede ja e-poodide arendus ja tugi, majandustarkvara arendus, Office 365, Microsoft 365, Azure, Power BI, Linux, ESET, AVAST, LetSignit, Keeper.`,
     author: `@gatsbyjs`,
+    siteUrl: `https://peaceful-minsky-c75cd0.netlify.app`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -77,7 +77,7 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
-
     "gatsby-plugin-optimize-svgs",
+    `gatsby-plugin-sitemap`,
   ],
 };
