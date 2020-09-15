@@ -3,7 +3,6 @@ import { Link, StaticQuery, graphql } from "gatsby";
 import ModalWindow from "./Modal";
 import facebookBtn from "../images/facebook-button.png";
 import facebookBtnMobile from "../images/facebook-button-mobile.png";
-import msPartnerLogo from "../images/ms-partner-logo.png";
 import { filterByLang } from "../utils/helpers";
 
 const Menu = (data, props) => {
@@ -22,6 +21,11 @@ const Menu = (data, props) => {
     data.data.prismic.allHome_pages.edges,
     lang
   )[0].node.link_to_facebook.url;
+  const partnerLogotype = filterByLang(
+    data?.data.prismic?.allHome_pages?.edges,
+    lang
+  )[0].node.logotype;
+  console.log(partnerLogotype);
   /* if(alternateLanguages) {
     lang === alternateLanguages
   } */
@@ -51,11 +55,18 @@ const Menu = (data, props) => {
                     <Link to={`/${prefix}/`}>amblik</Link>
                   </div>
                   <div className="d-block d-lg-none">
-                    <img
-                      className="partner-logo"
-                      src={msPartnerLogo}
-                      alt="Silver Microsoft Partner"
-                    />
+                    <picture>
+                      <source
+                        media="(max-width: 991px)"
+                        srcSet={partnerLogotype?.mobile?.url}
+                      />
+                      <source srcSet={partnerLogotype.url} />
+                      <img
+                        className="partner-logo"
+                        src={partnerLogotype?.url}
+                        alt={partnerLogotype?.alt}
+                      />
+                    </picture>
                   </div>
                 </div>
                 <div className="menu">
@@ -229,11 +240,18 @@ const Menu = (data, props) => {
             <div className="d-none d-lg-block row">
               <div className="header-column col d-flex justify-content-between align-items-center">
                 <div>
-                  <img
-                    className="partner-logo"
-                    src={msPartnerLogo}
-                    alt="Silver Microsoft Partner"
-                  />
+                  <picture>
+                    <source
+                      media="(max-width: 991px)"
+                      srcSet={partnerLogotype?.mobile?.url}
+                    />
+                    <source srcSet={partnerLogotype.url} />
+                    <img
+                      className="partner-logo"
+                      src={partnerLogotype?.url}
+                      alt={partnerLogotype?.alt}
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
@@ -444,6 +462,7 @@ export default (props) => (
           allHome_pages(lang: $lang) {
             edges {
               node {
+                logotype
                 _meta {
                   lang
                 }
