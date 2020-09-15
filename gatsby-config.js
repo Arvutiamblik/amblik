@@ -77,7 +77,33 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
-    "gatsby-plugin-optimize-svgs",
+    `gatsby-plugin-optimize-svgs`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        policy: [
+          {
+            userAgent: "Googlebot",
+            allow: "/",
+            disallow: ["/preview", "home-prewview"],
+            crawlDelay: 2,
+          },
+          {
+            userAgent: "OtherBot",
+            allow: ["/allow-for-all-bots", "/allow-only-for-other-bot"],
+            disallow: ["/preview", "home-prewview"],
+            crawlDelay: 2,
+          },
+          {
+            userAgent: "*",
+            allow: "/",
+            disallow: ["/preview", "home-prewview"],
+            crawlDelay: 10,
+            cleanParam: "ref /articles/",
+          },
+        ],
+      },
+    },
   ],
 };
