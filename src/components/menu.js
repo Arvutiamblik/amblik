@@ -55,18 +55,20 @@ const Menu = (data, props) => {
                     <Link to={`/${prefix}/`}>amblik</Link>
                   </div>
                   <div className="d-block d-lg-none">
-                    <picture>
-                      <source
-                        media="(max-width: 991px)"
-                        srcSet={partnerLogotype?.mobile?.url}
-                      />
-                      <source srcSet={partnerLogotype.url} />
-                      <img
-                        className="partner-logo"
-                        src={partnerLogotype?.url}
-                        alt={partnerLogotype?.alt}
-                      />
-                    </picture>
+                    {partnerLogotype && (
+                      <picture>
+                        <source
+                          media="(max-width: 991px)"
+                          srcSet={partnerLogotype?.mobile?.url}
+                        />
+                        <source srcSet={partnerLogotype.url} />
+                        <img
+                          className="partner-logo"
+                          src={partnerLogotype?.url}
+                          alt={partnerLogotype?.alt}
+                        />
+                      </picture>
+                    )}
                   </div>
                 </div>
                 <div className="menu">
@@ -240,18 +242,20 @@ const Menu = (data, props) => {
             <div className="d-none d-lg-block row">
               <div className="header-column col d-flex justify-content-between align-items-center">
                 <div>
-                  <picture>
-                    <source
-                      media="(max-width: 991px)"
-                      srcSet={partnerLogotype?.mobile?.url}
-                    />
-                    <source srcSet={partnerLogotype.url} />
-                    <img
-                      className="partner-logo"
-                      src={partnerLogotype?.url}
-                      alt={partnerLogotype?.alt}
-                    />
-                  </picture>
+                  {partnerLogotype && (
+                    <picture>
+                      <source
+                        media="(max-width: 991px)"
+                        srcSet={partnerLogotype?.mobile?.url}
+                      />
+                      <source srcSet={partnerLogotype.url} />
+                      <img
+                        className="partner-logo"
+                        src={partnerLogotype?.url}
+                        alt={partnerLogotype?.alt}
+                      />
+                    </picture>
+                  )}
                 </div>
               </div>
             </div>
