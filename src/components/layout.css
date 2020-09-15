@@ -101,7 +101,7 @@ img {
 }
 
 #mid {
-  padding-top: 40%;
+  padding-top: 600px;
 }
 
 .columns {
@@ -638,6 +638,10 @@ header.header-transparent {
 }
 
 @media (max-width: 1541px) {
+  #mid {
+    padding-top: 40%;
+  }
+
   .shape-left-down {
     height: 180px;
   }
