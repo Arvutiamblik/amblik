@@ -86,19 +86,19 @@ module.exports = {
           {
             userAgent: "Googlebot",
             allow: "/",
-            disallow: ["/preview", "home-prewview"],
+            disallow: ["/preview", "/home-prewview"],
             crawlDelay: 2,
           },
           {
             userAgent: "OtherBot",
             allow: ["/allow-for-all-bots", "/allow-only-for-other-bot"],
-            disallow: ["/preview", "home-prewview"],
+            disallow: ["/preview", "/home-prewview"],
             crawlDelay: 2,
           },
           {
             userAgent: "*",
             allow: "/",
-            disallow: ["/preview", "home-prewview"],
+            disallow: ["/preview", "/home-prewview"],
             crawlDelay: 10,
             cleanParam: "ref /articles/",
           },
