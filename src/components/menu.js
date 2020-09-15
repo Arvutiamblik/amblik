@@ -25,10 +25,6 @@ const Menu = (data, props) => {
     data?.data.prismic?.allHome_pages?.edges,
     lang
   )[0].node.logotype;
-  console.log(partnerLogotype);
-  /* if(alternateLanguages) {
-    lang === alternateLanguages
-  } */
 
   const alternateUid =
     alternateLanguages !== null && alternateLanguages[0]?.uid;

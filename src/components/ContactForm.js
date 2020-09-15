@@ -49,9 +49,7 @@ const ContactForm = (props) => {
         window.grecaptcha
           .execute(props.formData.recaptcha3_api_key)
           .then((token) => {
-            console.log(token);
             setTokenV3(token);
-            console.log(tokenV3);
           });
         window.grecaptcha.render("captcha", {
           sitekey: props.formData.recaptcha2_api_key,
@@ -75,7 +73,6 @@ const ContactForm = (props) => {
       forceUpdate();
       return;
     }
-    console.log(tokenV3);
     const request = axios.create({
       headers: {
         Accept: "application/json",
@@ -99,7 +96,6 @@ const ContactForm = (props) => {
     request
       .post(props.formData.form_request_url.url, data)
       .then(function (response) {
-        console.log(response);
         if (response.data === "Captcha is not valid or doesn't have token.") {
           if (isBrowser) {
             window.grecaptcha.execute();
@@ -156,7 +152,6 @@ const ContactForm = (props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (event) => {
-    // console.log(event.target);
     setInputs(
       inputsObj.map((input) => {
         if (event.target.getAttribute("name") === input.name) {
@@ -167,7 +162,6 @@ const ContactForm = (props) => {
         }
       })
     );
-    // console.log(inputsObj);
   };
 
   const resetForm = () => {
