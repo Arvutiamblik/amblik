@@ -17,7 +17,7 @@ const CookieBanner = (data, props) => {
         containerClasses="container cookie-banner"
         contentClasses="cookie-banner--text"
         style={{
-          background: "rgba(253, 97, 164, 0.9)",
+          background: "rgba(252, 84, 167, 0.9)",
           fontSize: "14px",
           alignItems: "center",
         }}
