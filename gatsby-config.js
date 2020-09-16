@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: `https://peaceful-minsky-c75cd0.netlify.app`,
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-google-analytics`,
