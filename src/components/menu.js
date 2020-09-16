@@ -96,6 +96,8 @@ const Menu = (data, props) => {
                     rel="noopener noreferrer"
                   >
                     <img
+                      width="30"
+                      height="30"
                       className="facebook-button"
                       alt="facebook"
                       src={facebookBtn}
@@ -440,6 +442,8 @@ const Menu = (data, props) => {
                   rel="noopener noreferrer"
                 >
                   <img
+                    width="30"
+                    height="30"
                     className="facebook-button"
                     alt="facebook"
                     src={facebookBtnMobile}
