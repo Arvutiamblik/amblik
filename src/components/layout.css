@@ -1074,6 +1074,13 @@ hr.new1 {
   text-decoration: none;
 }
 
+.button-main:disabled {
+  color: #fff;
+  background-color: hotpink;
+  border-color: hotpink;
+  cursor: wait;
+}
+
 .rightimg {
   float: right;
   margin: 7px 0 7px 7px;

@@ -204,8 +204,22 @@ const ContactForm = (props) => {
           )}
         </div>
       ))}
-      <button type={submit.type} className="btn btn-primary button-main my-3">
-        {submit.name}
+      <button
+        disabled={isSubmitting}
+        aria-disabled={isSubmitting}
+        type={submit.type}
+        className="btn btn-primary button-main my-3"
+      >
+        {!isSubmitting ? (
+          submit.name
+        ) : (
+          <div
+            className="spinner-border spinner-border-sm text-light"
+            role="status"
+          >
+            <span className="sr-only">Loading...</span>
+          </div>
+        )}
       </button>
       <div
         ref={captchaV2}
