@@ -121,6 +121,7 @@ const Contact = (data, props) => {
               formData={feedbackForm}
               isSubmitted={isSubmitted}
               setIsSubmitted={setIsSubmitted}
+              isModal={false}
             />
           )}
         </div>
@@ -167,6 +168,8 @@ const Contact = (data, props) => {
                   formData={articleFeedbackForm}
                   isSubmitted={isSubmitted}
                   setIsSubmitted={setIsSubmitted}
+                  isModal={true}
+                  toggle={toggle}
                 />
               )}
             </div>

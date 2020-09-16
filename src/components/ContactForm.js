@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, version } from "react";
+import { RichText } from "prismic-reactjs";
 import axios from "axios";
 const ContactForm = (props) => {
   const isBrowser = typeof window !== `undefined`;
@@ -175,6 +176,8 @@ const ContactForm = (props) => {
 
   let counter = 1;
 
+  const isModal = props.isModal;
+
   return !props.isSubmitted ? (
     <form onSubmit={handleSubmit} noValidate>
       {formFields.map((item, index) => (
@@ -212,11 +215,33 @@ const ContactForm = (props) => {
       ></div>
     </form>
   ) : requestConfirmationText ? (
-    <RichText render={requestConfirmationText}>
-      {requestConfirmationText}
-    </RichText>
+    <>
+      <RichText render={requestConfirmationText}>
+        {requestConfirmationText}
+      </RichText>
+      {isModal && (
+        <button
+          type={submit.type}
+          className="btn btn-primary button-main my-3"
+          onClick={props.toggle}
+        >
+          OK
+        </button>
+      )}
+    </>
   ) : (
-    <div>Message was sent succesfully.</div>
+    <>
+      <div>Message was sent succesfully.</div>
+      {isModal && (
+        <button
+          type={submit.type}
+          className="btn btn-primary button-main my-3"
+          onClick={props.toggle}
+        >
+          OK
+        </button>
+      )}
+    </>
   );
 };
 
