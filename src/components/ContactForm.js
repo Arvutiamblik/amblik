@@ -39,6 +39,7 @@ const ContactForm = (props) => {
   const captchaV2 = useRef();
   useEffect(() => {
     const grecaptcha3 = document.createElement("script");
+    grecaptcha3.defer = true;
     grecaptcha3.src = `https://www.google.com/recaptcha/api.js?onload=recaptchaV3Callback&render=${props.formData.recaptcha3_api_key}`;
     grecaptcha3.addEventListener("load", handleLoaded);
     document.body.appendChild(grecaptcha3);
