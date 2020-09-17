@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { RichText } from "prismic-reactjs";
 import { StaticQuery, graphql } from "gatsby";
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
-import ContactForm from "./ContactForm";
+const ContactForm = React.lazy(() => import("./ContactForm"));
 import Map from "./map";
 
 const Contact = (data, props) => {
@@ -115,14 +115,22 @@ const Contact = (data, props) => {
         </div>
         <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
           {feedbackForm && (
-            <ContactForm
-              title={homeTitle}
-              pageUrl={pageUrl}
-              formData={feedbackForm}
-              isSubmitted={isSubmitted}
-              setIsSubmitted={setIsSubmitted}
-              isModal={false}
-            />
+            <Suspense
+              fallback={
+                <div className="spinner-border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+              }
+            >
+              <ContactForm
+                title={homeTitle}
+                pageUrl={pageUrl}
+                formData={feedbackForm}
+                isSubmitted={isSubmitted}
+                setIsSubmitted={setIsSubmitted}
+                isModal={false}
+              />
+            </Suspense>
           )}
         </div>
       </div>
@@ -160,17 +168,25 @@ const Contact = (data, props) => {
             </div>
             <div className="col-lg-6 col-md-6 col-xs-12 mb-4">
               {articleFeedbackForm && (
-                <ContactForm
-                  title={`${articleTitle} / ${
-                    data.props.tableHeading ?? articleFeedbackButtonText
-                  }`}
-                  pageUrl={pageUrl}
-                  formData={articleFeedbackForm}
-                  isSubmitted={isSubmitted}
-                  setIsSubmitted={setIsSubmitted}
-                  isModal={true}
-                  toggle={toggle}
-                />
+                <Suspense
+                  fallback={
+                    <div className="spinner-border" role="status">
+                      <span className="sr-only">Loading...</span>
+                    </div>
+                  }
+                >
+                  <ContactForm
+                    title={`${articleTitle} / ${
+                      data.props.tableHeading ?? articleFeedbackButtonText
+                    }`}
+                    pageUrl={pageUrl}
+                    formData={articleFeedbackForm}
+                    isSubmitted={isSubmitted}
+                    setIsSubmitted={setIsSubmitted}
+                    isModal={true}
+                    toggle={toggle}
+                  />
+                </Suspense>
               )}
             </div>
           </div>
