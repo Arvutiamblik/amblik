@@ -46,8 +46,10 @@ const ContactForm = (props) => {
     document.body.appendChild(grecaptcha3);
     // handleLoaded()
   };
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const handleLoaded = () => {
-    if (isBrowser) {
+    if (isBrowser && !recaptchaLoaded) {
+      setRecaptchaLoaded(true);
       window.grecaptcha.ready(() => {
         window.grecaptcha
           .execute(props.formData.recaptcha3_api_key)
