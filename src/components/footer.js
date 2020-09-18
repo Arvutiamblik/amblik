@@ -9,14 +9,16 @@ const Footer = (data) => {
   );
   const footer = footerData[0]?.node?.footer;
   return (
-    <div className="footer background-wrapper bg-white">
-      <div className="shape-left-down" alt="Menu shape"></div>
-      <div className="shape-right-down" alt="Menu shape"></div>
-      <div className="container py-5">
-        <div className="row">
-          <div className="col-lg">
-            <div className="recaptcha-protected">
-              {footer && <RichText render={footer}>{footer}</RichText>}
+    <div className="footer-wrapper">
+      <div className="footer background-wrapper bg-white">
+        <div className="shape-left-down" alt="Menu shape"></div>
+        <div className="shape-right-down" alt="Menu shape"></div>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg">
+              <div className="recaptcha-protected">
+                {footer && <RichText render={footer}>{footer}</RichText>}
+              </div>
             </div>
           </div>
         </div>

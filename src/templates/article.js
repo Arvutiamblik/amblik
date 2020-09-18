@@ -32,7 +32,7 @@ const ArticlePageTemplate = ({
         />
       </picture>
     )}
-    <div className="background-wrapper bg-white py-5">
+    <div className="background-wrapper full-height bg-white py-5">
       <div className="container position-relative z-index-1">
         <div className="text-center my-5">
           <RichText render={title}>{title}</RichText>
