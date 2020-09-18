@@ -43,7 +43,6 @@ const IndexPageTemplate = ({
               <RichText render={headerDescription}>
                 {headerDescription}
               </RichText>
-              <div className="header-underline"></div>
             </div>
           </div>
         </div>
