@@ -30,9 +30,9 @@ const Layout = ({
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
+      if (currPos.y > 0 || prevPos.y > 0) return;
       const isShow = currPos.y > prevPos.y;
-      console.log(currPos);
-      const isOnTop = currPos.y >= 0;
+      const isOnTop = currPos.y > -100;
       if (isShow !== hideOnScroll) setHideOnScroll(isShow);
       if (isOnTop !== onTop) setOnTop(isOnTop);
     },
