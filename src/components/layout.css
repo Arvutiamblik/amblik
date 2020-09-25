@@ -991,20 +991,20 @@ header.header-transparent {
     min-height: 72px;
   }
   .wrapper {
-    min-height: calc(100vh - 120px);
-    padding-bottom: 120px;
+    min-height: calc(100vh - 237px);
+    padding-bottom: 237px;
   }
   .full-height {
-    min-height: calc(100vh - 120px - 125px);
+    min-height: calc(100vh - 237px - 125px);
   }
   .content-padding {
     padding-top: 125px;
   }
   .footer-wrapper {
-    min-height: 120px;
+    min-height: 237px;
   }
   .footer {
-    min-height: 120px;
+    min-height: 237px;
   }
   .shape-left-up {
     height: 120px;
