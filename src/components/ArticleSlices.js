@@ -82,6 +82,7 @@ const ArticleSlices = (props) => {
       tables = [];
     }
   }
+  console.log(articleSlices);
 
   return (
     <>
@@ -128,9 +129,17 @@ const ArticleSlices = (props) => {
                     } col-lg-${12 / length}`}
                   >
                     {item.multisection_image && (
-                      <RichText render={item.multisection_image}>
-                        {item.multisection_image}
-                      </RichText>
+                      <picture>
+                        <source
+                          media="(max-width: 768px)"
+                          srcSet={item.multisection_image?.mobile?.url}
+                        />
+                        <source srcSet={item.multisection_image.url} />
+                        <img
+                          src={item.multisection_image?.url}
+                          alt={item.multisection_image?.alt}
+                        />
+                      </picture>
                     )}
                     {item.multisection_subtitle && (
                       <RichText render={item.multisection_subtitle}>
